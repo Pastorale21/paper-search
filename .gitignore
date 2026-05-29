@@ -1,0 +1,16 @@
+# caches & runtime artifacts (never commit, per CLAUDE.md)
+data/cache/
+
+# secrets
+.env
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# os
+.DS_Store

@@ -1,0 +1,8 @@
+[
+  {"paper_id": "P1", "title": "LightGCN", "abstract": "light graph convolution for recommendation", "year": 2020, "authors": ["He"], "citation_count": 3000, "external_ids": {}, "references": ["P2"], "citations": ["P3", "P4"]},
+  {"paper_id": "P2", "title": "NGCF", "abstract": "neural graph collaborative filtering", "year": 2019, "authors": ["Wang"], "citation_count": 2000, "external_ids": {}, "references": [], "citations": ["P1"]},
+  {"paper_id": "P3", "title": "SGL", "abstract": "self-supervised graph learning for recommendation", "year": 2021, "authors": ["Wu"], "citation_count": 800, "external_ids": {}, "references": ["P1", "P2"], "citations": []},
+  {"paper_id": "P4", "title": "SimGCL", "abstract": "simple graph contrastive learning", "year": 2022, "authors": ["Yu"], "citation_count": 400, "external_ids": {}, "references": ["P1", "P3", "PX"], "citations": []},
+  {"paper_id": "P5", "title": "KGAT", "abstract": "knowledge graph attention network", "year": 2019, "authors": ["Wang"], "citation_count": 1500, "external_ids": {}, "references": ["P2"], "citations": []},
+  {"paper_id": "P6", "title": "Isolated", "abstract": "no in-corpus citation links", "year": 2023, "authors": ["X"], "citation_count": 5, "external_ids": {}, "references": ["PX"], "citations": []}
+]
