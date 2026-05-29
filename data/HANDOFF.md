@@ -50,6 +50,16 @@ Stubbed (raise `NotImplementedError` — your job to implement):
   guard `KMP_DUPLICATE_LIB_OK=TRUE` / `OMP_NUM_THREADS=1` lives at the top of `spike/config.py`
   and is imported transitively (`data` modules import `spike.config`). Don't remove it.
 - **GROBID Docker image** is large (~3GB) and slow to start (~5–10 min the first time).
+- **Spike cache invalidation**: after rebuilding the corpus via `data/corpus.py`, do **NOT** run
+  `python -m spike --force` — its `fetch` step overwrites `papers.json` with its own 100-paper
+  single-query result. The spike's index caches key on file existence, not corpus content, so a
+  plain no-force run reuses the stale index. Correct procedure when the corpus changes:
+  ```sh
+  rm data/cache/embeddings.npy data/cache/ids.json \
+     data/cache/faiss.index data/cache/citation_graph.pkl
+  python -m spike   # no --force; fetch cache-hits the new papers.json,
+                    # embed/index/graph rebuild against the new corpus
+  ```
 
 ## Tools to learn
 - OpenAlex API (Works): https://docs.openalex.org/api-entities/works (~10 min)
