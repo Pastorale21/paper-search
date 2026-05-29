@@ -1,6 +1,6 @@
 """Unit tests for corpus dedup + abstract filtering (no network)."""
 
-from data.corpus import dedupe, filter_with_abstract, normalize_title
+from data.corpus import dedupe, filter_with_abstract, is_gnn_recsys, normalize_title
 from schemas import Paper
 
 
@@ -42,3 +42,27 @@ def test_filter_no_abstract():
         _paper("c", "Also has abstract", abstract="present"),
     ]
     assert len(filter_with_abstract(papers)) == 2
+
+
+def test_gnn_recsys_filter_keeps_topical():
+    p = _paper(
+        "a",
+        "LightGCN: Simplifying Graph Convolution Network for Recommendation",
+        abstract=(
+            "A graph neural network for collaborative filtering that propagates user-item "
+            "embeddings over the interaction graph for top-K recommendation."
+        ),
+    )
+    assert is_gnn_recsys(p)
+
+
+def test_gnn_recsys_filter_drops_offtopic():
+    p = _paper(
+        "b",
+        "ImageNet Classification with Deep Convolutional Neural Networks",
+        abstract=(
+            "We train a large deep convolutional neural network to classify 1.2 million "
+            "high-resolution images into 1000 categories."
+        ),
+    )
+    assert not is_gnn_recsys(p)

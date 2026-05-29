@@ -79,6 +79,48 @@ def filter_with_abstract(papers: list[Paper]) -> list[Paper]:
     return [p for p in papers if p.abstract]
 
 
+def is_gnn_recsys(paper: Paper) -> bool:
+    """True if the paper is topically GNN-based recommendation (title+abstract keyword gate).
+
+    OpenAlex relevance ranking folds in citation_count, so a plain query surfaces high-cite
+    off-topic papers (AlexNet, 6G surveys, etc.). This gate keeps only papers whose text shows
+    BOTH a graph-method signal AND a recommendation signal.
+    """
+    text = ((paper.title or "") + " " + (paper.abstract or "")).lower()
+    has_graph = any(
+        k in text
+        for k in [
+            "graph neural",
+            "graph convolution",
+            "gnn",
+            "gcn",
+            "graph attention",
+            "graph-based recommendation",
+            "graph embedding",
+            "graph learning",
+        ]
+    )
+    has_rec = any(
+        k in text
+        for k in [
+            "recommend",
+            "collaborative filtering",
+            "user-item",
+            "rating prediction",
+            "click-through",
+            "next-item",
+            "session-based",
+            "click prediction",
+        ]
+    )
+    return has_graph and has_rec
+
+
+def filter_gnn_recsys(papers: list[Paper]) -> list[Paper]:
+    """Keep only topically GNN-recsys papers (see is_gnn_recsys)."""
+    return [p for p in papers if is_gnn_recsys(p)]
+
+
 def _attribution_key(p: Paper) -> tuple[str | None, str | None]:
     """The (openalex_id, normalized_title) pair used to attribute a paper to a sub-area."""
     return p.source_ids.get("openalex"), normalize_title(p.title)
@@ -98,11 +140,18 @@ def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Pape
                     origin[key] = sub_area
             accumulated.append(p)
         unique, _ = dedupe(accumulated)
-        if len(filter_with_abstract(unique)) >= target:
+        if len(filter_gnn_recsys(filter_with_abstract(unique))) >= target:
             break
 
     unique, removed = dedupe(accumulated)
-    corpus = filter_with_abstract(unique)[:target]
+    with_abstract = filter_with_abstract(unique)
+    topical = filter_gnn_recsys(with_abstract)
+    dropped = len(with_abstract) - len(topical)
+    print(
+        f"filtered {dropped} papers out of {len(with_abstract)} for off-topic "
+        f"({len(with_abstract)} → {len(topical)} kept, {dropped} dropped)"
+    )
+    corpus = topical[:target]
     _save(corpus)
     _print_stats(corpus, total_fetched, len(unique), removed, origin)
     return corpus
