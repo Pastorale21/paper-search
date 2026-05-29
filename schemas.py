@@ -8,7 +8,13 @@ from typing import Any
 
 @dataclass
 class Paper:
-    """A scientific paper with metadata and citation edges (Semantic Scholar-sourced)."""
+    """A scientific paper with metadata and citation edges.
+
+    `source_ids` is the canonical normalized cross-source ID map. Keys are filled by the
+    subsystem that knows that source: `openalex` + `doi` by `data/sources/openalex.py`,
+    `arxiv` + `s2` by future arXiv / Semantic Scholar adapters. Missing in old caches loads
+    as an empty dict, so existing `papers.json` stays compatible.
+    """
 
     paper_id: str
     title: str
@@ -19,6 +25,7 @@ class Paper:
     external_ids: dict[str, Any] = field(default_factory=dict)
     references: list[str] = field(default_factory=list)
     citations: list[str] = field(default_factory=list)
+    source_ids: dict[str, str] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to a plain dict."""
