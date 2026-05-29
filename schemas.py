@@ -40,15 +40,22 @@ class Paper:
 
 @dataclass
 class MethodCard:
-    """Mechanism-level summary of a paper's method (skeleton; populated by nlp/ later)."""
+    """Mechanism-level summary of a paper's method (populated by nlp/)."""
 
     paper_id: str
-    name: str | None = None
-    problem: str | None = None
-    method: str | None = None
+    # Mechanism-level fields (nlp/ extractor target; empty string when undetermined).
+    task: str = ""
+    input: str = ""
+    output: str = ""
+    backbone: str = ""
+    loss: str = ""
     key_idea: str | None = None
     datasets: list[str] = field(default_factory=list)
     metrics: list[str] = field(default_factory=list)
+    # Legacy spike fields, retained for backward compatibility with spike/probe_llm.py.
+    name: str | None = None
+    problem: str | None = None
+    method: str | None = None
     baselines: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
