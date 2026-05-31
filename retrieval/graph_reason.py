@@ -288,19 +288,18 @@ def find_opposing(paper_id: str, k: int = 10) -> list[ReasoningResult]:
     # Try comparison-intent path first.
     comparison = [n for n in neighbors if n[2] == "comparison"]
     using_fallback = not comparison
+    pool = comparison if comparison else neighbors
 
-    if comparison:
-        ranked: list[tuple[str, str, str, float]] = []
-        for pid, direction, intent in comparison:
-            distance = 1.0 - matcher.similarity(paper_id, pid)
-            ranked.append((pid, direction, intent, distance))
-        ranked.sort(key=lambda t: t[3], reverse=True)
-    else:
-        ranked = []
-        for pid, direction, intent in neighbors:
-            distance = 1.0 - matcher.similarity(paper_id, pid)
-            ranked.append((pid, direction, intent, distance))
-        ranked.sort(key=lambda t: t[3], reverse=True)
+    # Exclude candidates we can't rank by mechanism distance — without comparable cached
+    # fields, similarity is 0 not because the paper opposes the query but because we have
+    # NO DATA. Surveys with empty method cards would otherwise dominate distance=1.0.
+    ranked: list[tuple[str, str, str, float]] = []
+    for pid, direction, intent in pool:
+        if not matcher.has_comparable_fields(paper_id, pid):
+            continue
+        distance = 1.0 - matcher.similarity(paper_id, pid)
+        ranked.append((pid, direction, intent, distance))
+    ranked.sort(key=lambda t: t[3], reverse=True)
 
     results: list[ReasoningResult] = []
     for pid, direction, intent, distance in ranked[:k]:

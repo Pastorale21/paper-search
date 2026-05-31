@@ -96,6 +96,30 @@ def test_find_opposing_filters_to_comparison_intent(monkeypatch):
     assert pids == {"B", "D"}
 
 
+def test_find_opposing_excludes_empty_card_papers(monkeypatch):
+    """Survey-domination fix: candidates without comparable fields drop out of ranking entirely."""
+    g = nx.DiGraph()
+    # All edges default-intent so we exercise the live fallback path.
+    g.add_edge("A", "B")  # B has comparable fields with A — should appear
+    g.add_edge("A", "SURVEY")  # SURVEY has no comparable fields — must NOT appear
+    g.add_edge("D", "A")  # D has comparable fields with A — should appear
+    papers = {
+        pid: {"paper_id": pid, "title": pid, "abstract": "", "year": 2020}
+        for pid in ("A", "B", "SURVEY", "D")
+    }
+    matcher = _matcher_with({("A", "B"): 0.3, ("A", "D"): 0.5})
+    # SURVEY is missing from sims; mark its has_comparable_fields False explicitly.
+    matcher.has_comparable_fields.side_effect = lambda a, b: b in {"B", "D"} or a in {"B", "D"}
+    _install(monkeypatch, g, papers, matcher)
+
+    results = graph_reason.find_opposing("A", k=10)
+    pids = {r.paper_id for r in results}
+    assert (
+        "SURVEY" not in pids
+    ), "empty-card papers must be excluded (distance=1.0 = no data, not opposed)"
+    assert pids == {"B", "D"}
+
+
 def test_find_opposing_fallback_ranks_by_mechanism_distance(monkeypatch):
     """LIVE PATH: no comparison-intent edges -> rank all 1-hop neighbors by mechanism distance."""
     g = nx.DiGraph()

@@ -149,6 +149,22 @@ class MethodCardMatcher:
             score += FIELD_WEIGHTS[field] * float(np.dot(ea, eb))
         return score
 
+    def has_comparable_fields(self, pid_a: str, pid_b: str) -> bool:
+        """True iff at least one ``FIELDS_TO_MATCH`` is non-empty on BOTH papers.
+
+        When False, ``similarity(pid_a, pid_b)`` returns 0.0 not because the papers are
+        mechanism-distant but because we have no data to compare — useful for filtering
+        out papers (e.g. surveys with empty method cards) that would otherwise dominate
+        mechanism-distance rankings with a spurious "distance 1.0".
+        """
+        for field in FIELDS_TO_MATCH:
+            if (
+                self._candidate_field_emb(pid_a, field) is not None
+                and self._candidate_field_emb(pid_b, field) is not None
+            ):
+                return True
+        return False
+
     def match(
         self,
         query_paper_id: str | None,
