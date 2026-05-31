@@ -183,10 +183,10 @@ def run(methods: list[str], output_path: Path | None) -> int:
         if any(m in methods for m in ("method_match", "hybrid"))
         else None
     )
+    # No explicit use_rerank: pick up HybridRetriever's new False default. CE rerank is
+    # default-disabled in hybrid per eval-v1 finding (see eval/HANDOFF.md).
     hybrid = (
-        HybridRetriever(
-            dense=dense, bm25=bm25, method_match=matcher, reranker=reranker, use_rerank=True
-        )
+        HybridRetriever(dense=dense, bm25=bm25, method_match=matcher, reranker=reranker)
         if "hybrid" in methods
         else None
     )
