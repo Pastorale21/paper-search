@@ -14,3 +14,9 @@ __pycache__/
 
 # os
 .DS_Store
+
+# pyvis writes these to cwd on some paths despite cdn_resources='in_line';
+# belt-and-suspenders. ui/components/graph_view.py writes to tempfile, but if
+# something regresses we don't want lib/ or tmp_graph.html to land in the repo.
+lib/
+tmp_graph.html
