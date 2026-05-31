@@ -26,15 +26,20 @@ Implemented + runnable:
 
 After the first run (live, 400-paper corpus, full 400 method cards):
 - **Gold-title resolution rate: 35 / 50 (70.0%)** — clears Gate 1 (≥ 60%).
-- **Same-subset (5 paper queries) nDCG@5**:
+- **Same-subset (5 paper queries) nDCG@5** — *after disabling CE rerank in hybrid
+  (`HybridRetriever(use_rerank=False)` is now the class default)*:
   - dense **0.198** (baseline)
-  - dense_rerank 0.092 (−0.106 vs dense)
+  - dense_rerank 0.092 (−0.106 vs dense) — CE genuinely hurts standalone, kept as
+    an honest negative result in the comparison.
   - **method_match 0.310 (+0.112 vs dense)** — clears thesis Gate 2.
-  - hybrid 0.147 (−0.051 vs dense) — **FAILS Gate 2**.
-- Hybrid wins P1 (0.345 vs dense 0.214) and P2 (0.390 vs 0.246) but crashes to 0.000 on
-  P3/P4/P5; the CE-rerank-on-RRF-fused-top-k seems brittle when the fused candidates
-  span dissimilar sub-areas. Tuning task for C: ablate `use_rerank`, sweep
-  `DEFAULT_WEIGHTS`, possibly disable rerank when method_match's signal is strong.
+  - **hybrid 0.289 (+0.091 vs dense)** — clears Gate 2 once CE rerank is off.
+- Per-query: hybrid wins P1 (0.384 vs 0.214), P2 (0.390 vs 0.246), and almost matches
+  method_match on P4 (0.469 vs 0.478). P3 (KG) drops slightly below dense (0.202 vs
+  0.296) — RRF dilutes the dense-only signal when BM25 + method_match both contribute
+  0. P5 (DiffNet/social) still fails for hybrid (0.000) despite method_match standalone
+  scoring 0.469 — non-gold BM25/method_match candidates push gold out of top-10 here.
+  Both are `DEFAULT_WEIGHTS` tuning candidates (bump method_match's weight when its
+  signal is strong and dense's isn't).
 
 Unresolved gold titles flagged as **corpus-expansion candidates** for A:
 - Cross-domain: CCDR, DisenCDR, DDTCDR, PPGN
@@ -78,6 +83,21 @@ Unresolved gold titles flagged as **corpus-expansion candidates** for A:
   `gold_set_version`, `aggregates_full`, `aggregates_same_subset_paper`, `per_query`.
 
 ## Known issues / gotchas
+- **Cross-encoder `ms-marco-MiniLM-L-6-v2` underperforms for academic mechanism
+  matching — DEFAULT-DISABLED in hybrid.** First-run eval evidence:
+  `dense_rerank` scored **−0.106** below dense on the same-subset nDCG@5 (CE
+  hurts standalone too), and `hybrid` (with rerank on) crashed to **0.000** on
+  P3/P4/P5 (KG / session / social) where `method_match` alone scored
+  0.478 / 0.469 — the CE rerank reordered gold papers OUT of the top-10. Root
+  cause is the model's web-search training distribution; cosine "is this a
+  relevant web result for this query" is not the same as "is this paper
+  mechanism-similar". `HybridRetriever(use_rerank=False)` is the default
+  starting from this branch; the flag is kept toggleable. **Future C
+  experiment**: swap in `BAAI/bge-reranker-v2-m3` (encoder-decoder, larger,
+  scientific-text-friendlier), re-run the same eval, see whether
+  `dense_rerank` and `hybrid+rerank=True` recover. `retrieval/rerank.py` reads
+  the model name from the `CrossEncoderReranker(model_name=...)` constructor;
+  no other change needed.
 - **`DEFAULT_ALIASES` is hand-maintained.** Many gold titles are short acronyms
   (`NGCF`, `GC-MC`, `KCGN`) that do NOT appear verbatim in OpenAlex paper titles.
   The resolver only finds those via the alias map mapping
