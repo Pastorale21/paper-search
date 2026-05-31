@@ -211,5 +211,82 @@ clearly so we can decide whether to:
 
 ## Gold Set Seed (parse this into eval/gold_set.json)
 
-[PASTE THE MARKDOWN GOLD SET HERE — see the full content I'll provide 
-in a follow-up message]
+# Gold Set v1 (seed)
+
+**Owner**: Pastorale
+**Date**: 2026-05-30
+**Scope**: GNN-based recommendation 10 对种子。D 录入后扩到 30-50。
+**Note**: paper-as-query 的 abstract 是 paraphrase,能用;想更准用 arXiv 原文替换。
+
+---
+
+## Short queries (5)
+
+### Q1: graph contrastive learning for recommendation
+- **Mode**: short
+- **Gold top 5**: SGL, SimGCL, NCL, HCCF, LightGCN
+- **Notes**: 第 5 (LightGCN) 是噪声测试——不是 contrastive 但是 canonical baseline,好的 rerank 应把它压到 5 名后
+
+### Q2: graph neural network collaborative filtering
+- **Mode**: short
+- **Gold top 5**: NGCF, LightGCN, GC-MC, LR-GCCF, UltraGCN
+- **Notes**: GCN-CF 简化路径代表作,机制连续演化
+
+### Q3: cross-domain recommendation with graph neural network
+- **Mode**: short
+- **Gold top 5**: BiTGCF, CCDR, DisenCDR, DDTCDR, PPGN
+- **Notes**: 跟 ERICA 直接相关;BiTGCF 双向 transfer 跟 ERICA 对称跨域消息传递最近
+
+### Q4: knowledge graph enhanced recommendation
+- **Mode**: short
+- **Gold top 5**: KGAT, KGIN, KGCN, RippleNet, CKE
+- **Notes**: 第 5 (CKE) 非 GNN 也合理出现,看 rerank 怎么处理
+
+### Q5: self-supervised learning for recommendation
+- **Mode**: short
+- **Gold top 5**: SGL, SimGCL, S3-Rec, CL4SRec, MHCN
+- **Notes**: 故意跟 Q1 重叠——测能否区分"SSL 广义"vs"graph contrastive 狭义";S3-Rec/CL4SRec 是 sequential 路径
+
+---
+
+## Paper-as-query (5)
+
+### P1: LightGCN
+- **arXiv**: 2002.02126
+- **Mode**: paper
+- **Abstract**:
+  > Collaborative filtering benefits from graph convolution, but standard GCN designs include components like feature transformation and nonlinear activation that are not essential for CF. We propose LightGCN, a simplified GCN model that retains only neighborhood aggregation, learning user and item embeddings by linearly propagating them on the user-item interaction graph and combining embeddings learned at all layers as the final representation. Experiments on four benchmarks show LightGCN outperforms NGCF substantially while being far simpler to train and tune. We analyze the rationality of each simplification empirically and theoretically.
+- **Gold top 5**: NGCF, GC-MC, LR-GCCF, UltraGCN, DGCF
+- **Notes**: 经典"机制相近兄弟"集群
+
+### P2: SimGCL
+- **arXiv**: 2112.08679
+- **Mode**: paper
+- **Abstract**:
+  > Graph contrastive learning has shown strong gains for recommendation, but the role of graph augmentations remains unclear. We empirically and theoretically analyze the effect of augmentations and find that the key driver of performance is not graph structure changes but rather the uniformity of learned embeddings. Motivated by this, we propose SimGCL, which discards graph augmentations entirely and simply adds uniform random noise to the embedding space to construct contrastive views. Despite its simplicity, SimGCL outperforms more complex graph contrastive methods on multiple benchmarks while training much faster.
+- **Gold top 5**: SGL, NCL, XSimGCL, HCCF, LightGCL
+- **Notes**: contrastive 紧密集群;故意没放 LightGCN(是 backbone 但机制层不算 contrastive),看 rerank 是否误召
+
+### P3: KGAT
+- **arXiv**: 1905.07854
+- **Mode**: paper
+- **Abstract**:
+  > Knowledge graphs encode rich side information that can enhance recommendation, but existing methods treat KG facts independently without exploiting the relational structure. We propose KGAT, which models high-order connectivity between users, items, and KG entities through an attentive embedding propagation mechanism. By recursively aggregating neighborhood information with attention weights, KGAT explicitly learns the importance of each connection. Experiments on three KG-augmented benchmarks show consistent improvements over both KG-free and KG-aware baselines, and ablations confirm the contribution of attention and high-order propagation.
+- **Gold top 5**: KGIN, KGCN, CKAN, RippleNet, CKE
+- **Notes**: KG 集群;看是否被 "attention"/"GNN" 关键词误导到非 KG 的 attention-rec
+
+### P4: SR-GNN
+- **arXiv**: 1811.00855
+- **Mode**: paper
+- **Abstract**:
+  > Session-based recommendation predicts the next item from a short anonymous interaction sequence. Existing methods often rely on RNNs, which cannot capture complex transitions among items. We model each session as a directed graph and apply a gated graph neural network to learn item embeddings that incorporate all session transitions. We then aggregate item embeddings into a session representation via a soft-attention mechanism and predict the next item based on this representation. On standard session-based recommendation benchmarks, our method significantly outperforms RNN and attention-only baselines.
+- **Gold top 5**: GC-SAN, SURGE, GCE-GNN, FGNN, TAGNN
+- **Notes**: 关键测试——session/sequential 跟主流 CF+contrastive 完全不同子任务。top-5 出现 NGCF/LightGCN 说明 SPECTER2 在 GNN-rec 大伞下混淆了子任务,正是机制级精排该补的
+
+### P5: DiffNet
+- **arXiv**: 1902.00724
+- **Mode**: paper
+- **Abstract**:
+  > Social recommendation leverages a user's social connections to alleviate sparsity, but most existing methods only use direct neighbors. We propose DiffNet, a deep influence propagation model that recursively diffuses each user's latent embedding through the social network, capturing how user preferences are shaped by both direct friends and higher-order social contacts. Each layer aggregates a user's current embedding with the average of their social neighbors' embeddings, modeling layer-wise influence. On real-world datasets DiffNet substantially improves over both classical social-aware and deep recommendation baselines.
+- **Gold top 5**: DiffNet++, MHCN, GraphRec, SocialLGN, KCGN
+- **Notes**: social-rec 集群;测是否被 LightGCN 等纯 CF 污染(都基于 user-item 二部图)
