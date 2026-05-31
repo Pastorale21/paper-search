@@ -82,11 +82,86 @@ Check BOTH:
   (e.g. for a LightGCN-style query: NGCF, GC-MC, UltraGCN, LR-GCCF, DGCF climbing higher).
 A large spread that ranks the WRONG papers high is a failure, not a pass.
 
+## Graph reasoning (`retrieval/graph_reason.py`)
+
+**Positioning — read this first.** Graph reasoning is the project's second
+differentiation pillar but it is a **qualitative / demo feature** producing
+*traceable path explanations* the UI can show as "why this paper was returned." It is
+**NOT eval-validated** the way `method_match` is — no nDCG@5 gate, no headline number.
+The deliverable is human-legible per-result trails; ship that, then the report can
+quote the LightGCN/KGAT reality-check transcripts directly.
+
+### What's implemented
+
+Three public queries plus a CLI:
+
+```bash
+uv run python -m retrieval.graph_reason --paper-id W3045200674 --query ancestors    --k 5
+uv run python -m retrieval.graph_reason --paper-id W3045200674 --query opposing     --k 5
+uv run python -m retrieval.graph_reason --paper-id W3045200674 --query cross-domain --k 5
+```
+
+- **`find_ancestors(paper_id, max_hops=3, k=10)`** — BFS over OUT-edges
+  (`g.add_edge(citing, cited)`, so out = papers this one cites). Per-path score is
+  `sum(intent_weights) / hop_count × method_card_similarity`. Foundational papers (out=0)
+  return `[]` with a clear CLI message, not a crash.
+- **`find_opposing(paper_id, k=10)`** — 1-hop neighbors (cites ∪ cited-by) filtered to
+  `comparison`-intent edges; otherwise ranked by **mechanism distance** (`1 - similarity`).
+  See "Two structural limits" below.
+- **`find_cross_domain_same_mechanism(paper_id, k=10)`** — top-30 by method-card similarity
+  via `MethodCardMatcher.match()`, filtered to a different inferred sub-area. Direct citation
+  neighbors are slightly penalized so genuinely independent works rank higher.
+
+### Two structural limits (state these honestly in the report)
+
+1. **Graph OUT-sparsity.** Canonical papers in the current 400-corpus have very few
+   out-edges (LightGCN out=4, NGCF out=2, **GC-MC out=0**, **SR-GNN out=0**) because
+   spike filters references to in-corpus targets only. `find_ancestors` therefore works
+   downstream → upstream (recent papers trace back to canonical works) and legitimately
+   returns `[]` for foundational anchors. **Fix is corpus-side**: when A scales 400 → 800
+   (data/HANDOFF.md P0), out-density grows and multi-hop trails get richer. No code change
+   needed here.
+
+2. **No edge intents on disk.** `data/sources/s2_contexts.py::fetch_citation_contexts` is
+   stubbed (NotImplementedError), so no per-edge context text exists for
+   `nlp.citation_intent.CitationIntentClassifier` to label. Every edge defaults to
+   `"background"` intent via `get_edge_intent(g, u, v)`. This means **`find_opposing` runs
+   on the mechanism-distance fallback today** — explanations include the
+   `[no intent metadata; mechanism-distance fallback]` banner so the user/UI knows. When B
+   ships SciCite + A wires `s2_contexts`, populate `g.edges[u, v]["intent"]` during graph
+   build and all three queries pick up real intents automatically — no API change.
+
+### Tunable knobs
+
+- **`graph_reason.INTENT_WEIGHTS`** (`{method: 1.0, background: 0.5, comparison: 0.2}`).
+  TODO(C): tune by subjective evaluation on 5 known queries — no clean nDCG signal here
+  (paths are evidence, not predictions).
+- **`graph_reason.SUB_AREA_KEYWORDS`** — keyword heuristic for sub-area inference. TODO(C):
+  replace with corpus-recorded sub_area when `data/corpus.py` persists `origin` into
+  papers.json (today `origin` is internal to the build).
+
+### Reusable building block
+
+- **`MethodCardMatcher.similarity(pid_a, pid_b) -> float`** is the clean integration point
+  for any cross-paper mechanism comparison (graph_reason uses it for ancestor weighting,
+  opposing distance, and cross-domain filtering). Returns 0.0 when either paper has no
+  cached field embeddings.
+
+### Known issues / gotchas
+
+- Sub-area inference is keyword-based and can misfire on titles that drop conventional
+  vocabulary; eyeball cross-domain results when adding new queries.
+- The mechanism-distance fallback for `find_opposing` is **not** the same as "papers that
+  argue against this paper" — it just ranks neighbors by how different their *mechanism*
+  is. Document this clearly in any UI surface; mislabeling it as "papers disagreeing with"
+  would be misleading.
+
 ## Tools to learn (for whoever picks this up next)
 
 - `rank_bm25`: https://github.com/dorianbrown/rank_bm25
 - sentence-transformers CrossEncoder: https://sbert.net/docs/cross_encoder/usage/usage.html
 - Reciprocal Rank Fusion (Cormack et al. 2009): the original 2-page paper is enough.
+- NetworkX `DiGraph` BFS — `successors` is the load-bearing call in `find_ancestors`.
 
 ## Commands
 
