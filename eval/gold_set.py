@@ -41,10 +41,12 @@ DEFAULT_ALIASES: dict[str, str] = {
     "sgl": "self supervised graph learning for recommendation",
     "ncl": "neighborhood enriched contrastive learning",
     "hccf": "hypergraph contrastive collaborative filtering",
-    "simgcl": "simple graph contrastive learning",  # title: "Are Graph Augmentations Necessary? ..."
+    # title: "Are Graph Augmentations Necessary? Simple Graph Contrastive Learning..."
+    "simgcl": "simple graph contrastive learning",
     # Knowledge-graph seed paper(s)
     "kgin": "learning intents behind interactions",
-    "kgcn": "knowledge graph convolutional network",  # title: "Knowledge Graph Convolutional Networks..."
+    # title: "Knowledge Graph Convolutional Networks for Recommender Systems"
+    "kgcn": "knowledge graph convolutional network",
     # Cross-domain seed paper
     "bitgcf": "bi directional transfer graph",
     "bi tgcf": "bi directional transfer graph",
