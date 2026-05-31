@@ -14,6 +14,7 @@ from schemas import Paper
 from spike import config
 
 from .sources import openalex
+from .sources.seed_papers import SEED_TITLES, fetch_seed_papers
 
 SUB_AREAS = [
     "graph neural network collaborative filtering",
@@ -151,7 +152,40 @@ def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Pape
         f"filtered {dropped} papers out of {len(with_abstract)} for off-topic "
         f"({len(with_abstract)} → {len(topical)} kept, {dropped} dropped)"
     )
-    corpus = topical[:target]
+
+    # Merge curated seed papers — they bypass the GNN-recsys filter (curated; canonical
+    # comparators the gold set needs as candidates) and are guaranteed survival of the
+    # target cap below.
+    print("\n[seed] fetching curated seed papers from OpenAlex by title...")
+    seeds_raw, missed = fetch_seed_papers(SEED_TITLES)
+    seeds = filter_with_abstract(seeds_raw)
+    abstract_misses = len(seeds_raw) - len(seeds)
+    topical_pids = {p.paper_id for p in topical}
+    seed_pids = {p.paper_id for p in seeds}
+    new_to_corpus = sum(1 for pid in seed_pids if pid not in topical_pids)
+    already_in_corpus = len(seeds) - new_to_corpus
+    print(
+        f"[seed] resolved {len(seeds_raw)}/{len(SEED_TITLES)} titles; "
+        f"{len(seeds)} usable ({new_to_corpus} NEW, {already_in_corpus} already in corpus); "
+        f"{len(missed)} title-misses, {abstract_misses} abstract-misses"
+    )
+    if missed:
+        print("[seed] OpenAlex couldn't match these titles (tighten the SEED_TITLES string):")
+        for t in missed:
+            print(f"  - {t!r}")
+
+    # Attribute seeds to a pseudo-sub-area for the per-sub-area print, then merge.
+    for sp in seeds:
+        oa, nt = _attribution_key(sp)
+        for key in (oa, nt):
+            if key and key not in origin:
+                origin[key] = "seed"
+
+    combined, _ = dedupe(topical + seeds)
+    final_seeds = [p for p in combined if p.paper_id in seed_pids]
+    final_other = [p for p in combined if p.paper_id not in seed_pids]
+    slots_for_other = max(0, target - len(final_seeds))
+    corpus = final_seeds + final_other[:slots_for_other]
     _save(corpus)
     _print_stats(corpus, total_fetched, len(unique), removed, origin)
     return corpus
@@ -186,7 +220,10 @@ def _print_stats(
     print("per-sub-area distribution:")
     for sub_area in SUB_AREAS:
         print(f"  {dist.get(sub_area, 0):>4}  {sub_area}")
-    other = sum(v for k, v in dist.items() if k not in SUB_AREAS)
+    seed_count = dist.get("seed", 0)
+    if seed_count:
+        print(f"  {seed_count:>4}  (curated seed papers)")
+    other = sum(v for k, v in dist.items() if k not in SUB_AREAS and k != "seed")
     if other:
         print(f"  {other:>4}  (unattributed)")
     print(f"saved -> {config.PAPERS_JSON}")
