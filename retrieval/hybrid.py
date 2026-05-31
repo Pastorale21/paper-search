@@ -31,13 +31,18 @@ class HybridRetriever:
     def __init__(
         self,
         weights: dict[str, float] | None = None,
-        use_rerank: bool = True,
+        use_rerank: bool = False,
         *,
         dense: DenseRetriever | None = None,
         bm25: BM25Retriever | None = None,
         method_match: MethodCardMatcher | None = None,
         reranker: CrossEncoderReranker | None = None,
     ) -> None:
+        # use_rerank defaults to False after the eval-v1 finding: cross-encoder
+        # ms-marco-MiniLM (web-search-trained) reorders gold papers OUT of top-10 on
+        # KG / session / social paper queries, dragging hybrid below dense on the
+        # same-subset thesis gate. Flag kept toggleable for ablation runs and for
+        # swapping in BAAI/bge-reranker-v2-m3 later. See eval/HANDOFF.md.
         self.weights = dict(weights) if weights else dict(DEFAULT_WEIGHTS)
         self.use_rerank = use_rerank
         self.dense = dense or DenseRetriever()
