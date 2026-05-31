@@ -60,6 +60,11 @@ Stubbed (raise `NotImplementedError` — your job to implement):
   python -m spike   # no --force; fetch cache-hits the new papers.json,
                     # embed/index/graph rebuild against the new corpus
   ```
+- **Near-duplicate dedup gap**: title dedup uses exact normalized-string match, which misses
+  prefix/substring variants (e.g. OpenAlex returns both "LightGCN" and "LightGCN: Simplifying
+  and Powering..." as separate work_ids). **P1 fix for A**: add fuzzy title dedup (prefix
+  containment or token-set ratio ≥ 0.9). Until then, retrieval consumers should dedup results
+  by normalized title at display time as a band-aid.
 
 ## Tools to learn
 - OpenAlex API (Works): https://docs.openalex.org/api-entities/works (~10 min)
