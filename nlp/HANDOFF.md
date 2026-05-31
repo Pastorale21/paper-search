@@ -27,7 +27,9 @@ classifier**. Read this top-to-bottom before changing anything.
     (see `.env.example: DATA_SOURCE=openalex`), which provides **no S2 intent
     labels**, so the S2-mapping branch is dormant until A adds S2 citation contexts.
   - SciBERT/SciCite path is a stub awaiting your work (raises `NotImplementedError`).
-
+  - Method cards: 50 extracted on the filtered GNN-recsys corpus.
+  Per-field non-empty rate: task 96%, input 94%, output 94%, 
+  backbone 94%, loss 88%, key_idea 96%, datasets 88%, metrics 88%.
 ---
 
 ## Your work, prioritized
