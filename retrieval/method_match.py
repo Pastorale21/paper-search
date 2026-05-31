@@ -158,9 +158,14 @@ class MethodCardMatcher:
             if emb is not None:
                 query_field_embs[f] = emb
 
+        # Exclude the query paper itself when an anchor id was given — otherwise the
+        # anchor's card matches itself perfectly (cosine = 1) and inflates the top-5 spread
+        # by a measurement artifact rather than real differentiation.
         scored: list[tuple[str, float]] = []
         any_card_found = False
         for pid in candidates:
+            if query_paper_id is not None and pid == query_paper_id:
+                continue
             if pid in self.cards:
                 any_card_found = True
             score = 0.0

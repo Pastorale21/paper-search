@@ -71,6 +71,26 @@ def test_method_match_skips_papers_without_card():
     assert w3 == 0.0
 
 
+def test_method_match_excludes_self_when_anchored_by_id():
+    """When anchored by query_paper_id, that paper is excluded from candidates (no self-match)."""
+    cards = {
+        "W_anchor": MethodCard(paper_id="W_anchor", task="t", backbone="b"),
+        "W_other": MethodCard(paper_id="W_other", task="t", backbone="b"),
+    }
+    cache = {
+        "W_anchor::task": np.array([1.0, 0.0], dtype="float32"),
+        "W_anchor::backbone": np.array([1.0, 0.0], dtype="float32"),
+        "W_other::task": np.array([1.0, 0.0], dtype="float32"),
+        "W_other::backbone": np.array([1.0, 0.0], dtype="float32"),
+    }
+    matcher = _make_matcher_with(cards, cache)
+    # Anchor by id; even though W_anchor is in candidates, it must NOT appear in results.
+    result = matcher.match("W_anchor", None, ["W_anchor", "W_other"], k=10)
+    pids = {pid for pid, _ in result}
+    assert "W_anchor" not in pids
+    assert "W_other" in pids
+
+
 def test_method_match_field_weights_applied(monkeypatch):
     """With FIELD_WEIGHTS={'task':1.0, others:0}, only the task field drives the ranking."""
     from retrieval import method_match

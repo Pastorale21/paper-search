@@ -129,10 +129,14 @@ def run_one(
         )
     _print_hybrid(f"HYBRID top-{k} (RRF + CE)", hybrid_top, papers)
 
-    print("\n=== TOP-5 SPREADS ===")
-    print(f"  dense top-5 spread:        {_spread(dense_top[:5]):.3f}")
+    # Honest spread: exclude the anchor paper from both methods so the comparison is
+    # apples-to-apples (method_match already excludes self after the fix; dense does not).
+    print("\n=== TOP-5 SPREADS (anchor-excluded; apples-to-apples) ===")
+    dense_excl = [(pid, s) for pid, s in dense_top if pid != anchor_pid][:5]
+    mm_excl = [(pid, s) for pid, s in mm_top if pid != anchor_pid][:5]  # already excluded
+    print(f"  dense        top-5 spread: {_spread(dense_excl):.4f}")
     if mm_top:
-        print(f"  method_match top-5 spread: {_spread(mm_top[:5]):.3f}")
+        print(f"  method_match top-5 spread: {_spread(mm_excl):.4f}")
 
     return {
         "query": query,
