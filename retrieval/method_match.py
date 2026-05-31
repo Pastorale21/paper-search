@@ -133,6 +133,22 @@ class MethodCardMatcher:
     def _candidate_field_emb(self, pid: str, field: str) -> np.ndarray | None:
         return self._cache.get(_key(pid, field))
 
+    def similarity(self, pid_a: str, pid_b: str) -> float:
+        """Weighted field-cosine similarity between two corpus papers (uses cached embeddings).
+
+        Returns 0.0 if either paper has no embedded fields in common. Same "weight unspent"
+        behaviour as ``match`` — fields empty on either side contribute 0; see the module
+        docstring for the structural-cap caveat.
+        """
+        score = 0.0
+        for field in FIELDS_TO_MATCH:
+            ea = self._candidate_field_emb(pid_a, field)
+            eb = self._candidate_field_emb(pid_b, field)
+            if ea is None or eb is None:
+                continue
+            score += FIELD_WEIGHTS[field] * float(np.dot(ea, eb))
+        return score
+
     def match(
         self,
         query_paper_id: str | None,
