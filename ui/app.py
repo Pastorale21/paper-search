@@ -1,75 +1,67 @@
-"""Streamlit + PyVis UI for the GNN-recsys spike: semantic search + citation subgraph."""
+"""Landing page for the 4-tab GNN-recsys paper-search UI.
+
+Streamlit auto-discovers ``ui/pages/*.py`` and renders the sidebar nav. This file is just
+the welcome screen — every real interaction lives in a page module.
+"""
 
 from __future__ import annotations
 
 import pathlib
 import sys
-import tempfile
 
-# Ensure the project root is importable when launched via `streamlit run ui/app.py`.
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+# Make project root importable so ``streamlit run ui/app.py`` resolves package imports.
+_ROOT = pathlib.Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
 import streamlit as st  # noqa: E402
-import streamlit.components.v1 as components  # noqa: E402
-from pyvis.network import Network  # noqa: E402
 
-from spike import search  # noqa: E402
+from ui import api  # noqa: E402
 
+st.set_page_config(page_title="GNN-RecSys Paper Search", layout="wide")
+st.title("GNN-RecSys Paper Search")
 
-@st.cache_resource
-def _warm() -> bool:
-    """Load index/graph/papers once per session."""
-    search._ensure_loaded()
-    return True
+st.markdown("""
+    A research-paper search system whose differentiation is **mechanism-level matching**
+    plus **multi-hop citation-graph reasoning**. Standard dense retrieval saturates inside
+    topic clusters with a top-5 cosine spread of ~0.006 — useless for picking the *right*
+    GNN-recsys paper. This system breaks ties by comparing **method cards**
+    (`task / backbone / loss / key_idea`) and by walking the citation graph along
+    intent-weighted paths. Eval against a 10-query gold set (same-subset, paper queries):
+    **method_match +0.112 nDCG@5 vs dense**; **hybrid +0.091 vs dense**.
+    """)
 
-
-def _render_graph(paper_ids: list[str], hops: int = 1) -> None:
-    g = search.subgraph_for(paper_ids, hops=hops)
-    net = Network(height="500px", width="100%", directed=True, notebook=False)
-    hits = set(paper_ids)
-    for node, data in g.nodes(data=True):
-        title = data.get("title") or node
-        label = (title[:40] + "…") if len(title) > 40 else title
-        net.add_node(
-            node,
-            label=label,
-            title=f"{title} ({data.get('year')})",
-            color="#e8543f" if node in hits else "#5b8def",
-        )
-    for u, v in g.edges():
-        net.add_edge(u, v)
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".html", mode="w") as f:
-        net.write_html(f.name)
-        html = pathlib.Path(f.name).read_text()
-    components.html(html, height=520)
-
-
-st.set_page_config(page_title="GNN-recsys Paper Search", layout="wide")
-st.title("GNN-recsys 论文语义搜索 (spike)")
-
-_warm()
-
-mode_label = st.radio("查询模式", ["短查询", "粘贴论文摘要"], horizontal=True)
-mode = "paper" if mode_label == "粘贴论文摘要" else "short"
-top_k = st.slider("Top-K", 3, 20, 10)
-placeholder = (
-    "粘贴一段论文摘要做 paper-to-paper 检索…"
-    if mode == "paper"
-    else "如:graph contrastive learning for recommendation"
+st.subheader("Corpus & coverage")
+stats = api.corpus_stats()
+cols = st.columns(4)
+cols[0].metric("Papers in corpus", f"{stats['papers']:,}")
+cols[1].metric("With abstracts", f"{stats['papers_with_abstract']:,}")
+cols[2].metric("Method cards extracted", f"{stats['method_cards']:,}")
+cols[3].metric(
+    "Citation graph",
+    f"{stats['graph_edges']:,} edges",
+    delta=f"{stats['graph_nodes']:,} nodes",
 )
-text = st.text_area("查询内容", height=120, placeholder=placeholder)
 
-if st.button("搜索", type="primary") and text.strip():
-    results = search.search(text.strip(), mode=mode, top_k=top_k)
-    st.subheader(f"命中 {len(results)} 篇")
-    for rank, (paper, score) in enumerate(results, 1):
-        with st.container(border=True):
-            st.markdown(
-                f"**{rank}. {paper.title}** · {paper.year} · "
-                f"score {score:.3f} · cites {paper.citation_count}"
-            )
-            if paper.abstract:
-                with st.expander("摘要"):
-                    st.write(paper.abstract)
-    st.subheader("引文子图(红=命中,蓝=1-hop 邻居)")
-    _render_graph([p.paper_id for p, _ in results], hops=1)
+st.divider()
+
+st.subheader("How to use this app")
+st.markdown("""
+    The sidebar has four tabs:
+
+    1. **🔍 Search** — semantic + hybrid retrieval. Each result carries *reason tags*
+       (`dense / bm25 / method_match`) so you can see which signal surfaced it.
+    2. **📋 Method Card** — structured `task / backbone / loss / key_idea` per paper, plus a
+       **"Find similar mechanism"** button that shows **per-field cosines** (`backbone: 0.91,
+       loss: 0.95, key_idea: 0.78`) — the visible evidence of mechanism-level matching.
+    3. **🕸 Citation Graph** — pick a paper, run one of three reasoning queries
+       (**Ancestors / Cross-domain / Opposing**), and get an interactive subgraph plus
+       human-readable *path explanations*.
+    4. **✍️ Related Work Draft** — paste your own idea or abstract, generate a related-work
+       paragraph backed by retrieved papers and their method cards.
+    """)
+
+st.caption(
+    "Status: scaffolded for demo. Visual polish, prompt iteration, and link-sharing are "
+    "module owner D's next tasks — see ``ui/HANDOFF.md``."
+)
