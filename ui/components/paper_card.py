@@ -18,11 +18,11 @@ def render_paper_card(
 ) -> None:
     """Render title / year / cites / abstract / reason-tags / deep-link buttons."""
     if paper is None:
-        st.warning(f"Paper not in current corpus: {paper_id or '<unknown>'}")
+        st.warning(f"论文不在当前语料中:{paper_id or '<未知>'}")
         return
 
     pid = paper.get("paper_id") or paper_id or "?"
-    title = paper.get("title") or "<untitled>"
+    title = paper.get("title") or "<无标题>"
     year = paper.get("year") or "?"
     cites = paper.get("citation_count") or 0
     abstract = paper.get("abstract")
@@ -31,23 +31,23 @@ def render_paper_card(
         # Top line: title is the most important; year + cite count + score follow.
         st.markdown(f"### {title}")
         cols = st.columns([1, 1, 2])
-        cols[0].markdown(f"**Year:** {year}")
-        cols[1].markdown(f"**Cites:** {cites:,}")
+        cols[0].markdown(f"**年份:** {year}")
+        cols[1].markdown(f"**引用:** {cites:,}")
         if score is not None:
-            cols[2].markdown(f"**Score:** `{score:.3f}`")
+            cols[2].markdown(f"**分数:** `{score:.3f}`")
 
         if signal_breakdown is not None:
             render_reason_tags(signal_breakdown)
 
         if abstract:
-            with st.expander("Abstract"):
+            with st.expander("摘要"):
                 st.write(abstract)
 
         if show_actions:
             a, b, _ = st.columns([1, 1, 4])
-            if a.button("📋 Method card", key=f"{action_prefix}mc_{pid}"):
+            if a.button("📋 方法卡", key=f"{action_prefix}mc_{pid}"):
                 st.session_state["selected_paper_id"] = pid
-                st.switch_page("pages/2_📋_Method_Card.py")
-            if b.button("🕸 Show in graph", key=f"{action_prefix}gr_{pid}"):
+                st.switch_page("pages/2_📋_方法卡.py")
+            if b.button("🕸 在图中查看", key=f"{action_prefix}gr_{pid}"):
                 st.session_state["selected_paper_id"] = pid
-                st.switch_page("pages/3_🕸_Citation_Graph.py")
+                st.switch_page("pages/3_🕸_引文图.py")

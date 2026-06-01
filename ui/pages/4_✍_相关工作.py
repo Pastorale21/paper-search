@@ -24,60 +24,51 @@ from ui.related_work_prompt import (  # noqa: E402
     parse_llm_response,
 )
 
-st.set_page_config(page_title="Related Work · GNN-RecSys", layout="wide")
-st.title("✍️ Related Work Draft")
+st.set_page_config(page_title="相关工作 · GNN-RecSys", layout="wide")
+st.title("✍️ 相关工作草稿")
 st.caption(
-    "Paste a draft idea or abstract → the system retrieves top candidate papers via "
-    "hybrid retrieval, loads their method cards, and asks the LLM for a coherent "
-    "related-work paragraph with [N] citation markers."
+    "粘贴一段草稿想法或摘要 → 系统通过 hybrid 检索召回 top 候选论文,加载它们的"
+    "方法卡,并请 LLM 生成一段带 [N] 引用标记的连贯相关工作段落。"
 )
 
 user_input = st.text_area(
-    "Your draft idea / abstract",
+    "你的草稿想法 / 摘要",
     height=180,
-    placeholder=(
-        "Paste 1-3 paragraphs describing your idea. The richer the input, the better the "
-        "retrieved candidates and the more useful the generated paragraph."
-    ),
+    placeholder="粘贴 1-3 段描述你想法的文字。输入越丰富,召回的候选越好,生成的段落也越有用。",
 )
 
 cols = st.columns(2)
-n_citations = cols[0].slider("Number of citations to use", min_value=5, max_value=15, value=8)
-target_words = cols[1].slider(
-    "Target paragraph length (words)", min_value=150, max_value=400, value=250
-)
+n_citations = cols[0].slider("使用的引用数量", min_value=5, max_value=15, value=8)
+target_words = cols[1].slider("目标段落长度(词数)", min_value=150, max_value=400, value=250)
 
 st.divider()
 
 generate = st.button(
-    "Generate related-work paragraph",
+    "生成相关工作段落",
     type="primary",
     disabled=not user_input.strip(),
 )
 
 if generate:
-    with st.spinner("Retrieving candidate papers..."):
+    with st.spinner("正在召回候选论文..."):
         retrieved = api.search(user_input.strip(), mode="paper", method="hybrid", k=n_citations)
     if not retrieved:
-        st.warning("Retrieval returned 0 candidates. Try a longer / more specific draft.")
+        st.warning("检索返回 0 个候选。请尝试更长 / 更具体的草稿。")
         st.stop()
 
-    st.subheader(f"Retrieved {len(retrieved)} candidate papers")
+    st.subheader(f"已召回 {len(retrieved)} 篇候选论文")
     for i, r in enumerate(retrieved, 1):
         paper = r["paper"] or {}
         st.markdown(
             f"**[{i}]** {paper.get('title') or '?'} · {paper.get('year') or '?'} · "
-            f"`{r['paper_id']}` · score `{r['score']:.3f}`"
+            f"`{r['paper_id']}` · 分数 `{r['score']:.3f}`"
         )
 
     messages = build_messages(user_input.strip(), retrieved, target_words=target_words)
 
-    st.subheader("LLM call")
+    st.subheader("LLM 调用")
     if not nlp_config.LLM_API_KEY:
-        st.error(
-            "`LLM_API_KEY` is not configured. Set it in `.env` per `nlp/HANDOFF.md`, then "
-            "reload the page."
-        )
+        st.error("`LLM_API_KEY` 未配置。请按 `nlp/HANDOFF.md` 在 `.env` 中设置,然后重新加载页面。")
         st.stop()
 
     try:
@@ -86,7 +77,7 @@ if generate:
         st.error(str(e))
         st.stop()
 
-    with st.spinner(f"Calling {nlp_config.LLM_MODEL} ..."):
+    with st.spinner(f"正在调用 {nlp_config.LLM_MODEL} ..."):
         try:
             resp = client.chat.completions.create(
                 model=nlp_config.LLM_MODEL,
@@ -96,26 +87,26 @@ if generate:
             )
             raw = resp.choices[0].message.content or ""
         except Exception as e:
-            st.error(f"LLM call failed: {e}")
+            st.error(f"LLM 调用失败:{e}")
             st.stop()
 
     parsed = parse_llm_response(raw)
     paragraph = parsed.get("paragraph") or ""
     references = parsed.get("references") or []
 
-    st.subheader("Generated paragraph")
+    st.subheader("生成的段落")
     if parsed.get("_parse_error"):
-        st.warning("LLM returned non-JSON output (parse fallback engaged). Showing raw text below.")
+        st.warning("LLM 返回了非 JSON 输出(已启用解析回退)。下方显示原始文本。")
     st.markdown(paragraph)
 
     markers = extract_citation_markers(paragraph)
     if markers:
-        st.caption(f"Citation markers found in paragraph: {markers}")
+        st.caption(f"段落中发现的引用标记:{markers}")
 
-    st.subheader("References")
+    st.subheader("参考文献")
     paper_by_id = api.get_papers_by_id()
     if not references:
-        st.info("LLM did not return a references list — see fact-check below.")
+        st.info("LLM 未返回参考文献列表——见下方事实核查。")
     else:
         for ref in references:
             n = ref.get("n")
@@ -127,19 +118,17 @@ if generate:
                 f"`{pid}`  \n_{reason}_"
             )
 
-    with st.expander("🔍 Fact-check (raw retrieved papers + LLM response)"):
-        st.markdown(
-            "**Per-citation source check** — each [N] marker should map to a real retrieved paper:"
-        )
+    with st.expander("🔍 事实核查(原始召回论文 + LLM 响应)"):
+        st.markdown("**逐引用来源核查**——每个 [N] 标记都应映射到一篇真实召回的论文:")
         for n, item in enumerate(retrieved, 1):
             paper = item["paper"] or {}
             first_sent = (paper.get("abstract") or "").split(". ")[:1]
             first_sent = first_sent[0] + ("." if first_sent else "")
             st.markdown(
                 f"- **[{n}]** `{item['paper_id']}` — {paper.get('title') or '?'}  \n"
-                f"  Abstract opener: _{first_sent or '(no abstract)'}_"
+                f"  摘要开头:_{first_sent or '(无摘要)'}_"
             )
-        st.markdown("**Raw LLM response (for D's prompt iteration):**")
+        st.markdown("**原始 LLM 响应(供 D 迭代 prompt):**")
         st.code(raw, language="json")
-        st.markdown("**Messages sent to the LLM (the prompt input):**")
+        st.markdown("**发送给 LLM 的消息(prompt 输入):**")
         st.code(json.dumps(messages, indent=2, ensure_ascii=False), language="json")

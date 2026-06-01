@@ -18,50 +18,48 @@ import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
 
-st.set_page_config(page_title="GNN-RecSys Paper Search", layout="wide")
-st.title("GNN-RecSys Paper Search")
+st.set_page_config(page_title="GNN-RecSys 论文检索", layout="wide")
+st.title("GNN-RecSys 论文检索系统")
 
 st.markdown("""
-    A research-paper search system whose differentiation is **mechanism-level matching**
-    plus **multi-hop citation-graph reasoning**. Standard dense retrieval saturates inside
-    topic clusters with a top-5 cosine spread of ~0.006 — useless for picking the *right*
-    GNN-recsys paper. This system breaks ties by comparing **method cards**
-    (`task / backbone / loss / key_idea`) and by walking the citation graph along
-    intent-weighted paths. Eval against a 10-query gold set (same-subset, paper queries):
-    **method_match +0.112 nDCG@5 vs dense**; **hybrid +0.091 vs dense**.
+    一个论文检索系统,核心差异化在于**机制级匹配**与**引文图多跳推理**。标准稠密检索
+    在主题簇内部会饱和——top-5 余弦相似度的跨度仅约 0.006,根本无法挑出*正确的*
+    GNN 推荐论文。本系统通过比对**方法卡**(`task / backbone / loss / key_idea`)、
+    并沿意图加权路径游走引文图来打破这种平局。在 10 条查询的 gold set 上评测(同子域、
+    paper 查询):**method_match 相比 dense +0.112 nDCG@5**;**hybrid 相比 dense +0.091**。
     """)
 
-st.subheader("Corpus & coverage")
+st.subheader("语料与覆盖")
 stats = api.corpus_stats()
 cols = st.columns(4)
-cols[0].metric("Papers in corpus", f"{stats['papers']:,}")
-cols[1].metric("With abstracts", f"{stats['papers_with_abstract']:,}")
-cols[2].metric("Method cards extracted", f"{stats['method_cards']:,}")
+cols[0].metric("语料论文数", f"{stats['papers']:,}")
+cols[1].metric("含摘要", f"{stats['papers_with_abstract']:,}")
+cols[2].metric("已抽取方法卡", f"{stats['method_cards']:,}")
 cols[3].metric(
-    "Citation graph",
-    f"{stats['graph_edges']:,} edges",
-    delta=f"{stats['graph_nodes']:,} nodes",
+    "引文图",
+    f"{stats['graph_edges']:,} 条边",
+    delta=f"{stats['graph_nodes']:,} 个节点",
 )
 
 st.divider()
 
-st.subheader("How to use this app")
+st.subheader("使用说明")
 st.markdown("""
-    The sidebar has four tabs:
+    侧边栏有四个标签页:
 
-    1. **🔍 Search** — semantic + hybrid retrieval. Each result carries *reason tags*
-       (`dense / bm25 / method_match`) so you can see which signal surfaced it.
-    2. **📋 Method Card** — structured `task / backbone / loss / key_idea` per paper, plus a
-       **"Find similar mechanism"** button that shows **per-field cosines** (`backbone: 0.91,
-       loss: 0.95, key_idea: 0.78`) — the visible evidence of mechanism-level matching.
-    3. **🕸 Citation Graph** — pick a paper, run one of three reasoning queries
-       (**Ancestors / Cross-domain / Opposing**), and get an interactive subgraph plus
-       human-readable *path explanations*.
-    4. **✍️ Related Work Draft** — paste your own idea or abstract, generate a related-work
-       paragraph backed by retrieved papers and their method cards.
+    1. **🔍 搜索** — 语义 + 混合检索。每条结果都带有*检索信号标签*
+       (`dense / bm25 / method_match`),便于你看清是哪个信号召回了它。
+    2. **📋 方法卡** — 每篇论文的结构化 `task / backbone / loss / key_idea`,外加一个
+       **“查找相似机制”**按钮,展示**逐字段余弦相似度**(`backbone: 0.91,
+       loss: 0.95, key_idea: 0.78`)——机制级匹配的可见证据。
+    3. **🕸 引文图** — 选一篇论文,运行三种推理查询之一
+       (**祖先 / 跨域同机制 / 对立方法**),得到一张交互式子图以及
+       人类可读的*路径解释*。
+    4. **✍️ 相关工作草稿** — 粘贴你自己的想法或摘要,基于召回论文及其方法卡
+       生成一段相关工作。
     """)
 
 st.caption(
-    "Status: scaffolded for demo. Visual polish, prompt iteration, and link-sharing are "
-    "module owner D's next tasks — see ``ui/HANDOFF.md``."
+    "状态:demo 脚手架已搭好。视觉打磨、prompt 迭代与链接分享是模块负责人 D 的"
+    "后续任务——见 ``ui/HANDOFF.md``。"
 )

@@ -13,13 +13,23 @@ import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
 
-st.set_page_config(page_title="Method Card · GNN-RecSys", layout="wide")
-st.title("📋 Method Card")
+st.set_page_config(page_title="方法卡 · GNN-RecSys", layout="wide")
+st.title("📋 方法卡")
+
+# Chinese display labels for method-card fields; English values are preserved as-is.
+_FIELD_LABELS = {
+    "task": "任务",
+    "input": "输入",
+    "output": "输出",
+    "backbone": "骨干网络",
+    "loss": "损失",
+    "key_idea": "核心思想",
+}
 
 papers = api.get_papers_by_id()
 options = sorted(papers.values(), key=lambda p: -int(p.get("citation_count") or 0))
 labels = [
-    f"[{p.get('citation_count', 0):>5} cites] {p.get('title') or '?'} ({p.get('year') or '?'})"
+    f"[{p.get('citation_count', 0):>5} 引用] {p.get('title') or '?'} ({p.get('year') or '?'})"
     for p in options
 ]
 ids = [p["paper_id"] for p in options]
@@ -28,7 +38,7 @@ default_pid = st.session_state.get("selected_paper_id")
 default_index = ids.index(default_pid) if default_pid in ids else 0
 
 choice = st.selectbox(
-    "Select a paper",
+    "选择论文",
     options=list(range(len(options))),
     index=default_index,
     format_func=lambda i: labels[i],
@@ -42,71 +52,69 @@ card = api.load_method_card(selected_pid)
 # --- Top: structured card + abstract -----------------------------------------------------
 
 st.markdown(f"### {selected.get('title') or '?'} · {selected.get('year') or '?'}")
-st.caption(f"`{selected_pid}` · {selected.get('citation_count', 0):,} citations")
+st.caption(f"`{selected_pid}` · {selected.get('citation_count', 0):,} 次引用")
 
 col_card, col_abs = st.columns([3, 2])
 
 with col_card:
     if card is None:
-        st.warning("No method card extracted for this paper yet.")
+        st.warning("该论文尚未抽取方法卡。")
         st.code(
             "uv run python -m nlp.method_card.extractor --top 400",
             language="bash",
         )
         st.caption(
-            "Per the team's paid-extraction convention, the UI does not fire the LLM "
-            "extraction call. Run the CLI above (or pass a smaller `--top N`); see "
-            "`nlp/HANDOFF.md` for cost estimates."
+            "根据团队的付费抽取约定,UI 不会触发 LLM 抽取调用。请运行上面的 CLI"
+            "(或传入更小的 `--top N`);成本估算见 `nlp/HANDOFF.md`。"
         )
     else:
-        st.markdown("#### Mechanism-level fields")
+        st.markdown("#### 机制级字段")
         st.markdown(
-            f"**🎯 task:** {card.task or '_(empty)_'}  \n"
-            f"**📥 input:** {card.input or '_(empty)_'}  \n"
-            f"**📤 output:** {card.output or '_(empty)_'}  \n"
-            f"**🏗 backbone:** {card.backbone or '_(empty)_'}  \n"
-            f"**📐 loss:** {card.loss or '_(empty)_'}  \n"
-            f"**💡 key_idea:** *{card.key_idea or '_(empty)_'}*"
+            f"**🎯 任务:** {card.task or '_(空)_'}  \n"
+            f"**📥 输入:** {card.input or '_(空)_'}  \n"
+            f"**📤 输出:** {card.output or '_(空)_'}  \n"
+            f"**🏗 骨干网络:** {card.backbone or '_(空)_'}  \n"
+            f"**📐 损失:** {card.loss or '_(空)_'}  \n"
+            f"**💡 核心思想:** *{card.key_idea or '_(空)_'}*"
         )
         if card.datasets:
-            st.markdown("**🗂 datasets:** " + " ".join(f":blue-badge[{d}]" for d in card.datasets))
+            st.markdown("**🗂 数据集:** " + " ".join(f":blue-badge[{d}]" for d in card.datasets))
         if card.metrics:
-            st.markdown("**📊 metrics:** " + " ".join(f":violet-badge[{m}]" for m in card.metrics))
+            st.markdown("**📊 指标:** " + " ".join(f":violet-badge[{m}]" for m in card.metrics))
 
 with col_abs:
-    st.markdown("#### Abstract")
-    abstract = selected.get("abstract") or "_(no abstract on disk)_"
+    st.markdown("#### 摘要")
+    abstract = selected.get("abstract") or "_(本地无摘要)_"
     st.write(abstract)
 
 st.divider()
 
 # --- The showcase: Find Similar Mechanism (prominent, not buried) ------------------------
 
-st.header("🔍 Find papers with similar mechanism")
+st.header("🔍 查找机制相似的论文")
 st.markdown(
-    "The headline differentiation of this system. **Per-field cosines** are shown for each "
-    "candidate — this is the *visible evidence* that mechanism-level matching is what "
-    "ranked the paper, not surface similarity. Field weights "
-    f"(applied in the aggregate score): {api.field_weights()}."
+    "本系统的核心差异化功能。每个候选都会展示**逐字段余弦相似度**——这是机制级匹配"
+    "(而非表面相似)排出该论文的*可见证据*。字段权重"
+    f"(用于聚合打分):{api.field_weights()}。"
 )
 
 if card is None:
-    st.info("Method card needed before similarity ranking can run — extract first (see CLI above).")
+    st.info("运行相似度排序前需要方法卡——请先抽取(见上方 CLI)。")
 else:
     if st.button(
-        "Run mechanism match across the corpus",
+        "在全语料上运行机制匹配",
         type="primary",
         use_container_width=True,
     ):
         st.session_state["_run_match_for"] = selected_pid
 
 if st.session_state.get("_run_match_for") == selected_pid and card is not None:
-    with st.spinner("Scoring all corpus papers by weighted field cosine..."):
+    with st.spinner("正在按加权字段余弦为全部语料论文打分..."):
         matches = api.match_similar_mechanism(selected_pid, k=10)
     if not matches:
-        st.info("No matches — anchor's card is empty.")
+        st.info("无匹配——锚点论文的方法卡为空。")
     else:
-        st.markdown(f"### Top-{len(matches)} mechanism-matched papers")
+        st.markdown(f"### Top-{len(matches)} 机制匹配论文")
         weights = api.field_weights()
         for i, m in enumerate(matches, 1):
             with st.container(border=True):
@@ -114,24 +122,23 @@ if st.session_state.get("_run_match_for") == selected_pid and card is not None:
                 pid = m["paper_id"]
                 title = paper.get("title") or "?"
                 yr = paper.get("year") or "?"
-                st.markdown(
-                    f"**{i}. {title}** · {yr}  \n`{pid}` · weighted score **`{m['score']:.3f}`**"
-                )
+                st.markdown(f"**{i}. {title}** · {yr}  \n`{pid}` · 加权分数 **`{m['score']:.3f}`**")
 
                 # Per-field cosines as colored chips. This IS the visible evidence.
                 pf = m["per_field"]
                 chip_row = []
                 for f, cos in pf.items():
                     w = weights.get(f, 0.0)
+                    label = _FIELD_LABELS.get(f, f)
                     if cos is None:
-                        chip_row.append(f":gray-badge[{f} (w={w:.2f}): _no data_]")
+                        chip_row.append(f":gray-badge[{label} (w={w:.2f}):无数据]")
                     else:
                         color = "green" if cos >= 0.9 else "blue" if cos >= 0.75 else "orange"
-                        chip_row.append(f":{color}-badge[{f} (w={w:.2f}): {cos:.3f}]")
+                        chip_row.append(f":{color}-badge[{label} (w={w:.2f}): {cos:.3f}]")
                 st.markdown(" ".join(chip_row))
 
                 cand_card = m["method_card"]
                 if cand_card is not None and cand_card.backbone:
-                    st.caption(f"**backbone:** {cand_card.backbone} · **loss:** {cand_card.loss}")
-                with st.expander("Abstract"):
-                    st.write(paper.get("abstract") or "_(no abstract on disk)_")
+                    st.caption(f"**骨干网络:** {cand_card.backbone} · **损失:** {cand_card.loss}")
+                with st.expander("摘要"):
+                    st.write(paper.get("abstract") or "_(本地无摘要)_")

@@ -14,6 +14,13 @@ _EDGE_COLOR = {
     "method": "#3b82f6",  # blue
     "comparison": "#f97316",  # orange
 }
+# Display-only Chinese labels for the edge hover tooltip. The intent KEYS stay English —
+# graph_reason.get_edge_intent + INTENT_WEIGHTS depend on them; never translate the keys.
+_INTENT_LABELS = {
+    "background": "背景",
+    "method": "方法",
+    "comparison": "对比",
+}
 _CENTER_COLOR = "#ef4444"  # red
 _NODE_COLOR = "#5b8def"  # blue
 
@@ -70,7 +77,7 @@ def render_graph(
                 nodes[i],
                 nodes[i + 1],
                 color=_EDGE_COLOR.get(intent, _EDGE_COLOR["background"]),
-                title=intent,
+                title=_INTENT_LABELS.get(intent, intent),
             )
 
     # Write to /tmp (NOT cwd) — never adds clutter to the repo.
