@@ -14,17 +14,16 @@ import streamlit as st  # noqa: E402
 from ui import api  # noqa: E402
 from ui.components.graph_view import render_graph  # noqa: E402
 
-st.set_page_config(page_title="Citation Graph · GNN-RecSys", layout="wide")
-st.title("🕸 Citation Graph")
+st.set_page_config(page_title="引文图 · GNN-RecSys", layout="wide")
+st.title("🕸 引文图")
 st.caption(
-    "Pick an anchor, then run one of three reasoning queries. Each result carries a "
-    "path explanation — the 'why' the system returned it."
+    "选择一个锚点论文,然后运行三种推理查询之一。每条结果都带有路径解释——即系统返回它的“原因”。"
 )
 
 papers = api.get_papers_by_id()
 options = sorted(papers.values(), key=lambda p: -int(p.get("citation_count") or 0))
 labels = [
-    f"[{p.get('citation_count', 0):>5} cites] {p.get('title') or '?'} ({p.get('year') or '?'})"
+    f"[{p.get('citation_count', 0):>5} 引用] {p.get('title') or '?'} ({p.get('year') or '?'})"
     for p in options
 ]
 ids = [p["paper_id"] for p in options]
@@ -32,7 +31,7 @@ ids = [p["paper_id"] for p in options]
 default_pid = st.session_state.get("selected_paper_id")
 default_index = ids.index(default_pid) if default_pid in ids else 0
 choice = st.selectbox(
-    "Anchor paper",
+    "锚点论文",
     options=list(range(len(options))),
     index=default_index,
     format_func=lambda i: labels[i],
@@ -42,15 +41,15 @@ anchor = papers[anchor_pid]
 st.session_state["selected_paper_id"] = anchor_pid
 
 st.markdown(
-    f"**Anchor:** {anchor.get('title') or '?'} · {anchor.get('year') or '?'} · `{anchor_pid}`"
+    f"**锚点:** {anchor.get('title') or '?'} · {anchor.get('year') or '?'} · `{anchor_pid}`"
 )
 
 # Button order per the eval feedback: strongest demo (Ancestors) → mid (Cross-domain) →
 # weakest fallback (Opposing) last.
 col_a, col_b, col_c = st.columns(3)
-ancestors_clicked = col_a.button("🌳 Ancestors", use_container_width=True)
-crossdomain_clicked = col_b.button("🌐 Cross-domain same mechanism", use_container_width=True)
-opposing_clicked = col_c.button("⚔️ Opposing", use_container_width=True)
+ancestors_clicked = col_a.button("🌳 祖先", use_container_width=True)
+crossdomain_clicked = col_b.button("🌐 跨域同机制", use_container_width=True)
+opposing_clicked = col_c.button("⚔️ 对立方法", use_container_width=True)
 
 if ancestors_clicked:
     st.session_state["_graph_query"] = ("ancestors", anchor_pid)
@@ -61,41 +60,38 @@ elif opposing_clicked:
 
 query_state = st.session_state.get("_graph_query")
 if not query_state or query_state[1] != anchor_pid:
-    st.info("Pick a query button above to see the reasoning trace.")
+    st.info("点击上方的查询按钮以查看推理轨迹。")
     st.stop()
 
 query_kind, _ = query_state
-top_k = st.slider("How many results to display", min_value=3, max_value=10, value=5)
+top_k = st.slider("显示结果数量", min_value=3, max_value=10, value=5)
 
-with st.spinner("Reasoning over the citation graph..."):
+with st.spinner("正在基于引文图推理..."):
     if query_kind == "ancestors":
         results = api.find_ancestors(anchor_pid, k=top_k)
-        kind_label = "Methodological ancestors"
+        kind_label = "方法学祖先"
     elif query_kind == "cross_domain":
         results = api.find_cross_domain(anchor_pid, k=top_k)
-        kind_label = "Cross-domain same mechanism"
+        kind_label = "跨域同机制"
     else:
         # Belt-and-suspenders survey filter on the live mechanism-distance fallback.
         results = api.find_opposing(anchor_pid, k=top_k * 2)
         results = api.filter_survey_titles(results, papers)[:top_k]
-        kind_label = "Opposing (mechanism-distance fallback)"
+        kind_label = "对立方法(机制距离回退)"
 
 st.subheader(kind_label)
 
 if not results:
     st.warning(
-        "No results — see `retrieval/HANDOFF.md` (graph reasoning, OUT-sparsity). "
-        "Try a more recent paper as the anchor."
+        "无结果——见 `retrieval/HANDOFF.md`(图推理、OUT 稀疏性)。请换一篇更新的论文作为锚点。"
     )
     st.stop()
 
 if query_kind == "opposing":
     st.caption(
-        "ℹ️ Opposing currently runs on the **mechanism-distance fallback** — no per-edge "
-        "intent metadata is on disk yet. Each result is ranked by `1 - similarity` to the "
-        "anchor over 1-hop neighbors (cites ∪ cited-by); survey-titled papers are filtered "
-        "on top of the empty-card exclusion. The explanation banner makes the fallback "
-        "visible."
+        "ℹ️ 对立方法目前运行在**机制距离回退**上——磁盘上尚无逐边意图元数据。每条结果"
+        "按其与锚点在 1 跳邻居(cites ∪ cited-by)上的 `1 - similarity` 排序;在排除空"
+        "方法卡的基础上,再过滤掉综述类标题的论文。下方的解释横幅会标明这一回退。"
     )
 
 # Two-column layout: graph on the left, ranked list on the right.
@@ -106,14 +102,14 @@ with col_g:
     if paths:
         render_graph(anchor_pid, paths, papers, height=520)
     else:
-        st.info("Graph view unavailable (no paths returned).")
+        st.info("图视图不可用(未返回路径)。")
 
 with col_l:
-    st.markdown("#### Ranked results + why")
+    st.markdown("#### 排序结果 + 原因")
     for i, r in enumerate(results, 1):
         paper = papers.get(r.paper_id, {})
         with st.container(border=True):
             st.markdown(f"**{i}. {paper.get('title') or '?'}** · {paper.get('year') or '?'}")
-            st.caption(f"`{r.paper_id}` · score `{r.score:.3f}`")
+            st.caption(f"`{r.paper_id}` · 分数 `{r.score:.3f}`")
             for p in r.paths[:2]:
                 st.markdown(f"› {p.explanation}")
