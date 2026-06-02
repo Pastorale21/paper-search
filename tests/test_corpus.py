@@ -1,6 +1,13 @@
 """Unit tests for corpus dedup + abstract filtering (no network)."""
 
-from data.corpus import dedupe, filter_with_abstract, is_gnn_recsys, normalize_title
+from data.corpus import (
+    _select_balanced,
+    dedupe,
+    filter_with_abstract,
+    is_gnn_recsys,
+    normalize_title,
+    titles_are_duplicates,
+)
 from schemas import Paper
 
 
@@ -33,6 +40,42 @@ def test_dedup_by_normalized_title():
     kept, removed = dedupe(papers)
     assert len(kept) == 1
     assert removed == 1
+
+
+def test_dedup_by_short_long_title_variant():
+    papers = [
+        _paper("a", "LightGCN", oa="W3004578093", abstract="short"),
+        _paper(
+            "b",
+            "LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation",
+            oa="W3045200674",
+            abstract="much richer abstract about graph collaborative filtering",
+        ),
+    ]
+    kept, removed = dedupe(papers)
+    assert len(kept) == 1
+    assert removed == 1
+    assert kept[0].paper_id == "b"
+
+
+def test_title_variant_does_not_merge_generic_containment():
+    left = normalize_title("Graph Neural Networks for Recommendation")
+    right = normalize_title("Graph Neural Networks for Social Recommendation")
+    assert not titles_are_duplicates(left, right)
+
+
+def test_select_balanced_does_not_starve_late_subarea():
+    early = [_paper(f"a{i}", f"Early {i}") for i in range(3)]
+    late = [_paper("b1", "Late 1"), _paper("b2", "Late 2")]
+    origin = {
+        normalize_title(p.title): "graph neural network collaborative filtering" for p in early
+    }
+    origin.update(
+        {normalize_title(p.title): "social recommendation with graph neural network" for p in late}
+    )
+
+    selected = _select_balanced([], early + late, target=4, origin=origin)
+    assert any(p.title.startswith("Late") for p in selected)
 
 
 def test_filter_no_abstract():

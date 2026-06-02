@@ -80,10 +80,22 @@ def _oa_to_paper(item: dict) -> Paper:
 
 def fetch_works(query: str, n: int) -> list[Paper]:
     """Search OpenAlex for `n` works matching `query`; return all parsed Papers (no filtering)."""
-    params = {"search": query, "per-page": min(n, 200), "select": config.OPENALEX_SELECT}
-    if config.OPENALEX_MAILTO:
-        params["mailto"] = config.OPENALEX_MAILTO
-    data = _get(config.OPENALEX_URL, params)
-    papers = [_oa_to_paper(it) for it in (data.get("results") or []) if it.get("id")]
+    papers: list[Paper] = []
+    cursor = "*"
+    while len(papers) < n and cursor:
+        params = {
+            "search": query,
+            "per-page": min(n - len(papers), 200),
+            "select": config.OPENALEX_SELECT,
+            "cursor": cursor,
+        }
+        if config.OPENALEX_MAILTO:
+            params["mailto"] = config.OPENALEX_MAILTO
+        data = _get(config.OPENALEX_URL, params)
+        batch = [_oa_to_paper(it) for it in (data.get("results") or []) if it.get("id")]
+        if not batch:
+            break
+        papers.extend(batch)
+        cursor = (data.get("meta") or {}).get("next_cursor")
     print(f"[openalex] query={query!r} fetched {len(papers)} works")
     return papers

@@ -1,6 +1,6 @@
 """Build the multi-sub-area GNN-recsys corpus: fetch per sub-area, dedupe, filter, persist.
 
-CLI: `uv run python -m data.corpus --target 500 --per-query 100 [--force]`
+CLI: `uv run python -m data.corpus --target 800 --per-query 500 [--force]`
 """
 
 from __future__ import annotations
@@ -18,18 +18,117 @@ from .sources.seed_papers import SEED_TITLES, fetch_seed_papers
 
 SUB_AREAS = [
     "graph neural network collaborative filtering",
+    "light graph convolution collaborative filtering recommendation",
     "graph contrastive learning for recommendation",
+    "self-supervised graph learning recommendation",
+    "graph self-supervised recommendation collaborative filtering",
     "cross-domain recommendation with graph neural network",
+    "transfer learning cross-domain recommendation graph",
+    "cross-domain sequential recommendation graph",
     "knowledge graph enhanced recommendation",
+    "knowledge graph neural network recommender systems",
+    "knowledge graph collaborative filtering recommendation",
+    "multi-behavior recommendation graph neural network",
     "session-based recommendation with graph neural network",
+    "sequential recommendation graph neural network",
+    "next item recommendation graph neural network",
     "social recommendation with graph neural network",
+    "social graph neural network recommendation",
+    "social recommendation graph convolution network",
+    "federated recommendation graph neural network",
 ]
+
+_GENERIC_TITLE_TOKENS = {
+    "a",
+    "an",
+    "and",
+    "are",
+    "based",
+    "collaborative",
+    "contrastive",
+    "convolution",
+    "cross",
+    "domain",
+    "for",
+    "from",
+    "graph",
+    "graphs",
+    "in",
+    "knowledge",
+    "learning",
+    "model",
+    "network",
+    "networks",
+    "neural",
+    "of",
+    "on",
+    "recommendation",
+    "recommender",
+    "recommenders",
+    "system",
+    "systems",
+    "session",
+    "sequential",
+    "social",
+    "the",
+    "to",
+    "towards",
+    "via",
+    "with",
+}
 
 
 def normalize_title(title: str) -> str:
     """Lowercase, strip punctuation, collapse whitespace — for fuzzy title dedup."""
     cleaned = re.sub(r"[^\w\s]", " ", (title or "").lower())
     return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def _title_tokens(normalized_title: str) -> set[str]:
+    """Return normalized, non-generic title tokens for fuzzy duplicate checks."""
+    return {
+        token for token in normalized_title.split() if token and token not in _GENERIC_TITLE_TOKENS
+    }
+
+
+def _is_distinctive_short_title(tokens: set[str]) -> bool:
+    """True for acronym/model-name titles such as LightGCN, XSimGCL, KGAT, or SURGE."""
+    if len(tokens) != 1:
+        return False
+    token = next(iter(tokens))
+    return len(token) >= 4 and token not in _GENERIC_TITLE_TOKENS
+
+
+def titles_are_duplicates(left: str, right: str) -> bool:
+    """Return True for exact titles and safe prefix/acronym title variants.
+
+    OpenAlex sometimes stores a canonical short work ("LightGCN") separately from a
+    longer proceedings title ("LightGCN: Simplifying and Powering ..."). Exact normalized
+    matching misses this, so we also accept containment when the shorter side is a
+    distinctive model acronym/name. For longer variants, require high token containment
+    and similar title lengths to avoid merging broad survey-ish titles.
+    """
+    if not left or not right:
+        return False
+    if left == right:
+        return True
+
+    left_tokens = _title_tokens(left)
+    right_tokens = _title_tokens(right)
+    if not left_tokens or not right_tokens:
+        return False
+
+    shorter, longer = (left, right) if len(left) <= len(right) else (right, left)
+    shorter_tokens, longer_tokens = (
+        (left_tokens, right_tokens) if len(left) <= len(right) else (right_tokens, left_tokens)
+    )
+
+    if _is_distinctive_short_title(shorter_tokens) and shorter_tokens <= longer_tokens:
+        return True
+
+    overlap = len(shorter_tokens & longer_tokens) / len(shorter_tokens)
+    length_ratio = len(shorter) / len(longer)
+    return len(shorter_tokens) >= 3 and overlap >= 0.90 and length_ratio >= 0.75
 
 
 def _completeness(p: Paper) -> tuple:
@@ -44,9 +143,10 @@ def _completeness(p: Paper) -> tuple:
 
 
 def dedupe(papers: list[Paper]) -> tuple[list[Paper], int]:
-    """Union-dedupe by source_ids['openalex'] AND normalized title; keep the richer record.
+    """Union-dedupe by source_ids['openalex'] AND fuzzy-normalized title.
 
-    Returns (kept, n_removed). Kills the spike-results §2 rank-2/4 same-title duplicate.
+    Returns (kept, n_removed). Kills both same-title duplicates and short/long title variants
+    such as W3004578093 vs W3045200674 for LightGCN.
     """
     kept: list[Paper] = []
     oa_index: dict[str, int] = {}
@@ -60,6 +160,15 @@ def dedupe(papers: list[Paper]) -> tuple[list[Paper], int]:
             pos = oa_index[oa]
         elif nt and nt in title_index:
             pos = title_index[nt]
+        elif nt:
+            pos = next(
+                (
+                    known_pos
+                    for known_title, known_pos in title_index.items()
+                    if titles_are_duplicates(nt, known_title)
+                ),
+                None,
+            )
         if pos is None:
             kept.append(p)
             pos = len(kept) - 1
@@ -128,7 +237,7 @@ def _attribution_key(p: Paper) -> tuple[str | None, str | None]:
 
 
 def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Paper]:
-    """Fetch each sub-area, dedupe + filter abstracts, stop at `target`, persist to cache."""
+    """Fetch each sub-area, dedupe + filter abstracts, balance to `target`, persist to cache."""
     accumulated: list[Paper] = []
     origin: dict[str, str] = {}  # attribution key -> first sub-area that surfaced it
     total_fetched = 0
@@ -140,9 +249,6 @@ def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Pape
                 if key and key not in origin:
                     origin[key] = sub_area
             accumulated.append(p)
-        unique, _ = dedupe(accumulated)
-        if len(filter_gnn_recsys(filter_with_abstract(unique))) >= target:
-            break
 
     unique, removed = dedupe(accumulated)
     with_abstract = filter_with_abstract(unique)
@@ -150,7 +256,7 @@ def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Pape
     dropped = len(with_abstract) - len(topical)
     print(
         f"filtered {dropped} papers out of {len(with_abstract)} for off-topic "
-        f"({len(with_abstract)} → {len(topical)} kept, {dropped} dropped)"
+        f"({len(with_abstract)} -> {len(topical)} kept, {dropped} dropped)"
     )
 
     # Merge curated seed papers — they bypass the GNN-recsys filter (curated; canonical
@@ -160,15 +266,19 @@ def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Pape
     seeds_raw, missed = fetch_seed_papers(SEED_TITLES)
     seeds = filter_with_abstract(seeds_raw)
     abstract_misses = len(seeds_raw) - len(seeds)
+    seed_unique = _dedupe_seed_papers(seeds)
+    seed_removed = len(seeds) - len(seed_unique)
     topical_pids = {p.paper_id for p in topical}
-    seed_pids = {p.paper_id for p in seeds}
+    seed_pids = {p.paper_id for p in seed_unique}
     new_to_corpus = sum(1 for pid in seed_pids if pid not in topical_pids)
-    already_in_corpus = len(seeds) - new_to_corpus
+    already_in_corpus = len(seed_unique) - new_to_corpus
     print(
         f"[seed] resolved {len(seeds_raw)}/{len(SEED_TITLES)} titles; "
-        f"{len(seeds)} usable ({new_to_corpus} NEW, {already_in_corpus} already in corpus); "
+        f"{len(seed_unique)} usable ({new_to_corpus} NEW, {already_in_corpus} already in corpus); "
         f"{len(missed)} title-misses, {abstract_misses} abstract-misses"
     )
+    if seed_removed:
+        print(f"[seed] removed {seed_removed} duplicate seed hits")
     if missed:
         print("[seed] OpenAlex couldn't match these titles (tighten the SEED_TITLES string):")
         for t in missed:
@@ -181,20 +291,77 @@ def build_corpus(sub_areas: list[str], per_query: int, target: int) -> list[Pape
             if key and key not in origin:
                 origin[key] = "seed"
 
-    combined, _ = dedupe(topical + seeds)
-    final_seeds = [p for p in combined if p.paper_id in seed_pids]
-    final_other = [p for p in combined if p.paper_id not in seed_pids]
-    slots_for_other = max(0, target - len(final_seeds))
-    corpus = final_seeds + final_other[:slots_for_other]
+    seed_titles = {normalize_title(p.title) for p in seed_unique}
+    seed_oas = {p.source_ids.get("openalex") for p in seed_unique if p.source_ids.get("openalex")}
+    topical_unique, _ = dedupe(topical)
+    final_other = [
+        p
+        for p in topical_unique
+        if p.paper_id not in seed_pids
+        and p.source_ids.get("openalex") not in seed_oas
+        and not any(titles_are_duplicates(normalize_title(p.title), st) for st in seed_titles)
+    ]
+    corpus = _select_balanced(seed_unique, final_other, target, origin)
     _save(corpus)
     _print_stats(corpus, total_fetched, len(unique), removed, origin)
     return corpus
 
 
+def _select_balanced(
+    seeds: list[Paper],
+    papers: list[Paper],
+    target: int,
+    origin: dict[str, str],
+) -> list[Paper]:
+    """Select papers round-robin by source query so late sub-areas are not starved."""
+    selected = list(seeds[:target])
+    seen = {p.paper_id for p in selected}
+    buckets: dict[str, list[Paper]] = {sub_area: [] for sub_area in SUB_AREAS}
+    buckets["?"] = []
+
+    for paper in papers:
+        if paper.paper_id in seen:
+            continue
+        oa, nt = _attribution_key(paper)
+        key = origin.get(oa) or origin.get(nt) or "?"
+        buckets.setdefault(key, []).append(paper)
+
+    while len(selected) < target:
+        added = False
+        for key in [*SUB_AREAS, "?"]:
+            bucket = buckets.get(key) or []
+            while bucket:
+                paper = bucket.pop(0)
+                if paper.paper_id in seen:
+                    continue
+                selected.append(paper)
+                seen.add(paper.paper_id)
+                added = True
+                break
+            if len(selected) >= target:
+                break
+        if not added:
+            break
+    return selected
+
+
+def _dedupe_seed_papers(seeds: list[Paper]) -> list[Paper]:
+    """Dedupe curated seeds by exact paper id only; do not fuzzy-merge canonical gold."""
+    kept: list[Paper] = []
+    seen: set[str] = set()
+    for paper in seeds:
+        if paper.paper_id in seen:
+            continue
+        kept.append(paper)
+        seen.add(paper.paper_id)
+    return kept
+
+
 def _save(papers: list[Paper]) -> None:
     """Overwrite the corpus cache JSON (shared with the spike pipeline)."""
     config.PAPERS_JSON.write_text(
-        json.dumps([p.to_dict() for p in papers], ensure_ascii=False, indent=2)
+        json.dumps([p.to_dict() for p in papers], ensure_ascii=False, indent=2),
+        encoding="utf-8",
     )
 
 
@@ -232,9 +399,9 @@ def _print_stats(
 def main() -> None:
     ap = argparse.ArgumentParser(description="Build the GNN-recsys multi-sub-area corpus")
     ap.add_argument(
-        "--target", type=int, default=500, help="stop after this many unique-with-abstract"
+        "--target", type=int, default=800, help="stop after this many unique-with-abstract"
     )
-    ap.add_argument("--per-query", type=int, default=100, help="works to fetch per sub-area")
+    ap.add_argument("--per-query", type=int, default=500, help="works to fetch per sub-area")
     ap.add_argument("--force", action="store_true", help="rebuild even if papers.json exists")
     args = ap.parse_args()
 

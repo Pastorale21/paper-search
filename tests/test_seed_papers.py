@@ -12,13 +12,20 @@ from schemas import Paper
 
 
 def test_seed_titles_nonempty_and_uppercased_canonicals_present():
-    assert len(SEED_TITLES) >= 15
-    joined = " ".join(SEED_TITLES).lower()
-    for must in ("lightgcn", "ngcf", "ultragcn", "kgat", "sr-gnn".replace("-", ""), "graphrec"):
+    assert len(SEED_TITLES) >= 30
+    joined = " ".join(SEED_TITLES).lower().replace(" ", "").replace("-", "")
+    for must in (
+        "lightgcn",
+        "ultragcn",
+        "kgat",
+        "disencdr",
+        "ddtcdr",
+        "s3-rec",
+        "sociallgn",
+        "xsimgcl",
+    ):
         # We don't expect every acronym in the strings, but at least these telltale tokens.
-        if must in {"ngcf", "srgnn", "graphrec"}:
-            continue  # these are conventional names not in our title strings, that's fine
-        assert must in joined.lower().replace(" ", "").replace("-", "")
+        assert must.replace(" ", "").replace("-", "") in joined
 
 
 def test_norm_strips_punct_and_collapses_whitespace():
@@ -72,10 +79,12 @@ def test_fetch_seed_papers_resolves_matches_and_misses():
     titles = [
         "LightGCN Simplifying and Powering Graph Convolution Network",
         "Imaginary Paper That Does Not Exist",
+        "Collaborative Knowledge-aware Attentive Network for Recommender Systems",
     ]
     with patch("data.sources.seed_papers.openalex.fetch_works", side_effect=fake_fetch):
         resolved, missed = fetch_seed_papers(titles)
 
-    assert len(resolved) == 1
+    assert len(resolved) == 2
     assert resolved[0].paper_id == "W3004578093"
+    assert resolved[1].paper_id == "manual_CKAN"
     assert missed == ["Imaginary Paper That Does Not Exist"]

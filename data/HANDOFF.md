@@ -8,10 +8,13 @@ contract the rest of the team builds on.
 Working:
 - `data/sources/openalex.py` — live OpenAlex adapter. `fetch_works(query, n)` returns parsed
   `Paper`s with `source_ids` (`openalex` short id + bare `doi`) populated.
-- `data/corpus.py` — `build_corpus(sub_areas, per_query, target)` fetches the 6 sub-areas,
-  dedupes (OpenAlex id + normalized title, keeping the richer record), filters out
-  abstract-less papers, and overwrites `data/cache/papers.json`. CLI:
-  `uv run python -m data.corpus --target 500 --per-query 100 [--force]`.
+- `data/corpus.py` — `build_corpus(sub_areas, per_query, target)` fetches widened sub-area
+  queries, dedupes (OpenAlex id + exact/fuzzy normalized title, keeping the richer record),
+  filters out abstract-less papers, and overwrites `data/cache/papers.json`. CLI:
+  `python -m data.corpus --target 800 --per-query 500 --force`.
+- `data/sources/seed_papers.py` — canonical seed-title fetcher. It now includes the previously
+  missing gold papers called out in onboarding (CCDR / DisenCDR / DDTCDR / PPGN, S3-Rec /
+  CL4SRec, MHCN / SocialLGN, CKE / CKAN, XSimGCL, SURGE / FGNN, plus nearby gold gaps).
 - `schemas.py` — `Paper.source_ids` added; backward compatible (old caches load with `{}`).
 - The spike pipeline (`uv run python -m spike`) consumes the new `papers.json` unchanged.
 
@@ -22,7 +25,8 @@ Stubbed (raise `NotImplementedError` — your job to implement):
 ## Your work, prioritized
 - **P0 — `s2_contexts.fetch_citation_contexts`** once the S2 API key arrives. B's citation-intent
   classifier in week 3 depends on this (it needs the text *around* each citation, not just edges).
-- **P0 — scale corpus 500 → 800–1000** if time permits (raise `--target`, maybe widen `SUB_AREAS`).
+- **P0 — scale corpus 800 → 1000** if time permits (raise `--target`, maybe widen
+  `SUB_AREAS` again if gold coverage stalls).
 - **P1 — `GrobidClient.parse_pdf`** — stand up Docker GROBID, parse the top-~100 high-citation PDFs
   to extract method sections for richer method cards.
 - **P2 — multi-source verification** — cross-check OpenAlex vs S2 on a sample to estimate corpus
@@ -60,11 +64,10 @@ Stubbed (raise `NotImplementedError` — your job to implement):
   python -m spike   # no --force; fetch cache-hits the new papers.json,
                     # embed/index/graph rebuild against the new corpus
   ```
-- **Near-duplicate dedup gap**: title dedup uses exact normalized-string match, which misses
-  prefix/substring variants (e.g. OpenAlex returns both "LightGCN" and "LightGCN: Simplifying
-  and Powering..." as separate work_ids). **P1 fix for A**: add fuzzy title dedup (prefix
-  containment or token-set ratio ≥ 0.9). Until then, retrieval consumers should dedup results
-  by normalized title at display time as a band-aid.
+- **Near-duplicate dedup fixed locally**: `data.corpus.titles_are_duplicates` catches safe
+  acronym/prefix variants such as "LightGCN" vs "LightGCN: Simplifying and Powering..." while
+  avoiding generic containment such as "Graph Neural Networks for Recommendation" vs the social
+  sub-area title.
 
 ## Tools to learn
 - OpenAlex API (Works): https://docs.openalex.org/api-entities/works (~10 min)
