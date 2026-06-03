@@ -1,13 +1,14 @@
 """Citation intent classification into {background, method, comparison}.
 
 Dispatch order (see nlp/HANDOFF.md):
-  1. USE_SCICITE_MODEL flag -> B's SciBERT/SciCite model (stub, NotImplementedError).
+  1. USE_SCICITE_MODEL flag -> B's SciBERT/SciCite local model.
   2. Semantic Scholar pre-classified `intents` on the context dict -> label mapping.
   3. LLM zero-shot fallback (works today; the live path while data source is OpenAlex).
 """
 
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import Literal
 
 from .. import config
@@ -20,6 +21,16 @@ _S2_LABEL_MAP: dict[str, Intent] = {
     "methodology": "method",
     "method": "method",
     "result": "comparison",
+}
+
+_SCICITE_LABEL_MAP: dict[str, Intent] = {
+    "background": "background",
+    "method": "method",
+    "result": "comparison",
+    "comparison": "comparison",
+    "label_0": "background",
+    "label_1": "method",
+    "label_2": "comparison",
 }
 
 _LLM_SYSTEM = (
@@ -39,9 +50,10 @@ def map_s2_intent(label: str) -> Intent:
     return _S2_LABEL_MAP.get((label or "").strip().lower(), "background")
 
 
-def classify_with_scicite(context: str) -> str:
-    """STUB: classify via SciBERT fine-tuned on SciCite. To be implemented by B."""
-    raise NotImplementedError("TODO(B): fine-tune SciBERT on SciCite, see HANDOFF.md")
+def map_scicite_label(label: str) -> Intent:
+    """Map a SciCite/model label to our 3-class space (unknown -> background)."""
+    normalized = (label or "").strip().lower().replace("-", "_")
+    return _SCICITE_LABEL_MAP.get(normalized, "background")
 
 
 def _extract_text(context) -> str:
@@ -49,6 +61,30 @@ def _extract_text(context) -> str:
     if isinstance(context, dict):
         return str(context.get("context") or context.get("text") or "")
     return str(context or "")
+
+
+@lru_cache(maxsize=1)
+def _get_scicite_pipeline():
+    """Load the local SciCite classifier pipeline, failing clearly if it is not trained."""
+    model_dir = config.SCICITE_MODEL_DIR
+    if not model_dir.exists() or not (model_dir / "config.json").exists():
+        raise FileNotFoundError(
+            f"SciCite model not found at {model_dir}. "
+            "Train it with: uv run python -m nlp.citation_intent.train_scicite --epochs 3"
+        )
+    from transformers import pipeline
+
+    return pipeline("text-classification", model=str(model_dir), tokenizer=str(model_dir))
+
+
+def classify_with_scicite(context) -> Intent:
+    """Classify via a local SciBERT model fine-tuned on SciCite."""
+    text = _extract_text(context)
+    if not text.strip():
+        return "background"
+    result = _get_scicite_pipeline()(text, truncation=True)
+    prediction = result[0] if isinstance(result, list) else result
+    return map_scicite_label(str(prediction.get("label", "")))
 
 
 class CitationIntentClassifier:
