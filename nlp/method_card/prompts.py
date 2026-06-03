@@ -77,7 +77,7 @@ FEW_SHOT_EXAMPLES: list[dict] = [
                 "aggregation"
             ),
             "datasets": ["Gowalla", "Yelp2018", "Amazon-Book"],
-            "metrics": ["Recall@20", "NDCG@20"],
+            "metrics": [],
         },
     },
     {
@@ -106,7 +106,7 @@ FEW_SHOT_EXAMPLES: list[dict] = [
                 "replace graph augmentations with uniform embedding noise for contrastive " "views"
             ),
             "datasets": ["Douban-Book", "Yelp2018", "Amazon-Book"],
-            "metrics": ["Recall@20", "NDCG@20"],
+            "metrics": [],
         },
     },
     {
@@ -138,7 +138,7 @@ FEW_SHOT_EXAMPLES: list[dict] = [
                 "shared user embeddings"
             ),
             "datasets": ["Amazon (cross-domain pairs)"],
-            "metrics": ["HR@10", "NDCG@10"],
+            "metrics": [],
         },
     },
 ]
