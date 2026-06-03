@@ -26,6 +26,7 @@ USE_SCICITE_MODEL = os.getenv("USE_SCICITE_MODEL", "").lower() in {"1", "true", 
 CACHE_DIR = PROJECT_ROOT / "data" / "cache"
 PAPERS_JSON = CACHE_DIR / "papers.json"
 METHOD_CARDS_DIR = CACHE_DIR / "method_cards"
+SCICITE_MODEL_DIR = Path(os.getenv("SCICITE_MODEL_DIR", CACHE_DIR / "scicite_model"))
 
 
 def load_papers() -> list[Paper]:
