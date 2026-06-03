@@ -2,9 +2,13 @@
 
 from unittest.mock import MagicMock
 
-import pytest
-
-from nlp.citation_intent.classifier import CitationIntentClassifier, map_s2_intent
+from nlp.citation_intent import classifier
+from nlp.citation_intent.classifier import (
+    CitationIntentClassifier,
+    classify_with_scicite,
+    map_s2_intent,
+    map_scicite_label,
+)
 
 
 def test_s2_intent_mapping():
@@ -15,6 +19,13 @@ def test_s2_intent_mapping():
     assert map_s2_intent("unknown-label") == "background"  # safe default
 
 
+def test_scicite_label_mapping():
+    assert map_scicite_label("background") == "background"
+    assert map_scicite_label("method") == "method"
+    assert map_scicite_label("result") == "comparison"
+    assert map_scicite_label("LABEL_2") == "comparison"
+
+
 def test_classify_uses_s2_intents_when_present():
     clf = CitationIntentClassifier(use_scicite=False)
     # dict carrying S2 intents -> mapped without any LLM call
@@ -22,10 +33,18 @@ def test_classify_uses_s2_intents_when_present():
     assert clf.classify({"intents": ["result"]}) == "comparison"
 
 
-def test_classify_dispatches_to_scicite_when_flag_set():
+def test_classify_dispatches_to_scicite_when_flag_set(monkeypatch):
+    def fake_pipeline(text, truncation=True):
+        return [{"label": "method", "score": 0.9}]
+
+    classifier._get_scicite_pipeline.cache_clear()
+    monkeypatch.setattr(classifier, "_get_scicite_pipeline", lambda: fake_pipeline)
     clf = CitationIntentClassifier(use_scicite=True)
-    with pytest.raises(NotImplementedError):
-        clf.classify("any context text")
+    assert clf.classify("We adopt the loss from [CITATION].") == "method"
+
+
+def test_classify_with_scicite_empty_context_defaults_background():
+    assert classify_with_scicite("") == "background"
 
 
 def test_classify_llm_fallback():
