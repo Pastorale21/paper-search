@@ -22,6 +22,27 @@ SYSTEM_PROMPT = (
     '  "metrics"   (list of strings): evaluation metrics used.\n\n'
     "Rules:\n"
     "- Be concise and factual. Extract only what the abstract supports.\n"
+    "- If the abstract explicitly names an objective such as BPR, InfoNCE, "
+    'cross-entropy, pairwise ranking, or regularization, put it in "loss".\n'
+    "- If the abstract explicitly names benchmark datasets or metrics, extract them "
+    'exactly into "datasets" and "metrics".\n'
+    '- Do not leave "datasets" or "metrics" empty when they are explicitly mentioned.\n'
+    '- Never write placeholder phrases such as "not specified", "not named", '
+    '"not mentioned", "not explicitly named", "not explicitly named in abstract", '
+    '"not explicitly stated", or "N/A". Use "" or [] instead.\n'
+    "- Do not infer common losses, datasets, or metrics from the task type. Only extract "
+    "them when explicitly stated in the abstract.\n"
+    "- For datasets and metrics, include only concrete names explicitly stated in the "
+    'abstract; if the abstract only says "real-world datasets" or '
+    '"extensive experiments", "publicly accessible benchmarks", or gives only a dataset '
+    'count without names such as "two public benchmark datasets" or '
+    '"three real-world datasets", use [].\n'
+    '- Never write hedged guesses such as "implicitly", "typical for", "based on context", '
+    '"likely", or "e.g." in any field; leave the field empty instead.\n'
+    "- Final self-check before returning JSON: if any string field would contain a banned "
+    'placeholder or hedge, replace the whole field with ""; if any list item would contain '
+    "a banned placeholder, hedge, or generic unnamed dataset/metric description, remove "
+    "that item; if no concrete items remain, use [].\n"
     '- If a field cannot be determined from the abstract, use an empty string "" for '
     "string fields or an empty list [] for list fields. NEVER guess or hallucinate.\n"
     "- Output must be valid JSON parseable by a strict JSON parser."
@@ -56,7 +77,7 @@ FEW_SHOT_EXAMPLES: list[dict] = [
                 "aggregation"
             ),
             "datasets": ["Gowalla", "Yelp2018", "Amazon-Book"],
-            "metrics": ["Recall@20", "NDCG@20"],
+            "metrics": [],
         },
     },
     {
@@ -85,7 +106,7 @@ FEW_SHOT_EXAMPLES: list[dict] = [
                 "replace graph augmentations with uniform embedding noise for contrastive " "views"
             ),
             "datasets": ["Douban-Book", "Yelp2018", "Amazon-Book"],
-            "metrics": ["Recall@20", "NDCG@20"],
+            "metrics": [],
         },
     },
     {
@@ -117,7 +138,7 @@ FEW_SHOT_EXAMPLES: list[dict] = [
                 "shared user embeddings"
             ),
             "datasets": ["Amazon (cross-domain pairs)"],
-            "metrics": ["HR@10", "NDCG@10"],
+            "metrics": [],
         },
     },
 ]
