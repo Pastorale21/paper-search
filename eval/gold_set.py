@@ -47,17 +47,32 @@ DEFAULT_ALIASES: dict[str, str] = {
     "kgin": "learning intents behind interactions",
     # title: "Knowledge Graph Convolutional Networks for Recommender Systems"
     "kgcn": "knowledge graph convolutional network",
+    "cke": "collaborative knowledge base embedding",
+    "ckan": "collaborative knowledge aware attentive network",
     # Cross-domain seed paper
     "bitgcf": "bi directional transfer graph",
     "bi tgcf": "bi directional transfer graph",
+    "ccdr": "contrastive cross domain recommendation",
+    "disencdr": "disencdr",
+    "ddtcdr": "deep dual transfer cross domain recommendation",
+    "ppgn": "preference propagation graphnet",
     # Session-based seed papers
     "gcsan": "graph contextualized self attention",
     "gc san": "graph contextualized self attention",
     "srgnn": "session based recommendation with graph neural",
     "sr gnn": "session based recommendation with graph neural",
+    "s3rec": "self supervised learning for sequential recommendation",
+    "s3 rec": "self supervised learning for sequential recommendation",
+    "cl4srec": "contrastive learning for sequential recommendation",
+    "cl4s rec": "contrastive learning for sequential recommendation",
+    "surge": "sequential recommendation with graph neural networks",
+    "fgnn": "handling information loss of graph neural networks",
+    "tagnn": "target attentive graph neural networks",
     # Social seed papers
     "diffnet": "diffusion network for social recommendation",
+    "mhcn": "multi channel hypergraph convolutional network for social recommendation",
     "graphrec": "graph neural networks for social recommendation",
+    "sociallgn": "light graph convolution network for social recommendation",
     # Non-seed but verified present-via-full-expansion-title
     "gcegnn": "global context enhanced graph neural",
     "gce gnn": "global context enhanced graph neural",
@@ -75,6 +90,7 @@ def _norm(text: str | None) -> str:
     if not text:
         return ""
     cleaned = _HTML_TAG_RE.sub(" ", text)
+    cleaned = cleaned.replace("++", " plusplus ")
     cleaned = _NONALNUM_RE.sub(" ", cleaned.lower())
     return _WS_RE.sub(" ", cleaned).strip()
 
@@ -237,7 +253,7 @@ def main() -> int:
     total = 0
     resolved = 0
     print(
-        f"[gold-set] {gs.version} ({gs.created}) — {len(gs.queries)} queries vs "
+        f"[gold-set] {gs.version} ({gs.created}) - {len(gs.queries)} queries vs "
         f"corpus of {len(papers)} papers"
     )
     print()
@@ -247,10 +263,10 @@ def main() -> int:
         for t in q.gold_titles:
             pid = resolver.resolve(t)
             if pid:
-                marks.append(f"{t} ✓")
+                marks.append(f"{t} OK")
                 q_resolved += 1
             else:
-                marks.append(f"{t} ✗")
+                marks.append(f"{t} MISS")
         total += len(q.gold_titles)
         resolved += q_resolved
         print(f"  {q.id}: {q_resolved}/{len(q.gold_titles)} resolved  ({', '.join(marks)})")

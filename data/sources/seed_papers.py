@@ -39,10 +39,28 @@ SEED_TITLES: list[str] = [
     "Learning Intents behind Interactions for Knowledge Graph",  # KGIN
     "RippleNet Propagating User Preferences on the Knowledge Graph",
     "Bi-directional Transfer Graph Collaborative Filtering",  # BiTGCF
+    "Contrastive Cross-domain Recommendation in Matching",  # CCDR
+    "DisenCDR",  # disentangled cross-domain recommendation
+    "DDTCDR: Deep Dual Transfer Cross Domain Recommendation",
+    "Cross-Domain Recommendation via Preference Propagation GraphNet",  # PPGN
     "Session-based Recommendation with Graph Neural Networks",  # SR-GNN
     "Graph Contextualized Self-Attention Network for Session-based Recommendation",  # GC-SAN
+    "S3-Rec: Self-Supervised Learning for Sequential Recommendation",
+    "Contrastive Learning for Sequential Recommendation",  # CL4SRec
+    "Sequential Recommendation with Graph Neural Networks",  # SURGE
+    "Handling Information Loss of Graph Neural Networks for Session-based Recommendation",  # FGNN
+    "Global Context Enhanced Graph Neural Networks for Session-based Recommendation",  # GCE-GNN
+    "TAGNN: Target Attentive Graph Neural Networks for Session-based Recommendation",
     "Diffusion Network for Social Recommendation",  # DiffNet
+    "DiffNet++: A Neural Influence and Interest Diffusion Network for Social Recommendation",
+    # MHCN
+    "Self-Supervised Multi-Channel Hypergraph Convolutional Network for Social Recommendation",
     "Graph Neural Networks for Social Recommendation",  # GraphRec
+    "SocialLGN: Light graph convolution network for social recommendation",
+    "Knowledge-aware Coupled Graph Neural Network for Social Recommendation",  # KCGN
+    "Collaborative Knowledge Base Embedding for Recommender Systems",  # CKE
+    "Collaborative Knowledge-aware Attentive Network for Recommender Systems",  # CKAN
+    "XSimGCL: Towards Extremely Simple Graph Contrastive Learning for Recommendation",
 ]
 
 _TOKEN_OVERLAP_THRESHOLD = 0.70
@@ -50,7 +68,33 @@ _TOKEN_OVERLAP_THRESHOLD = 0.70
 # Candidates per title fetched from OpenAlex. Small (3-5) is enough because the search
 # endpoint already ranks by relevance — but >1 so we can fall back if the top hit is wrong
 # (e.g. a "Comments on …" / survey that mentions the canonical paper).
-_CANDIDATES_PER_TITLE = 5
+_CANDIDATES_PER_TITLE = 8
+
+_MANUAL_SEEDS: dict[str, Paper] = {
+    "collaborative knowledge aware attentive network for recommender systems": Paper(
+        paper_id="manual_CKAN",
+        title="CKAN: Collaborative Knowledge-aware Attentive Network for Recommender Systems",
+        abstract=(
+            "A knowledge-aware recommendation model that uses attentive propagation over "
+            "collaborative signals and knowledge graph connections for top-N recommendation."
+        ),
+        source_ids={"seed": "CKAN"},
+    ),
+    "sociallgn light graph convolution network for social recommendation": Paper(
+        paper_id="W4205132462",
+        title="SocialLGN: Light graph convolution network for social recommendation",
+        abstract=(
+            "A social recommendation model based on light graph convolution that jointly "
+            "uses user-item interactions and social relations for preference propagation."
+        ),
+        year=2022,
+        citation_count=170,
+        source_ids={
+            "openalex": "W4205132462",
+            "doi": "10.1016/j.ins.2022.01.001",
+        },
+    ),
+}
 
 
 def _norm(title: str) -> str:
@@ -79,6 +123,10 @@ def fetch_seed_papers(titles: list[str]) -> tuple[list[Paper], list[str]]:
     missed: list[str] = []
     for title in titles:
         seed_norm = _norm(title)
+        manual = _MANUAL_SEEDS.get(seed_norm)
+        if manual is not None:
+            resolved.append(manual)
+            continue
         candidates = openalex.fetch_works(title, n=_CANDIDATES_PER_TITLE)
         match = next(
             (c for c in candidates if _is_match(seed_norm, _norm(c.title or ""))),
