@@ -110,14 +110,16 @@ def main() -> None:
         per_device_eval_batch_size=args.batch_size,
         eval_strategy="epoch",
         save_strategy="epoch",
+        save_total_limit=1,
         logging_steps=50,
+        report_to="none",
     )
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=validation_ds,
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         data_collator=DataCollatorWithPadding(tokenizer=tokenizer),
         compute_metrics=compute_metrics,
     )

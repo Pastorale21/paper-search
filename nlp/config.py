@@ -27,6 +27,12 @@ CACHE_DIR = PROJECT_ROOT / "data" / "cache"
 PAPERS_JSON = CACHE_DIR / "papers.json"
 METHOD_CARDS_DIR = CACHE_DIR / "method_cards"
 SCICITE_MODEL_DIR = Path(os.getenv("SCICITE_MODEL_DIR", CACHE_DIR / "scicite_model"))
+SCIENTIFIC_NER_MODEL_DIR = Path(
+    os.getenv("SCIENTIFIC_NER_MODEL_DIR", CACHE_DIR / "scientific_ner_model")
+)
+SCIENTIFIC_ENTITIES_DIR = Path(
+    os.getenv("SCIENTIFIC_ENTITIES_DIR", CACHE_DIR / "scientific_entities")
+)
 
 
 def load_papers() -> list[Paper]:
