@@ -2,6 +2,8 @@
 
 from unittest.mock import MagicMock
 
+import pytest
+
 from nlp.citation_intent import classifier
 from nlp.citation_intent.classifier import (
     CitationIntentClassifier,
@@ -45,6 +47,15 @@ def test_classify_dispatches_to_scicite_when_flag_set(monkeypatch):
 
 def test_classify_with_scicite_empty_context_defaults_background():
     assert classify_with_scicite("") == "background"
+
+
+def test_scicite_pipeline_missing_model_raises(tmp_path, monkeypatch):
+    classifier._get_scicite_pipeline.cache_clear()
+    monkeypatch.setattr(classifier.config, "SCICITE_MODEL_DIR", tmp_path / "missing_scicite")
+
+    with pytest.raises(FileNotFoundError, match="Train it with"):
+        classifier._get_scicite_pipeline()
+    classifier._get_scicite_pipeline.cache_clear()
 
 
 def test_classify_llm_fallback():
