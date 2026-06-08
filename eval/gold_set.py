@@ -64,7 +64,7 @@ DEFAULT_ALIASES: dict[str, str] = {
     "disen cdr": "disentangled representations for cross domain recommendation",
     "ddtcdr": "dual dynamic transfer for cross domain recommendation",
     "ddt cdr": "dual dynamic transfer for cross domain recommendation",
-    "ppgn": "personalized propagation graph neural network",
+    "ppgn": "preference propagation graphnet",
     "ptupcdr": "pre train user preference for cross domain recommendation",
     "ptup cdr": "pre train user preference for cross domain recommendation",
     # Session-based seed papers
@@ -80,7 +80,7 @@ DEFAULT_ALIASES: dict[str, str] = {
     "gc egnn": "global context enhanced graph neural",
     "surge": "sequential recommendation with graph neural networks",
     "fgnn": "feature graph neural networks for session based recommendation",
-    "lessr": "less is more recurrent neural networks",
+    "lessr": "handling information loss of graph neural networks",
     # Social seed papers
     "diffnet": "a neural influence diffusion model for social recommendation",
     "mhcn": "multi channel hypergraph convolutional network for social recommendation",
