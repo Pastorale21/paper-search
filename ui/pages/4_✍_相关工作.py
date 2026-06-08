@@ -24,6 +24,16 @@ from ui.related_work_prompt import (  # noqa: E402
     parse_llm_response,
 )
 
+DEMO_DRAFT = (
+    "We study graph contrastive learning for collaborative filtering under sparse "
+    "user-item interactions. Existing graph recommenders often rely on structural "
+    "augmentations or deeper message passing, which can introduce noise and increase "
+    "training cost. Our idea is to preserve the lightweight propagation of graph "
+    "collaborative filtering while constructing mechanism-aware contrastive views from "
+    "user-item neighborhoods and item co-occurrence signals. The goal is to improve "
+    "recommendation robustness without depending on expensive graph perturbations."
+)
+
 st.set_page_config(page_title="相关工作 · GNN-RecSys", layout="wide")
 st.title("✍️ 相关工作草稿")
 st.caption(
@@ -31,10 +41,14 @@ st.caption(
     "方法卡,并请 LLM 生成一段带 [N] 引用标记的连贯相关工作段落。"
 )
 
+if st.button("加载 demo 摘要"):
+    st.session_state["related_work_draft"] = DEMO_DRAFT
+
 user_input = st.text_area(
     "你的草稿想法 / 摘要",
     height=180,
     placeholder="粘贴 1-3 段描述你想法的文字。输入越丰富,召回的候选越好,生成的段落也越有用。",
+    key="related_work_draft",
 )
 
 cols = st.columns(2)

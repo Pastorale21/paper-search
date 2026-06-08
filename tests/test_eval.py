@@ -137,12 +137,23 @@ def test_title_resolver_logs_non_exact_matches():
 
 def test_title_resolver_distinguishes_plus_suffix_alias():
     papers = _papers(
-        ("W1", "Diffusion Network for Social Recommendation"),
+        ("W1", "A Neural Influence Diffusion Model for Social Recommendation"),
         ("W2", "DiffNet++: A Neural Influence and Interest Diffusion Network"),
     )
     resolver = TitleResolver(papers)
     assert resolver.resolve("DiffNet") == "W1"
     assert resolver.resolve("DiffNet++") == "W2"
+
+
+def test_title_resolver_alias_miss_blocks_acronym_substring_fallback():
+    papers = _papers(
+        ("W1", "SelfGNN: Self-Supervised Graph Neural Networks for Sequential Recommendation"),
+    )
+    resolver = TitleResolver(
+        papers,
+        aliases={"fgnn": "feature graph neural networks for session based recommendation"},
+    )
+    assert resolver.resolve("FGNN") is None
 
 
 def test_error_analysis_report_prints_low_score_context(capsys):

@@ -12,6 +12,7 @@ if str(_ROOT) not in sys.path:
 import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
+from ui.query_params import get_param, set_params  # noqa: E402
 
 st.set_page_config(page_title="方法卡 · GNN-RecSys", layout="wide")
 st.title("📋 方法卡")
@@ -34,7 +35,8 @@ labels = [
 ]
 ids = [p["paper_id"] for p in options]
 
-default_pid = st.session_state.get("selected_paper_id")
+query_pid = get_param("paper_id")
+default_pid = query_pid or st.session_state.get("selected_paper_id")
 default_index = ids.index(default_pid) if default_pid in ids else 0
 
 choice = st.selectbox(
@@ -46,6 +48,7 @@ choice = st.selectbox(
 selected_pid = ids[choice]
 selected = papers[selected_pid]
 st.session_state["selected_paper_id"] = selected_pid
+set_params(paper_id=selected_pid)
 
 card = api.load_method_card(selected_pid)
 

@@ -51,7 +51,7 @@ DEFAULT_ALIASES: dict[str, str] = {
     # Knowledge-graph seed paper(s)
     "kgin": "learning intents behind interactions",
     # title: "Knowledge Graph Convolutional Networks for Recommender Systems"
-    "kgcn": "knowledge graph convolutional network",
+    "kgcn": "kgcn knowledge graph convolutional networks for recommender systems",
     "cke": "collaborative knowledge base embedding",
     "ckan": "collaborative knowledge aware attentive network",
     "kgnnls": "knowledge graph neural networks with label smoothness",
@@ -60,9 +60,6 @@ DEFAULT_ALIASES: dict[str, str] = {
     "bitgcf": "bi directional transfer graph",
     "bi tgcf": "bi directional transfer graph",
     "ccdr": "contrastive cross domain recommendation",
-    "disencdr": "disencdr",
-    "ddtcdr": "deep dual transfer cross domain recommendation",
-    "ppgn": "preference propagation graphnet",
     "disencdr": "disentangled representations for cross domain recommendation",
     "disen cdr": "disentangled representations for cross domain recommendation",
     "ddtcdr": "dual dynamic transfer for cross domain recommendation",
@@ -79,20 +76,15 @@ DEFAULT_ALIASES: dict[str, str] = {
     "s3 rec": "self supervised learning for sequential recommendation",
     "cl4srec": "contrastive learning for sequential recommendation",
     "cl4s rec": "contrastive learning for sequential recommendation",
-    "surge": "sequential recommendation with graph neural networks",
-    "fgnn": "handling information loss of graph neural networks",
-    "tagnn": "target attentive graph neural networks",
     "tagnn": "target attentive graph neural networks",
     "gc egnn": "global context enhanced graph neural",
     "surge": "sequential recommendation with graph neural networks",
     "fgnn": "feature graph neural networks for session based recommendation",
     "lessr": "less is more recurrent neural networks",
     # Social seed papers
-    "diffnet": "diffusion network for social recommendation",
+    "diffnet": "a neural influence diffusion model for social recommendation",
     "mhcn": "multi channel hypergraph convolutional network for social recommendation",
     "graphrec": "graph neural networks for social recommendation",
-    "sociallgn": "light graph convolution network for social recommendation",
-    "mhcn": "multi channel hypergraph convolutional network",
     "sociallgn": "light graph convolution network for social recommendation",
     "social lgn": "light graph convolution network for social recommendation",
     "diffnet plus plus": "diffnet plus plus",
@@ -247,6 +239,9 @@ class TitleResolver:
                     pid = self._norm_title_to_id[nt]
                     self.fuzzy_log.append((title, nt, "alias"))
                     return _ResolveHit(pid, nt, "alias")
+            # A curated acronym alias that misses its target is a corpus gap, not a license
+            # to substring-match another acronym-containing title such as SelfGNN -> FGNN.
+            return None
         # 4. substring: gold (normalized) appears in any paper title
         if len(n) >= 4:  # avoid trivial matches like "cf"
             for nt in self._all_norm_titles:

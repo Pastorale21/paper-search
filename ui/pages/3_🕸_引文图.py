@@ -13,6 +13,7 @@ import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
 from ui.components.graph_view import render_graph  # noqa: E402
+from ui.query_params import get_param, set_params  # noqa: E402
 
 st.set_page_config(page_title="引文图 · GNN-RecSys", layout="wide")
 st.title("🕸 引文图")
@@ -28,7 +29,8 @@ labels = [
 ]
 ids = [p["paper_id"] for p in options]
 
-default_pid = st.session_state.get("selected_paper_id")
+query_pid = get_param("paper_id")
+default_pid = query_pid or st.session_state.get("selected_paper_id")
 default_index = ids.index(default_pid) if default_pid in ids else 0
 choice = st.selectbox(
     "锚点论文",
@@ -39,6 +41,7 @@ choice = st.selectbox(
 anchor_pid = ids[choice]
 anchor = papers[anchor_pid]
 st.session_state["selected_paper_id"] = anchor_pid
+set_params(paper_id=anchor_pid)
 
 st.markdown(
     f"**锚点:** {anchor.get('title') or '?'} · {anchor.get('year') or '?'} · `{anchor_pid}`"
