@@ -8,6 +8,9 @@ data/cache/*
 !data/cache/ids.json
 !data/cache/citation_graph.pkl
 !data/cache/method_cards/
+# sibling cache backups/archives — NOT covered by data/cache/* above
+data/cache.bak*/
+data/cache*.zip
 # secrets
 .env
 
