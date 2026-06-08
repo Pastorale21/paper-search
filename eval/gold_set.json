@@ -133,16 +133,16 @@
     {
       "id": "Q19",
       "mode": "short",
-      "text": "adversarial query session recommendation not collaborative filtering",
+      "text": "session recommendation with directed item transition graph",
       "gold_titles": ["SR-GNN", "GC-SAN", "TAGNN", "GCE-GNN", "LESSR"],
-      "notes": "Adversarial query that should avoid LightGCN/NGCF despite shared GNN vocabulary."
+      "notes": "Adversarial case: should avoid LightGCN/NGCF despite shared GNN vocabulary; exclusion terms are kept out of the query text to avoid lexical drift."
     },
     {
       "id": "Q20",
       "mode": "short",
-      "text": "adversarial query knowledge graph recommendation not social influence",
+      "text": "knowledge graph recommendation with entity relation propagation",
       "gold_titles": ["KGAT", "KGIN", "KGCN", "RippleNet", "CKAN"],
-      "notes": "Adversarial query that should avoid DiffNet/GraphRec despite graph terminology."
+      "notes": "Adversarial case: should avoid DiffNet/GraphRec despite graph terminology; exclusion terms are kept out of the query text to avoid lexical drift."
     },
     {
       "id": "P1",

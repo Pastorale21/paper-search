@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import os
+import shutil
 
 import numpy as np
 
@@ -11,10 +13,42 @@ from .fetch import load_papers
 
 _tokenizer = None
 _model = None
+_hf_symlink_patch_applied = False
 
 
 def _device() -> str:
     return config.DEVICE
+
+
+def _patch_hf_windows_symlink_fallback() -> None:
+    """Copy files when HuggingFace symlink creation fails on non-admin Windows."""
+    global _hf_symlink_patch_applied
+    if _hf_symlink_patch_applied or os.name != "nt":
+        return
+
+    try:
+        import huggingface_hub.file_download as file_download
+    except ImportError:
+        return
+
+    original_create_symlink = file_download._create_symlink
+
+    def _create_symlink_or_copy(src: str, dst: str, new_blob: bool = False) -> None:
+        try:
+            original_create_symlink(src, dst, new_blob=new_blob)
+        except OSError as exc:
+            if getattr(exc, "winerror", None) != 1314:
+                raise
+            abs_src = os.path.abspath(os.path.expanduser(src))
+            abs_dst = os.path.abspath(os.path.expanduser(dst))
+            os.makedirs(os.path.dirname(abs_dst), exist_ok=True)
+            if new_blob:
+                shutil.move(abs_src, abs_dst)
+            else:
+                shutil.copyfile(abs_src, abs_dst)
+
+    file_download._create_symlink = _create_symlink_or_copy
+    _hf_symlink_patch_applied = True
 
 
 def _load_model():
@@ -22,6 +56,7 @@ def _load_model():
     global _tokenizer, _model
     if _model is not None:
         return _tokenizer, _model
+    _patch_hf_windows_symlink_fallback()
     from adapters import AutoAdapterModel
     from transformers import AutoTokenizer
 
@@ -75,7 +110,7 @@ def build_corpus_embeddings(force: bool = False) -> tuple[np.ndarray, list[str]]
     """Embed all cached papers (proximity adapter) and persist vectors + id order."""
     if config.EMBEDDINGS_NPY.exists() and config.IDS_JSON.exists() and not force:
         emb = np.load(config.EMBEDDINGS_NPY)
-        ids = json.loads(config.IDS_JSON.read_text())
+        ids = json.loads(config.IDS_JSON.read_text(encoding="utf-8"))
         print(f"[embed] cache hit: {emb.shape}")
         return emb, ids
     papers = load_papers()
@@ -85,6 +120,6 @@ def build_corpus_embeddings(force: bool = False) -> tuple[np.ndarray, list[str]]
     emb = embed_documents(texts)
     ids = [p.paper_id for p in papers]
     np.save(config.EMBEDDINGS_NPY, emb)
-    config.IDS_JSON.write_text(json.dumps(ids))
+    config.IDS_JSON.write_text(json.dumps(ids), encoding="utf-8")
     print(f"[embed] embedded {emb.shape[0]} papers, dim={emb.shape[1]}")
     return emb, ids

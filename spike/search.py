@@ -24,7 +24,7 @@ def _ensure_loaded() -> None:
         import faiss
 
         _index = faiss.read_index(str(config.FAISS_INDEX))
-        _ids = json.loads(config.IDS_JSON.read_text())
+        _ids = json.loads(config.IDS_JSON.read_text(encoding="utf-8"))
         _papers_by_id = {p.paper_id: p for p in load_papers()}
         _graph = load_graph()
 
