@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4382239737",
+  "task": "incremental learning for recommender systems",
+  "input": "streaming user-item interaction graph (data blocks arriving over time)",
+  "output": "updated user and item embeddings for recommendation",
+  "backbone": "GNN-based recommender (e.g., LightGCN) with structure distillation",
+  "loss": "distillation loss + recommendation loss (e.g., BPR) + regularization from personalized imitation weights",
+  "key_idea": "learn a personalized imitation weight per user to balance old knowledge retention and new data adaptation during incremental training",
+  "datasets": [
+    "five diverse datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

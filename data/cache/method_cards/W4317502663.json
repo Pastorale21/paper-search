@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4317502663",
+  "task": "explainable recommendation with knowledge graphs",
+  "input": "user-item interaction graph and knowledge graph (KG)",
+  "output": "ranked item recommendations with explanations",
+  "backbone": "relational attention GNN + knowledge-enhanced topic model",
+  "loss": "not specified in abstract",
+  "key_idea": "explicitly model user intent as topics from behavior sequences and fuse with preference learned via relational attention GNN",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4292387463",
+  "task": "successive point-of-interest recommendation",
+  "input": "user-POI interaction graph with temporal check-in sequences",
+  "output": "next POI recommendation (ranked list of POIs)",
+  "backbone": "graph convolutional network with self-attention aggregator",
+  "loss": "",
+  "key_idea": "combine graph convolution for high-order connectivity and self-attention for dynamic timeliness of POIs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

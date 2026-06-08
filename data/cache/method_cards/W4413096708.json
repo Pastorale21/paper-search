@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4413096708",
+  "task": "course recommendation",
+  "input": "personal knowledge graph (PKG) with user-course interactions and multimodal features",
+  "output": "ranked list of courses per user",
+  "backbone": "ERNIE (text encoder) + LightGCN (graph encoder)",
+  "loss": "not specified",
+  "key_idea": "construct a personal knowledge graph with five relation types and use dual-path feature learning with adaptive fusion",
+  "datasets": [
+    "XuetangX"
+  ],
+  "metrics": [
+    "HR@5",
+    "NDCG@5",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

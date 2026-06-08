@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4308905558",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph, item knowledge graph, and item text information",
+  "output": "ranked list of items per user",
+  "backbone": "bilinear knowledge-aware graph neural network with ALBERT-based text encoder",
+  "loss": "not specified in abstract",
+  "key_idea": "model both high-order connectivity and second-order feature interactions in KG, and fuse text information via ALBERT+Bi-LSTM+Attention",
+  "datasets": [
+    "Movielens-20M",
+    "IPTV (Chinese)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

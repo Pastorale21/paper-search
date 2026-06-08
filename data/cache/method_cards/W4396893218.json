@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4396893218",
+  "task": "news recommendation",
+  "input": "user-news interaction graph, news content, user reading history",
+  "output": "ranked list of news articles for each user",
+  "backbone": "encoder graph neural network with CNN, attention, and GRU",
+  "loss": "not specified",
+  "key_idea": "combines bat optimization for clustering, metadata-enhanced GNN for resource correlation, and CNN+attention for news representation with GRU for user short-term preferences",
+  "datasets": [
+    "real news datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

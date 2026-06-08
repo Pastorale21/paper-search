@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4405521456",
+  "task": "group recommendation",
+  "input": "user-item interaction graph with social interactions and individual characteristics",
+  "output": "recommended items or activities for a group",
+  "backbone": "improved graph neural network",
+  "loss": "",
+  "key_idea": "construct an effective graph structure encoding social interaction and individual characteristics, then use an improved GNN for group recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

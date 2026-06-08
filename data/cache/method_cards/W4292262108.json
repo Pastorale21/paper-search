@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4292262108",
+  "task": "dynamic social recommendation",
+  "input": "user-item interaction graph, user-user social graph, and session-level temporal data",
+  "output": "item recommendations for users at each session",
+  "backbone": "multi-order hypergraph convolutional neural network",
+  "loss": "not specified",
+  "key_idea": "model dynamic user interest evolution at session level using hypergraph to combine explicit and implicit social relations",
+  "datasets": [
+    "Yelp",
+    "Foursquare",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

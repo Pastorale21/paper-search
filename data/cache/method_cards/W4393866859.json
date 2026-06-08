@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4393866859",
+  "task": "cross-domain personalized recommendation",
+  "input": "user-item rating matrix and social network information from multiple domains",
+  "output": "personalized recommendation list (predicted ratings)",
+  "backbone": "matrix decomposition (ALS, NMF, SVD, LFM) with graph convolutional network for user features",
+  "loss": "Ridge regularization (implicitly MSE-based)",
+  "key_idea": "fuse cross-domain information via weighted average and feature connection of user/item features from matrix decomposition and GCN",
+  "datasets": [
+    "Douban movie ratings",
+    "social network data"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE",
+    "F1@10",
+    "coverage"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4386159802",
+  "task": "federated recommendation",
+  "input": "non-IID local user-item interaction sub-graphs across clients",
+  "output": "personalized item recommendations per user",
+  "backbone": "GNN (graph neural network) with cluster-driven federated learning",
+  "loss": "not specified in abstract",
+  "key_idea": "adaptive model clustering (AMC) for non-IID sub-graphs and biased message dropout (BMD) for overfitting and efficiency",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

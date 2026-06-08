@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4399881097",
+  "task": "joint prediction of social link behavior and consumption behavior in dynamic SNS",
+  "input": "dynamic social network graph and user-item consumption graph (with timestamps)",
+  "output": "predictions for social link formation and item consumption (recommendation)",
+  "backbone": "dual graph neural network with attentive GCN and GRU",
+  "loss": "not specified in abstract",
+  "key_idea": "disentangle user embeddings from multiple perspectives and fuse them via a dual framework with attentive GCN and GRU to capture high-order dynamic information",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

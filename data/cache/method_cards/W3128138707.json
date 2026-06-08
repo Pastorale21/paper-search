@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3128138707",
+  "task": "drug package recommendation",
+  "input": "patient-drug interaction records, drug interaction graph (initialized from medical records and domain knowledge), patient conditions",
+  "output": "ranked list of drug packages (sets of drugs) for a patient",
+  "backbone": "graph neural network (GNN) for graph induction, with variants DPR-WG (weighted graph) and DPR-AG (attributed graph)",
+  "loss": "not explicitly stated (likely a ranking loss or cross-entropy, but not specified in abstract)",
+  "key_idea": "model drug-drug interactions (synergistic/antagonistic) as signed weights or attribute vectors, and use a mask layer to condition interactions on patient state",
+  "datasets": [
+    "real-world EMR dataset from a first-rate hospital"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4402768004",
+  "task": "multi-label educational emotion prediction",
+  "input": "text from online social networks",
+  "output": "multi-label emotion classification",
+  "backbone": "GCN + LSTM with multi-granularity attention",
+  "loss": "not specified",
+  "key_idea": "fuse GCN for word features, LSTM for long-term dependencies, and label correlation matrix to capture label dependencies",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

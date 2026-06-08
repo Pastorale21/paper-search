@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4400909703",
+  "task": "knowledge-enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "recommended items for a user",
+  "backbone": "attention-based GNN on user-centric subgraphs",
+  "loss": "",
+  "key_idea": "construct a user-item subgraph for each pair that integrates interaction history and KG side information, then encode with attention-based GNN",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

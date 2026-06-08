@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4312663885",
+  "task": "collaborative filtering recommendation",
+  "input": "user-item bipartite graph and user-user homophily graph",
+  "output": "predicted user-item interaction scores",
+  "backbone": "graph neural network (GNN) with community extraction",
+  "loss": "not specified",
+  "key_idea": "extract overlapping communities from user-user graph and integrate high-order information from user-item graph via multiple graphs",
+  "datasets": [
+    "MovieLens-100K",
+    "MovieLens-1M",
+    "Douban"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

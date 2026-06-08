@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4393041761",
+  "task": "privacy-preserving cross-domain recommendation",
+  "input": "distributed user-item interaction graphs from multiple domains",
+  "output": "recommendations for all domains without sharing raw data",
+  "backbone": "federated graph learning with graph transfer module",
+  "loss": "not specified in abstract",
+  "key_idea": "federated learning with local differential privacy to learn global and local user preferences across domains",
+  "datasets": [
+    "three CDR datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

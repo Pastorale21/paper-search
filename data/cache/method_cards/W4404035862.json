@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4404035862",
+  "task": "survey of knowledge graph-based recommender systems",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "comprehensive review of knowledge graph applications in recommender systems, covering representation learning, graph neural networks, and evaluation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

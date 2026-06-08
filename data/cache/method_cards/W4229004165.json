@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4229004165",
+  "task": "sequential recommendation",
+  "input": "user behavioral history (sequence of interacted items)",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "graph convolutional network + sequential capsule network",
+  "loss": "not specified in abstract",
+  "key_idea": "combine multi-interest learning with multi-level graph convolution to capture both diverse user interests and hierarchical item correlations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

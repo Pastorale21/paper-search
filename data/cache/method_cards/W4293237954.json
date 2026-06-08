@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4293237954",
+  "task": "next-item recommendation (session-based)",
+  "input": "user behavior sequences (historical and current sessions)",
+  "output": "next item prediction",
+  "backbone": "multi-interest graph neural network",
+  "loss": "",
+  "key_idea": "construct interest graphs from behavior sequences to capture multiple user interests and complex item transitions",
+  "datasets": [
+    "Jdata"
+  ],
+  "metrics": [
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

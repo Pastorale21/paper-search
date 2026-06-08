@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4382239885",
+  "task": "social relationship inference from user mobility data",
+  "input": "multiplex user meeting graph (spatio-temporal interactions in different semantic contexts)",
+  "output": "predicted social relationships (binary or strength)",
+  "backbone": "Graph Convolutional Network (GCN) with graph structure learning",
+  "loss": "semi-supervised (not explicitly stated, likely cross-entropy)",
+  "key_idea": "combine GCN with graph structure learning to remove noisy edges from the multiplex user meeting graph",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

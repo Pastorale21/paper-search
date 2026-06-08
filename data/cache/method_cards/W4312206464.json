@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4312206464",
+  "task": "link prediction",
+  "input": "graph (e.g., citation network, user-item interaction graph)",
+  "output": "predicted link existence probability for each edge",
+  "backbone": "any GNN (GCN, GraphSage, NGCF, LightGCN, SEAL) with personalized subgraph selector (PS2)",
+  "loss": "binary cross-entropy (link prediction loss) + bi-level optimization for subgraph selection",
+  "key_idea": "automatically and inductively select personalized subgraphs for each edge via bi-level optimization to improve link prediction",
+  "datasets": [
+    "Planetoid",
+    "OGB",
+    "Recommendation datasets"
+  ],
+  "metrics": [
+    "AUC",
+    "AP"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

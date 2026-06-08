@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2982585480",
+  "task": "personalized news recommendation",
+  "input": "heterogeneous graph of users, news articles, and latent topics",
+  "output": "ranked list of news articles per user",
+  "backbone": "graph neural network (GNN) + attention-based LSTM",
+  "loss": "not specified",
+  "key_idea": "model long-term user interest via GNN on heterogeneous graph and short-term interest via attention LSTM on recent clicks",
+  "datasets": [
+    "real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

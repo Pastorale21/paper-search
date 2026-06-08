@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4400141811",
+  "task": "food recommendation",
+  "input": "user-recipe interaction graph and multi-modal recipe features (e.g., images, text)",
+  "output": "ranked list of recipes per user",
+  "backbone": "graph convolutional network (GCN) on modality-specific graphs",
+  "loss": "recommendation loss (e.g., BPR) + self-supervised learning objective for independence across modalities",
+  "key_idea": "construct modality-specific graphs from discrete/continuous features and apply self-supervised learning to encourage independence between unimodal recipe representations",
+  "datasets": [
+    "real-world food recommendation datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

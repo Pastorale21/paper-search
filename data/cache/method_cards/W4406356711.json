@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4406356711",
+  "task": "healthcare recommendation (disease diagnosis prediction)",
+  "input": "patient-patient and patient-symptom graph",
+  "output": "predicted disease diagnosis",
+  "backbone": "graph neural network (GNN) based collaborative filtering",
+  "loss": "",
+  "key_idea": "interpretable GNN-based collaborative filtering for modeling patient relationships and symptom associations",
+  "datasets": [],
+  "metrics": [
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

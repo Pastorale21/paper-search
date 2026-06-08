@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4408866383",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN with residual connections and identity mapping",
+  "loss": "",
+  "key_idea": "mitigate over-smoothing in GNN-based recommenders via residual connections and identity mapping to preserve user-item interaction details across layers",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

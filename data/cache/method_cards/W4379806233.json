@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4379806233",
+  "task": "personalized micro-video recommendation",
+  "input": "user-microvideo interaction graph and multi-modal features (visual, acoustic, textual)",
+  "output": "ranked list of micro-videos per user",
+  "backbone": "graph contrastive learning network with collaborative and semantic views",
+  "loss": "collaborative contrastive loss + semantic contrastive loss + cross-view contrastive loss",
+  "key_idea": "enrich contrastive samples by leveraging structure-level similar nodes and multi-modal semantic graphs, with cross-view agreement maximization",
+  "datasets": [
+    "WeChat",
+    "TikTok",
+    "Kwai"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

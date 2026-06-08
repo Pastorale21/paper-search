@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4406827826",
+  "task": "recommendation system survey",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "This is a survey paper summarizing traditional and deep learning-based recommendation methods, not a specific method.",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4403835537",
+  "task": "rating prediction (recommendation)",
+  "input": "user-item interaction graph with sequential features",
+  "output": "predicted rating score",
+  "backbone": "hybrid GCN + GRU + Deep Crossing",
+  "loss": "MSE (implied by evaluation metrics)",
+  "key_idea": "combine graph convolution for higher-order features, GRU for temporal dynamics, and Deep Crossing for multi-level feature interactions",
+  "datasets": [
+    "MovieLens-ml-25m",
+    "Book-Crossings",
+    "Amazon Reviews'23"
+  ],
+  "metrics": [
+    "Accuracy",
+    "MSE",
+    "MAE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

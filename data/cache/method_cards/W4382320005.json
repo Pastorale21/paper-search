@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4382320005",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (e.g., click, add-to-cart, purchase)",
+  "output": "predicted target behavior (e.g., purchase) scores for user-item pairs",
+  "backbone": "multi-behavior graph attention network (MGAT)",
+  "loss": "multi-task loss (e.g., weighted sum of behavior-specific losses)",
+  "key_idea": "model multiple user behaviors via graph attention and multi-task learning to address behavior weight imbalance",
+  "datasets": [
+    "Beibei",
+    "Taobao"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

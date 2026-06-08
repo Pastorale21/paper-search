@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4385768142",
+  "task": "zero-shot node classification",
+  "input": "graph with node features and a knowledge graph (KG) for label semantics",
+  "output": "class labels for nodes from unseen classes",
+  "backbone": "GNN with multi-faceted representation learning",
+  "loss": "not specified in abstract",
+  "key_idea": "enhance label semantics with KG-based topics and reconstruct node content into topic-level representations for fine-grained semantic alignment",
+  "datasets": [
+    "several public graph datasets"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

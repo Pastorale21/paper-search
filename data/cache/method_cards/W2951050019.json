@@ -1,0 +1,20 @@
+{
+  "paper_id": "W2951050019",
+  "task": "recommendation with heterogeneous auxiliary relationships",
+  "input": "user-item interaction graph and heterogeneous auxiliary relationships (e.g., user behaviors, item information)",
+  "output": "predicted user-item preferences",
+  "backbone": "graph convolutional network (GCN) with IntentNet for efficiency",
+  "loss": "not specified in abstract",
+  "key_idea": "automatically learn importance of heterogeneous relationships via nonlinear GCN, with a faster variant IntentNet for web-scale applications",
+  "datasets": [
+    "two large-scale real-world datasets (not named)",
+    "Alibaba online A/B tests"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

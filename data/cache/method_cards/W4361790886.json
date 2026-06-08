@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4361790886",
+  "task": "social recommendation (next-item prediction / rating prediction)",
+  "input": "user-item interaction graph, social network graph, item life cycle information",
+  "output": "predicted user preference scores for items",
+  "backbone": "graph neural network with item life cycle modeling",
+  "loss": "not specified",
+  "key_idea": "incorporates item life cycle (short-term and long-term changes) and real social friends into GNN-based recommendation",
+  "datasets": [
+    "real datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4411088796",
+  "task": "cross-domain recommendation with privacy preservation",
+  "input": "user-item interaction graphs from multiple domains (each domain as a federated client)",
+  "output": "ranked item recommendations per user across domains",
+  "backbone": "graph neural network (GNN) encoder with differential privacy on aggregation layers",
+  "loss": "BPR loss + consistency loss (local-global representation invariance)",
+  "key_idea": "federated transfer learning with differential privacy on GNN aggregation outputs to protect user representations while enabling cross-domain knowledge transfer via latent overlapping user detection",
+  "datasets": [
+    "real-world datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "recommendation accuracy (not specified in abstract)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

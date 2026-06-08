@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4387846585",
+  "task": "social-aware recommendation",
+  "input": "user-item interaction graph and user-user social network",
+  "output": "user and item representations for recommendation",
+  "backbone": "graph neural network (GNN) with multi-dimensional edge features",
+  "loss": "not specified in abstract",
+  "key_idea": "learn multi-dimensional edge features to capture heterogeneous user behavior patterns in social and interaction relationships",
+  "datasets": [
+    "three publicly accessible datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

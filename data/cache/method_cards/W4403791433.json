@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4403791433",
+  "task": "knowledge graph enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network with variational graph reconstruction",
+  "loss": "contrastive loss (InfoNCE) + recommendation loss (e.g., BPR)",
+  "key_idea": "generate self-derived knowledge graphs via variational graph reconstruction and apply contrastive learning to improve robustness",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

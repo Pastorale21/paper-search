@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3198350630",
+  "task": "collaborative filtering for recommendation",
+  "input": "user-item interaction matrix (implicit feedback)",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "reflective receptor network + information fusion autoencoder",
+  "loss": "not explicitly stated (implied: reconstruction loss with regularization)",
+  "key_idea": "use a reflective receptor network and autoencoder to encode pairwise preferences from both observed and unobserved interactions, avoiding negative sampling bias",
+  "datasets": [
+    "four diverse benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4400525788",
+  "task": "collaborative filtering for recommendation",
+  "input": "user-item interaction graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "alternating Transformer and GNN layers",
+  "loss": "BPR loss",
+  "key_idea": "alternate Transformer and GNN layers to broaden receptive fields and adaptively aggregate information from relevant nodes",
+  "datasets": [
+    "Yelp2018",
+    "Amazon-Book",
+    "Gowalla",
+    "Alibaba-iFashion",
+    "Tmall"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

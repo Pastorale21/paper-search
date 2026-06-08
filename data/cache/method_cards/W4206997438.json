@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4206997438",
+  "task": "multi-task recommendation with knowledge graph",
+  "input": "user-item interaction graph, knowledge graph (including attribute triples), user attribute information",
+  "output": "item recommendations for users",
+  "backbone": "multi-task learning framework with knowledge graph embedding",
+  "loss": "recommendation loss (e.g., BPR) + knowledge graph embedding loss (integrating attribute and high-order connectivity)",
+  "key_idea": "alternately train recommendation task with user-side information and enhanced KG embedding task that incorporates attribute triples and high-order connectivity",
+  "datasets": [
+    "MovieLens"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

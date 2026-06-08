@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4378220918",
+  "task": "Web service (Mashup) recommendation",
+  "input": "structured and unstructured information of Mashup and Web API (text descriptions, attributes, relationships)",
+  "output": "Top-K recommended Web APIs for a given Mashup description",
+  "backbone": "knowledge graph embedding (Trans model) with multi-modal features",
+  "loss": "not specified (likely knowledge graph embedding loss)",
+  "key_idea": "construct a multi-modal knowledge graph combining text features and relational attributes, then use Trans model for recommendation",
+  "datasets": [
+    "ProgrammableWeb"
+  ],
+  "metrics": [
+    "Recall",
+    "Precision",
+    "F1-score",
+    "MRR",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

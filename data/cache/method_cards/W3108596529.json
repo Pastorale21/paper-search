@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3108596529",
+  "task": "context-aware user behavior prediction and recommendation",
+  "input": "context-user and context-item interaction graphs (nodes are feature fields of users, items, and contexts)",
+  "output": "predicted user behavior (e.g., rating or preference score)",
+  "backbone": "context-aware graph neural network (CA-GNN) with attention mechanism",
+  "loss": "not specified (likely regression loss for RMSE/MAE)",
+  "key_idea": "model feature interactions by constructing separate context-user and context-item graphs and applying GNN with attention",
+  "datasets": [
+    "Food",
+    "Yelp"
+  ],
+  "metrics": [
+    "RMSE",
+    "MAE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4391038686",
+  "task": "personalized recommendation of online teaching resources",
+  "input": "user-item interaction data (vocal music teaching resources)",
+  "output": "personalized list of recommended teaching resources",
+  "backbone": "graph neural network (GNN) with project-based collaborative filtering",
+  "loss": "",
+  "key_idea": "uses Pearson correlation coefficient for similarity and GNN for clustering knowledge points to enable personalized recommendation",
+  "datasets": [
+    "Fundamentals of Vocal Music Theory online course"
+  ],
+  "metrics": [
+    "average rate of loss of points"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

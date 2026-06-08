@@ -1,0 +1,23 @@
+{
+  "paper_id": "W2950451632",
+  "task": "knowledge graph enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph (item-entity alignments)",
+  "output": "predicted user-item interaction scores",
+  "backbone": "multi-task learning framework with cross&compress units",
+  "loss": "recommendation loss (e.g., cross-entropy) + knowledge graph embedding loss (e.g., pairwise ranking)",
+  "key_idea": "cross&compress units automatically share latent features between recommendation and knowledge graph embedding tasks",
+  "datasets": [
+    "movie",
+    "book",
+    "music",
+    "news"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

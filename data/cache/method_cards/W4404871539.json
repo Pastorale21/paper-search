@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4404871539",
+  "task": "next POI recommendation",
+  "input": "user trajectory sequences and POI attributes (spatial-temporal information)",
+  "output": "next POI prediction (ranked list of POIs)",
+  "backbone": "multiple adaptive graphs with GNN encoders",
+  "loss": "graph-based contrastive learning loss + spatial-temporal bias",
+  "key_idea": "construct multiple adaptive graphs to capture diverse POI dependencies and fuse multi-facet representations via contrastive learning",
+  "datasets": [
+    "3 datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "accuracy (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

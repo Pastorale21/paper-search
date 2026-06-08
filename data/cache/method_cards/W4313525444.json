@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4313525444",
+  "task": "medicine recommendation (set of medicines)",
+  "input": "patient's electronic health record (EHR) with diagnosis and procedure codes",
+  "output": "recommended set of medicines",
+  "backbone": "dual graph neural network (medicine co-occurrence graph + molecular connection graph)",
+  "loss": "automatic correction loss based on maximum likelihood estimation",
+  "key_idea": "combines diagnosis-level and procedure-level attention with dual-graph neural network to incorporate external medicine knowledge and mitigate missing EHR",
+  "datasets": [
+    "MIMIC-III"
+  ],
+  "metrics": [
+    "F1",
+    "Precision",
+    "Recall",
+    "Jaccard",
+    "Average F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

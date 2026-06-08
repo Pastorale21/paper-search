@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4410325574",
+  "task": "cross-domain e-commerce shopping behavior prediction",
+  "input": "user-item interaction data from multiple domains (e.g., Amazon, e-commerce, Taobao)",
+  "output": "predicted shopping behavior (e.g., purchase probability)",
+  "backbone": "hybrid neural network combining BERT, GNN, and transfer learning",
+  "loss": "not specified",
+  "key_idea": "combine BERT, GNN, and transfer learning to capture complex user-item relationships and enable knowledge transfer across domains",
+  "datasets": [
+    "Amazon",
+    "e-commerce",
+    "Taobao"
+  ],
+  "metrics": [
+    "Accuracy",
+    "F1-score",
+    "AUC",
+    "MAE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

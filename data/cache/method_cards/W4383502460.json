@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4383502460",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "graph neural network with relational attention",
+  "loss": "",
+  "key_idea": "model user homophily by learning consistent embeddings from contextual and relational levels via graph neural network and relational attention",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

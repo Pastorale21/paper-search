@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4391410778",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "GCN (applied to LightGCN, SGL, SimGCL)",
+  "loss": "not specified (inherits from base model, e.g., BPR + InfoNCE)",
+  "key_idea": "multiply embedding results with different weights for each hop layer before forwarding to mitigate embedding value-vanishing",
+  "datasets": [
+    "MovieLens",
+    "Last.FM"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

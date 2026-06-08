@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4294068674",
+  "task": "cross-enterprise recommendation under privacy constraints",
+  "input": "user-item interaction graphs distributed across enterprises (non-IID)",
+  "output": "personalized item recommendations for each enterprise",
+  "backbone": "GNN-based recommendation model (e.g., LightGCN)",
+  "loss": "BPR loss (implied) + loss-based federated aggregation",
+  "key_idea": "loss-based federated aggregation with dynamic attention to handle heterogeneous graph data across enterprises",
+  "datasets": [
+    "benchmark datasets (not specified)"
+  ],
+  "metrics": [
+    "accuracy",
+    "fairness",
+    "stability"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4403577395",
+  "task": "product recommendation (multi-unit purchase)",
+  "input": "heterogeneous directed product graph (co-purchase, co-view, category associations)",
+  "output": "ranked list of recommended products",
+  "backbone": "Graph Neural Network with dual embeddings",
+  "loss": "not explicitly stated (likely link prediction loss + self-supervised distillation loss)",
+  "key_idea": "leverage multimodal (text+image) and multilingual embeddings via graph neural network with dual embeddings for asymmetric relationships",
+  "datasets": [
+    "internal e-commerce dataset",
+    "external dataset (not named)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "sales lift (A/B test)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

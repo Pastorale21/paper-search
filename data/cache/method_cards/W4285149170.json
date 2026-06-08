@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4285149170",
+  "task": "social-aware service recommendation",
+  "input": "user-item interaction graph and user social network graph",
+  "output": "ranked list of services per user",
+  "backbone": "high-order social graph neural network (HSGNN) with graph convolution and neighbor-level attention",
+  "loss": "",
+  "key_idea": "multi-hop propagation of social influence via graph convolution and adaptive neighbor-level attention for specific service preference",
+  "datasets": [
+    "real-world service dataset"
+  ],
+  "metrics": [
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

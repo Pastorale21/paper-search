@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4226065821",
+  "task": "recommender system pre-training",
+  "input": "multi-relational user graph, item graph, and user-item interaction graph",
+  "output": "user and item embeddings for downstream recommendation",
+  "backbone": "Reinforced Attentive Multi-relational Graph Neural Network (RAM-GNN)",
+  "loss": "not specified (pre-training objective not explicitly stated)",
+  "key_idea": "pre-train user/item embeddings on separate multi-relational attribute graphs using relation-level attention and reinforced neighbor sampling, then fine-tune on interaction graph",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

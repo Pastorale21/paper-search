@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4309650822",
+  "task": "multitask recommendation (with knowledge graph)",
+  "input": "user-item interaction data and knowledge graph (auxiliary entity information)",
+  "output": "predicted user-item interaction scores",
+  "backbone": "DeepFM + GCN",
+  "loss": "not specified in abstract",
+  "key_idea": "use GCN to mine entity information from knowledge graph and DeepFM to capture feature interactions, with cross-compression units for feature sharing",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

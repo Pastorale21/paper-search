@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4290943549",
+  "task": "representation learning for web-scale recommender systems",
+  "input": "heterogeneous graphs (user social, membership, user-item engagements, etc.)",
+  "output": "user and item embeddings",
+  "backbone": "self-supervised graph embedding (various families)",
+  "loss": "self-supervised objectives (e.g., contrastive, generative)",
+  "key_idea": "survey/tutorial covering self-supervised graph embedding techniques for large-scale recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

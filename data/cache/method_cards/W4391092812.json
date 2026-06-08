@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4391092812",
+  "task": "explainable recommendation with cold start handling",
+  "input": "user-item interaction graph, knowledge graph, user review texts",
+  "output": "ranked item recommendations with explanation paths",
+  "backbone": "GCN (parallel on interaction graph and KG) + pretrained language model",
+  "loss": "not specified",
+  "key_idea": "parallel GCN on interaction graph and KG, augmented with review embeddings from a pretrained language model, and explanation paths generated from KG and embeddings",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

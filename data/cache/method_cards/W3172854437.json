@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3172854437",
+  "task": "negative sampling for GNN-based collaborative filtering",
+  "input": "user-item interaction graph",
+  "output": "synthetic hard negative samples",
+  "backbone": "any GNN-based recommender (e.g., NGCF, LightGCN)",
+  "loss": "BPR (with synthetic negatives)",
+  "key_idea": "synthesize hard negatives by mixing embeddings from different layers of raw negatives' neighborhoods (hop mixing)",
+  "datasets": [
+    "Gowalla",
+    "Yelp2018",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

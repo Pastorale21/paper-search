@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4408997780",
+  "task": "explainable career recommendation",
+  "input": "knowledge graph of career trajectories",
+  "output": "recommendations with explanations",
+  "backbone": "graph neural network with reinforcement learning and knowledge distillation",
+  "loss": "",
+  "key_idea": "integrates reinforcement learning, graph embeddings, and knowledge distillation to generate explainable recommendations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

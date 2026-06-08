@@ -1,0 +1,21 @@
+{
+  "paper_id": "W2998431760",
+  "task": "collaborative filtering (top-K recommendation)",
+  "input": "user-item interaction bipartite graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "linear residual graph convolutional network (LR-GCCF)",
+  "loss": "BPR loss",
+  "key_idea": "remove non-linearities and add residual connections to alleviate over-smoothing in GCN-based CF",
+  "datasets": [
+    "Gowalla",
+    "Yelp2018"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4386867884",
+  "task": "service recommendation",
+  "input": "user-service interaction graph",
+  "output": "ranked list of services per user",
+  "backbone": "multi-view graph contrastive learning (GNN encoder)",
+  "loss": "contrastive loss (intra-CL and inter-CL)",
+  "key_idea": "construct a fixed global graph diffusion view independent of the local view and perform intra- and inter-view contrastive learning to obtain uniform node representations",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

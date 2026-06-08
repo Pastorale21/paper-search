@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4391315853",
+  "task": "course recommendation",
+  "input": "user-course interaction sequences, course prerequisite graph, course-category mapping",
+  "output": "ranked list of courses for a user",
+  "backbone": "gated graph neural network (item-level) + GRU (category-level)",
+  "loss": "not specified in abstract",
+  "key_idea": "incorporate course prerequisite relationships and category-level learning patterns via separate graph encoders",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4410118745",
+  "task": "session-based recommendation",
+  "input": "anonymous session sequences (user-item interactions within a session)",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "multi-view graph neural network (GNN) with session graph, global item graph, global category graph",
+  "loss": "contrastive loss (InfoNCE) + cross-entropy loss for next item prediction",
+  "key_idea": "construct three graph views (session, global item, global category) and apply contrastive learning to enhance embeddings and reduce noise",
+  "datasets": [
+    "Tmall",
+    "Nowplaying"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

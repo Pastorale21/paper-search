@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4390691924",
+  "task": "Web service recommendation for Mashup creation",
+  "input": "Mashup-service interaction graph, service textual descriptions, discrete attributes, and knowledge graph",
+  "output": "ranked list of Web services for a given Mashup",
+  "backbone": "knowledge graph convolutional network (KGCN)",
+  "loss": "not specified (implicitly cross-entropy or pairwise loss from KGCN)",
+  "key_idea": "pre-train service embeddings via neural factorization machines and Doc2Vec, then feed into KGCN for recommendation",
+  "datasets": [
+    "ProgrammableWeb"
+  ],
+  "metrics": [
+    "accuracy",
+    "recall",
+    "Micro-F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

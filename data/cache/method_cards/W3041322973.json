@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3041322973",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from multiple domains",
+  "output": "recommendations across domains",
+  "backbone": "Graph Factorization Machine (GFM) integrating Factorization Machine into GNN",
+  "loss": "not specified",
+  "key_idea": "aggregate multi-order neighborhood interactions via Factorization Machine within a GNN framework for cross-domain recommendation",
+  "datasets": [
+    "four pairs of datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

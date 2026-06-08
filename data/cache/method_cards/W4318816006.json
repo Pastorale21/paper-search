@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4318816006",
+  "task": "session-based travel packages recommendation",
+  "input": "user historical and current sessions (click sequences) and item attribute graphs",
+  "output": "ranked list of travel packages for next click prediction",
+  "backbone": "multi-view variational graph auto-encoder + personalized GNN",
+  "loss": "variational lower bound (ELBO) + recommendation loss (cross-entropy or BPR)",
+  "key_idea": "jointly learn item representations from co-occurrence attribute graphs via multi-view VGAE and user representations from sessions via personalized GNN with gated fusion of historical and current sessions",
+  "datasets": [
+    "real-life tourism e-commerce dataset from China"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

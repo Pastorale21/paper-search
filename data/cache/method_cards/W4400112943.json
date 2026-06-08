@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4400112943",
+  "task": "robust recommendation",
+  "input": "user-item interaction graph (potentially noisy)",
+  "output": "denoised user/item representations and recommendations",
+  "backbone": "graph structure learning + GNN (joint framework)",
+  "loss": "recommendation loss (e.g., BPR) + low-rank and sparse constraints on adjacency matrix",
+  "key_idea": "jointly optimize graph adjacency matrix (with low-rank and sparse constraints) and GNN parameters to denoise the graph for robust recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

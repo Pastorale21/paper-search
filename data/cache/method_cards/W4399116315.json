@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4399116315",
+  "task": "graph representation learning on quantum computers",
+  "input": "graph-structured data (e.g., adjacency matrix, node features)",
+  "output": "node embeddings or graph-level outputs",
+  "backbone": "quantum implementations of GCN, GAT, and Message-Passing GNN (focus on quantum SGC)",
+  "loss": "",
+  "key_idea": "devise quantum algorithms for three fundamental GNN types, achieving potential quantum advantage in time and space complexity for large-scale graphs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

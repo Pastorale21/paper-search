@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4284701295",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user social relations (multiple types), item-item correlations",
+  "output": "ranked list of items per user",
+  "backbone": "dual homogeneity hypergraph convolutional network",
+  "loss": "not specified in abstract",
+  "key_idea": "model dual homogeneity from social relations and item connections via hypergraph convolution to capture high-order correlations",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

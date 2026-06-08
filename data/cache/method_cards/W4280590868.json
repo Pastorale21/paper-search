@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4280590868",
+  "task": "biomedical relation extraction",
+  "input": "biomedical text and a knowledge graph (ontology) of biomedical entities",
+  "output": "classified relations between biomedical entities",
+  "backbone": "deep biomedical RE model + KG-based recommendation model",
+  "loss": "",
+  "key_idea": "integrate a KG-based recommendation system into a deep RE model to leverage domain knowledge for improving relation extraction",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

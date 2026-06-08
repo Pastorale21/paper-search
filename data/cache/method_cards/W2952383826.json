@@ -1,0 +1,21 @@
+{
+  "paper_id": "W2952383826",
+  "task": "node representation learning for growing graphs (cold-start)",
+  "input": "graph with node attributes (observed graph) and new nodes with only attributes",
+  "output": "node representations for both observed and new nodes",
+  "backbone": "generative graph convolutional network (GCN)",
+  "loss": "variational lower bound (graph reconstruction + adaptive KL divergence)",
+  "key_idea": "learn node representations by sampling graph generation sequences and optimizing a variational bound that handles isolated new nodes",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed"
+  ],
+  "metrics": [
+    "classification accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

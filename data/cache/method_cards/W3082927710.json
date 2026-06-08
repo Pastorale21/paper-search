@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3082927710",
+  "task": "graph clustering",
+  "input": "graph structured data (node features and adjacency matrix)",
+  "output": "cluster assignments for nodes",
+  "backbone": "deep graph convolutional network (stacked GCN layers)",
+  "loss": "triple self-supervised module (unsupervised)",
+  "key_idea": "deep graph convolution with triple self-supervision to exploit both feature and topology information while mitigating over-smoothing",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

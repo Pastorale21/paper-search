@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4392384521",
+  "task": "knowledge graph-enhanced recommendation",
+  "input": "user-item interaction graph and item-entity knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "diffusion model + collaborative knowledge graph convolution",
+  "loss": "diffusion loss (denoising) + recommendation loss (e.g., BPR)",
+  "key_idea": "generative diffusion model augments knowledge graph representations, guided by collaborative signals from user-item interactions",
+  "datasets": [
+    "Amazon-Book",
+    "Last-FM",
+    "Yelp2018"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

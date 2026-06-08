@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4411495248",
+  "task": "knowledge graph-aware recommendation",
+  "input": "user-item interaction graph and knowledge graph (item-entity graph)",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with fine-grained modeling",
+  "loss": "contrastive loss + recommendation loss (e.g., BPR)",
+  "key_idea": "fine-grained modeling of user preferences via items and their attributes, plus contrastive learning on user-specific and item-specific views",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

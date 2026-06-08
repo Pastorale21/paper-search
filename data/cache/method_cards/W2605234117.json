@@ -1,0 +1,21 @@
+{
+  "paper_id": "W2605234117",
+  "task": "graph embedding for asymmetric proximity",
+  "input": "large-scale graph (e.g., user-item interaction graph)",
+  "output": "low-dimensional vertex embeddings",
+  "backbone": "random walk with restart (RWR) based embedding",
+  "loss": "not specified (implicitly preserves Rooted PageRank)",
+  "key_idea": "capture asymmetric and high-order node similarities via random walk with restart, preserving Rooted PageRank scores",
+  "datasets": [
+    "open source datasets",
+    "Alibaba (290M nodes, 18B edges)"
+  ],
+  "metrics": [
+    "link prediction accuracy",
+    "node recommendation metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

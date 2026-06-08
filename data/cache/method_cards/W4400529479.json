@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4400529479",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction data (e.g., page view, favorite, purchase)",
+  "output": "recommended items (likely ranked list)",
+  "backbone": "behavior pattern mining (non-GNN, Bayesian approach)",
+  "loss": "not specified (Bayesian inference used)",
+  "key_idea": "mine diverse user-item interaction patterns as features and use Bayesian inference for recommendation, avoiding GNN over-smoothing",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

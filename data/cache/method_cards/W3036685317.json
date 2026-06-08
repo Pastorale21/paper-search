@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3036685317",
+  "task": "dynamic graph representation learning (transductive and inductive prediction)",
+  "input": "sequence of timed events (dynamic graph with evolving features/connectivity)",
+  "output": "node/edge representations at any time point",
+  "backbone": "Temporal Graph Network (memory module + graph-based operator)",
+  "loss": "not specified (task-dependent, e.g., binary cross-entropy for edge prediction)",
+  "key_idea": "combine a memory module that stores node states with a graph-based operator that aggregates temporal neighborhood information",
+  "datasets": [
+    "Wikipedia",
+    "Reddit",
+    "MOOC",
+    "Social Evo."
+  ],
+  "metrics": [
+    "average precision",
+    "transductive/inductive AUC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4403421847",
+  "task": "service recommendation",
+  "input": "user-service interaction graph",
+  "output": "ranked list of services per user",
+  "backbone": "graph neural network (GNN) with diffusion model-based contrastive learning",
+  "loss": "contrastive loss (InfoNCE) + recommendation loss (e.g., BPR)",
+  "key_idea": "use a diffusion model to generate contrastive views for graph contrastive learning, with a self-adaptive data augmentation strategy that preserves semantic structure",
+  "datasets": [
+    "Yelp",
+    "Amazon",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

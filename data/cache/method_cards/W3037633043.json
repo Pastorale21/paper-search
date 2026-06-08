@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3037633043",
+  "task": "node classification on graphs with degree-related biases",
+  "input": "graph with node features and few labeled nodes",
+  "output": "predicted class labels for all nodes",
+  "backbone": "degree-specific GCN layer",
+  "loss": "supervised loss on labeled nodes + self-supervised loss on pseudo-labeled nodes with uncertainty weighting",
+  "key_idea": "mitigate degree-related bias by using degree-specific GCN layers and self-supervised pseudo-labeling with uncertainty scores",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed"
+  ],
+  "metrics": [
+    "Accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

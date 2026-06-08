@@ -1,0 +1,27 @@
+{
+  "paper_id": "W4409257018",
+  "task": "multimodal recommendation",
+  "input": "user-item interactions with multimodal data (text, images, user dialogues)",
+  "output": "personalized item recommendations",
+  "backbone": "multi-graph neural network (MGCN) + residual network + cross-attention + large language model (LLM) with self-reflection",
+  "loss": "not specified",
+  "key_idea": "integrates cross-attention for image-text fusion, multi-graph neural networks for recommendation, and an LLM with self-reflection for autonomous decision-making and intelligent recommendation",
+  "datasets": [
+    "QK-Video",
+    "QB-Video",
+    "Tourism"
+  ],
+  "metrics": [
+    "Accuracy",
+    "Precision",
+    "Recall",
+    "F1",
+    "Recall@5",
+    "Recall@10",
+    "Recall@50"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

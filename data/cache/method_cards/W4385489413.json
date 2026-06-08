@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4385489413",
+  "task": "session-based recommendation",
+  "input": "anonymous session sequences (item click sequences without user identity)",
+  "output": "next-item prediction (ranked list of items)",
+  "backbone": "multi-layer parallel graph neural network (SR-PGNN)",
+  "loss": "",
+  "key_idea": "parallel composition of explicit and fully-crossed features in anonymous sessions with parameter sharing and cross-fusion between parallel GNNs",
+  "datasets": [
+    "two classic public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Precision",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

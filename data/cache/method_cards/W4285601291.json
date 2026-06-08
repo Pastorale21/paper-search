@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4285601291",
+  "task": "recipe recommendation",
+  "input": "heterogeneous user-recipe-ingredient graph (URI-Graph)",
+  "output": "ranked list of recipes for a user",
+  "backbone": "heterogeneous graph neural network with hierarchical attention and ingredient set transformer",
+  "loss": "joint objective of recommendation loss (e.g., BPR) and contrastive learning loss",
+  "key_idea": "model heterogeneous user-recipe-ingredient graph with hierarchical attention and graph contrastive augmentation to capture both content and collaborative signals",
+  "datasets": [
+    "URI-Graph (new large-scale dataset)"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

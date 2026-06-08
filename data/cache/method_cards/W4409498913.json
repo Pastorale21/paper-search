@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4409498913",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from two domains, item descriptions (for NTM)",
+  "output": "predicted ratings for items in each domain",
+  "backbone": "GNN (graph neural network) with DCCA (deep canonical correlation analysis)",
+  "loss": "not explicitly stated (likely rating prediction loss + DCCA correlation loss)",
+  "key_idea": "construct separate user-user and item-topic graphs per domain, then use DCCA to transfer knowledge between domains via both overlapping users and latent item topics",
+  "datasets": [
+    "Amazon (four domain pairs)"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

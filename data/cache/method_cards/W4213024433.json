@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4213024433",
+  "task": "semantic annotation (predict missing POI categories)",
+  "input": "multi-view hypergraphs constructed from LBSN data (temporal, spatial, trajectory views)",
+  "output": "predicted semantic category for each POI",
+  "backbone": "multi-view hypergraph convolution network (Multi-HGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "learn POI representations by applying hypergraph convolution on multiple hypergraphs capturing temporal, spatial, and trajectory patterns",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

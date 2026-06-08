@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3090856795",
+  "task": "interactive recommendation",
+  "input": "user-item interaction sequences and knowledge graph",
+  "output": "recommended items at each interaction step",
+  "backbone": "actor-critic network with knowledge-guided graph convolutional network",
+  "loss": "reinforcement learning reward (not explicitly specified)",
+  "key_idea": "leverage knowledge graph and attention mechanism to guide reinforcement learning for dynamic user interest modeling",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

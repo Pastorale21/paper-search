@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4383621214",
+  "task": "cross-domain recommendation (rating prediction)",
+  "input": "user-item rating matrix and heterogeneous graph (users, items, features)",
+  "output": "predicted rating for a user-item pair",
+  "backbone": "heterogeneous graph neural network + MLP",
+  "loss": "not specified (gradient descent on a loss function)",
+  "key_idea": "unify high-order information from heterogeneous graph and rating information via MLP for cross-domain recommendation",
+  "datasets": [
+    "two real-world datasets (3,032,642 ratings)"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

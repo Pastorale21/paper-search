@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4376167021",
+  "task": "session-based new item recommendation",
+  "input": "session sequences (user historical interactions) and new item attributes",
+  "output": "recommendation scores for new items (items not in historical sessions)",
+  "backbone": "dual-intent enhanced graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "learn user intent via attention and historical distribution, and infer new item representations in GNN space using zero-shot learning from attributes",
+  "datasets": [
+    "two representative real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

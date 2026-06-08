@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4415310638",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) encoder",
+  "loss": "supervised contrastive loss (unified recommendation and contrastive objective)",
+  "key_idea": "unify supervised recommendation and self-supervised contrastive learning into a single supervised contrastive loss to align optimization directions",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

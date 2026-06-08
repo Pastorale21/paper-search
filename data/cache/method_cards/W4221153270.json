@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4221153270",
+  "task": "product taxonomy expansion",
+  "input": "existing product taxonomy, user query-click logs, and user-generated content",
+  "output": "hyponymy relations attaching new concepts to the existing taxonomy",
+  "backbone": "Pre-trained Language Model + Graph Neural Network",
+  "loss": "contrastive learning loss",
+  "key_idea": "extract candidate hyponymy relations from user query-click behaviors and enhance semantic modeling via PLM and GNN with contrastive learning",
+  "datasets": [
+    "Meituan Platform product taxonomy"
+  ],
+  "metrics": [
+    "precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

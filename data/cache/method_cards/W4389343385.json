@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4389343385",
+  "task": "knowledge recommendation",
+  "input": "user data and knowledge data (hypergraph structure + knowledge graph)",
+  "output": "recommendation results (user and knowledge embeddings)",
+  "backbone": "dual-channel hypergraph convolutional neural network",
+  "loss": "",
+  "key_idea": "model user and knowledge data as separate subhypergraphs and apply dual-channel hypergraph convolution combined with knowledge graph embeddings",
+  "datasets": [],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

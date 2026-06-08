@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4414359408",
+  "task": "test-time adaptation for recommender systems",
+  "input": "user-item interaction graph and knowledge graph (KG)",
+  "output": "adapted user-item graph for improved recommendation",
+  "backbone": "KG-enhanced GNN",
+  "loss": "self-supervised contrastive loss",
+  "key_idea": "data-centric test-time adaptation via pseudo-label guided UI graph transformation, rationale score guided KG revision, and sampling-based self-supervised adaptation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

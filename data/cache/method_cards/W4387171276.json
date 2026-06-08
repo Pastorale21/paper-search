@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4387171276",
+  "task": "multimodal recommendation",
+  "input": "user-item interaction graph, item multimodal features (images, text)",
+  "output": "ranked list of items per user",
+  "backbone": "graph learning on user-item heterogeneous graph and user-user/item-item homogeneous graphs",
+  "loss": "BPR loss",
+  "key_idea": "construct user-user and item-item homogeneous graphs to learn dual representations of users and items, enhancing dyadic relations",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

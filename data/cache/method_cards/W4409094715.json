@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4409094715",
+  "task": "multi-label classification for recommendations",
+  "input": "user-item bipartite graph",
+  "output": "predicted labels for user-item pairs",
+  "backbone": "graph neural network (GNN) with contrastive learning",
+  "loss": "contrastive loss (main task + subtask)",
+  "key_idea": "contrastive learning on user-item graph and homogeneous subgraphs to capture multi-label relationships",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

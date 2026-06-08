@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3198098536",
+  "task": "occasional group recommendation",
+  "input": "user-item interactions, user-user interactions, group-item interactions (sparse), and group membership (overlapping sets)",
+  "output": "ranked list of items for a given group",
+  "backbone": "hierarchical hyperedge embedding (hypergraph neural network)",
+  "loss": "joint training loss (user-item and group-item interactions)",
+  "key_idea": "model groups as hyperedges in a hypergraph and learn group embeddings via inductive hyperedge embedding, leveraging user-user interactions to alleviate sparsity",
+  "datasets": [
+    "Yelp",
+    "Douban"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

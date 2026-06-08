@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4225151140",
+  "task": "knowledge graph-enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph (entities and relations)",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "multi-granular aggregation-enhanced GNN (with attention, FM, and Transformer)",
+  "loss": "not specified in abstract",
+  "key_idea": "construct an Improved Collaborative Knowledge Graph (ICKG) and aggregate messages from multi-granularity and different node types using attention, FM, and Transformer",
+  "datasets": [
+    "three public benchmarks (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

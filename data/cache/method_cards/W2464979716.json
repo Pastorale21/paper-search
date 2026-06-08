@@ -1,0 +1,20 @@
+{
+  "paper_id": "W2464979716",
+  "task": "top-N item recommendation",
+  "input": "user-item interaction graph augmented with Linked Open Data (RDF) features",
+  "output": "ranked list of items per user",
+  "backbone": "graph-based recommendation algorithm (e.g., graph-based similarity or propagation)",
+  "loss": "",
+  "key_idea": "integrate LOD-based semantic features into a graph-based recommender to improve accuracy and diversity",
+  "datasets": [
+    "two state-of-the-art datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "accuracy",
+    "diversity"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

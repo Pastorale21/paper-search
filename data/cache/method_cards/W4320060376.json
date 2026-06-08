@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4320060376",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN-based recommender (e.g., LightGCN, NGCF)",
+  "loss": "BPR (Bayesian Personalized Ranking)",
+  "key_idea": "soft link-based sampling with Mixup and Decay modules to generate soft positive/negative pairs for node embedding learning",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

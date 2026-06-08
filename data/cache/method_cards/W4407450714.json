@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4407450714",
+  "task": "federated recommendation",
+  "input": "individual user-item interaction graphs (local to each user)",
+  "output": "personalized item recommendations",
+  "backbone": "federated graph neural network with clustering",
+  "loss": "not specified in abstract",
+  "key_idea": "server clusters pretrained user representations to inject high-order collaborative signals into local graphs without exposing raw data",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

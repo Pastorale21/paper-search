@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2964737815",
+  "task": "knowledge-aware recommendation and knowledge graph completion",
+  "input": "user-item interaction graph and incomplete knowledge graph",
+  "output": "item recommendations and completed knowledge graph",
+  "backbone": "transfer learning model (co-learning framework)",
+  "loss": "not explicitly stated (likely recommendation loss + KG completion loss)",
+  "key_idea": "bidirectional transfer between recommendation and KG completion tasks for mutual enhancement",
+  "datasets": [
+    "two real-world public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

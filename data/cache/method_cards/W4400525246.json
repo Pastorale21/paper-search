@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4400525246",
+  "task": "group recommendation",
+  "input": "user-group-item hypergraph (group membership and user-item interactions)",
+  "output": "ranked list of items for a group",
+  "backbone": "disentangled hypergraph neural network with masked autoencoder",
+  "loss": "reconstruction loss (masked feature reconstruction) + recommendation loss (e.g., BPR)",
+  "key_idea": "mask and reconstruct node/hyperedge features to create self-supervised signals without data augmentation, and disentangle member/item representations during hypergraph convolution",
+  "datasets": [
+    "Mafengwo",
+    "Yelp",
+    "CAMRa2011"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

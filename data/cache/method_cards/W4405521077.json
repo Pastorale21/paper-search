@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4405521077",
+  "task": "personalized exercise recommendation",
+  "input": "student-exercise interaction graph with implicit edges, exercise difficulty, time intervals, and location coding",
+  "output": "ranked list of exercises for each student",
+  "backbone": "graph neural network (GNN) with knowledge tracing",
+  "loss": "multitask loss (recommendation + knowledge tracing)",
+  "key_idea": "augment graph with implicit edges and enrich exercise representations with difficulty, time, and location; jointly train with knowledge tracing to capture student knowledge levels",
+  "datasets": [
+    "four real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

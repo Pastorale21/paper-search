@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3012615229",
+  "task": "taxonomy expansion (inserting new concepts into an existing taxonomy)",
+  "input": "existing taxonomy (DAG) and a set of new concepts to insert",
+  "output": "predicted parent (anchor) for each new concept",
+  "backbone": "position-enhanced graph neural network (GNN) encoding local structure of anchor concepts",
+  "loss": "noise-robust training objective (self-supervised, binary classification loss with label noise handling)",
+  "key_idea": "self-supervised generation of ⟨query, anchor⟩ pairs from existing taxonomy and a position-enhanced GNN to predict direct hyponym relations",
+  "datasets": [
+    "three large-scale datasets from different domains (not named in abstract)"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "F1",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

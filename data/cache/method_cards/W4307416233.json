@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4307416233",
+  "task": "backdoor attack on graph neural networks",
+  "input": "graph-structured data (e.g., social networks, biological graphs)",
+  "output": "poisoned training samples with trigger-embedded graphs that cause misclassification",
+  "backbone": "any GNN (e.g., GCN, GAT, GraphSAGE) as victim model",
+  "loss": "not specified (attack method, not a training loss)",
+  "key_idea": "use motifs (frequent subgraphs) as triggers, selecting less frequent motifs for better attack effectiveness",
+  "datasets": [
+    "MUTAG",
+    "PROTEINS",
+    "IMDB-BINARY",
+    "COLLAB"
+  ],
+  "metrics": [
+    "Attack Success Rate (ASR)",
+    "Accuracy drop"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

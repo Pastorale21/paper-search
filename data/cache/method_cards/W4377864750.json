@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4377864750",
+  "task": "healthcare prediction (mortality, readmission, length of stay, drug recommendation)",
+  "input": "patient electronic health records (EHR) and external knowledge graphs (biomedical KGs, LLM-extracted knowledge)",
+  "output": "predictions for mortality, readmission, length of stay, and drug recommendations",
+  "backbone": "Bi-attention AugmenTed (BAT) graph neural network (GNN)",
+  "loss": "not specified in abstract",
+  "key_idea": "construct patient-specific knowledge graphs from external KGs and LLMs, then train a bi-attention GNN for multiple healthcare prediction tasks",
+  "datasets": [
+    "MIMIC-III",
+    "MIMIC-IV"
+  ],
+  "metrics": [
+    "AUROC",
+    "F1-score"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

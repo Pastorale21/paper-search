@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4409908758",
+  "task": "multi-behavior recommendation",
+  "input": "multi-behavior user-item interaction graph (e.g., browsing, favoriting, purchasing)",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network with neighborhood-aware modeling and high-hop relational learning",
+  "loss": "not specified",
+  "key_idea": "constructs a multi-behavior interaction graph with dynamic behavior weighting and high-hop relational learning to capture diverse user-item interactions and long-range dependencies",
+  "datasets": [
+    "BeiBei",
+    "Tmall"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

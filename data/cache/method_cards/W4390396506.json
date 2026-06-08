@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4390396506",
+  "task": "educational content recommendation (linking learning materials)",
+  "input": "text of learning materials (exercises and textbook content)",
+  "output": "ranked list of relevant textbook content for a given exercise",
+  "backbone": "semantic textual similarity (STS) using pre-trained embeddings (static, contextual, or LLM)",
+  "loss": "unsupervised (no explicit loss; evaluation based on ranking metrics)",
+  "key_idea": "evaluate and compare static knowledge graph embeddings, contextual PLM embeddings, and LLM embeddings for STS-based educational content recommendation",
+  "datasets": [
+    "digital textbooks in Swedish (three subjects, two exercise types)"
+  ],
+  "metrics": [
+    "Recall@3",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

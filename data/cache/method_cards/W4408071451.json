@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4408071451",
+  "task": "cross-city traffic flow prediction",
+  "input": "historical traffic flow data from multiple cities (source and target domains)",
+  "output": "future traffic flow predictions for the target city",
+  "backbone": "Multi-modal Graph Convolutional Network (GCN) + Temporal Convolutional Network (TCN)",
+  "loss": "not specified (likely mean squared error or similar regression loss)",
+  "key_idea": "federated transfer learning with GCN-TCN hybrid and spatial similarity-based parameter aggregation for privacy-preserved cross-city traffic prediction",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

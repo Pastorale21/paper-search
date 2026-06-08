@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4312686696",
+  "task": "cross-market recommendation",
+  "input": "user-item interaction graphs from multiple markets (domains) with overlapping items",
+  "output": "ranked item recommendations for users in target (data-insufficient) markets",
+  "backbone": "Light Graph Convolution (LGC)",
+  "loss": "multi-task learning (BPR loss + self-supervised contrastive loss)",
+  "key_idea": "self-supervised graph learning with market-aware and market-unaware dropout to learn generalized representations robust to noise and bias",
+  "datasets": [
+    "seven pairs of real-world datasets (e.g., Amazon cross-market pairs)"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

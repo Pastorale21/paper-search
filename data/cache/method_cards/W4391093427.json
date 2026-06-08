@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4391093427",
+  "task": "cold-start recommendation in federated learning",
+  "input": "distributed user-item interaction graphs (incomplete per client)",
+  "output": "personalized item recommendations for cold-start users/items",
+  "backbone": "graph neural network with attention and aggregation layer",
+  "loss": "meta-learning loss (e.g., MAML-style)",
+  "key_idea": "combine graph federated learning with meta-learning to handle cold-start and incomplete graphs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

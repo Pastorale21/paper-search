@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4292950683",
+  "task": "knowledge-aware recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with multi-level interactive contrastive learning",
+  "loss": "supervised BPR loss + intra-graph and inter-graph contrastive losses",
+  "key_idea": "multi-level interactive contrastive learning that contrasts layers of CF and KG parts within and between local/non-local graphs",
+  "datasets": [
+    "three benchmark datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

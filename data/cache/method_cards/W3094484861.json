@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3094484861",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from two domains with shared users",
+  "output": "ranked item recommendations in both domains",
+  "backbone": "graph collaborative filtering network (GCN)",
+  "loss": "BPR loss + transfer regularization",
+  "key_idea": "bidirectional knowledge transfer via shared users with fusion of common and domain-specific features",
+  "datasets": [
+    "Amazon (four cross-domain pairs)"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

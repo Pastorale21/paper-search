@@ -1,0 +1,23 @@
+{
+  "paper_id": "W2809583854",
+  "task": "social influence prediction",
+  "input": "user's local network (ego-network) with node features",
+  "output": "binary prediction of whether a user will adopt a behavior (e.g., retweet, like)",
+  "backbone": "graph neural network (GNN) with convolutional and attention mechanisms",
+  "loss": "cross-entropy loss",
+  "key_idea": "end-to-end learning of user latent representations from local network structure and features using GNNs",
+  "datasets": [
+    "Open Academic Graph",
+    "Twitter",
+    "Weibo",
+    "Digg"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

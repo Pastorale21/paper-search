@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4407316484",
+  "task": "next Point-of-Interest (PoI) recommendation",
+  "input": "user-PoI interaction graph, check-in records, time, location, social context",
+  "output": "ranked list of next PoIs for a user",
+  "backbone": "weighted graph convolutional network",
+  "loss": "matrix factorization loss (implicitly, not explicitly stated)",
+  "key_idea": "combine weighted GCN with multiple context (time, location, social) and user activity centers via clustering",
+  "datasets": [
+    "Yelp",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Precision@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

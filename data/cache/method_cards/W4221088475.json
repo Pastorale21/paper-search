@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4221088475",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "predicted rating scores for user-item pairs",
+  "backbone": "graph neural network with diffusion (recursive aggregation) and readout",
+  "loss": "three losses: recommendation loss, contrastive loss, and social loss (specifics not detailed in abstract)",
+  "key_idea": "combine social information and contrastive learning via a diffusion-readout-prediction framework with asymmetric readout (average user embeddings across layers, last-layer item embeddings)",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

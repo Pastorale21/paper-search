@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4306317036",
+  "task": "spatiotemporal-aware session-based recommendation",
+  "input": "session sequences with user location and timestamp",
+  "output": "next-item recommendation in a session",
+  "backbone": "graph attentive convolution (GAC) on global information graph and session decision graph",
+  "loss": "cross-entropy (implied by session-based recommendation)",
+  "key_idea": "model inter-session spatiotemporal relations via global graph and intra-session decision process via session graph with graph attentive convolution",
+  "datasets": [
+    "Meituan (two datasets)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

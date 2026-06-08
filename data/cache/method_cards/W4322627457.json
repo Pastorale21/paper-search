@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4322627457",
+  "task": "recommendation (collaborative filtering)",
+  "input": "user-item interaction graph with rating, review text, and timestamp",
+  "output": "predicted preference scores for items",
+  "backbone": "neighbor relation-aware graph convolutional network (NRGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "explicitly distinguish neighbor contributions using rating, review sentiment, and temporal encoding",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

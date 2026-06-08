@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4383068597",
+  "task": "service recommendation for service-based system development",
+  "input": "knowledge graph constructed from SBS-service co-invocation records and related information",
+  "output": "ranked list of services for a target SBS",
+  "backbone": "knowledge graph embedding (Word2vec + TransR) + collaborative filtering",
+  "loss": "",
+  "key_idea": "combine knowledge graph embeddings (Word2vec and TransR) with collaborative filtering to alleviate cold start and data sparsity",
+  "datasets": [
+    "real-world dataset (not named)"
+  ],
+  "metrics": [
+    "hit rate",
+    "ranking quality"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

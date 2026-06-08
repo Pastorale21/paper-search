@@ -1,0 +1,22 @@
+{
+  "paper_id": "W7123349948",
+  "task": "top-K recommendation in Social Internet of Things",
+  "input": "user-user and user-item interaction graphs (heterogeneous relational graphs)",
+  "output": "ranked list of items per user",
+  "backbone": "Multi-source Adaptive Relational Graph Convolutional Network (MARGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "dynamically perceive and fuse multiple relational graphs via adaptive importance weighting and learnable fusion",
+  "datasets": [],
+  "metrics": [
+    "HR@5",
+    "HR@10",
+    "HR@15",
+    "NDCG@5",
+    "NDCG@10",
+    "NDCG@15"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

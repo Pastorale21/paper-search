@@ -1,0 +1,15 @@
+{
+  "paper_id": "W7142352925",
+  "task": "spatial omics analysis (batch correction, resolution enhancement, segmentation, domain discovery, deconvolution, interpretability)",
+  "input": "high-dimensional spatially resolved molecular data (transcripts, proteins, metabolites, lipids)",
+  "output": "processed/annotated spatial omics data (e.g., corrected batches, enhanced resolution, segmented cells, discovered domains, deconvolved cell types, interpretable features)",
+  "backbone": "varied: classical ML (clustering, random forests), DL (CNNs, GNNs, transformers, generative models), emerging (optimal transport, cross-modal attention, graph-linked embeddings, foundation models)",
+  "loss": "task-dependent (not specified in abstract)",
+  "key_idea": "provides a critical synthesis and decision framework for selecting ML/DL models across core spatial omics tasks, addressing challenges like data scarcity and computational cost.",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

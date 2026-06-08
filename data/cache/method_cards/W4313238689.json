@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4313238689",
+  "task": "session-based recommendation",
+  "input": "session-item interaction graph (items connected to sessions and to each other via order/co-occurrence)",
+  "output": "ranked list of next-item recommendations for a given session",
+  "backbone": "graph-based probabilistic models (HSP and RIC)",
+  "loss": "not specified (probabilistic/co-occurrence based, no explicit loss function)",
+  "key_idea": "use graph structures (sequential triplets and co-occurrence probabilities) to generate recommendations without neural networks",
+  "datasets": [
+    "four session-based datasets (one proprietary from a leather apparel e-shop)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

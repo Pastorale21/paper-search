@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4403219636",
+  "task": "multi-view graph recommendation",
+  "input": "multi-view user-item interaction graphs (e.g., social, semantic, collaborative views)",
+  "output": "ranked list of items per user",
+  "backbone": "meta knowledge-enhanced multi-view graph contrastive learning framework",
+  "loss": "meta knowledge transfer contrastive learning loss (plus possibly BPR)",
+  "key_idea": "extract meta knowledge from all views to rectify noisy edges and perform contrastive learning across views to mitigate data sparsity",
+  "datasets": [
+    "three benchmark datasets",
+    "real industrial recommender system in China"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "F1-score"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W2986176093",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from multiple domains",
+  "output": "ranked item recommendations in each domain",
+  "backbone": "Preference Propagation GraphNet (PPGN)",
+  "loss": "joint multi-task objective (BPR-based)",
+  "key_idea": "construct a Cross-Domain Preference Matrix and propagate user preferences across domains via graph propagation layers",
+  "datasets": [
+    "two pairs of real-world datasets (not named)"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

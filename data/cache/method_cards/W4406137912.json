@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4406137912",
+  "task": "video recommendation for VOD platforms",
+  "input": "user-item interaction graph based on viewing patterns (implicit feedback)",
+  "output": "personalized video recommendations",
+  "backbone": "modularity-based clustering and centrality measures (degree, closeness, betweenness)",
+  "loss": "",
+  "key_idea": "combine implicit viewing data with social network analysis (centrality and modularity clustering) to generate recommendations without deep learning",
+  "datasets": [
+    "proprietary documentary VOD platform (328 users, 4 months)"
+  ],
+  "metrics": [
+    "CTR",
+    "view completion rate",
+    "user satisfaction"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

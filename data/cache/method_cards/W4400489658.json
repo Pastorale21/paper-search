@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400489658",
+  "task": "POI recommendation",
+  "input": "user check-in sequences (temporal graph of user-POI interactions)",
+  "output": "ranked list of POIs per user",
+  "backbone": "graph neural network (GNN) encoder",
+  "loss": "self-supervised learning loss + curriculum learning strategy",
+  "key_idea": "encode temporal check-in sequences as graphs and apply self-supervised curriculum learning to address data sparsity",
+  "datasets": [
+    "two real-world large-scale benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

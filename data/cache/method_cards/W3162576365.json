@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3162576365",
+  "task": "QoS prediction for blockchain service selection",
+  "input": "user-service invocation graph (QoS matrix)",
+  "output": "predicted QoS values (e.g., response time, throughput)",
+  "backbone": "graph matrix factorization (GNN + collaborative filtering)",
+  "loss": "",
+  "key_idea": "combine graph neural networks and matrix factorization to estimate missing QoS values in the data matrix",
+  "datasets": [
+    "real-world blockchain QoS dataset"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

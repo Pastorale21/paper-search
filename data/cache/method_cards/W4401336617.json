@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4401336617",
+  "task": "sequential POI recommendation",
+  "input": "user-POI check-in sequences and user social graph",
+  "output": "next POI recommendation",
+  "backbone": "graph neural network with gating mechanism, graph attention, and multi-head attention",
+  "loss": "",
+  "key_idea": "model dynamic user preferences by combining gating mechanism, graph attention, and multi-head attention on user-POI interactions",
+  "datasets": [
+    "Gowalla",
+    "Foursquare"
+  ],
+  "metrics": [
+    "Recall",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

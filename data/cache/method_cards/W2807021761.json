@@ -1,0 +1,17 @@
+{
+  "paper_id": "W2807021761",
+  "task": "web-scale item recommendation (pin/board recommendation)",
+  "input": "bipartite graph of pins and boards with node features",
+  "output": "item (pin) embeddings for recommendation",
+  "backbone": "Graph Convolutional Network (GCN) with efficient random walks",
+  "loss": "harder-and-harder training examples (curriculum learning)",
+  "key_idea": "combine efficient random walks and graph convolutions to scale GCN to billions of nodes",
+  "datasets": [
+    "Pinterest internal graph (3B nodes, 17B edges)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

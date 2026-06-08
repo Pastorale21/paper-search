@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4399575117",
+  "task": "personalized recommendation (graph collaborative filtering)",
+  "input": "user-item bipartite interaction graph",
+  "output": "predicted preference scores for items per user",
+  "backbone": "heterogeneous graph neural network (encoder-decoder) for sub-graph reconstruction",
+  "loss": "not specified in abstract",
+  "key_idea": "reconstruct user-user and item-item sub-graphs via a heterogeneous GNN encoder-decoder to enhance homogeneous node information propagation",
+  "datasets": [
+    "multiple datasets of different scenarios and scales (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

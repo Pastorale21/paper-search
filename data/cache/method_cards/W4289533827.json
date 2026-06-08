@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4289533827",
+  "task": "session-based social recommendation",
+  "input": "session sequences and social network graph",
+  "output": "next-item recommendation in a session",
+  "backbone": "dual-channel attentive network (light graph attention + sequential attention)",
+  "loss": "cross-entropy (implicit) + self-supervised positive sampling loss (PSSL)",
+  "key_idea": "combine graph-based item transition modeling and sequential attention, with a novel positive-only self-supervised learning to handle invalid/repeated clicks",
+  "datasets": [
+    "Yelp",
+    "Foursquare",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

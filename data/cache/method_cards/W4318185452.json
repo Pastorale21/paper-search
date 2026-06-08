@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4318185452",
+  "task": "knowledge graph enhanced recommendation (including cold-start)",
+  "input": "user-item interaction graph, knowledge graph, user preference data",
+  "output": "ranked list of items per user",
+  "backbone": "light graph convolution encoder on multiple meta-KGs",
+  "loss": "not specified in abstract",
+  "key_idea": "construct multiple collaborative meta-knowledge graphs from KG and user preference to capture heterogeneous item relationships, then fuse via channel attention",
+  "datasets": [
+    "four real-world benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

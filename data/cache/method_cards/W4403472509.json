@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4403472509",
+  "task": "mobile application recommendation",
+  "input": "user-app interaction graph",
+  "output": "ranked list of mobile applications per user",
+  "backbone": "graph convolutional network (GCN)",
+  "loss": "multi-task learning: primary supervised task + self-supervised auxiliary task",
+  "key_idea": "self-supervised learning with node dropout, edge dropout, and random walk augmentations to create contrastive views for auxiliary task",
+  "datasets": [
+    "two real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4289433255",
+  "task": "collaborative filtering recommendation",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings for ranking",
+  "backbone": "hypergraph transformer network",
+  "loss": "BPR loss + cross-view generative self-supervised loss",
+  "key_idea": "explicitly model global collaborative relationships via a hypergraph transformer and augment data with cross-view self-supervision",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

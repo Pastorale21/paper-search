@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4319946462",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN with cross-layer connected graph convolution",
+  "loss": "BPR + contrastive loss (InfoNCE)",
+  "key_idea": "use dropout randomness to generate contrastive views without graph augmentation",
+  "datasets": [
+    "Amazon Books",
+    "Ta-Feng",
+    "Yelp2018",
+    "Gowalla",
+    "MovieLens-1M"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4312292007",
+  "task": "session-based recommendation",
+  "input": "anonymous session sequences (item click sequences)",
+  "output": "next item prediction (ranking of candidate items)",
+  "backbone": "dual-encoder GNN (Local Transition Encoder + Intent Match Encoder)",
+  "loss": "cross-entropy loss",
+  "key_idea": "model both local session transitions and global collaborative signals via intent-aware graph",
+  "datasets": [
+    "Diginetica",
+    "Yoochoose",
+    "Last.fm"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

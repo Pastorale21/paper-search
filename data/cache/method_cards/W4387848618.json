@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4387848618",
+  "task": "knowledge-aware recommendation",
+  "input": "user-item interaction graph and hyper-relational knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "dynamic hypergraph neural network",
+  "loss": "BPR loss + self-supervised contrastive loss",
+  "key_idea": "construct dynamic hypergraphs from hyper-relational KG to capture complex facts and alleviate sparsity via self-supervised learning",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

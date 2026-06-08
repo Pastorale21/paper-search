@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4327671700",
+  "task": "collaborative filtering (top-K recommendation)",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings for ranking",
+  "backbone": "lightweight student network (non-graph) with knowledge distillation from a teacher GNN",
+  "loss": "knowledge distillation loss + contrastive learning loss",
+  "key_idea": "distill knowledge from a GNN teacher into a lightweight student network to avoid over-smoothing and improve scalability",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

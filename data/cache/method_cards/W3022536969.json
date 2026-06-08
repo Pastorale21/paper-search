@@ -1,0 +1,30 @@
+{
+  "paper_id": "W3022536969",
+  "task": "link stealing (inferring edges of the training graph from a trained GNN)",
+  "input": "black-box access to a trained GNN model (outputs for node pairs)",
+  "output": "binary prediction of whether a link exists between a given node pair",
+  "backbone": "multiple attack methods (e.g., threshold-based, classifier-based)",
+  "loss": "not applicable (attack, not training)",
+  "key_idea": "exploit GNN output similarity to infer graph structure",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed",
+    "Facebook",
+    "BlogCatalog",
+    "Flickr",
+    "PPI",
+    "Reddit"
+  ],
+  "metrics": [
+    "AUC",
+    "Accuracy",
+    "Precision",
+    "Recall",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

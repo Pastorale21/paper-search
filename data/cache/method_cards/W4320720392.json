@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4320720392",
+  "task": "top-K recommendation (collaborative filtering)",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "item similarity model with graph partitioning",
+  "loss": "not specified in abstract",
+  "key_idea": "restrict item similarity modeling within graph partitions and fine-tune with spectral information and partition-aware data augmentation",
+  "datasets": [
+    "4 datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4416386080",
+  "task": "recommendation (top-K)",
+  "input": "user-item interaction graph (bipartite graph)",
+  "output": "user and item embeddings for ranking",
+  "backbone": "hypergraph convolutional network with pooling/unpooling",
+  "loss": "pre-training tasks (auxiliary hypergraph objectives) + main recommendation loss (not explicitly stated, likely BPR or CE)",
+  "key_idea": "pre-train on hypergraphs built from heterogeneous relationships and optimize hypergraph structural entropy via encoding trees to capture latent community structure",
+  "datasets": [
+    "five real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400828832",
+  "task": "session-based new item recommendation",
+  "input": "session sequences (item transitions within sessions) and global item co-occurrence graph",
+  "output": "ranked list of items (including new items) for each session",
+  "backbone": "dual-intent graph neural network (DGNN) with GNN encoder",
+  "loss": "not specified in abstract",
+  "key_idea": "combine local session-level item transitions with global dataset-level information, and synthesize user intent via soft-attention and data distribution, with a novel method to infer new item embeddings",
+  "datasets": [
+    "several datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

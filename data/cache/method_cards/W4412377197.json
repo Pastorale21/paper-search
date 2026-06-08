@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4412377197",
+  "task": "cross-domain live streaming recommendation",
+  "input": "user-streamer gifting graph (target domain), user-short video interaction graph (source domain), and a global graph connecting streamers and short videos",
+  "output": "ranked list of streamers for each user",
+  "backbone": "multi-graph contrastive learning with attention-based fusion",
+  "loss": "contrastive loss (InfoNCE) + BPR loss",
+  "key_idea": "leverage both overlapping users and non-overlapping items (short videos and streamers) via a global graph and multi-graph contrastive learning across three views",
+  "datasets": [
+    "commercial dataset",
+    "public dataset (e.g., Amazon)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Hit Rate"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

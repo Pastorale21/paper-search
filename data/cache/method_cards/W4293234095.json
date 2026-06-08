@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4293234095",
+  "task": "service recommendation",
+  "input": "user-service interaction graph and knowledge graph (side information)",
+  "output": "ranked list of services per user",
+  "backbone": "graph convolutional network (GCN) with relevance-attention aggregation",
+  "loss": "not specified in abstract",
+  "key_idea": "fuse collaborative and semantic information into a property-aware graph and learn fine-grained property features via GCN with attention",
+  "datasets": [
+    "real-world service scenarios (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

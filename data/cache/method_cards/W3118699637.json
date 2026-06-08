@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3118699637",
+  "task": "top-K recommendation (collaborative filtering)",
+  "input": "user-item interaction graph (bipartite graph)",
+  "output": "user and item embeddings for ranking",
+  "backbone": "GNN-based recommender (e.g., LightGCN) or MF",
+  "loss": "debiased contrastive loss + BPR",
+  "key_idea": "graph contrastive learning module to reduce message dropout randomness and debiased contrastive loss for negative sampling bias",
+  "datasets": [
+    "three public benchmarks (not specified in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

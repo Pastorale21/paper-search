@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3199477683",
+  "task": "knowledge graph embedding (link prediction)",
+  "input": "knowledge graph (triples)",
+  "output": "entity and relation embeddings",
+  "backbone": "frozen (untrained) graph neural network + shallow KGE model",
+  "loss": "not specified (abstract does not mention loss function)",
+  "key_idea": "use a randomly initialized, frozen GNN to preserve local graph structure, then combine with a shallow KGE model for efficient neuromorphic implementation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

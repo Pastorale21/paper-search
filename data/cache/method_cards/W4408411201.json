@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4408411201",
+  "task": "personalized self-directed learning recommendation",
+  "input": "temporal sequences of learning activities and social interaction graph",
+  "output": "personalized learning content recommendations",
+  "backbone": "LSTM + GAT",
+  "loss": "",
+  "key_idea": "combine LSTM for temporal modeling of learning activities and GAT for social knowledge extraction",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

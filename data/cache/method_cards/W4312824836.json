@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4312824836",
+  "task": "multimedia recommendation",
+  "input": "user-item interaction graph with multimodal item features (e.g., visual, textual)",
+  "output": "predicted user-item interaction scores",
+  "backbone": "graph convolution network with modality-aware structure learning",
+  "loss": "BPR loss + contrastive loss for multimodal fusion",
+  "key_idea": "learns modality-specific item-item graphs and fuses multimodal representations via contrastive learning",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Tiktok"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

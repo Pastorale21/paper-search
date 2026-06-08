@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4393220349",
+  "task": "fair federated graph-based recommendation",
+  "input": "user-item interaction graph (distributed across clients) with sensitive user attributes (e.g., gender, age) kept private",
+  "output": "personalized and fair item recommendations per user",
+  "backbone": "Personalized Graph Neural Network (GNN)",
+  "loss": "recommendation loss (e.g., BPR) + fairness regularization (group fairness constraint)",
+  "key_idea": "integrates personalized GNN with fairness constraints and differential privacy in a federated setting to mitigate group bias without exposing sensitive attributes",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10",
+    "F1-score",
+    "group fairness metric (e.g., demographic parity difference)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

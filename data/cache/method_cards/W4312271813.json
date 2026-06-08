@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4312271813",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph (item-entity mapping)",
+  "output": "ranked list of items per user",
+  "backbone": "causal graph neural network (deconfounded user preference learning + counterfactual inference)",
+  "loss": "not specified in abstract",
+  "key_idea": "use causal inference to deconfound user preference learning and eliminate bias in similarity scoring via counterfactual inference",
+  "datasets": [
+    "Amazon-book",
+    "LastFM",
+    "Yelp2018"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

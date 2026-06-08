@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4406729312",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) encoder",
+  "loss": "contrastive loss (InfoNCE) + recommendation loss (e.g., BPR)",
+  "key_idea": "construct two contrastive views capturing local and global relational scales of the interaction graph",
+  "datasets": [
+    "Last.FM",
+    "Yelp",
+    "BeerAdvocate"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

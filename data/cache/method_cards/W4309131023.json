@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4309131023",
+  "task": "rule recommendation for IoT smart homes",
+  "input": "per-user graphs of rules (rules as nodes, co-occurrence as edges)",
+  "output": "recommended rules (link prediction in per-user graphs)",
+  "backbone": "graph neural network (GNN) for link prediction",
+  "loss": "not specified in abstract",
+  "key_idea": "formulate rule recommendation as link prediction on per-user rule graphs and train in a federated manner to preserve privacy",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4395467502",
+  "task": "bioinformatics tool recommendation for workflow construction",
+  "input": "workflow-in-progress represented as a graph (tool nodes and edges)",
+  "output": "ranked list of recommended tools",
+  "backbone": "graph neural network (GNN) with NLP-enhanced tool embeddings",
+  "loss": "not specified in abstract",
+  "key_idea": "represent workflow as a graph and leverage GNN with tool description embeddings for context-aware tool recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

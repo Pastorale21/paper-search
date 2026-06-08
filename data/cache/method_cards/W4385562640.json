@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4385562640",
+  "task": "long-tail recommendation",
+  "input": "user-item interaction graph (bipartite) and item co-occurrence matrix",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with meta-learned edge generator",
+  "loss": "BPR loss + meta-learning loss + popularity-aware contrastive loss",
+  "key_idea": "meta-learn an auxiliary item graph to enhance tail item representations while preventing negative transfer via popularity-aware contrastive learning",
+  "datasets": [
+    "Amazon-Book",
+    "Yelp2018",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

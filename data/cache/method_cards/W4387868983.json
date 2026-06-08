@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4387868983",
+  "task": "personalized session-based recommendation",
+  "input": "user historical sessions (sequences of items) and current session",
+  "output": "next item recommendation for the current session",
+  "backbone": "hybrid hierarchical hypergraph neural network (H3GNN)",
+  "loss": "cross-entropy loss (implied by recommendation task)",
+  "key_idea": "model hierarchical user-session-item structure via hypergraph and sequential item transitions via directed graph aggregator",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "Last.fm"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

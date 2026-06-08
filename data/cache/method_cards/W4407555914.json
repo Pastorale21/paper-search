@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4407555914",
+  "task": "personalized manufacturing service composition recommendation",
+  "input": "user-service interaction graph with QoS data",
+  "output": "ranked list of service compositions (Top-N)",
+  "backbone": "hybrid graph neural network",
+  "loss": "not specified",
+  "key_idea": "federated learning with hybrid differential privacy and GNN-based QoS prediction for cross-enterprise collaboration",
+  "datasets": [
+    "real industry Internet platform case"
+  ],
+  "metrics": [
+    "prediction accuracy",
+    "recommendation effect (compared with baselines)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

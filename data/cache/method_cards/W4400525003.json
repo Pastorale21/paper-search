@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400525003",
+  "task": "knowledge graph-aware recommendation",
+  "input": "user-item interaction graph and item-entity knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN-based recommender with knowledge graph editing",
+  "loss": "not specified in abstract",
+  "key_idea": "balance attribute distribution of items by generating missing attributes and removing irrelevant/spurious attributes via a Knowledge Generator and Knowledge Deleter",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

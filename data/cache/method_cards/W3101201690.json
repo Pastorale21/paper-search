@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3101201690",
+  "task": "session-based recommendation (next-item prediction)",
+  "input": "session graphs (item transition graphs within anonymous sessions)",
+  "output": "next item recommendation for a given session",
+  "backbone": "weighted attention graph layer + Readout function",
+  "loss": "cross-entropy (implied by graph classification formulation)",
+  "key_idea": "model both sequential order and latent item transition order via weighted attention on session graphs",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

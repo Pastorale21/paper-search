@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400489492",
+  "task": "sequential recommendation",
+  "input": "user historical behavior sequences",
+  "output": "next item prediction",
+  "backbone": "Directed Acyclic Graph Neural Network (DAG-GNN)",
+  "loss": "not specified (likely cross-entropy or BPR)",
+  "key_idea": "transform item sequence into a compact item-item directed acyclic graph via metric learning, then apply DAG convolution and sink-set readout to extract long-term interests",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

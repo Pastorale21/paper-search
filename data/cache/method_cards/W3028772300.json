@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3028772300",
+  "task": "large-scale e-commerce recommendation (CTR/CVR prediction)",
+  "input": "user-item bipartite graph",
+  "output": "user preference scores for items",
+  "backbone": "hierarchical bipartite GNN (stacked GNN modules with deterministic clustering)",
+  "loss": "not specified in abstract",
+  "key_idea": "alternate between GNN modules and deterministic clustering to learn hierarchical user and item embeddings",
+  "datasets": [
+    "real-world e-commerce datasets",
+    "Taobao"
+  ],
+  "metrics": [
+    "CTR",
+    "CVR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

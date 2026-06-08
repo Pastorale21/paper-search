@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4406207545",
+  "task": "new item cold-start recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "top-N un-interacted items with highest predicted interaction probability",
+  "backbone": "knowledge-enhanced graph learning (GNN)",
+  "loss": "",
+  "key_idea": "leverage knowledge graph to generate guaranteed embeddings for cold-start items via a knowledge-enhanced embedding generator and gated attention aggregator",
+  "datasets": [
+    "two public datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

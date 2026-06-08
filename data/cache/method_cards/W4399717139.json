@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4399717139",
+  "task": "collaborative filtering recommendation",
+  "input": "user-item interaction graph augmented with similarity-based synthetic interactions",
+  "output": "predicted ratings or ranked item lists",
+  "backbone": "graph convolutional neural network (GCN)",
+  "loss": "not specified (likely BPR or pointwise loss)",
+  "key_idea": "augment the interaction graph by adding edges between users and items with highest attribute similarity, then propagate features via GCN with normalized rating weights",
+  "datasets": [
+    "MovieLens-1M",
+    "MovieLens-100K"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

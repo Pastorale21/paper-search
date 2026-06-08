@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4406416722",
+  "task": "course recommendation",
+  "input": "course knowledge graph (entities, attributes, relationships) and user course sequences",
+  "output": "personalized course recommendations",
+  "backbone": "sequence-based recommendation algorithm combined with graph embedding",
+  "loss": "",
+  "key_idea": "construct a course knowledge graph using LLM-based extraction and combine sequence and graph embeddings for recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

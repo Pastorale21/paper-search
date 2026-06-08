@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4394994411",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social network graph",
+  "output": "predicted user-item interaction scores (recommendation list)",
+  "backbone": "dual variational graph autoencoder (GNN-based)",
+  "loss": "variational lower bound (reconstruction loss for both graphs) + recommendation loss (e.g., BPR)",
+  "key_idea": "treat user-item and social graphs as equivalent and jointly reconstruct them via variational inference, with inter-domain fusion for knowledge transfer",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp",
+    "LastFM"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

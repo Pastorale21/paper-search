@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2914721378",
+  "task": "social recommendation",
+  "input": "user-user social graph and user-item interaction graph with associated opinions",
+  "output": "predicted ratings or item recommendations",
+  "backbone": "graph neural network (GraphRec)",
+  "loss": "",
+  "key_idea": "jointly model user-user social graph and user-item graph with heterogeneous strengths",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

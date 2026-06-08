@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4385482929",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user social graph",
+  "output": "ranked item recommendations for users",
+  "backbone": "lightweight GCN with self-attention",
+  "loss": "BPR loss + contrastive learning loss",
+  "key_idea": "jointly model high-order collaborative relations in user-item and social graphs with self-attention and contrastive learning on user social domain",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

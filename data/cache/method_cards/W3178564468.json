@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3178564468",
+  "task": "sequential recommendation (next-item recommendation)",
+  "input": "user-item interaction sequences (bipartite graph with temporal information)",
+  "output": "ranked list of next items to recommend",
+  "backbone": "position-enhanced and time-aware graph convolutional network (PTGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "model sequential patterns and temporal dynamics via position-enhanced and time-aware graph convolution with self-attention aggregator",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "two commonly-used evaluation metrics for ranking (not specified in abstract)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

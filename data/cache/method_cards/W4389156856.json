@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4389156856",
+  "task": "next POI recommendation",
+  "input": "user-POI-time hyper-relational knowledge graph (LBSN data with side information)",
+  "output": "ranked list of next POIs for a user",
+  "backbone": "hypergraph neural network + self-attention",
+  "loss": "",
+  "key_idea": "model hyper-relations (e.g., user-POI-time) via a hyper-relational knowledge graph and hypergraph neural network",
+  "datasets": [
+    "four real-world LBSN datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

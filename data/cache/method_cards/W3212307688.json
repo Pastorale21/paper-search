@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3212307688",
+  "task": "bundle recommendation",
+  "input": "user-item interactions and user-bundle interactions",
+  "output": "ranked list of bundles for each user",
+  "backbone": "intention-oriented hierarchical graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "model intention-oriented hierarchical representations using co-purchase and co-occurrence information, and transfer preferences between items and bundles bidirectionally",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

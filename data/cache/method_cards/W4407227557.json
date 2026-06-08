@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4407227557",
+  "task": "session-based recommendation",
+  "input": "user-item interaction sequences (session data)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "graph neural network (GNN) with self-attention",
+  "loss": "multi-task learning combining TAR, SA, and contrastive learning objectives",
+  "key_idea": "tail-adjusted repeat-aware mechanism to capture repeat/explore behaviors in long-tail items, combined with self-attention and contrastive learning",
+  "datasets": [
+    "experimental datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "HR@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

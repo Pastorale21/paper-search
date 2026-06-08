@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3197368546",
+  "task": "point-of-interest (POI) recommendation with context",
+  "input": "temporal knowledge graph (including taxonomical, situational, and sequential context)",
+  "output": "ranked list of POIs",
+  "backbone": "comparison of knowledge graph embedding, hypergraph embedding, and RNN",
+  "loss": "not specified",
+  "key_idea": "represent recommendation scenario as a temporal knowledge graph and compare different embedding approaches to exploit taxonomical, situational, and sequential context dimensions",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

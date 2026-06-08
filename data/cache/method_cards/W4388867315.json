@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4388867315",
+  "task": "privacy attack on graph neural networks (node-level information extraction)",
+  "input": "black-box access to a trained GNN model and the ability to add attacker-controlled nodes to the graph",
+  "output": "inferred node label, neighboring links, and sensitive attributes of a victim node",
+  "backbone": "infiltration-based attack (no specific GNN architecture; evaluated on GCN, GraphSAGE, GAT)",
+  "loss": "not applicable (attack method, not a training objective)",
+  "key_idea": "infiltrate the graph with attacker-created nodes that befriend the victim node to extract private information via black-box queries",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed",
+    "Facebook",
+    "LastFM",
+    "Reddit"
+  ],
+  "metrics": [
+    "attack accuracy (F1-score)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

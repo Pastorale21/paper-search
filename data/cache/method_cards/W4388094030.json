@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4388094030",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, social ties, explicit/implicit feedback, user/item attributes",
+  "output": "predicted user preferences (item ranking)",
+  "backbone": "attributed graph convolutional network with variational graph framework",
+  "loss": "not explicitly stated (likely BPR or similar ranking loss)",
+  "key_idea": "hybrid neural graph model integrating explicit/implicit feedback, attribute data, and user-item interaction graph with variational graph framework to address data sparsity",
+  "datasets": [
+    "four real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not explicitly stated (likely Recall, NDCG)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

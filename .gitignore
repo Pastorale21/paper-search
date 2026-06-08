@@ -1,6 +1,13 @@
-# caches & runtime artifacts (never commit, per CLAUDE.md)
-data/cache/
 
+# caches & runtime artifacts
+# 重建产物默认忽略,只放行下面的基准缓存,保证 fresh clone 零成本可跑
+data/cache/*
+!data/cache/papers.json
+!data/cache/embeddings.npy
+!data/cache/faiss.index
+!data/cache/ids.json
+!data/cache/citation_graph.pkl
+!data/cache/method_cards/
 # secrets
 .env
 

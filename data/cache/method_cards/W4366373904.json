@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4366373904",
+  "task": "maintenance action recommendation for rolling stock",
+  "input": "failure tree knowledge graph (from previous work)",
+  "output": "top-10 recommended actions per technician",
+  "backbone": "knowledge graph-based recommender (graph database on TigerGraph Cloud)",
+  "loss": "gradient descent (rating prediction objective)",
+  "key_idea": "leverage a failure tree knowledge graph to recommend maintenance actions based on rating prediction",
+  "datasets": [
+    "real railway rolling stock maintenance dataset"
+  ],
+  "metrics": [
+    "accuracy (compared to collaborative filtering)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

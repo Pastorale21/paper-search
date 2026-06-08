@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4414688684",
+  "task": "cross-platform advertisement recommendation",
+  "input": "user behavior data (click frequency, active duration), ad content (type, tag, duration), platform features (device type, usage context)",
+  "output": "ad recommendation scores",
+  "backbone": "graph neural network (GNN)",
+  "loss": "",
+  "key_idea": "multi-dimensional modeling of user behavior, ad content, and platform features to capture user interest migration across platforms via GNN",
+  "datasets": [
+    "Platform A",
+    "Platform B",
+    "Platform C"
+  ],
+  "metrics": [
+    "AUC",
+    "precision",
+    "recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

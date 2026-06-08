@@ -1,0 +1,21 @@
+{
+  "paper_id": "W7147633717",
+  "task": "decentralized movie recommendation",
+  "input": "user-item interaction graph (local to each client)",
+  "output": "predicted ratings for items",
+  "backbone": "dual-branch Graph Convolutional Network (GCN)",
+  "loss": "hybrid local loss (MSE + MAE)",
+  "key_idea": "federated GCN with dual-branch architecture and weighted aggregation for privacy-preserving decentralized recommendation",
+  "datasets": [
+    "MovieLens 100K"
+  ],
+  "metrics": [
+    "MSE",
+    "RMSE",
+    "MAE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

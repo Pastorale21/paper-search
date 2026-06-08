@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4226153070",
+  "task": "conversational recommendation (recommendation + response generation)",
+  "input": "dialog context (conversation history) and item metadata",
+  "output": "recommended items and generated dialog response",
+  "backbone": "pre-trained language model (PLM) + item metadata encoder",
+  "loss": "not specified in abstract",
+  "key_idea": "encode item metadata into context-aware embeddings via a dedicated encoder, then feed them together with dialog context into a PLM for joint recommendation and response generation",
+  "datasets": [
+    "REDIAL"
+  ],
+  "metrics": [
+    "Recall@10",
+    "MRR",
+    "F1",
+    "BLEU"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

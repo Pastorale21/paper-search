@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4223449011",
+  "task": "session-based recommendation",
+  "input": "session sequences (user's sequential interactions within a session) and a global graph constructed from all sessions",
+  "output": "next-item recommendation for a given session",
+  "backbone": "Gated Graph Neural Networks (GGNNs)",
+  "loss": "main supervision (cross-entropy with target-aware label confusion) + self-supervision from global graph",
+  "key_idea": "combine main supervision from sequential order and self-supervision from a global session graph, with a target-aware label confusion method to prevent overfitting",
+  "datasets": [
+    "Retailrocket",
+    "Diginetica",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

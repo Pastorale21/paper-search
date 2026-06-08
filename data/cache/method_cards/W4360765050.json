@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4360765050",
+  "task": "fair recommendation over knowledge graphs",
+  "input": "user-item interaction graph and knowledge graph (first-order and second-order proximity)",
+  "output": "ranked item recommendations with individual fairness",
+  "backbone": "SKIPHop (GNN that aggregates first-order and second-order neighbor representations)",
+  "loss": "recommendation loss + fairness regularization",
+  "key_idea": "incorporate second-order proximity from knowledge graphs into GNN message passing and add fairness regularization to enforce similar treatment of similar users",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "fairness metric",
+    "recommendation accuracy metric"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

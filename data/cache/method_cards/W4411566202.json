@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4411566202",
+  "task": "cross-domain recommendation with privacy preservation",
+  "input": "user-item interaction graphs from multiple domains (source and target) with overlapping users",
+  "output": "recommended items for target domain users",
+  "backbone": "graph neural network (GNN) for user/item embedding",
+  "loss": "not specified in abstract",
+  "key_idea": "federated learning with local differential privacy and pseudo item injection to prevent gradient leakage while using GNN to identify comparable users",
+  "datasets": [
+    "Douban (three domains)"
+  ],
+  "metrics": [
+    "recommendation accuracy (specific metrics not named)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

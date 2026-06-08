@@ -1,0 +1,21 @@
+{
+  "paper_id": "W7117657799",
+  "task": "point-of-interest (POI) recommendation",
+  "input": "user check-in sequences, POI attributes, social relationships, spatio-temporal context",
+  "output": "ranked list of POIs for a user",
+  "backbone": "context-aware knowledge graph embedding (TransR) + spatio-temporal gated GNN + relation-aware graph attention network",
+  "loss": "not specified (likely pairwise or pointwise ranking loss)",
+  "key_idea": "construct a unified knowledge graph integrating multi-dimensional context and use heterogeneous graph neural networks to capture spatio-temporal and relational dependencies",
+  "datasets": [
+    "Gowalla",
+    "Brightkite"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4377247635",
+  "task": "adversarial attacks on graph neural networks",
+  "input": "graph-structured data (e.g., social networks, molecular graphs, recommendation graphs)",
+  "output": "perturbed graph (structural or feature modifications) that degrades model performance",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "introduce malicious perturbations to graph structure or node/edge features to manipulate GNN predictions",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

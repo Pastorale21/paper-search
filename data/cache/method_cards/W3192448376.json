@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3192448376",
+  "task": "fair graph learning (bias mitigation in attributed networks)",
+  "input": "attributed network (graph with node features and labels)",
+  "output": "debiased attributed network (modified graph structure and/or features)",
+  "backbone": "model-agnostic preprocessing framework (not a GNN itself)",
+  "loss": "bias mitigation objective (based on proposed bias metrics) + utility preservation constraint",
+  "key_idea": "debias the input attributed network by optimizing novel bias metrics, independent of downstream GNN architecture",
+  "datasets": [
+    "not specified in abstract"
+  ],
+  "metrics": [
+    "bias metrics (proposed)",
+    "utility (downstream task performance)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

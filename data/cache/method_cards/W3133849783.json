@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3133849783",
+  "task": "sequential recommendation",
+  "input": "user historical interaction sequences",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "transformer-based sequential encoder (e.g., SASRec)",
+  "loss": "next item prediction loss + contrastive loss (InfoNCE)",
+  "key_idea": "multi-task learning combining next-item prediction with contrastive self-supervision from augmented sequences",
+  "datasets": [
+    "Yelp",
+    "Amazon Beauty",
+    "Amazon Games",
+    "Steam"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

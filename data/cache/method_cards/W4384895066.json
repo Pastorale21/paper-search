@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4384895066",
+  "task": "next POI recommendation",
+  "input": "user historical check-in sequences (trajectories) with spatio-temporal information",
+  "output": "predicted next POI for a user",
+  "backbone": "spatio-temporal hypergraph convolutional network (STHGCN) with hypergraph transformer",
+  "loss": "not specified in abstract",
+  "key_idea": "model trajectory-grain information via hypergraph to capture intra- and inter-user collaborative relations, and integrate spatio-temporal encoding with hypergraph transformer",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

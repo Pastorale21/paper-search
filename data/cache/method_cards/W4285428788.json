@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4285428788",
+  "task": "sequential recommendation",
+  "input": "user multi-behavior interaction sequences (e.g., page view, add-to-favorite, purchase)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "multi-scale Transformer + hypergraph neural network",
+  "loss": "cross-entropy (implicit from sequential recommendation)",
+  "key_idea": "combine multi-scale Transformer for short-term patterns and hypergraph for long-range multi-behavior dependencies",
+  "datasets": [
+    "Yelp",
+    "Tmall",
+    "IJCAI-15"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

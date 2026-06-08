@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4308614927",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from source and target domains (no overlapping users/items)",
+  "output": "item recommendations in the target domain",
+  "backbone": "graph neural network with debiasing graph convolutional layers",
+  "loss": "not specified in abstract",
+  "key_idea": "semantically cluster items from both domains to construct a cross-domain user-cluster graph for knowledge transfer without requiring overlapping users or items",
+  "datasets": [
+    "three public datasets",
+    "a pair of proprietary datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

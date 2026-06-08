@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4323022392",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "predicted user-item interaction scores",
+  "backbone": "multi-task learning with attention-based user aggregation and relation-aware GCN",
+  "loss": "recommendation loss (e.g., cross-entropy) + KGE loss (e.g., scoring function)",
+  "key_idea": "enhance MKR by attention-based user historical behavior aggregation and relation-aware GCN for multi-relation KG embeddings, plus a two-part user modeling strategy for sparsity adaptation",
+  "datasets": [
+    "Book-Crossing",
+    "MovieLens-1M",
+    "Last.FM"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

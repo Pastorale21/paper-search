@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4383879002",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with hierarchical structure disentanglement",
+  "loss": "not specified in abstract",
+  "key_idea": "reveal unknown hierarchical structures in KG via supervised signal detection and exploit them with disentangling representation learning",
+  "datasets": [
+    "two large-scale datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

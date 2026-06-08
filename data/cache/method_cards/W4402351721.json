@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4402351721",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "graph neural network (GNN)",
+  "loss": "BPR loss + self-supervised learning losses (user similarity learning + embedding-level contrastive learning)",
+  "key_idea": "scale regulation module to prevent vector scale distortion and two self-supervised schemes (user similarity and embedding contrast) to enhance GNN-based social recommendation",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

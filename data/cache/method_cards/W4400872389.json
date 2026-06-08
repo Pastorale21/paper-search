@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400872389",
+  "task": "session-based recommendation (next-item prediction)",
+  "input": "anonymous user interaction sequences (sessions of item clicks)",
+  "output": "probability distribution over items for the next click",
+  "backbone": "skip-gram + Transformer",
+  "loss": "not specified (likely cross-entropy)",
+  "key_idea": "combine skip-gram to capture chained user interests and Transformer to model long-term contextual dependencies, using pre-trained item embeddings from skip-gram as Transformer input",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

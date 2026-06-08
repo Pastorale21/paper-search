@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4399913507",
+  "task": "knowledge-aware recommendation",
+  "input": "user-item interaction graph and item textual content",
+  "output": "predicted user-item interaction scores",
+  "backbone": "GCN-based KARS",
+  "loss": "",
+  "key_idea": "pre-train content-based item embeddings from textual features and use them as input to a GCN that also encodes structured knowledge from a KG",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

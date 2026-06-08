@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3200427277",
+  "task": "session-based recommendation",
+  "input": "multi-relational item graph (MRIG) built from all sessions, including target and auxiliary behavior types",
+  "output": "next item prediction for a target behavior type",
+  "backbone": "graph neural network (GNN) encoding MRIG",
+  "loss": "session-based recommendation loss + link prediction auxiliary loss",
+  "key_idea": "build a multi-relational item graph over all sessions and incorporate link prediction as an auxiliary task",
+  "datasets": [
+    "real-world datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

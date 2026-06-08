@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4285389505",
+  "task": "popularity prediction of online content",
+  "input": "social network graph with user interactions and content diffusion traces",
+  "output": "predicted popularity (e.g., number of future adoptions) for a given content",
+  "backbone": "unsupervised graph neural network with attention mechanism",
+  "loss": "unsupervised (no explicit loss mentioned; likely reconstruction or contrastive)",
+  "key_idea": "unify social influence and homophily by learning directional influence via attention and nondirectional homophily via GNN, plus social group representations from user clusters",
+  "datasets": [
+    "real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "prediction accuracy (specific metrics not listed)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

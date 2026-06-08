@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4382239876",
+  "task": "next POI recommendation",
+  "input": "user check-in sequences and POI similarity graph",
+  "output": "next POI prediction",
+  "backbone": "sequence model with dynamic neighbor graph and RotatE-based dependency prediction",
+  "loss": "",
+  "key_idea": "construct a sequence-based dynamic neighbor graph and use RotatE to model multi-step dependencies for next POI prediction",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

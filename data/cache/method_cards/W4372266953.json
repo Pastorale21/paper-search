@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4372266953",
+  "task": "session-based social recommendation",
+  "input": "user-item interaction sessions and social network graph",
+  "output": "next-item recommendation in a session",
+  "backbone": "heterogeneous graph neural network + user-based graph attention network",
+  "loss": "",
+  "key_idea": "fuse high-level user and session features from heterogeneous GNN and user-based GAT",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

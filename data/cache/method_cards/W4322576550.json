@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4322576550",
+  "task": "trustworthy object classification in Social Internet of Things",
+  "input": "trust metrics (direct trust, reliability, benevolence, credible recommendations, relationship degree via knowledge graph embedding)",
+  "output": "trustworthy object classification (trustworthy or not)",
+  "backbone": "artificial neural network",
+  "loss": "",
+  "key_idea": "use an ANN to capture non-linear relationships among multiple trust metrics for classifying trustworthy objects in SIoT",
+  "datasets": [
+    "two real-world datasets (not named)"
+  ],
+  "metrics": [
+    "F1-score",
+    "MAE",
+    "MSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

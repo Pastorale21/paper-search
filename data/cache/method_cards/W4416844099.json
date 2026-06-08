@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4416844099",
+  "task": "personalized sequential recommendation",
+  "input": "user-item interaction sequences and knowledge graph",
+  "output": "next-item recommendation (predicted item scores)",
+  "backbone": "LSTM + self-attention for sequential modeling, knowledge graph embeddings",
+  "loss": "contrastive predictive coding (CPC) for KG embeddings, cross-entropy or BPR for recommendation",
+  "key_idea": "refine knowledge graph embeddings via contrastive predictive coding and fuse them with sequential user preferences from LSTM and self-attention",
+  "datasets": [
+    "MovieLens-1M",
+    "two other benchmark datasets (not named)"
+  ],
+  "metrics": [
+    "AUC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4406860646",
+  "task": "coral reef conservation (species identification, growth monitoring, task prioritization, resource allocation, real-time recommendations)",
+  "input": "coral reef images, environmental data, conservation task data",
+  "output": "species identification, growth metrics, prioritized tasks, resource allocation plans, real-time recommendations",
+  "backbone": "CNN (transfer learning), hybrid scheduling (AHP+TOPSIS+RL), XAI, KGCN",
+  "loss": "not specified",
+  "key_idea": "integrates CNNs, hybrid scheduling, XAI, and KGCN for automated coral reef conservation",
+  "datasets": [],
+  "metrics": [
+    "accuracy",
+    "task completion rate",
+    "resource utilization efficiency",
+    "AUC",
+    "F1 score"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

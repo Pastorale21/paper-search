@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4386969921",
+  "task": "e-learning recommendation",
+  "input": "user-resource affinity graph",
+  "output": "recommended learning resources per user",
+  "backbone": "graph neural network (GNN)",
+  "loss": "",
+  "key_idea": "apply GNNs on user-resource affinity graphs for user and content profiling in e-learning",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4389493348",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "item recommendations for users in the target domain",
+  "backbone": "graph neural network with meta-learning and adversarial learning",
+  "loss": "BPR loss + adversarial domain classification loss + dynamic weight averaging",
+  "key_idea": "use private and cross-domain graphs with adversarial learning to extract domain-shared features, and meta-learning for generalization to cold-start users",
+  "datasets": [
+    "Amazon (cross-domain pairs)"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

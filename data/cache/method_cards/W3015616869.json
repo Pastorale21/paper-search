@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3015616869",
+  "task": "social recommendation",
+  "input": "user-item rating matrix, user social graph, item feature graph",
+  "output": "predicted rating values",
+  "backbone": "graph neural network (GNN) encoder for user and item graphs",
+  "loss": "matrix factorization reconstruction loss (implicitly)",
+  "key_idea": "encode user and item feature spaces as separate graphs via GNN and embed into matrix factorization latent factors",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

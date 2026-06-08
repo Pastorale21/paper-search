@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3211143493",
+  "task": "top-K recommendation (collaborative filtering)",
+  "input": "user-item interaction graph",
+  "output": "predicted preference scores for items per user",
+  "backbone": "ultra-simplified GCN (infinite-layer approximation via constraint loss)",
+  "loss": "BPR + constraint loss (approximating infinite-layer graph convolution)",
+  "key_idea": "skip explicit message passing by directly approximating the limit of infinite-layer graph convolutions via a constraint loss",
+  "datasets": [
+    "four benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

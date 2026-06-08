@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4399202567",
+  "task": "knowledge-aware recommendation",
+  "input": "collaborative knowledge graph (user-item interactions + item-entity relationships)",
+  "output": "ranked item recommendations",
+  "backbone": "Graph Neural Network (e.g., KGCN) with knowledge graph embedding co-learning",
+  "loss": "not specified (implicitly recommendation loss + KG embedding loss)",
+  "key_idea": "co-learn knowledge graph embeddings and recommendation embeddings to improve accuracy and training efficiency",
+  "datasets": [],
+  "metrics": [
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

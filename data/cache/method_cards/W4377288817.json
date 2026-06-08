@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4377288817",
+  "task": "health-aware food recommendation",
+  "input": "collaborative recipe knowledge graph (user-recipe interactions, recipe-ingredient associations, etc.)",
+  "output": "ranked list of recipes per user",
+  "backbone": "knowledge-aware attention graph convolutional network",
+  "loss": "multi-task loss (preference task + health task)",
+  "key_idea": "jointly learn user preferences and personalized health requirements via multi-task learning on a knowledge graph",
+  "datasets": [
+    "CRKG (collaborative recipe knowledge graph)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K",
+    "health-specific metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

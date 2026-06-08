@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4293261884",
+  "task": "personalized complementary product recommendation",
+  "input": "user purchase history and product co-purchase graph",
+  "output": "ranked list of complementary products per user",
+  "backbone": "graph attention network + sequential behavior transformer",
+  "loss": "contrastive learning loss (implicitly, with personalized re-ranking)",
+  "key_idea": "combine graph attention network for product relations and transformer for user sequences, jointly learned via contrastive learning and personalized re-ranking",
+  "datasets": [
+    "real production data (not named)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

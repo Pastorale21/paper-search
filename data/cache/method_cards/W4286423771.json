@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4286423771",
+  "task": "POI recommendation",
+  "input": "session-based user check-in sequences with regional information",
+  "output": "ranked list of POIs for a user",
+  "backbone": "graph attention network (GAT) + GRU",
+  "loss": "not specified",
+  "key_idea": "leverage regional history check-in data in session windows and fuse long-term/short-term preferences via GAT and GRU",
+  "datasets": [
+    "Foursquare",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@k",
+    "Precision@k",
+    "F1-score@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

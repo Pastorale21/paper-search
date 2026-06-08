@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4391229136",
+  "task": "recommendation (personalized item recommendation)",
+  "input": "user-item interaction graph and knowledge graphs (item-side and user-side)",
+  "output": "recommended items for each user",
+  "backbone": "knowledge graph convolutional network (KGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "enrich user and item representations by combining knowledge graphs on both sides via graph convolution",
+  "datasets": [
+    "movies",
+    "books",
+    "music"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

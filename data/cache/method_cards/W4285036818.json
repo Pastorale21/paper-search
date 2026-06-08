@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4285036818",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "bipartite graph neural network with cross-compression units",
+  "loss": "",
+  "key_idea": "extract user and item features via bipartite GNN and enhance with knowledge graph via cross-compression units",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

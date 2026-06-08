@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4396735838",
+  "task": "node classification on text-attributed graphs",
+  "input": "text-attributed graph (nodes with textual features, graph structure)",
+  "output": "node class labels",
+  "backbone": "GNN adapter (e.g., GraphSAGE, GCN) + frozen LLM (e.g., Llama 2)",
+  "loss": "next token prediction (auto-regressive on node text)",
+  "key_idea": "use a lightweight GNN as an adapter to bridge graph structure and LLM, enabling efficient fine-tuning with frozen LLM",
+  "datasets": [
+    "multiple real-world TAGs (e.g., ogbn-arxiv, PubMed, etc.)"
+  ],
+  "metrics": [
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

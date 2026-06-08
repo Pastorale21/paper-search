@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4402547013",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph (heterogeneous graph with entities and relations)",
+  "output": "ranked list of items per user",
+  "backbone": "relational graph convolutional neural network (R-GCN) with graph attention",
+  "loss": "BPR + multiple adaptive contrast-loss optimization functions (including hard negative sampling)",
+  "key_idea": "leverage relational graph convolution and contrastive learning on knowledge subgraphs to mitigate cold start and noise",
+  "datasets": [
+    "real public datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision",
+    "Hit-ratio"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

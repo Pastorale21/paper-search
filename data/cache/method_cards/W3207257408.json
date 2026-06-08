@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3207257408",
+  "task": "multi-behavior recommendation",
+  "input": "multi-typed user-item interaction graph (e.g., page view, add-to-favorite, purchase) and knowledge graph of item relations",
+  "output": "predicted scores for target behavior (e.g., purchase) per user-item pair",
+  "backbone": "hierarchical graph transformer network",
+  "loss": "not specified in abstract",
+  "key_idea": "hierarchical graph transformer with type-specific behavior semantics and temporal encoding to model multi-typed interactions and knowledge-aware item relations",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

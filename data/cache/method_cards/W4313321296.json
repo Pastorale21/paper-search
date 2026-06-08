@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4313321296",
+  "task": "top-K recommendation (collaborative filtering)",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "dense connection GCN",
+  "loss": "BPR loss + contrastive loss (InfoNCE)",
+  "key_idea": "dense connections between GCN layers to preserve low-order embedding influence and graph perturbation contrastive learning to alleviate noise",
+  "datasets": [
+    "Yelp2018",
+    "Book-Crossing"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

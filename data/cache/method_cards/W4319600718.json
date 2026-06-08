@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4319600718",
+  "task": "social recommendation with privacy preservation",
+  "input": "user-item interaction graph and social relationship graph",
+  "output": "predicted ratings (implicit/explicit feedback)",
+  "backbone": "graph attention network (GAT) in federated learning setting",
+  "loss": "not explicitly stated (likely MAE or RMSE based on evaluation)",
+  "key_idea": "first to combine GNN, social networks, and federated learning for recommendation, using noise injection and cryptography for privacy",
+  "datasets": [
+    "two publicly available popular datasets (not named)"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

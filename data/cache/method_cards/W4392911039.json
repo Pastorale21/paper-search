@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4392911039",
+  "task": "cross-domain recommendation (cold-start scenario)",
+  "input": "user-item interaction graphs and knowledge graphs from source and target domains",
+  "output": "ranked item recommendations in the target domain",
+  "backbone": "knowledge-aware graph neural network with domain adaptation",
+  "loss": "not specified in abstract",
+  "key_idea": "exploit cross-domain correlation from both content semanticity (via domain adaptation) and structural connectivity (via knowledge-aware GNN) to transfer knowledge",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "accuracy",
+    "diversity"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

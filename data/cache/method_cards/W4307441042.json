@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4307441042",
+  "task": "cross-domain sequential recommendation",
+  "input": "user behavior sequences across multiple domains",
+  "output": "next item prediction in each domain",
+  "backbone": "graph collaborative filtering with time-aware and relation-aware graph attention",
+  "loss": "not specified",
+  "key_idea": "exploit high-order behavior patterns via time-aware and relation-aware graph attention with bidirectional feature transfer",
+  "datasets": [
+    "two real-world datasets (not named)"
+  ],
+  "metrics": [
+    "Recall",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

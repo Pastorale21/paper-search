@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4321597828",
+  "task": "precise recommendation of suitable planting areas for maize varieties",
+  "input": "meteorology knowledge graph of maize ecological regions at county scale",
+  "output": "suitable planting areas (counties) for each maize variety",
+  "backbone": "RippleNet",
+  "loss": "",
+  "key_idea": "construct a meteorology knowledge graph and use RippleNet to mine spatial correlations between variety suitability and meteorological environments",
+  "datasets": [
+    "331 maize varieties and agricultural meteorological data from 59 experimental areas in Huang-Huai-Hai ecological region"
+  ],
+  "metrics": [
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4226048133",
+  "task": "large-scale recommendation with binary hash codes",
+  "input": "user-item bipartite graph",
+  "output": "binary hash codes for users and items",
+  "backbone": "Hamming spatial graph convolutional network",
+  "loss": "not specified (likely pairwise ranking loss with Hamming similarity)",
+  "key_idea": "model both first-order and high-order similarities in Hamming space via graph convolution",
+  "datasets": [
+    "three public benchmark datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4307311101",
+  "task": "next POI recommendation",
+  "input": "user check-in sequences and POI transition graphs",
+  "output": "ranked list of next POIs for a user",
+  "backbone": "graph-enhanced self-attention network",
+  "loss": "supervised next POI prediction loss + self-supervised contrastive loss",
+  "key_idea": "combine global transition graph and local trajectory graphs with self-supervised contrastive learning on augmented trajectory views",
+  "datasets": [
+    "Foursquare",
+    "Gowalla",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

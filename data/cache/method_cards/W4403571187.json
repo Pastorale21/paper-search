@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4403571187",
+  "task": "personalized course and study group recommendation in MOOCs",
+  "input": "multi-level network (user-course interactions, user-user social ties, course attributes)",
+  "output": "recommended courses and study groups per student",
+  "backbone": "Graph Neural Network (GNN)",
+  "loss": "",
+  "key_idea": "combine social network analysis with GNN to model student preferences and social ties for joint course and group recommendation",
+  "datasets": [
+    "proprietary MOOC platform data (≈40k users, tens of thousands of courses)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

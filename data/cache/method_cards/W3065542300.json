@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3065542300",
+  "task": "sequential recommendation",
+  "input": "user interaction sequences (item sequences)",
+  "output": "next-item prediction (ranked list of items)",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "apply self-supervised learning with mutual information maximization to capture context-sequence associations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

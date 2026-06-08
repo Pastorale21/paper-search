@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4406458858",
+  "task": "knowledge graph-aware recommendation",
+  "input": "user-item interaction graph and item-entity knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "knowledge graph attention network with information fusion (KGIF)",
+  "loss": "not specified in abstract",
+  "key_idea": "explicitly fuse entity and relation embeddings via a self-attention mechanism with dynamic projection vectors",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4226024218",
+  "task": "personalized POI recommendation",
+  "input": "user-POI interaction graph, social relationship graph, geographical influence",
+  "output": "ranked list of POIs per user",
+  "backbone": "graph convolutional neural network (GCN)",
+  "loss": "",
+  "key_idea": "integrate social relationships and geographical influence via GCN on desensitized user trajectories",
+  "datasets": [
+    "two real datasets (not named)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

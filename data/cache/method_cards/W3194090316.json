@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3194090316",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from multiple domains, product images",
+  "output": "ranked item recommendations in target domain",
+  "backbone": "multi-layer graph neural network with visual feature integration",
+  "loss": "not specified",
+  "key_idea": "incorporate visual features from product images into both intra-domain and inter-domain graph learning for cross-domain recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

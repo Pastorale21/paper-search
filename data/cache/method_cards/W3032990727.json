@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3032990727",
+  "task": "fake news detection",
+  "input": "multimodal news posts (text, images, and external knowledge graph)",
+  "output": "binary classification (fake or real)",
+  "backbone": "multimodal graph convolutional network (GCN)",
+  "loss": "cross-entropy loss",
+  "key_idea": "convert text into a graph, incorporate visual and external knowledge graph nodes, and use GCN to jointly model multimodal semantics",
+  "datasets": [
+    "Twitter",
+    "Weibo"
+  ],
+  "metrics": [
+    "accuracy",
+    "precision",
+    "recall",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

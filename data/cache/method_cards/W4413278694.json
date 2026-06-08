@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4413278694",
+  "task": "course recommendation (MOOC)",
+  "input": "user-item interaction graph and knowledge graph (item-entity relations)",
+  "output": "predicted likelihood of user interacting with a course",
+  "backbone": "KGCN (Knowledge Graph Convolutional Network) with user preference propagation and item neighbor enhancement",
+  "loss": "not specified in abstract",
+  "key_idea": "refine user preferences via relational chain exploration and enhance item representations by aggregating semantic relationships with attention weights",
+  "datasets": [
+    "real-world MOOC dataset (not named in abstract)"
+  ],
+  "metrics": [
+    "accuracy (specific metrics not listed)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

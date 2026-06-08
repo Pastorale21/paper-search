@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4393145653",
+  "task": "MOOC video recommendation",
+  "input": "temporal sequences, course-video relations, knowledge concept-video relations",
+  "output": "ranked list of videos",
+  "backbone": "GCN + two variant GATs + LSTM variant",
+  "loss": "not specified",
+  "key_idea": "two-stage approach: multi-relational representation via GCN/GAT/LSTM and multi-level recommendation with beam search to address data sparsity",
+  "datasets": [
+    "XuetangX"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

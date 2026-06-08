@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3004578093",
+  "task": "collaborative filtering for top-K recommendation",
+  "input": "user-item interaction graph (implicit feedback)",
+  "output": "user and item embeddings for ranking",
+  "backbone": "simplified GCN (neighborhood aggregation only, no feature transformation or nonlinear activation)",
+  "loss": "BPR loss (Bayesian Personalized Ranking)",
+  "key_idea": "remove feature transformation and nonlinear activation from GCN, retaining only linear neighborhood aggregation with layer-wise weighted sum",
+  "datasets": [
+    "Gowalla",
+    "Yelp2018",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

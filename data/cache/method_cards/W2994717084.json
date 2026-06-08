@@ -1,0 +1,20 @@
+{
+  "paper_id": "W2994717084",
+  "task": "knowledge-enhanced recommendation (click-through rate prediction and top-N recommendation)",
+  "input": "user-item interaction graph, knowledge graph",
+  "output": "predicted interaction score (for CTR) or ranked item list (for top-N)",
+  "backbone": "neighborhood interaction model with GNN and KG integration",
+  "loss": "not specified in abstract",
+  "key_idea": "model each neighbor pair distinctively to capture fine-grained structural patterns, enhanced by GNN and KG",
+  "datasets": [
+    "4 real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "AUC",
+    "top-N metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4322718576",
+  "task": "multi-modal recommendation",
+  "input": "user-item interaction graph and item multi-modal features (e.g., images, text)",
+  "output": "ranked list of items per user",
+  "backbone": "lightweight encoder (no auxiliary graphs, no negative sampling)",
+  "loss": "multi-modal objectives: reconstruction of user-item graph + inter- and intra-modality alignment",
+  "key_idea": "bootstrap latent contrastive views from user/item representations via dropout, eliminating need for auxiliary graphs and negative samples",
+  "datasets": [
+    "three datasets with 20K-200K nodes (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

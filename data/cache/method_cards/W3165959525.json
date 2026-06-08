@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3165959525",
+  "task": "multimedia recommendation",
+  "input": "user-item interaction graph with item multimedia features (e.g., visual features)",
+  "output": "ranked list of items per user",
+  "backbone": "hierarchical graph network with intra-level and inter-level aggregation",
+  "loss": "not specified in abstract",
+  "key_idea": "learn multi-level user intents from co-interacted item patterns via hierarchical graph structure",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

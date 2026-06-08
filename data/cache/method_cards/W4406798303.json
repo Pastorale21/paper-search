@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4406798303",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "item recommendations in the target domain",
+  "backbone": "multi-graph convolutional network with disentangled representation learning",
+  "loss": "BPR loss + disentanglement regularization + feature combination constraints",
+  "key_idea": "disentangle domain-invariant and domain-specific features via regularization, then transfer only invariant features across domains using a multi-graph network",
+  "datasets": [
+    "Amazon (cross-domain pairs)",
+    "Yelp",
+    "Douban"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

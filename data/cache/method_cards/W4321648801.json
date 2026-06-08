@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4321648801",
+  "task": "federated recommendation",
+  "input": "decentralized user-item ego graphs (local interaction data per user)",
+  "output": "personalized item recommendations",
+  "backbone": "semi-decentralized federated ego graph learning framework (model-agnostic, compatible with GNN-based recommenders)",
+  "loss": "not specified in abstract",
+  "key_idea": "connect isolated ego graphs via predicted interacted item nodes to enable high-order collaborative information sharing in a privacy-preserving semi-decentralized manner",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

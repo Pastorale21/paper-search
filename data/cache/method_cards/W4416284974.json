@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4416284974",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN (graph neural network)",
+  "loss": "InfoNCE (contrastive loss) + BPR loss",
+  "key_idea": "treat each node and its neighbors in the next GNN layer as positive pairs for contrastive learning, avoiding explicit graph augmentations",
+  "datasets": [
+    "four public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

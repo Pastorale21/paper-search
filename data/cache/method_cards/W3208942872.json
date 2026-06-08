@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3208942872",
+  "task": "session-based recommendation (next-item prediction)",
+  "input": "session sequences (ordered item lists)",
+  "output": "next item recommendation per session",
+  "backbone": "sequential dependency enhanced GNN (SDE-GNN) with AU-GNN",
+  "loss": "cross-entropy (implied by next-item prediction)",
+  "key_idea": "separately capture sequential dependencies and item transitions, then fuse them via a gated component",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

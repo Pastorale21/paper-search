@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4386955646",
+  "task": "recommendation retrieval and next best offer prediction",
+  "input": "user-item interaction data (e-commerce dataset)",
+  "output": "recommended items (retrieval) and next best offer",
+  "backbone": "graph neural network",
+  "loss": "",
+  "key_idea": "synthesized graph-based recommender system for both retrieval and next best offer tasks",
+  "datasets": [
+    "open-source e-commerce dataset"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

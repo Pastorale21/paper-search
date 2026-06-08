@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3208747044",
+  "task": "collaborative filtering",
+  "input": "user-item interaction graph",
+  "output": "predicted user-item preferences",
+  "backbone": "neural ODE-based linear GCN with learnable time parameter",
+  "loss": "BPR loss (implied by collaborative filtering context)",
+  "key_idea": "reformulate linear GCN as a neural ODE to learn optimal architecture and smooth solutions for CF",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "various evaluation metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

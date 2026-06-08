@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3178165798",
+  "task": "user retweet behavior prediction",
+  "input": "user ego network (social graph) with temporal and spatial features",
+  "output": "binary prediction of whether a user will retweet a given tweet",
+  "backbone": "graph convolutional network with graph attention mechanism",
+  "loss": "not specified",
+  "key_idea": "combine graph embedding of ego network with spatial-temporal social influence signals using GCN and GAT",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

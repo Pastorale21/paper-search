@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3018719408",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences and user-item bipartite graph",
+  "output": "next-item prediction (ranked list of candidate items)",
+  "backbone": "GNN for inter-sequence correlation + GRU and attention for intra-sequence correlation",
+  "loss": "cross-entropy (implicitly, from sequential recommendation)",
+  "key_idea": "explicitly model inter-sequence item correlations via GNN on user-item and item-item graphs, combined with intra-sequence GRU/attention",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "HR@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

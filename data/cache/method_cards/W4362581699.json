@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4362581699",
+  "task": "user alignment across social networks",
+  "input": "two social network graphs (node attributes and network structure)",
+  "output": "aligned user pairs (mapping users across networks)",
+  "backbone": "Transformer encoder",
+  "loss": "not specified",
+  "key_idea": "convert graph data into sequence data and use Transformer to learn user embeddings for alignment",
+  "datasets": [
+    "Facebook-Twitter",
+    "Weibo-Douban"
+  ],
+  "metrics": [
+    "ACC@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

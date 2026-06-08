@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3093922720",
+  "task": "recommendation with multi-modal knowledge graphs",
+  "input": "multi-modal knowledge graph (user-item interactions + item multi-modal attributes)",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "multi-modal graph attention network (MKGAT)",
+  "loss": "not specified in abstract",
+  "key_idea": "first work to incorporate multi-modal knowledge graphs into recommender systems via multi-modal graph attention propagation",
+  "datasets": [
+    "two real datasets from different domains (not named)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

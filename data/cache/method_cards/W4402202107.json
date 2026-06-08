@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4402202107",
+  "task": "graph representation learning for classification, generation, and recommendation",
+  "input": "graph-structured data (e.g., user-item interaction graphs, molecular graphs)",
+  "output": "graph representations, generated graphs, or ranked item recommendations",
+  "backbone": "multiple: GMeCo (meta-learning contrastive), MM-FGCN (multiresolution framelet GCN), GSDM (spectral diffusion), GNN+Transformer (multi-view sequential)",
+  "loss": "contrastive loss (InfoNCE) for GMeCo; reconstruction loss for GSDM; BPR or cross-entropy for recommendation",
+  "key_idea": "introduces four distinct frameworks: meta-contrastive augmentation, multiresolution framelet convolution, spectral diffusion generation, and multi-view GNN-Transformer fusion",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

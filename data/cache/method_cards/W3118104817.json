@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3118104817",
+  "task": "graph-level representation learning, social recommendation, graph generation",
+  "input": "graph (node features and adjacency matrix)",
+  "output": "reconstructed graph signals or graph-level embeddings",
+  "backbone": "graph autoencoder with GCN encoder and GDN decoder",
+  "loss": "reconstruction loss (e.g., mean squared error)",
+  "key_idea": "use graph deconvolution (inverse filter) as decoder to reconstruct high-frequency signals from smoothed GCN embeddings",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3015474461",
+  "task": "cross-platform item-item recommendation (paper to GitHub repository)",
+  "input": "paper text and GitHub repository metadata (features from user actions)",
+  "output": "ranked list of GitHub repositories relevant to a given paper",
+  "backbone": "constrained graph convolutional network (GCN) with text encoding",
+  "loss": "not specified (distant supervision from automatically computed labels)",
+  "key_idea": "use distant supervision to automatically generate training labels from user actions, and jointly embed papers and repositories into a shared space via constrained GCN",
+  "datasets": [
+    "real-world data from GitHub and Microsoft Academic"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

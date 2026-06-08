@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3116661897",
+  "task": "Web service recommendation for Mashup development",
+  "input": "knowledge graph of Web services (categories, developers, scope) and service description documents",
+  "output": "ranked list of Web services for a given Mashup",
+  "backbone": "knowledge graph convolutional network (KGCN) + Doc2Vec",
+  "loss": "not specified (implicitly from KGCN training)",
+  "key_idea": "combine KGCN for higher-order relational mining and Doc2Vec for semantic understanding of service descriptions",
+  "datasets": [
+    "Programmable Web"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "F1-score",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

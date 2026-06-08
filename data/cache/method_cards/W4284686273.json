@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4284686273",
+  "task": "session-based recommendation (next-item prediction)",
+  "input": "short behavior sessions (sequences of item clicks)",
+  "output": "next item recommendation",
+  "backbone": "hypergraph neural network with intent disentanglement",
+  "loss": "recommendation loss + auxiliary intent-classification loss",
+  "key_idea": "disentangle user intents at micro (intent-aware propagation) and macro (intent classification) levels on session hypergraphs",
+  "datasets": [
+    "Tmall",
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

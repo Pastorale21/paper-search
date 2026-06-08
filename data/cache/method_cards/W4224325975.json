@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4224325975",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with knowledge distillation",
+  "loss": "not explicitly stated (likely BPR or pointwise loss with distillation loss)",
+  "key_idea": "use knowledge distillation to transfer knowledge between a full model (social+interaction) and two auxiliary models (each using only one graph) to improve recommendation",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

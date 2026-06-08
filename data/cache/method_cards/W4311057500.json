@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4311057500",
+  "task": "graph-based recommendation (collaborative filtering)",
+  "input": "user-item interaction bipartite graph",
+  "output": "reconstructed user-item interaction graph (or predicted interactions)",
+  "backbone": "variational graph auto-encoder (GCN encoder + decoder)",
+  "loss": "variational lower bound (reconstruction + KL divergence)",
+  "key_idea": "recast graph recommendation as graph generation via variational auto-encoder, achieving linear time complexity",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book",
+    "LastFM"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4401863349",
+  "task": "graph intelligence (survey/tutorial, not a specific method)",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "Taxonomy of LLM+graph methods: LLMs as enhancers, predictors, or alignment components; introduces graph prompting.",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

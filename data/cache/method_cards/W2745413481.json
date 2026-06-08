@@ -1,0 +1,22 @@
+{
+  "paper_id": "W2745413481",
+  "task": "top-N item recommendation",
+  "input": "knowledge graph with user-item and item-item relations",
+  "output": "ranked list of items per user",
+  "backbone": "neural language models (e.g., node2vec) on knowledge graph + learning-to-rank",
+  "loss": "learning-to-rank objective (e.g., pairwise or listwise)",
+  "key_idea": "learn property-specific user-item relatedness features from knowledge graph embeddings and combine them via learning-to-rank",
+  "datasets": [
+    "MovieLens 1M"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "MAP",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

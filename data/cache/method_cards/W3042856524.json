@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3042856524",
+  "task": "social recommendation",
+  "input": "user-item interaction graph (with ratings/opinions), user-user social graph, item-item graph",
+  "output": "predicted rating or preference score for user-item pairs",
+  "backbone": "graph neural network (GNN) with attention mechanism",
+  "loss": "not specified (likely rating prediction loss, e.g., MSE)",
+  "key_idea": "jointly model user-item interactions and opinions, and use attention to differentiate heterogeneous social relations",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

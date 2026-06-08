@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4400985386",
+  "task": "survey of GNN-based recommender systems",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "comprehensive review and taxonomy of GNN-based recommender systems, including side information like social and knowledge graphs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

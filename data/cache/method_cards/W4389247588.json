@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4389247588",
+  "task": "recommendation with knowledge graph and social relationships",
+  "input": "user-item interaction graph, knowledge graph, social relationship graph",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "KGCN (Knowledge Graph Convolutional Network) + MLP",
+  "loss": "not specified",
+  "key_idea": "combine item features from KGCN with user features from social relationships via MLP for scoring",
+  "datasets": [
+    "CiaoDVD",
+    "Epinions",
+    "FilmTrust"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

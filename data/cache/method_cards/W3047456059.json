@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3047456059",
+  "task": "social trust evaluation in online social networks",
+  "input": "social network graph with trust relationships (directed/weighted edges)",
+  "output": "predicted trust score between any pair of users",
+  "backbone": "graph convolutional network (GCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "end-to-end GCN framework that learns latent factors from social network structure and trust relationships for trust evaluation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

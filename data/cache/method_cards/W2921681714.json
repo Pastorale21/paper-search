@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2921681714",
+  "task": "user identity linkage across social networks",
+  "input": "user-user social graphs from multiple online social networks",
+  "output": "linked user identity pairs across networks",
+  "backbone": "graph neural network (GNN) capturing local and global structure",
+  "loss": "",
+  "key_idea": "jointly capture local neighborhood and global community structure in user social graphs for identity linkage",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

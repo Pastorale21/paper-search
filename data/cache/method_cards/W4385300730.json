@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4385300730",
+  "task": "next service composition recommendation",
+  "input": "service composition history (sequence of services) and service graph (structural and descriptive information)",
+  "output": "ranked list of next services for composition",
+  "backbone": "encoder-decoder (transformer-like) with self-supervised graph embedding",
+  "loss": "not specified (likely cross-entropy for generation)",
+  "key_idea": "formulate service recommendation as a sequence generation problem using an encoder-decoder model that leverages co-occurrence relationships",
+  "datasets": [
+    "real-world dataset (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

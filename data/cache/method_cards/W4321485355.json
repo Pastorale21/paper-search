@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4321485355",
+  "task": "trajectory-user linking",
+  "input": "anonymous trajectories (sequences of location points)",
+  "output": "user identity for each trajectory",
+  "backbone": "graph convolutional networks (for trajectory relations) + sequential neural networks (for location-level modeling)",
+  "loss": "classification loss (cross-entropy) for labeled trajectories",
+  "key_idea": "construct homogeneous and heterogeneous trajectory graphs to incorporate unlabeled trajectories for semi-supervised learning, combined with location-level sequential modeling",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "accuracy",
+    "F1-score"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4319998141",
+  "task": "service recommendation in Internet of Services",
+  "input": "heterogeneous knowledge graphs (user-service interaction graph, user-user social graph, service-mashup graph)",
+  "output": "ranked list of services per user",
+  "backbone": "multi-graph and multi-aspect neural network (GNN + attention)",
+  "loss": "not specified in abstract",
+  "key_idea": "jointly extract information from multiple heterogeneous graphs and multiple aspects to refine user and service profiles",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

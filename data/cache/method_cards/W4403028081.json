@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4403028081",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (e.g., purchase, click, add-to-cart)",
+  "output": "predicted preference scores for target behavior (e.g., purchase)",
+  "backbone": "graph convolutional network (GCN)",
+  "loss": "contrastive clustering loss (behavior-level + instance-level + cluster-level)",
+  "key_idea": "contrastive clustering learning across behavior, instance, and cluster levels to capture commonalities and differences among behaviors",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

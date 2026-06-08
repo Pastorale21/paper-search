@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4403722423",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph (with user attitudes)",
+  "output": "ranked item recommendations per user",
+  "backbone": "light graph convolutional network (LightGCN) with balance theory",
+  "loss": "BPR loss + four self-supervised signals (social theory inspired)",
+  "key_idea": "integrates balance theory and motif-based topic modeling to denoise social relations and leverages multitopic self-supervised signals",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10",
+    "Precision@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

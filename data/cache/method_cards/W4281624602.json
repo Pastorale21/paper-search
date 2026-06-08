@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4281624602",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (e.g., click, favorite, purchase)",
+  "output": "item recommendations for target behavior",
+  "backbone": "multi-behavior graph convolutional neural network (MBGCNN)",
+  "loss": "",
+  "key_idea": "capture behavior intensity via user-item propagation and behavior semantics via item propagation in a unified GCN",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4405755065",
+  "task": "graph feature learning (node classification, graph classification, recommendation)",
+  "input": "graph-structured data (social networks, molecular graphs, user-item graphs)",
+  "output": "node or graph representations",
+  "backbone": "fusion of GCN and GAT with trainable weight allocation",
+  "loss": "",
+  "key_idea": "dynamically fuse global aggregation from GCN and local attention from GAT via learnable weights",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

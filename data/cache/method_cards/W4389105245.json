@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4389105245",
+  "task": "next destination recommendation",
+  "input": "user travel trajectories (spatial-temporal sequences) and heterogeneous information network",
+  "output": "next destination (POI) prediction for a user",
+  "backbone": "Dynamic Heterogeneous Information Network (DHIN) with hierarchical attention and dynamic encoder",
+  "loss": "not specified",
+  "key_idea": "leverage co-occurrence patterns and dynamic urban hotspots via heterogeneous graph with hierarchical attention and temporal encoding",
+  "datasets": [
+    "real-world trajectory data"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

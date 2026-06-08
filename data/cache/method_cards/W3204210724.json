@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3204210724",
+  "task": "sequential product recommendation",
+  "input": "user behavior sequences and product-product relation graphs (substitutable and complementary)",
+  "output": "ranking scores for candidate products",
+  "backbone": "interactive graph neural networks + kernel-enhanced transformer",
+  "loss": "not specified in abstract",
+  "key_idea": "jointly encode substitutable and complementary product relations via graph neural networks and adaptively fuse temporal patterns with multiple kernels for candidate-dependent user representations",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

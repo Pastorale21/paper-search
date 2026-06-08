@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4393406945",
+  "task": "QoS-aware web service recommendation",
+  "input": "user-service interaction graph with QoS values and geolocation information",
+  "output": "predicted QoS value or ranking of services per user",
+  "backbone": "graph convolutional network (GCN)",
+  "loss": "contrastive loss (InfoNCE) + possibly prediction loss (not explicitly stated)",
+  "key_idea": "construct contextually augmented graphs using geolocation and randomness for graph contrastive learning to handle cold-start",
+  "datasets": [
+    "not specified in abstract"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

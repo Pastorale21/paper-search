@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3207066264",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, social network, and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "metapath-guided heterogeneous graph neural network",
+  "loss": "self-supervised graph-based mutual information loss + recommendation loss (e.g., BPR)",
+  "key_idea": "jointly model social and knowledge-aware relational structures via metapath-guided heterogeneous GNN and self-supervised mutual information learning",
+  "datasets": [
+    "Yelp",
+    "LastFM",
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

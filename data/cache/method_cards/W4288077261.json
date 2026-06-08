@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4288077261",
+  "task": "session-based recommendation",
+  "input": "anonymous behavior sequences (sessions) of user clicks",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "global context graph neural network (GNN) with virtual context vectors",
+  "loss": "cross-entropy (main task) + contrastive self-supervised loss (auxiliary)",
+  "key_idea": "introduce virtual context vectors connecting to all items in a session to capture global high-order item transitions across sessions",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "Tmall"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

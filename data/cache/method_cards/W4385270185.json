@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4385270185",
+  "task": "tag-enhanced recommendation",
+  "input": "user-item interaction graph and item tag information",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "self-supervised alignment framework (compatible with various base recommenders)",
+  "loss": "self-supervised contrastive loss (pairing user and tag representations) + recommendation loss (e.g., BPR)",
+  "key_idea": "pair user embeddings with item tag embeddings via a self-supervised proxy task, using intent-aware multi-subspace alignment to avoid collapse",
+  "datasets": [
+    "seven real-world datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

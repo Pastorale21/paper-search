@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4205287544",
+  "task": "explainable recommendation",
+  "input": "user-item interaction graph, external knowledge base (semantic knowledge)",
+  "output": "rating prediction and textual explanation",
+  "backbone": "graph neural network (GNN) with hierarchical neural collaborative filtering",
+  "loss": "not specified (likely rating prediction loss + explanation generation loss)",
+  "key_idea": "leverage external knowledge to enhance user/item/relation embeddings and perform semantic and relational propagation over a user behavior graph for both rating prediction and explanation generation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

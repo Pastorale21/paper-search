@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4403754412",
+  "task": "medicine recommendation",
+  "input": "longitudinal electronic health records (EHR) with ontologies and drug-drug interaction knowledge",
+  "output": "set of recommended medications for a patient's current admission",
+  "backbone": "GNN on knowledge graphs + RNN for historical data + Transformer attention",
+  "loss": "not specified in abstract",
+  "key_idea": "construct admission-wise clinical and medicine knowledge graphs from longitudinal EHR and use GNNs with RNNs and Transformer attention for medication recommendation",
+  "datasets": [
+    "MIMIC-IV"
+  ],
+  "metrics": [
+    "precision",
+    "recall",
+    "F1 score",
+    "Jaccard score",
+    "DDI control"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

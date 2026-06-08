@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4384828132",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "predicted preference scores for candidate items",
+  "backbone": "graph neural network (GNN) with multi-layer embeddings",
+  "loss": "contrastive loss (InfoNCE) with multiple contrastive objectives",
+  "key_idea": "construct contrastive pairs using similar semantic embeddings from different layers, avoiding heuristic data augmentation",
+  "datasets": [
+    "three publicly available datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

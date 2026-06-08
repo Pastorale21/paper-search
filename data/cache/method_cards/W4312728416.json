@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4312728416",
+  "task": "cost-efficient distributed GNN processing over edge servers",
+  "input": "GNN computation graph and multi-tier heterogeneous edge network",
+  "output": "graph layout (partitioning and placement) minimizing total cost",
+  "backbone": "graph cut optimization (quadratic submodularity)",
+  "loss": "",
+  "key_idea": "exploit quadratic submodularity of GNN computing pattern to formulate cost optimization as a graph cut problem with constant-factor approximation",
+  "datasets": [
+    "real-world datasets (not specified)"
+  ],
+  "metrics": [
+    "cost reduction",
+    "convergence speed"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

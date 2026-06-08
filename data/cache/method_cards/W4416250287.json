@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4416250287",
+  "task": "cross-domain sequential recommendation",
+  "input": "user-item interaction sequences from multiple domains with overlapping users",
+  "output": "next-item recommendations in target domain",
+  "backbone": "diffusion-based transformer with augmented graph embedding integration",
+  "loss": "not specified",
+  "key_idea": "dynamic embedding fusion and diffusion-based generative module to model temporal dynamics and cross-domain knowledge transfer",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

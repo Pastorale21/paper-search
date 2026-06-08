@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4312649827",
+  "task": "graph-based recommendation",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "graph neural network (GNN) encoder",
+  "loss": "unsupervised contrastive loss + supervised contrastive loss + BPR loss",
+  "key_idea": "hybrid contrastive learning combining unsupervised and supervised signals with multi-view permutation",
+  "datasets": [
+    "two public datasets",
+    "one internal dataset"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

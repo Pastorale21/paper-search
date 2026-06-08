@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4367046771",
+  "task": "graph representation learning with pre-training and prompting",
+  "input": "graph (e.g., citation network, social network)",
+  "output": "node-level or graph-level predictions (e.g., node classification, graph classification)",
+  "backbone": "GNN (e.g., GCN, GIN) with a learnable prompt",
+  "loss": "pre-training loss (e.g., contrastive or generative) + task-specific loss",
+  "key_idea": "unify pre-training and downstream tasks into a common template and use a learnable prompt to adapt the pre-trained model to downstream tasks",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed",
+    "DBLP",
+    "Reddit"
+  ],
+  "metrics": [
+    "Accuracy",
+    "F1-score"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

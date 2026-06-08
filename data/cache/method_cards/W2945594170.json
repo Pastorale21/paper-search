@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2945594170",
+  "task": "node importance estimation in knowledge graphs",
+  "input": "knowledge graph (multi-relational graph)",
+  "output": "importance score for each node",
+  "backbone": "graph neural network (GNN) with predicate-aware attention",
+  "loss": "not specified (supervised learning)",
+  "key_idea": "aggregate importance scores instead of node embeddings using predicate-aware attention and centrality adjustment",
+  "datasets": [
+    "real-world knowledge graphs (not named)"
+  ],
+  "metrics": [
+    "[email protected]"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

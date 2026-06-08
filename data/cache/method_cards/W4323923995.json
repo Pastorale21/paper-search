@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4323923995",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph convolution network (GCN)",
+  "loss": "BPR loss + contrastive loss (InfoNCE)",
+  "key_idea": "fuse social and interaction graphs via proportionally combined user embeddings and apply contrastive learning on embedding-level augmentations",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4415871432",
+  "task": "personalized exercise recommendation",
+  "input": "learner-exercise interaction logs (with multi-behavior responses) and a knowledge graph",
+  "output": "ranked list of exercises for each learner",
+  "backbone": "GRU with behavior focus-temporal decay dual attention + conjugate deep cross-network + incremental progressive relational aggregation GCN",
+  "loss": "multi-task balanced recommendation loss (not explicitly named)",
+  "key_idea": "model multi-behavior interactions and semantic-enhanced knowledge graph with time-sensitive knowledge tracing and dual-dimensional ability assessment",
+  "datasets": [
+    "ASSIST2012-13",
+    "ASSIST2009-10"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "F1",
+    "Diversity"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

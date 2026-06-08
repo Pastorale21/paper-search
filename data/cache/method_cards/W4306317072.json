@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4306317072",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "truncated SVD (replacing GCN convolution)",
+  "loss": "not specified (implicitly matrix factorization loss)",
+  "key_idea": "replace GCN's graph convolution with truncated SVD using K-largest singular vectors and renormalization to mitigate over-smoothing",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

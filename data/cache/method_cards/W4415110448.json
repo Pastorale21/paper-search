@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4415110448",
+  "task": "knowledge graph-based text recommendation for high school literature teachers",
+  "input": "knowledge graph of literature texts with pedagogical and structural relations",
+  "output": "ranked list of recommended texts",
+  "backbone": "knowledge graph embedding (DeepWalk, biased random walk, hybrid embedding, Node2Vec)",
+  "loss": "not specified (implicitly from embedding methods)",
+  "key_idea": "ontology-driven knowledge graph embeddings combining structural and pedagogical signals for text recommendation",
+  "datasets": [
+    "custom dataset of 98, 196, and 351 texts"
+  ],
+  "metrics": [
+    "AUC",
+    "Hits@K",
+    "MRR",
+    "nDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

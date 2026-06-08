@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4396941423",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network (user-user graph)",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (disentangled graph encoder)",
+  "loss": "BPR loss + self-supervised learning loss (social preference network constraint)",
+  "key_idea": "convert social network into a social preference network via GNN and disentangle fine-grained preference factors",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

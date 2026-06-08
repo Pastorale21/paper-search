@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4284670593",
+  "task": "adversarial robustness in graph-based collaborative filtering",
+  "input": "user-item interaction graph",
+  "output": "robust item recommendations",
+  "backbone": "graph neural network (GNN) for collaborative filtering",
+  "loss": "",
+  "key_idea": "inject adversarial perturbations into graph structure to improve robustness",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

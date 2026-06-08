@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4205677643",
+  "task": "session-based recommendation",
+  "input": "anonymous session sequences (click logs)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "graph transition network (GNN) with adjacent user graph and session graph",
+  "loss": "not specified in abstract",
+  "key_idea": "construct an adjacent user graph from co-occurrence of last clicks to model cross-session user interests, and combine with session graph embeddings",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

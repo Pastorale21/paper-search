@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4404576798",
+  "task": "collaborative filtering (interaction prediction and click-through rate prediction)",
+  "input": "user-item interaction graph",
+  "output": "predicted interaction score (e.g., rating or click probability)",
+  "backbone": "graph cross-correlated network (GCN-based encoder with cross-correlated aggregation)",
+  "loss": "not specified in abstract",
+  "key_idea": "explicitly model cross-correlations between user and item subgraph representations at each hop",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

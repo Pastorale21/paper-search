@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3046123837",
+  "task": "next POI recommendation",
+  "input": "user-POI interaction sequences and POI attributes",
+  "output": "ranked list of next POIs for a user",
+  "backbone": "graph attention network (GAT)",
+  "loss": "not specified",
+  "key_idea": "adaptive differentiation of POI relevance in sequences and automatic identification of POI-wise correlations via attention",
+  "datasets": [
+    "three real-world datasets (not named)"
+  ],
+  "metrics": [
+    "precision",
+    "recall",
+    "mAP"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4224310713",
+  "task": "multimodal continual graph learning",
+  "input": "multimodal graphs (social + visual + textual features) with evolving structure and tasks",
+  "output": "predictions for new tasks while retaining performance on old tasks",
+  "backbone": "Adaptive Multimodal Graph Neural Network (AdaMGNN) with neural architecture search",
+  "loss": "joint optimization of NAS and group sparse regularization (GSR) across tasks",
+  "key_idea": "jointly optimize neural architecture search and group sparse regularization to adapt to new tasks while preserving old knowledge",
+  "datasets": [
+    "two real-world multimodal continual graph scenarios (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

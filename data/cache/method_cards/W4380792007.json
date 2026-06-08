@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4380792007",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user-user social graph, item-item graph",
+  "output": "predicted user interest scores for items",
+  "backbone": "Graph Neural Network (GNN)",
+  "loss": "",
+  "key_idea": "incorporate user-user, user-item, and item-item graphs into GNN to leverage social influence and item relationships",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

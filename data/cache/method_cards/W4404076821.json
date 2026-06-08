@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4404076821",
+  "task": "link prediction",
+  "input": "graph (link-centric induced subgraphs)",
+  "output": "predicted existence of missing or future edges",
+  "backbone": "subgraph embedding network (GNN-based encoder for subgraphs)",
+  "loss": "contrastive loss (subgraph-level discrimination) + classification loss",
+  "key_idea": "represent each link by its induced subgraph and learn link embeddings via subgraph-level contrastive learning",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed",
+    "PPI",
+    "Reddit"
+  ],
+  "metrics": [
+    "AUC",
+    "AP"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

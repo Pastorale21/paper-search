@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4389951435",
+  "task": "survey on beyond-accuracy aspects (diversity, serendipity, fairness) in GNN-based recommender systems",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "review of methods addressing diversity, serendipity, and fairness in GNN-based recommenders beyond accuracy",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

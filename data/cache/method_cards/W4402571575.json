@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4402571575",
+  "task": "knowledge graph-enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "recommended items for users",
+  "backbone": "graph neural network with cross-view contrastive learning",
+  "loss": "multi-task loss (recommendation + contrastive learning)",
+  "key_idea": "cross-view contrastive learning between local and global structures to learn discriminative node representations and reduce KG noise",
+  "datasets": [
+    "MovieLens",
+    "Book-Crossing"
+  ],
+  "metrics": [
+    "AUC",
+    "recall@k",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

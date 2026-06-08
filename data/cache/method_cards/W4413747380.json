@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4413747380",
+  "task": "defense against membership inference attack on GCN-based recommendation",
+  "input": "user-item interaction graph (implicit feedback)",
+  "output": "privacy-preserving user/item embeddings",
+  "backbone": "disentangled GCN",
+  "loss": "multi-task loss (utility + privacy) with sub-graph gradient allocation",
+  "key_idea": "disentangle sensitive and practical channels in latent representations to minimize linear dependency, then train with sub-computational graphs and mixed updating",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed",
+    "LastFM",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "attack accuracy",
+    "utility metrics (e.g., AUC, F1)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4416092814",
+  "task": "link prediction in social recommendation",
+  "input": "user-item interaction graph (social media platform)",
+  "output": "predicted links (user-item interactions)",
+  "backbone": "hybrid GNN (GCN with dual similarity metrics)",
+  "loss": "",
+  "key_idea": "integrates GCN with cosine and dot product similarity metrics to enhance link prediction",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

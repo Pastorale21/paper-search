@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4396736333",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network with contrastive learning",
+  "loss": "BPR loss + contrastive loss (InfoNCE) + HSIC-based kernel dependence maximization + hierarchical mutual information maximization",
+  "key_idea": "maximize kernel dependence of augmented representations in Hilbert space via HSIC and hierarchical mutual information to capture nonlinear dependencies and social hierarchies",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

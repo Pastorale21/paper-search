@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4398192088",
+  "task": "knowledge graph pruning for recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "pruned knowledge graph and enhanced user/item representations",
+  "backbone": "importance-aware graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "prune knowledge graph by evaluating node importance from collective (user attention) and holistic (inherent properties) views",
+  "datasets": [
+    "three publicly available datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

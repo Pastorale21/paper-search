@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4408073979",
+  "task": "personalized recommendation for e-commerce",
+  "input": "complex graph structure covering users, products, and diverse relationships",
+  "output": "personalized item recommendations",
+  "backbone": "multi-scale graph neural network with hierarchical attention and residual linear GCN",
+  "loss": "not specified",
+  "key_idea": "multi-scale graph convolution with hierarchical attention and emotional embedding to capture multi-level user-product interactions",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

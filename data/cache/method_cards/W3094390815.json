@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3094390815",
+  "task": "tag ranking in tag-enhanced video recommendation",
+  "input": "heterogeneous network with video, tag, user, and media nodes",
+  "output": "personalized ranked tag list for each video",
+  "backbone": "graph neural network combining multi-field transformer, GraphSAGE, and neural FM",
+  "loss": "neighbor-similarity based loss",
+  "key_idea": "encode user preferences on both tags and videos via a heterogeneous GNN with neighbor-similarity loss",
+  "datasets": [
+    "WeChat Top Stories (real-world)"
+  ],
+  "metrics": [
+    "tag click rate",
+    "video watching time",
+    "tag ranking metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

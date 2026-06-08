@@ -1,0 +1,19 @@
+{
+  "paper_id": "W7161742907",
+  "task": "federated recommendation with malicious security",
+  "input": "local first-order user-item subgraphs (each user sees only its directly interacted items)",
+  "output": "trained GNN model for item recommendation",
+  "backbone": "GNN (graph neural network) with secret-shared shuffle",
+  "loss": "not specified in abstract",
+  "key_idea": "use secret-shared shuffle to expand local subgraphs in a privacy-preserving and verifiable manner, ensuring both item and relationship privacy against malicious servers",
+  "datasets": [
+    "four datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

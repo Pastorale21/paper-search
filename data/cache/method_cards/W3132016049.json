@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3132016049",
+  "task": "context-aware service recommendation",
+  "input": "context-aware service knowledge graph (C-SKG) with multi-relational interactions",
+  "output": "top-rated services for a target user context",
+  "backbone": "Dilated Recurrent Neural Networks (for knowledge graph embedding)",
+  "loss": "",
+  "key_idea": "construct a context-aware service knowledge graph and embed it using dilated RNNs with first-order and subgraph-aware proximity",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

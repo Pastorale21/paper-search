@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3148088798",
+  "task": "interactive community search in online social networks",
+  "input": "query vertex and a subgraph collected on the fly from an online network",
+  "output": "a k-sized community (kMG) containing the query vertex",
+  "backbone": "Graph Neural Network (GNN) for vertex classification",
+  "loss": "ranking loss combined with GNN training",
+  "key_idea": "interactively build a candidate subgraph, train a GNN to score vertex membership, and discover the target community with user feedback",
+  "datasets": [
+    "offline and online real-life datasets"
+  ],
+  "metrics": [
+    "effectiveness (community quality)",
+    "communication overhead",
+    "computation overhead",
+    "user labeling effort"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

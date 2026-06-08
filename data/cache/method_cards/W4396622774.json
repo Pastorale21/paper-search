@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4396622774",
+  "task": "multi-behavior recommendation",
+  "input": "user-item heterogeneous interaction graph with multiple behavior types (click, add-to-favorites, add-to-cart, purchase)",
+  "output": "recommendation for target behavior (e.g., purchase)",
+  "backbone": "meta-graph network with GCN for behavior heterogeneous modeling, matrix factorization, meta-knowledge learner, and attention mechanism",
+  "loss": "not specified in abstract",
+  "key_idea": "encode multiple user behaviors via heterogeneous graph convolution and meta-knowledge transfer to improve target behavior recommendation",
+  "datasets": [
+    "Tmall",
+    "Yelp",
+    "ML10M"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10",
+    "HR@7",
+    "NDCG@7"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

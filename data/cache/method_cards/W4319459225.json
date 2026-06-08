@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4319459225",
+  "task": "POI recommendation",
+  "input": "historical check-ins, POI distributions, road segments, and zone information",
+  "output": "ranked list of POIs per user",
+  "backbone": "knowledge graph embedding + topic model",
+  "loss": "not specified",
+  "key_idea": "learn multiple time-dependent POI vectors via knowledge graphs and enhance them with zone representations from topic models for spatio-temporal and sentiment constraints",
+  "datasets": [
+    "Changchun city dataset"
+  ],
+  "metrics": [
+    "Recall@k",
+    "Precision@k",
+    "F1-score@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

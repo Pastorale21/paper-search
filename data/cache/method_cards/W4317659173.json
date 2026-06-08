@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4317659173",
+  "task": "rating prediction (social recommendation)",
+  "input": "user-item rating matrix, social network, and multiple implicit feedback signals",
+  "output": "predicted rating for a user-item pair",
+  "backbone": "triple graph convolutional network (triple GCN)",
+  "loss": "not specified (likely regression loss for rating prediction)",
+  "key_idea": "model explicit ratings, social relations, and multiple implicit feedback as three separate graphs and fuse them via a triple GCN",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "RMSE",
+    "MAE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4296835302",
+  "task": "case assignment recommendation (power-law distributed data)",
+  "input": "prosecutor-case category interaction graph",
+  "output": "ranked list of case categories per prosecutor",
+  "backbone": "self-supervised graph neural network with pre-training generative learning",
+  "loss": "not specified (implicitly self-supervised + recommendation loss)",
+  "key_idea": "capture self-supervised signals from intra-node features and inter-node correlations, and pre-train to generate data representations for recommendation under power-law distribution",
+  "datasets": [
+    "real-world dataset from three procuratorates"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4300104672",
+  "task": "substitute product identification and recommendation",
+  "input": "heterogeneous graph with multiple customer behavior data sources (e.g., co-purchase, co-view, etc.)",
+  "output": "ranked list of substitute products for a given product",
+  "backbone": "multi-task heterogeneous graph neural network (M-HetSage)",
+  "loss": "list-aware average precision (LaAP) loss",
+  "key_idea": "unify multiple customer behavior sources in a multi-task heterogeneous GNN and optimize a list-aware ranking loss that directly approximates the target metric",
+  "datasets": [
+    "Amazon proprietary datasets"
+  ],
+  "metrics": [
+    "NDCG",
+    "mAP"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

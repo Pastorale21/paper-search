@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4207029555",
+  "task": "commenting prediction in online forums",
+  "input": "user-post interaction history, post content, and temporal interaction graph",
+  "output": "binary prediction of whether a user will comment on a post",
+  "backbone": "attention mechanism + stacked graph convolutional network",
+  "loss": "not specified in abstract",
+  "key_idea": "combine content-based attention and implicit social relationship modeling via temporal graph convolution",
+  "datasets": [
+    "real forum datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

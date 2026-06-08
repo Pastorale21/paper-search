@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4313156773",
+  "task": "trust industrial service recommendation",
+  "input": "user-service interaction graph (distributed across clients)",
+  "output": "trusted service recommendations per client",
+  "backbone": "GCN-based federated learning",
+  "loss": "not specified",
+  "key_idea": "federated GCN with local training and server-side weight aggregation, leveraging overlapping services for embedding sharing",
+  "datasets": [
+    "classic public recommendation datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

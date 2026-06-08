@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4408318659",
+  "task": "fraud detection in e-commerce",
+  "input": "multi-source data (transaction logs, user behavior, etc.)",
+  "output": "fraud prediction (binary classification or risk score)",
+  "backbone": "graph neural networks (GNNs)",
+  "loss": "",
+  "key_idea": "systematic review of fraud detection at eBay, highlighting GNN-based solutions for heterogeneity, scalability, dynamics, and explainability",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

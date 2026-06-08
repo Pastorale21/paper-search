@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4406890643",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with dual-domain collaborative denoising",
+  "loss": "recommendation loss + contrastive learning loss (Anchor-InfoNCE)",
+  "key_idea": "collaboratively denoise both social network and interaction data via structure-level and embedding-space modules with cross-domain guidance",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

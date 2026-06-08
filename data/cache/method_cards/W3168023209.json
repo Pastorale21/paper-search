@@ -1,0 +1,18 @@
+{
+  "paper_id": "W3168023209",
+  "task": "product recommendation in live stream e-commerce",
+  "input": "heterogeneous graph of streamers, users, and products (tripartite interaction)",
+  "output": "ranked list of products for a user",
+  "backbone": "GNN on decomposed bipartite graphs",
+  "loss": "multi-task learning (not specified in abstract)",
+  "key_idea": "model tripartite interactions as a heterogeneous graph decomposed into bipartite graphs and use multi-task learning for recommendation",
+  "datasets": [
+    "LSEC (real-world Live Stream E-Commerce dataset)",
+    "another real-world dataset with different scale"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

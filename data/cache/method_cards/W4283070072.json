@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4283070072",
+  "task": "shared-account cross-domain sequential recommendation",
+  "input": "shared-account cross-domain sequential interaction data",
+  "output": "next-item recommendations for the current user of a shared account",
+  "backbone": "basic cross-domain recommender (clustering + attention) + hierarchical RL domain filter",
+  "loss": "not specified in abstract",
+  "key_idea": "use hierarchical reinforcement learning to filter irrelevant domain information in shared-account cross-domain sequential recommendation",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

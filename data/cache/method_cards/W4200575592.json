@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4200575592",
+  "task": "personalized attractions recommendation",
+  "input": "tourism knowledge graph (entities and relations) and tourist sequential movement data",
+  "output": "ranked list of attractions for a tourist",
+  "backbone": "graph convolutional network with attention network for sequential encoding",
+  "loss": "not specified",
+  "key_idea": "leverage tourism knowledge graph semantics and tourist sequential movement via GCN and attention",
+  "datasets": [
+    "Beijing tourism knowledge graph",
+    "travel notes data"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

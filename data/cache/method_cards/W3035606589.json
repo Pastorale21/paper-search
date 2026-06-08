@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3035606589",
+  "task": "top-N recommendation with diversity",
+  "input": "user-item interaction graph and knowledge graph (entities and relations)",
+  "output": "diversified ranked list of items",
+  "backbone": "knowledge graph embedding + determinantal point process (DPP)",
+  "loss": "margin-based loss (for KG embedding)",
+  "key_idea": "use DPP with kernel matrices built from KG embeddings to promote diversity while maintaining accuracy",
+  "datasets": [
+    "MovieLens",
+    "IMDb"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Diversity (e.g., intra-list diversity)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

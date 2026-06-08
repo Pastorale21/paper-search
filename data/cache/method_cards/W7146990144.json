@@ -1,0 +1,24 @@
+{
+  "paper_id": "W7146990144",
+  "task": "cross-domain educational recommendation",
+  "input": "multi-modal educational data (behavioral logs, institutional context, temporal sequences)",
+  "output": "personalized learning activity recommendations",
+  "backbone": "multi-modal GNN (GCN + GAT + hierarchical temporal components)",
+  "loss": "cognitive load-aware optimization (not explicitly named)",
+  "key_idea": "cross-modal attention mechanism integrating behavioral and contextual features with cognitive load awareness",
+  "datasets": [
+    "EdNet",
+    "OULAD"
+  ],
+  "metrics": [
+    "recommendation accuracy",
+    "educational effectiveness",
+    "learning time reduction",
+    "engagement",
+    "correlation with educational psychology indicators"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

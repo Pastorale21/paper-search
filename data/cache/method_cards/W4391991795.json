@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4391991795",
+  "task": "social recommendation",
+  "input": "user-item rating matrix, explicit social relations, and implicit relations constructed from rating patterns",
+  "output": "predicted ratings for user-item pairs",
+  "backbone": "Graph Attention Network (GAT) with user-specific gating",
+  "loss": "not specified (likely rating prediction loss, e.g., MSE)",
+  "key_idea": "construct personalized implicit social networks by debiasing ratings and using a preference hedging formula, then fuse explicit and implicit relations via GAT and gating",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

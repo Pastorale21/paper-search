@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3213430165",
+  "task": "node classification",
+  "input": "graph with noisy/incomplete topology",
+  "output": "node class labels",
+  "backbone": "dynamic graph convolutional network (DyGCN) with learnable edge weights",
+  "loss": "not specified (likely cross-entropy)",
+  "key_idea": "treat edge weights as learnable parameters and use adaptive edge dropping to optimize graph topology",
+  "datasets": [
+    "not specified in abstract"
+  ],
+  "metrics": [
+    "classification accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

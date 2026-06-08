@@ -1,0 +1,21 @@
+{
+  "paper_id": "W2911856984",
+  "task": "graph neural network acceleration (node classification, link prediction, etc.)",
+  "input": "graph (nodes, edges, features)",
+  "output": "node embeddings or predictions",
+  "backbone": "Message Passing Neural Network (GraphSAGE, GAT, GCN) with uniform node sampling",
+  "loss": "not specified (depends on downstream task)",
+  "key_idea": "theoretical guarantee that uniform node sampling achieves constant-time complexity independent of graph size",
+  "datasets": [
+    "synthetic",
+    "real-world (not named)"
+  ],
+  "metrics": [
+    "speed",
+    "approximation error"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4399422961",
+  "task": "explainable recommendation",
+  "input": "user-item interaction data (collaborative signals)",
+  "output": "natural language explanations for recommended items",
+  "backbone": "Large Language Model (LLM) with a lightweight collaborative adaptor",
+  "loss": "",
+  "key_idea": "integrate collaborative signals into LLMs via a lightweight adaptor to generate explanations for user behaviors",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

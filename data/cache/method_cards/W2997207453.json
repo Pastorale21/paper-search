@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2997207453",
+  "task": "next-location prediction (human trajectory prediction)",
+  "input": "graphical trajectory context (user trajectory sequences and graph structures representing travel context)",
+  "output": "predicted next location (ranked list of locations)",
+  "backbone": "augmented-intention recurrent neural network (AI-RNN) with GCN and GRU",
+  "loss": "not specified in abstract",
+  "key_idea": "augment user travel intentions via graph convolutional networks on trajectory context graphs, then use GRU with augmented node vectors for prediction",
+  "datasets": [
+    "two representative real-life datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "top-k accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

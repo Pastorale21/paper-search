@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4387042838",
+  "task": "node classification",
+  "input": "graph-structured data (complex networks)",
+  "output": "node class labels",
+  "backbone": "GCN or GAT",
+  "loss": "",
+  "key_idea": "mathematical formula to determine optimal number of GCN/GAT layers for node classification",
+  "datasets": [
+    "ten benchmark datasets (not named)"
+  ],
+  "metrics": [
+    "accuracy",
+    "precision",
+    "recall",
+    "F1-score",
+    "MCC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

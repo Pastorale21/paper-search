@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4392904403",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "graph neural network (GNN) with sequence extension augmentation",
+  "loss": "",
+  "key_idea": "augment node representations by aggregating inter-sequence global context via sequence-extended graph connections while preserving intra-sequence local preference",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

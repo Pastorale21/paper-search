@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3156341473",
+  "task": "recommendation with side information",
+  "input": "user-item interactions, knowledge graph (directed relations), item-item co-occurrence graph (undirected relations)",
+  "output": "user preference scores for items",
+  "backbone": "unified graph-based model with relation-specific transformations",
+  "loss": "not specified in abstract",
+  "key_idea": "jointly model directed KG relations and undirected item-item co-occurrence via relation-specific transformations and attentive mechanism",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

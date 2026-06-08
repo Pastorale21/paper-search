@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4399377914",
+  "task": "recommendation (personalized item recommendation)",
+  "input": "user-item interaction graph with contextual features",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "multilayer graph convolutional network with dynamic hop window",
+  "loss": "self-supervised contrastive loss + VIC regularization",
+  "key_idea": "dynamic hop window in GCN to capture evolving contextual features, combined with contrastive learning and VIC regularization",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3000550630",
+  "task": "top-N recommendation with sparse user-item interactions",
+  "input": "user-item interactions, knowledge graph (movie-movie and user-movie relations)",
+  "output": "probability that a user likes an item (for ranking)",
+  "backbone": "multi-layer perceptron (MLP)",
+  "loss": "not specified (implicitly binary cross-entropy or similar)",
+  "key_idea": "represent users and items via knowledge embeddings (Metapath2Vec for items, Skip-gram for tags) to alleviate sparsity",
+  "datasets": [
+    "movie recommendation dataset (not named)"
+  ],
+  "metrics": [
+    "not specified (likely recall/precision)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

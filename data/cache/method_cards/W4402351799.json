@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4402351799",
+  "task": "recommendation with social and knowledge graphs",
+  "input": "user-item interaction graph, social connections, knowledge graph",
+  "output": "predicted preference scores for items",
+  "backbone": "GNN with fusion and propagation layers",
+  "loss": "not specified in abstract",
+  "key_idea": "dynamically balance social and knowledge graph features via an adaptive weighting mechanism",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

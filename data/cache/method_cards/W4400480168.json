@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4400480168",
+  "task": "tripartite graph-based recommendation (e.g., user groups and item bundles)",
+  "input": "tripartite graph (users, items, and auxiliary nodes like groups/bundles)",
+  "output": "ranked list of recommended objects (e.g., bundles or groups) for a user",
+  "backbone": "graph convolutional network (GCN) with infinite layers via limit theory",
+  "loss": "multi-objective optimization including Contrastive Divergence (CD) loss and pairwise ranking loss",
+  "key_idea": "use consistency and discrepancy meta-path metrics as positive and contrastive signals in contrastive learning to capture high-order similarities for cold-start scenarios",
+  "datasets": [
+    "Yelp",
+    "Amazon",
+    "Douban"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

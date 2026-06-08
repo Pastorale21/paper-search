@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4205132462",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social relation graph",
+  "output": "predicted user preference scores for items",
+  "backbone": "light graph convolution network (LightGCN)",
+  "loss": "",
+  "key_idea": "jointly propagate preferences over user-item and social graphs using light graph convolution",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4327668311",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social relation graph",
+  "output": "predicted user preference scores for items",
+  "backbone": "GNN-based social recommendation model (e.g., GraphRec, DiffNet, etc.)",
+  "loss": "BPR loss (or other recommendation loss) + curriculum learning loss",
+  "key_idea": "preference-guided graph denoising that removes noisy social relations via self-correcting curriculum learning and adaptive denoising",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4391553717",
+  "task": "group POI recommendation",
+  "input": "user-POI interaction graph, group membership, and check-in sequences",
+  "output": "ranked list of POIs for a given random group",
+  "backbone": "Cooperative Graph Neural Networks (CGNN) with EBGNN and SRGNN",
+  "loss": "not specified in abstract",
+  "key_idea": "generate fitted representations for random groups and leverage similar users' interaction data via edge-learning bipartite GNN and session-based GNN to address cold start",
+  "datasets": [
+    "Foursquare",
+    "Gowalla",
+    "Yelp"
+  ],
+  "metrics": [
+    "Precision@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

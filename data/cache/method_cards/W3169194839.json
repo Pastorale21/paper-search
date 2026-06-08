@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3169194839",
+  "task": "social recommendation",
+  "input": "user-item rating matrix, social relations, and time information",
+  "output": "predicted ratings for user-item pairs",
+  "backbone": "attention-based graph convolutional network + recurrent neural network",
+  "loss": "not specified",
+  "key_idea": "jointly model static and dynamic features by combining time information, social relations, and ratings via attention-based GCN and RNN",
+  "datasets": [
+    "two real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

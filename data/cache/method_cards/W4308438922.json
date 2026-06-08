@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4308438922",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user social graph, item association graph",
+  "output": "user and item embeddings for rating prediction",
+  "backbone": "graph convolution network (GCN) on a unified heterogeneous graph",
+  "loss": "main recommendation loss + multi-view self-supervised contrastive loss",
+  "key_idea": "unify user-item, user social, and item association graphs into a single heterogeneous graph and apply multi-view self-supervised learning",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

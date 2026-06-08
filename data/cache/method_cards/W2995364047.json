@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2995364047",
+  "task": "influential spreaders identification in online social networks",
+  "input": "sampled subnetworks from online social network graph",
+  "output": "influence score or ranking for each user",
+  "backbone": "graph convolutional neural network (GCN) with deep neural network",
+  "loss": "not specified (likely cross-entropy or regression loss)",
+  "key_idea": "learn latent user representations from sampled subnetworks using GCN, incorporating user-specific features to handle imbalanced data",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

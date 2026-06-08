@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4320854008",
+  "task": "multi-domain recommendation",
+  "input": "sequential user interactions across multiple domains (temporal intra- and inter-domain interactions)",
+  "output": "ranked item recommendations in multiple domains",
+  "backbone": "graph neural network (MAGRec) with two sequential representations: domain-guided and general",
+  "loss": "",
+  "key_idea": "learn two graph-based sequential representations (domain-guided for recent interest, general for long-term interest) to capture intra- and inter-domain relations and mitigate negative transfer",
+  "datasets": [
+    "publicly available multi-domain datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

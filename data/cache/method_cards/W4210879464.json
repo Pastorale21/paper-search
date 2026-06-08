@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4210879464",
+  "task": "emotion recognition in conversation",
+  "input": "conversation utterances with speaker information",
+  "output": "emotion label for each utterance",
+  "backbone": "graph attention network (GAT) + dialogue transformer with hierarchical multihead attention",
+  "loss": "cross-entropy + contrastive loss",
+  "key_idea": "context- and sentiment-aware graph attention mechanism leveraging common-sense knowledge and hierarchical multihead attention for utterance dependency",
+  "datasets": [
+    "IEMOCAP",
+    "MELD",
+    "EmoryNLP"
+  ],
+  "metrics": [
+    "weighted F1",
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

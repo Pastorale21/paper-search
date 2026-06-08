@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4406873659",
+  "task": "personalized learning pathway recommendation",
+  "input": "learner interaction sequences and knowledge graph",
+  "output": "context-aware learning pathway recommendations",
+  "backbone": "graph attention network + transformer",
+  "loss": "",
+  "key_idea": "combine knowledge graph structural encoding with deep sequential modeling for dynamic recommendations",
+  "datasets": [
+    "large-scale educational dataset"
+  ],
+  "metrics": [
+    "engagement score",
+    "knowledge retention",
+    "recommendation accuracy",
+    "pathway diversity"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

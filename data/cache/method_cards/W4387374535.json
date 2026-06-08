@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4387374535",
+  "task": "POI recommendation",
+  "input": "user-POI check-in sequences and geographical graph",
+  "output": "ranked list of POIs for each user",
+  "backbone": "spatio-temporal Hawkes attention hypergraph neural network + GNN dynamic propagation",
+  "loss": "recommendation loss + contrastive loss (InfoNCE)",
+  "key_idea": "model short-term dynamic interests via spatio-temporal hypergraph and long-term static interests via contrastive learning with fine-grained node dropout",
+  "datasets": [
+    "Foursquare",
+    "Gowalla",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

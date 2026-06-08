@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3015889244",
+  "task": "explainable recommendation (CTR and Top-N)",
+  "input": "user-item interaction graph and knowledge graph (entities and relations)",
+  "output": "recommended items with explanations (predicted preference scores)",
+  "backbone": "Multi-Layer Perceptron (MLP) for knowledge graph embedding and item recommendation",
+  "loss": "joint loss (knowledge graph embedding loss + recommendation loss)",
+  "key_idea": "jointly learn knowledge graph embeddings and user-item collaborative representations with a soft user preference mechanism",
+  "datasets": [
+    "real-world public dataset (not specified)"
+  ],
+  "metrics": [
+    "AUC",
+    "F1",
+    "Precision",
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

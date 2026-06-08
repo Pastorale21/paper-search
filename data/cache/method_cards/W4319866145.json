@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4319866145",
+  "task": "knowledge graph enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "graph-based non-sampling with local aggregation block",
+  "loss": "not specified (implicitly non-sampling loss with weighted negative samples)",
+  "key_idea": "use node centrality to assign weights to non-observed interactions as negative samples, avoiding negative sampling",
+  "datasets": [
+    "not specified in abstract"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

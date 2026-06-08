@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4391129932",
+  "task": "link prediction",
+  "input": "graph (real-world network, e.g., social network)",
+  "output": "predicted links (new connections between nodes)",
+  "backbone": "GraphSAGE",
+  "loss": "",
+  "key_idea": "use GraphSAGE to learn node embeddings and IP method for link classification",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

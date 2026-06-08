@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4386450767",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "graph convolution with attention mechanism",
+  "loss": "joint supervised (BPR) and self-supervised (contrastive) loss",
+  "key_idea": "combine supervised graph convolution with self-supervised graph contrastive learning using adaptive data augmentation",
+  "datasets": [
+    "Yelp2018",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

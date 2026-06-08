@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3093862905",
+  "task": "multi-behavior recommendation",
+  "input": "multiplex user-item interaction graph (multiple behavior types)",
+  "output": "predicted preference scores for each behavior type",
+  "backbone": "multiplex graph neural network (MGNN)",
+  "loss": "not specified in abstract",
+  "key_idea": "learn shared and behavior-specific embeddings via multiplex network link prediction",
+  "datasets": [
+    "ordinal-behavior datasets",
+    "generic-behavior datasets"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

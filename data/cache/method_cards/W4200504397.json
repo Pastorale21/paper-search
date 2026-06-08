@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4200504397",
+  "task": "GCN inference acceleration on FPGA",
+  "input": "graph data (e.g., Reddit, Yelp, Amazon-2M)",
+  "output": "accelerated GCN inference (latency and energy efficiency)",
+  "backbone": "two-layer Vanilla-GCN",
+  "loss": "",
+  "key_idea": "partition-centric mapping and HLS-based kernel design to exploit data reuse and parallelism on FPGA",
+  "datasets": [
+    "Reddit",
+    "Yelp",
+    "Amazon-2M"
+  ],
+  "metrics": [
+    "latency",
+    "energy efficiency"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

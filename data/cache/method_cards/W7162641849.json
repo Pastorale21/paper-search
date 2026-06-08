@@ -1,0 +1,15 @@
+{
+  "paper_id": "W7162641849",
+  "task": "secure recommendation in distributed e-commerce",
+  "input": "distributed user-item interaction graphs across multiple e-commerce nodes",
+  "output": "personalized item recommendations",
+  "backbone": "federated graph neural network",
+  "loss": "not specified",
+  "key_idea": "federated learning with encrypted parameter sharing and relational graph learning across distributed nodes to preserve privacy",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

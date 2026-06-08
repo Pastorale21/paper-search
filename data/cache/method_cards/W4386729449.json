@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4386729449",
+  "task": "conversational recommendation",
+  "input": "conversational dialog history and knowledge graph",
+  "output": "recommended items with explanations",
+  "backbone": "graph neural network (GNN) for representation learning",
+  "loss": "reinforcement learning (policy gradient) for adaptive policy",
+  "key_idea": "graph-based conversational path reasoning over knowledge graph to capture nuanced user interests and adapt to evolving preferences",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

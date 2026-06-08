@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4283065823",
+  "task": "recommendation library (framework)",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "unified library with packages for sparsity, bias, distribution shift, and model architectures",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

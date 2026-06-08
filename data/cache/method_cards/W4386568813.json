@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4386568813",
+  "task": "graph neural network inference acceleration",
+  "input": "graph-structured data (e.g., adjacency matrix, node features)",
+  "output": "processed node embeddings or predictions",
+  "backbone": "silicon-photonic hardware accelerator (GHOST)",
+  "loss": "",
+  "key_idea": "first silicon-photonic accelerator for GNNs that separately implements vertex-centric and edge-centric operations in the optical domain",
+  "datasets": [],
+  "metrics": [
+    "throughput",
+    "energy efficiency"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

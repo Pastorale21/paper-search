@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3095521706",
+  "task": "graph signal processing and graph neural network analysis",
+  "input": "graph signals (data values on nodes of a graph)",
+  "output": "characterization of GNN representation space (permutation equivariance, stability, scalability, transferability)",
+  "backbone": "graph convolutional filters (including edge-varying and ARMA filters)",
+  "loss": "",
+  "key_idea": "leverage graph signal processing to show that graph convolutional filters endow GNNs with permutation equivariance and stability to topology changes",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4387846386",
+  "task": "theoretical analysis of GNN expressiveness in recommendation",
+  "input": "user-item interaction graph",
+  "output": "theoretical insights and a learning-less GNN algorithm",
+  "backbone": "learning-less GNN (optimal on topological closeness metric)",
+  "loss": "",
+  "key_idea": "propose topological closeness as a new expressiveness metric aligned with recommendation, and design a learning-less GNN optimal on this metric",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4399602188",
+  "task": "context-aware visualization recommendation for monitoring dashboards",
+  "input": "knowledge graph (dashboard ontology) with user context (monitored system state, task) and user preferences",
+  "output": "personalized dashboard (set of visualizations) ranked by relevance",
+  "backbone": "knowledge graph embeddings + context-aware collaborative filtering",
+  "loss": "",
+  "key_idea": "leverage a dashboard ontology and knowledge graph embeddings to incorporate expert knowledge and context for recommending personalized visualizations",
+  "datasets": [
+    "smart healthcare use-case (custom)"
+  ],
+  "metrics": [
+    "precision",
+    "recall",
+    "F1",
+    "user study metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

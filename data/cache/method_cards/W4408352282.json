@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4408352282",
+  "task": "next-item recommendation",
+  "input": "user historical interaction sequences (item sequences)",
+  "output": "next item prediction (ranked list of candidate items)",
+  "backbone": "unified graph and hypergraph neural network",
+  "loss": "cross-entropy (or BPR) loss (not explicitly stated, inferred from task)",
+  "key_idea": "unify graph and hypergraph message passing into a single framework with time and position encoders",
+  "datasets": [
+    "multiple public benchmarks (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}
