@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4387294571",
+  "task": "link prediction (with fairness analysis)",
+  "input": "graph (citation, collaboration, or social network)",
+  "output": "predicted links (scores for node pairs)",
+  "backbone": "Graph Convolutional Network (GCN) with symmetric normalized graph filter",
+  "loss": "not specified (standard link prediction loss, e.g., binary cross-entropy, implied)",
+  "key_idea": "theoretically uncover and empirically validate that GCN link prediction exhibits within-group preferential attachment bias, and propose a training-time strategy to mitigate it",
+  "datasets": [
+    "citation network",
+    "collaboration network",
+    "social network",
+    "credit network"
+  ],
+  "metrics": [
+    "within-group fairness metric (proposed)",
+    "link prediction accuracy (implied)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

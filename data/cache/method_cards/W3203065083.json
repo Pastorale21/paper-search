@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3203065083",
+  "task": "click-through rate (CTR) prediction",
+  "input": "user behavior sequence (item sequence) and item dependency graph",
+  "output": "CTR prediction score",
+  "backbone": "dependency-aware heterogeneous attention + multi-head attention",
+  "loss": "not specified (likely binary cross-entropy for CTR)",
+  "key_idea": "model multiple user interests via dependency-aware heterogeneous attention and self-supervised graph learning",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "AUC",
+    "LogLoss"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

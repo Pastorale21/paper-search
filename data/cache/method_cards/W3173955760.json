@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3173955760",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user social graph, item knowledge graph",
+  "output": "predicted user preference scores over items",
+  "backbone": "coupled graph neural network (GNN) with mutual information",
+  "loss": "not specified in abstract",
+  "key_idea": "jointly inject inter-dependent knowledge across items and users via coupled GNN with mutual information for global structure awareness",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3211356784",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph convolution network (GCN)",
+  "loss": "multisample-based contrastive loss (MSCL)",
+  "key_idea": "use multiple positive samples in contrastive loss to balance positive/negative importance and augment sparse data",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4400033035",
+  "task": "graph classification and node classification (downstream tasks)",
+  "input": "graph-structured data (e.g., citation networks, social networks)",
+  "output": "predicted labels for graphs or nodes",
+  "backbone": "GNN encoder (e.g., GCN, GIN) with readout layer",
+  "loss": "link prediction loss (pre-training) + task-specific loss (prompt tuning)",
+  "key_idea": "unify pre-training and downstream tasks via a common task template and learnable prompt vectors to bridge the gap",
+  "datasets": [
+    "five public datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "accuracy",
+    "F1 score"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4403577894",
+  "task": "EEG-based recommendation",
+  "input": "EEG signals and user-item interaction graph",
+  "output": "item recommendations",
+  "backbone": "graph convolutional network with quantum cognition theory",
+  "loss": "",
+  "key_idea": "combine quantum cognition theory with GCN to model real-time user thoughts from EEG signals",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

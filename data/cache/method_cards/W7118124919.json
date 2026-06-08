@@ -1,0 +1,20 @@
+{
+  "paper_id": "W7118124919",
+  "task": "patient diagnosis (chronic disease management)",
+  "input": "patient data (features, medical history, symptoms) and external medical knowledge",
+  "output": "diagnostic recommendations (interpretable)",
+  "backbone": "Graph Neural Network (GNN) with collaborative filtering (variants: GHRS, GCFNA, GCFYA)",
+  "loss": "not specified",
+  "key_idea": "apply GNN-based collaborative filtering to model patient-patient and patient-symptom relationships for interpretable diagnosis",
+  "datasets": [
+    "one real hospital dataset",
+    "two public datasets"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

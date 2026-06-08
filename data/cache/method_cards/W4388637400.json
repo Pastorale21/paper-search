@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4388637400",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user-user social graph, item-item similarity graph",
+  "output": "ranked list of items per user",
+  "backbone": "Graph Neural Network (GNN)",
+  "loss": "",
+  "key_idea": "model user-item, user-user, and item-item relationships with GNNs to incorporate social and item similarity influences",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

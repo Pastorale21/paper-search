@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4385978585",
+  "task": "personalized POI recommendation",
+  "input": "user-POI interaction graph, POI-POI graph, user-user graph (from check-in and social data)",
+  "output": "predicted preference scores for POIs",
+  "backbone": "improved graph convolutional network (GCN)",
+  "loss": "not specified",
+  "key_idea": "integrates higher-order collaborative influence and social influence via three types of graphs and improved GCN",
+  "datasets": [
+    "Foursquare",
+    "Yelp"
+  ],
+  "metrics": [
+    "precision",
+    "recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

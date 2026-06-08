@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4321446334",
+  "task": "learning resource recommendation",
+  "input": "knowledge graph of learning resources and learner profiles (including learning style)",
+  "output": "ranked list of learning resources per learner",
+  "backbone": "graph embedding (e.g., TransE) + graph matching + clustering",
+  "loss": "not specified",
+  "key_idea": "combine knowledge graph embeddings with learning style clustering to measure learner interest in similar resources",
+  "datasets": [
+    "not specified"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

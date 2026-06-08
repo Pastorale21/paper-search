@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4389500738",
+  "task": "few-shot graph representation learning",
+  "input": "graph data (e.g., node features and adjacency matrix)",
+  "output": "node/graph representations for downstream tasks",
+  "backbone": "Graph Neural Network (GNN) with multi-task pre-training",
+  "loss": "multi-task self-supervised loss (pre-training) + task-specific loss (fine-tuning)",
+  "key_idea": "multi-task pre-training with pretext tokens and dual-prompt mechanism (composed + open prompts) to leverage comprehensive pre-trained knowledge",
+  "datasets": [
+    "six public datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

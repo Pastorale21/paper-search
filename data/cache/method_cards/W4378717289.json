@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4378717289",
+  "task": "group recommendation",
+  "input": "user-item interaction graph and social relationship graph (heterogeneous graph)",
+  "output": "predicted preference scores for groups and users",
+  "backbone": "light graph convolution network (LightGCN)",
+  "loss": "",
+  "key_idea": "use meta-paths to extract social relations and apply light graph convolution on both interaction and meta-path graphs",
+  "datasets": [
+    "two real-world datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

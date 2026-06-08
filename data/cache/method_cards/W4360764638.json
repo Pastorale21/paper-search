@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4360764638",
+  "task": "API service recommendation for Mashup creation",
+  "input": "knowledge graph of APIs (constructed via NLP from descriptions)",
+  "output": "ranked list of API recommendations for a given Mashup",
+  "backbone": "interactive learning intent model on knowledge graph (graph neural network based)",
+  "loss": "not specified (implicitly inner product prediction loss)",
+  "key_idea": "model fine-grained Mashup-API intents via knowledge graph and filter independent intents for better representations",
+  "datasets": [
+    "Programmable Web"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

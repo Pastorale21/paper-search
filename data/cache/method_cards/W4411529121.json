@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4411529121",
+  "task": "course recommendation for career development",
+  "input": "descriptor datasets containing course and user requirement details",
+  "output": "scored and ranked list of recommended courses",
+  "backbone": "Hybrid Clustered Graph Neural Network (Clustering-based Graph Convolutional Representation + WordPieceFormer + Hybrid Clustered Recurrent Neural Network)",
+  "loss": "",
+  "key_idea": "combines clustering-based graph convolution for student recommendations, WordPieceFormer for contextual social media features, and a hybrid clustered RNN for scoring and ranking courses",
+  "datasets": [
+    "descriptor datasets (not named)"
+  ],
+  "metrics": [
+    "accuracy",
+    "precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

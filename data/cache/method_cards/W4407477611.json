@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4407477611",
+  "task": "multi-behavior social recommendation",
+  "input": "user-item multi-behavior interaction graph, user-user social graph, item knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) with contrastive learning",
+  "loss": "not explicitly stated (likely BPR or cross-entropy + contrastive loss)",
+  "key_idea": "incorporate three contrastive mechanisms (multi-behavior, social interaction, item knowledge) to leverage auxiliary information",
+  "datasets": [
+    "Tmall",
+    "Yelp",
+    "Foursquare"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

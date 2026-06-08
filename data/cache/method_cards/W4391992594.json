@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4391992594",
+  "task": "service recommendation in Social Internet of Things (SIoT)",
+  "input": "multimodal item features (e.g., text, images) and user-item interactions",
+  "output": "ranked list of services/items for each user",
+  "backbone": "graph convolution network (GCN) on latent item graphs",
+  "loss": "not specified in abstract",
+  "key_idea": "learn latent item-item graphs from multimodal features and apply graph convolutions to capture high-order affinities",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,18 @@
+{
+  "paper_id": "W3137564253",
+  "task": "sentiment polarity classification on social network vertices",
+  "input": "Twitter graph with node attributes (structural, functional, affective) and local ground truth sentiment labels",
+  "output": "sentiment polarity label for each vertex",
+  "backbone": "graph neural network (GNN) with iterative aggregation",
+  "loss": "",
+  "key_idea": "use GNN to aggregate local state information for robust global sentiment estimation on social network graphs",
+  "datasets": [
+    "Greek 1821 Independence Revolution Twitter graph",
+    "US 2020 Presidential Elections Twitter graph"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

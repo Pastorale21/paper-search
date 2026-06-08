@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4386867901",
+  "task": "travel/place recommendation",
+  "input": "user-item interaction graph (user-place check-in data)",
+  "output": "ranked list of places per user",
+  "backbone": "LightGCN",
+  "loss": "BPR (Bayesian Personalized Ranking)",
+  "key_idea": "apply LightGCN to travel recommendation, outperforming matrix factorization",
+  "datasets": [],
+  "metrics": [
+    "precision",
+    "recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

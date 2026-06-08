@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4406848415",
+  "task": "personalized recommendation in human resource management",
+  "input": "user-item interaction graph (project involvement data)",
+  "output": "ranked list of relevant human resources (e.g., developers) for a project",
+  "backbone": "graph neural network (GNN) for initial user clustering",
+  "loss": "",
+  "key_idea": "use GNN-based clustering to mitigate sparsity in collaborative filtering for HR recommendations",
+  "datasets": [
+    "GitHub"
+  ],
+  "metrics": [
+    "accuracy",
+    "recall",
+    "F-measure"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

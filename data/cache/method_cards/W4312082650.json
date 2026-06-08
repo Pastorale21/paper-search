@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4312082650",
+  "task": "node classification (semi-supervised)",
+  "input": "attributed graph (node features + adjacency matrix)",
+  "output": "node class labels",
+  "backbone": "Regularized Simple Graph Convolution (SGC)",
+  "loss": "cross-entropy with regularization",
+  "key_idea": "simplify GCN by removing nonlinearities and applying flexible regularization to reduce weights and highlight important features",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3107691142",
+  "task": "multi-modal recommendation with knowledge graph",
+  "input": "user-item interactions, item/user attributes, knowledge graph triples",
+  "output": "recommended items for users",
+  "backbone": "MKR (Multi-task Knowledge graph enhanced Recommendation) with cross-compression units",
+  "loss": "not explicitly stated (likely recommendation loss + knowledge graph embedding loss)",
+  "key_idea": "alternate training between recommendation and knowledge graph embedding tasks via cross-compression units, with separate processing of text and multi-value attributes",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

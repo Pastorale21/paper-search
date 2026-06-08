@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4284889466",
+  "task": "cold-start social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "item recommendations for cold users",
+  "backbone": "GNN with dynamic neighbor aggregation per query item",
+  "loss": "BPR + dual-branch contrastive loss (user-item collaborative + item-item mutual information)",
+  "key_idea": "dynamic user embeddings conditioned on query item and dual contrastive learning to mitigate popularity bias and cold-start",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

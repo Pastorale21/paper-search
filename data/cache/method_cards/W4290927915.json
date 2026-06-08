@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4290927915",
+  "task": "friend recommendation in social networks",
+  "input": "social graph (user-user adjacency matrix)",
+  "output": "ranked list of friend recommendations per user",
+  "backbone": "self-rescaling GNN (improved LightGCN/PPRGo)",
+  "loss": "",
+  "key_idea": "replace static normalization in GNN aggregation with a learnable self-rescaling mechanism to avoid scale distortion",
+  "datasets": [
+    "Xbox social network"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

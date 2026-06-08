@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4323662805",
+  "task": "session-based recommendation",
+  "input": "session sequences (anonymous user-item interactions)",
+  "output": "next item recommendation for a session",
+  "backbone": "GNN on hypergraph (target session + neighbor sessions)",
+  "loss": "cross-entropy (implicitly, for next item prediction)",
+  "key_idea": "retrieve neighbor sessions with similar probabilistic intentions and model them as a hypergraph to enhance session embeddings",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "LastFM",
+    "Tmall"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

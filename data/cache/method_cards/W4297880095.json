@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4297880095",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "latent representations of users and items for recommendation",
+  "backbone": "lightweight GNN (neighborhood aggregation only, no feature transformation or nonlinear activation)",
+  "loss": "not specified in abstract",
+  "key_idea": "stack multiple embedding propagation layers to aggregate multi-hop neighborhood information from both user-item and social graphs",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

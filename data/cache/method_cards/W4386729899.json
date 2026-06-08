@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4386729899",
+  "task": "large-scale item retrieval for advertisement recommendation",
+  "input": "item-item graph constructed from user behaviors and collaborative filtering",
+  "output": "item embeddings for vector search retrieval",
+  "backbone": "LightSAGE (simplified GraphSAGE variant)",
+  "loss": "not specified in abstract",
+  "key_idea": "combine strong-signal user behaviors with high-precision CF to construct high-quality item graphs, then use a simplified GNN (LightSAGE) for embedding generation",
+  "datasets": [
+    "Shopee production data"
+  ],
+  "metrics": [
+    "offline evaluations",
+    "online A/B test metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

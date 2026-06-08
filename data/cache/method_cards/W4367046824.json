@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4367046824",
+  "task": "dynamic link prediction",
+  "input": "sequence of graph snapshots (temporal graph)",
+  "output": "future links (single-step or multi-step prediction)",
+  "backbone": "motif-based GNN with multi-scale pooling + hierarchical attention seq2seq",
+  "loss": "not specified in abstract",
+  "key_idea": "model co-evolution of multi-scale structural dynamics via motif-based GNN and hierarchical attention",
+  "datasets": [
+    "four real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

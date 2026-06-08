@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4306830375",
+  "task": "multi-behavior recommendation",
+  "input": "user-item interaction graph with multiple behavior types (e.g., click, add-to-cart, purchase)",
+  "output": "predicted preference scores for items",
+  "backbone": "multi-behavior graph neural network (MBRec) with behavior-aware graph convolution and mutual relationship encoder",
+  "loss": "not specified in abstract",
+  "key_idea": "model diverse user behaviors and cross-type behavior interdependencies via graph-structured learning and mutual relationship encoder",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

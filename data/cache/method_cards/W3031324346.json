@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3031324346",
+  "task": "POI recommendation",
+  "input": "user-POI check-in graph, social graph, geographical graph",
+  "output": "ranked list of POIs per user",
+  "backbone": "graph embedding neural network (SG-NeuRec / DG-NeuRec)",
+  "loss": "not specified",
+  "key_idea": "combine social and geographical graph embeddings with user-POI interaction via neural network",
+  "datasets": [
+    "two real LBSN datasets"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

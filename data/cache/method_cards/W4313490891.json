@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4313490891",
+  "task": "recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "item recommendations for users",
+  "backbone": "graph neural network (GNN)",
+  "loss": "",
+  "key_idea": "joint multi-feature representation using multi-order topological structure information to enhance node features under sparse connectivity",
+  "datasets": [
+    "public datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

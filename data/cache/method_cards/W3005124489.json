@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3005124489",
+  "task": "drug-disease association prediction",
+  "input": "drug-disease interaction network (bipartite graph)",
+  "output": "predicted association scores for drug-disease pairs",
+  "backbone": "graph neural network with embedding propagation",
+  "loss": "not specified",
+  "key_idea": "apply collaborative filtering and high-order propagation on drug-disease network without side information",
+  "datasets": [
+    "Comparative Toxicogenomics Database (CTD)"
+  ],
+  "metrics": [
+    "AUC",
+    "AUPR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

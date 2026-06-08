@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4384824496",
+  "task": "short-text similarity",
+  "input": "two short texts (sentences)",
+  "output": "similarity score (continuous value)",
+  "backbone": "KEBERT-GCN (knowledge-enhanced BERT with GCN) + CPT-TK (constituency parse tree kernel)",
+  "loss": "not specified (likely regression loss such as MSE)",
+  "key_idea": "combine semantic similarity from knowledge-enhanced GCN with syntactic similarity from tree kernels",
+  "datasets": [
+    "STS-B"
+  ],
+  "metrics": [
+    "Pearson correlation coefficient"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

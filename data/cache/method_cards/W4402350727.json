@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4402350727",
+  "task": "CTR prediction and top-K recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "predicted click-through rate and ranked item list",
+  "backbone": "lightweight graph convolutional network with relation attention",
+  "loss": "multitask loss (recommendation + knowledge graph embedding)",
+  "key_idea": "relation attention mechanism and linear interaction component for personalized knowledge sharing between recommendation and KG tasks",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "AUC",
+    "F1",
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

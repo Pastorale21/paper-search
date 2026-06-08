@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4401023955",
+  "task": "sequential recommendation",
+  "input": "user interaction sequences (check-in data)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "Variational Graph Auto-Encoder (VGAE) + Graph Convolutional Network (GCN) + Mamba-based recommender",
+  "loss": "not specified (likely reconstruction loss for VGAE and recommendation loss for Mamba)",
+  "key_idea": "use VGAE to reconstruct item transition graph for denoising, then GCN to derive robust user/item embeddings, and finally a Mamba-based recommender for efficient sequential prediction",
+  "datasets": [
+    "five public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified (likely HR, NDCG, MRR)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

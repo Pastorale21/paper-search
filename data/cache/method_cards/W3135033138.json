@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3135033138",
+  "task": "node classification and link prediction",
+  "input": "graph-structured data (including heterogeneous graphs)",
+  "output": "node labels or link predictions",
+  "backbone": "any graph neural network (GNN) in a plug-in manner",
+  "loss": "primary task loss + weighted combination of auxiliary self-supervised task losses (balanced via meta-learning)",
+  "key_idea": "meta-learn to select and weight multiple self-supervised auxiliary tasks (e.g., meta-path prediction) to improve primary task generalization",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

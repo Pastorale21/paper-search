@@ -1,0 +1,25 @@
+{
+  "paper_id": "W4414778737",
+  "task": "personalized learning path recommendation",
+  "input": "domain knowledge graph (with prerequisite and semantic relations), learner interaction history, resource-to-knowledge mapping",
+  "output": "next learning resource (item) to recommend",
+  "backbone": "knowledge graph + deep reinforcement learning (Q-learning + PPO)",
+  "loss": "reinforcement learning reward (cumulative return) + PPO policy loss",
+  "key_idea": "prune-then-select workflow: Q-learning prunes prerequisite-feasible candidates, then PPO selects the final action from the pruned set",
+  "datasets": [
+    "real-world WeChat Mini Program data (200 learners, 18,742 interactions)"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "F1",
+    "MAE",
+    "RMSE",
+    "cumulative return G",
+    "AMG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

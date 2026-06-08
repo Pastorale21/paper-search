@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2900041539",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph (with optional user/item features)",
+  "output": "predicted user preference scores for items",
+  "backbone": "graph convolutional network (GCN) with layer-wise diffusion",
+  "loss": "not specified in abstract",
+  "key_idea": "model user preference diffusion in social networks via GCN, combining user features and free latent vectors",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

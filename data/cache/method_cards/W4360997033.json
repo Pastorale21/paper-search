@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4360997033",
+  "task": "session-based recommendation",
+  "input": "item transfer graph constructed from user interaction sequences",
+  "output": "next-item recommendation in a session",
+  "backbone": "graph neural network with contrastive learning",
+  "loss": "multi-task learning (recommendation loss + contrastive loss)",
+  "key_idea": "importance-aware graph augmentation (preserving important nodes/edges) for contrastive learning",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

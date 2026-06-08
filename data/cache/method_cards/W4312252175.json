@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4312252175",
+  "task": "variable logging recommendation",
+  "input": "code snippet (Java) without logging statements",
+  "output": "tagged tokens indicating which variables should be logged",
+  "backbone": "pretrained model (semantic encoder) + graph neural network (structural encoder)",
+  "loss": "not specified",
+  "key_idea": "fuse semantic information from a pretrained model with graph structure information from a GNN to recommend logging variables",
+  "datasets": [
+    "nine open-source Java projects"
+  ],
+  "metrics": [
+    "Hits@1",
+    "MRR",
+    "MAP"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

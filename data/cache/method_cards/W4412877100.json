@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4412877100",
+  "task": "recommendation (graph-based)",
+  "input": "user-item interaction data (implicit feedback) and item/user attributes",
+  "output": "recommended items for users",
+  "backbone": "model-agnostic (compatible with various GNN backbones)",
+  "loss": "not specified (depends on backbone model)",
+  "key_idea": "use LLMs to infer user preferences and item knowledge, encode as semantic vectors, then apply vector quantization to extract latent factors that are added as extra nodes to construct a graph with global-view semantics",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "RPM",
+    "eCPM"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

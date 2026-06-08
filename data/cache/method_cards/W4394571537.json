@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4394571537",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN-based propagation integrating social and interest information",
+  "loss": "BPR loss + contrastive learning loss",
+  "key_idea": "jointly optimize a GNN-based recommendation module and a contrastive learning module to leverage both social and self-supervised signals",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

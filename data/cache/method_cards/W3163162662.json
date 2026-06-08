@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3163162662",
+  "task": "click-through rate prediction",
+  "input": "user-item interaction graph (implicit feedback) with dynamic features",
+  "output": "binary prediction (click or not click)",
+  "backbone": "Graph Neural Network (GNN) + online learning",
+  "loss": "binary cross-entropy (implied by binary classification)",
+  "key_idea": "combine GNN-based collaborative filtering with online learning to model dynamic user-item interactions",
+  "datasets": [
+    "Criteo (sub-sampled, 10,000 points)"
+  ],
+  "metrics": [
+    "AUC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

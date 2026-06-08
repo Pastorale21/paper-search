@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4285234746",
+  "task": "recommendation (survey paper)",
+  "input": "user-item interaction graphs (bipartite, general, knowledge graphs)",
+  "output": "item recommendations (implicit/explicit feedback prediction)",
+  "backbone": "graph embedding techniques (e.g., DeepWalk, Node2Vec, GCN, etc.)",
+  "loss": "varies (e.g., BPR, cross-entropy, etc.)",
+  "key_idea": "systematic review of graph embedding-based recommendation, proposing a general design pipeline and comparing with conventional models",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

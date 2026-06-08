@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4403143548",
+  "task": "knowledge graph-aware recommendation",
+  "input": "collaborative knowledge graph (user-item interactions + item-item and user-user relations from KG)",
+  "output": "ranked list of items per user",
+  "backbone": "Graph Attention Networks (GAT) with dynamic attention",
+  "loss": "supervised recommendation loss + multi-level contrastive loss (InfoNCE with MoCo)",
+  "key_idea": "multi-level contrastive learning on user-user, item-item, and user-item views of the collaborative knowledge graph",
+  "datasets": [
+    "MovieLens",
+    "Amazon-books"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

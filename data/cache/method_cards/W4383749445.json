@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4383749445",
+  "task": "dynamic graph representation learning",
+  "input": "dynamic graph (continuous-time or discrete-time) with temporal edges",
+  "output": "node embeddings for downstream tasks (e.g., link prediction, node classification)",
+  "backbone": "decoupled GNN (unified dynamic propagation + plug-in sequence model)",
+  "loss": "not specified (task-dependent)",
+  "key_idea": "decouple graph propagation from temporal modeling, enabling efficient computation for both continuous and discrete dynamic graphs",
+  "datasets": [
+    "seven real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified (state-of-the-art performance claimed)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

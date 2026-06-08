@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4212937105",
+  "task": "location recommendation",
+  "input": "user check-in sequences and spatio-temporal mobility graphs",
+  "output": "ranked list of locations (POIs) for each user",
+  "backbone": "spatio-temporal interaction enhanced graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "encode individual mobility graphs with spatio-temporal GNN and combine with group influences via stacked scoring",
+  "datasets": [
+    "Foursquare",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

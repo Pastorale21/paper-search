@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4205820113",
+  "task": "open-domain trending hashtag recommendation for videos",
+  "input": "heterogeneous graph with video and hashtag nodes, video features (visual, audio, text), and hashtag semantic embeddings",
+  "output": "ranked list of trending hashtags per video",
+  "backbone": "graph convolutional network (GCN) for link prediction",
+  "loss": "link prediction loss (e.g., binary cross-entropy)",
+  "key_idea": "zero-shot hashtag prediction via joint representation learning of video features and hashtag semantic embeddings in a heterogeneous graph",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

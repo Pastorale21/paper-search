@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4403295050",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences",
+  "output": "next-item prediction (ranked list of items)",
+  "backbone": "graph diffusion-enhanced attention network",
+  "loss": "cross-entropy (next-item prediction)",
+  "key_idea": "use graph diffusion on adaptively learned item-item graphs to capture global dependencies without over-smoothing",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Gowalla"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

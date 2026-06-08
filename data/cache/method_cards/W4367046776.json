@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4367046776",
+  "task": "semi-supervised node classification",
+  "input": "graph with node features and a small set of labeled nodes",
+  "output": "node class predictions",
+  "backbone": "graph neural network with node-wise diffusion",
+  "loss": "not specified",
+  "key_idea": "adapt diffusion per node based on local context instead of using a uniform message-passing scheme",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

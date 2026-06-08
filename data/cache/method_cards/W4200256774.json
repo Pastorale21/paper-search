@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4200256774",
+  "task": "social recommendation",
+  "input": "user-item rating matrix and social network (user-user relations)",
+  "output": "predicted ratings for user-item pairs",
+  "backbone": "capsule graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "combine capsule network with GNN to capture variable social influence and enrich user/item embeddings with biases",
+  "datasets": [
+    "two real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2792839191",
+  "task": "click-through rate prediction / recommendation with knowledge graph",
+  "input": "user-item interaction matrix + knowledge graph (entity-relation triples)",
+  "output": "click probability for a candidate item",
+  "backbone": "ripple propagation network (iterative preference propagation over knowledge graph)",
+  "loss": "cross-entropy (binary classification)",
+  "key_idea": "propagate user preferences along knowledge graph links like ripples on water",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

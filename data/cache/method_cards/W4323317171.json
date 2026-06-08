@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4323317171",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction sequences and graphs",
+  "output": "predicted user preference scores for items",
+  "backbone": "hybrid graph network with BiGRU and AUGRU",
+  "loss": "not specified in abstract",
+  "key_idea": "jointly learn multi-behavior interaction sequences and graph dependencies with temporal awareness",
+  "datasets": [
+    "MovieLens",
+    "Yelp2018",
+    "Online Mall"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

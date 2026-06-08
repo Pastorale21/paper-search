@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3129482887",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN)",
+  "loss": "",
+  "key_idea": "model user-item relations at a fine-grained intent level and exploit relation dependencies for long-range semantics",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

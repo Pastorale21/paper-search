@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4396726959",
+  "task": "session-based recommendation",
+  "input": "session sequences of user clicks (item interactions within a session)",
+  "output": "next-item prediction (ranking of candidate items for the current session)",
+  "backbone": "Multi-hop Multi-view Memory Transformer (M3T) with GNN for graph-view",
+  "loss": "cross-entropy loss (implied by next-item prediction task)",
+  "key_idea": "integrates sequence-view and graph-view item information via multi-view memory transformer and multi-hop graph propagation to capture latent user intentions",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "LastFM"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

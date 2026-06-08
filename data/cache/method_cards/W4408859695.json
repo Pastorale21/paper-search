@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4408859695",
+  "task": "node classification and graph classification",
+  "input": "graph (homophilic or heterophilic)",
+  "output": "node or graph labels",
+  "backbone": "Higher-Order Graph Convolutional Network (HiGCN) with Petal-Complex model",
+  "loss": "not specified",
+  "key_idea": "model higher-order interactions via a Petal-Complex structure with two-step random walk and adaptive spectral filters",
+  "datasets": [
+    "benchmark graph datasets (homogeneous and heterogeneous)"
+  ],
+  "metrics": [
+    "accuracy (implied)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

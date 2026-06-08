@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3080997787",
+  "task": "graph representation learning (pre-training for downstream tasks)",
+  "input": "attributed graph (nodes with features and edges)",
+  "output": "node embeddings (for downstream tasks like node classification, link prediction)",
+  "backbone": "GNN (e.g., GAT, GCN) with generative pre-training",
+  "loss": "generative pre-training loss (attribute generation + edge generation)",
+  "key_idea": "pre-train a GNN by jointly generating node attributes and edges in a self-supervised manner",
+  "datasets": [
+    "Open Academic Graph",
+    "Amazon recommendation data"
+  ],
+  "metrics": [
+    "Accuracy",
+    "F1-score",
+    "Hit Rate",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

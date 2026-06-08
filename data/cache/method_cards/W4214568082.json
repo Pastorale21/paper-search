@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4214568082",
+  "task": "click-through rate (CTR) prediction and top-K recommendation",
+  "input": "user-item interaction data and knowledge graph",
+  "output": "predicted CTR (probability of click) and ranked item list",
+  "backbone": "DeepFM + GCN (three-part architecture: DeepFM, DNN, GCN)",
+  "loss": "not specified (likely binary cross-entropy for CTR)",
+  "key_idea": "combine DeepFM for feature interactions and GCN for item representation from knowledge graph",
+  "datasets": [
+    "ml1m-kg20m",
+    "ml1m-kg1m"
+  ],
+  "metrics": [
+    "AUC",
+    "F1",
+    "accuracy",
+    "recall",
+    "top-k recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

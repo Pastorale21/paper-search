@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4406612037",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph, item-entity knowledge graph, collaborative knowledge structures",
+  "output": "recommended items for users",
+  "backbone": "lightweight GCN for interaction signals, GAT for knowledge information, collaborative knowledge propagation module",
+  "loss": "multi-level contrastive learning loss (implicitly combined with recommendation loss)",
+  "key_idea": "multi-level contrastive learning across user-item, item-entity, and collaborative knowledge levels to enhance representation and filter noise",
+  "datasets": [
+    "three different datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

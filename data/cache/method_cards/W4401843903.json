@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4401843903",
+  "task": "music recommendation (song prediction)",
+  "input": "user-item interaction graph (listening history) and item content features",
+  "output": "ranked list of songs per user",
+  "backbone": "PinSage (graph neural network)",
+  "loss": "not specified in abstract",
+  "key_idea": "hybrid recommendation combining collaborative filtering and content-based signals via a graph neural network",
+  "datasets": [
+    "Spotify (novel dataset)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "coverage",
+    "novelty",
+    "diversity"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

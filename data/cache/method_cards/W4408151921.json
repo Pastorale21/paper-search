@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4408151921",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph convolutional network (GCN) with attention",
+  "loss": "BPR + contrastive loss",
+  "key_idea": "incorporates attention to distinguish node importance and a lightweight contrastive learning module to mitigate popularity bias",
+  "datasets": [
+    "Amazon-Books",
+    "three other real-world datasets"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3047171429",
+  "task": "general graph signal processing and learning",
+  "input": "graph-structured data (signals supported on graphs)",
+  "output": "graph-level or node-level predictions (e.g., recommendations, control signals)",
+  "backbone": "graph neural network (GNN) with graph convolutional filter banks",
+  "loss": "",
+  "key_idea": "GNNs generalize CNNs by replacing classical filters with graph convolutional filters, achieving permutation equivariance and stability to graph deformations.",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

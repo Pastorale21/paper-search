@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4327808327",
+  "task": "multimedia-based recommendation",
+  "input": "user-item interaction graph and multimodal content (visual and textual)",
+  "output": "user and item representations for recommendation",
+  "backbone": "three parallel graph convolution networks (collaborative, visual, textual)",
+  "loss": "BPR loss + contrastive learning loss",
+  "key_idea": "use three parallel GCNs to separately capture collaborative, visual, and textual signals, and apply contrastive learning to reduce multimodal noise contamination",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

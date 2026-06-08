@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4389628679",
+  "task": "sequential recommendation",
+  "input": "user historical interaction sequences (item sequences, possibly with attributes)",
+  "output": "ranked list of items for next interaction",
+  "backbone": "knowledge-augmented GRU + collaborative item aggregation + bitwise gating",
+  "loss": "not specified in abstract",
+  "key_idea": "augment GRU with knowledge graph attributes for short-term interest, aggregate collaborative item relations for co-occurrence, and use bitwise gating for long-term interest",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "top K recommendation metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

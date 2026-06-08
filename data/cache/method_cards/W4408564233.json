@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4408564233",
+  "task": "transferable recommendation (pre-training and fine-tuning)",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "item recommendations in the target domain",
+  "backbone": "graph auto-encoder (pre-training) + prompt-tuning (fine-tuning)",
+  "loss": "graph reconstruction loss (pre-training) + cross-layer contrastive loss + recommendation loss (fine-tuning)",
+  "key_idea": "unify graph pre-training via subgraph-level auto-encoding and prompt-tuning to transfer knowledge across domains while mitigating negative transfer and data skew",
+  "datasets": [
+    "Amazon-Book",
+    "Yelp2018",
+    "Gowalla",
+    "Douban-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

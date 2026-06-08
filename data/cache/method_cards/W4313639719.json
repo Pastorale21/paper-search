@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4313639719",
+  "task": "interactive recommendation (multi-step decision-making)",
+  "input": "user-item interaction graph and social network graph",
+  "output": "sequential item recommendations (policy actions)",
+  "backbone": "graph neural network (GNN) + deep reinforcement learning (DRL)",
+  "loss": "reinforcement learning objective (e.g., policy gradient)",
+  "key_idea": "enhance DRL-based interactive recommendation with multi-hop social relationships extracted via GNN",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

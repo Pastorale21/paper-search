@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3204622772",
+  "task": "legal document recommendation",
+  "input": "heterogeneous legal information network (HLIN) including user-item interactions, legal knowledge graph, document content, and user queries",
+  "output": "ranked list of legal documents for each user",
+  "backbone": "graph neural network with relational attention",
+  "loss": "not specified in abstract",
+  "key_idea": "construct a heterogeneous legal information network fusing structural and textual features, and incorporate user queries to model expert user interests and address cold-start",
+  "datasets": [
+    "real-world legal dataset"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

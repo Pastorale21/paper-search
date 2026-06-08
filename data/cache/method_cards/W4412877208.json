@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4412877208",
+  "task": "graph foundation model benchmarking",
+  "input": "graph data from diverse real-world applications",
+  "output": "evaluation results for generalization ability across tasks and domains",
+  "backbone": "modular pipeline integrating state-of-the-art GFMs",
+  "loss": "",
+  "key_idea": "standardized open-source pipeline for training, evaluation, and deployment of graph foundation models across diverse tasks and domains",
+  "datasets": [
+    "Open Academic Graph"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

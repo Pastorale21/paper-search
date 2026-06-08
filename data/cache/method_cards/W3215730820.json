@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3215730820",
+  "task": "Top-N recommendation",
+  "input": "user-item interaction graph with user basic information (age, gender, etc.)",
+  "output": "ranked list of N items per user",
+  "backbone": "light graph convolutional network (simplified GCN)",
+  "loss": "",
+  "key_idea": "integrates user attribute similarity into a simplified GCN to address data sparsity and cold start",
+  "datasets": [
+    "Movielens 100K",
+    "Facebook friend relationship dataset"
+  ],
+  "metrics": [
+    "recall",
+    "relevance"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

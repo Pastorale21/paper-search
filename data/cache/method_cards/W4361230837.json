@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4361230837",
+  "task": "multi-behavior recommendation",
+  "input": "user-item interaction graphs for multiple behaviors (e.g., click, cart, buy)",
+  "output": "predicted preference scores for the target behavior (e.g., buy)",
+  "backbone": "cascading graph convolution networks",
+  "loss": "BPR loss (implied by recommendation task, not explicitly stated)",
+  "key_idea": "cascade embeddings across behaviors in order, using previous behavior's embedding as input to the next after feature transformation",
+  "datasets": [
+    "two benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

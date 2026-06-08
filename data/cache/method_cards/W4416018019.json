@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4416018019",
+  "task": "federated recommendation",
+  "input": "distributed personal knowledge graphs (PKGs) across users",
+  "output": "personalized item recommendations",
+  "backbone": "staged graph convolution network",
+  "loss": "not specified in abstract",
+  "key_idea": "federated learning framework with staged graph convolution for user-centric PKGs and graph expansion via gradient aggregation",
+  "datasets": [
+    "four publicly available datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

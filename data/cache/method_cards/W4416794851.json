@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4416794851",
+  "task": "next POI recommendation",
+  "input": "user check-in sequences and POI attributes (geographic coordinates, transition patterns)",
+  "output": "ranked list of next POIs for a user",
+  "backbone": "hybrid Transformer-LSTM encoder-decoder with gated graph neural network and location-aware attention",
+  "loss": "local perturbation-based contrastive loss + global cross-view contrastive loss + (implicit) sequential prediction loss",
+  "key_idea": "multi-graph modeling (geospatial and trajectory graphs) with multi-granularity contrastive learning (local perturbation and global cross-view) to capture high-order transitions and multi-source semantics",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

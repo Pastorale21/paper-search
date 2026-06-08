@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4200565944",
+  "task": "privacy-preserving recommendation",
+  "input": "user-item interaction graph (with privacy-sensitive data)",
+  "output": "recommendation results (e.g., item scores or rankings)",
+  "backbone": "federated GNN with SGX and homomorphic encryption",
+  "loss": "not specified (likely BPR or similar recommendation loss)",
+  "key_idea": "convert local DP to central DP using SGX for less noise, and encrypt data with homomorphic encryption to defend against side-channel attacks",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified (likely recall/NDCG)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

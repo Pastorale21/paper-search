@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4401691971",
+  "task": "top-N Hamming search on bipartite graphs",
+  "input": "bipartite graph (e.g., user-item interactions)",
+  "output": "hash codes for nodes enabling efficient Hamming space search",
+  "backbone": "Graph Convolutional Network (GCN) with hashing",
+  "loss": "dual self-supervised contrastive loss (intermediate and hash code outputs)",
+  "key_idea": "dual augmentation of intermediate features and hash codes with contrastive learning for robust hash codes",
+  "datasets": [
+    "six real-world benchmarks (not specified in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

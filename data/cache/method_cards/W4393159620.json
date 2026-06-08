@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4393159620",
+  "task": "recommendation with review information",
+  "input": "user-item rating graph and review text",
+  "output": "predicted rating or ranked item list",
+  "backbone": "graph neural network with hierarchical contrastive learning",
+  "loss": "recommendation loss + cross-view graph contrastive loss + cross-modal contrastive loss",
+  "key_idea": "hierarchical contrastive learning that jointly models rating and review interactions via topic/semantic graphs and cross-modal alignment",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

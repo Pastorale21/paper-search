@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3131776693",
+  "task": "inductive recommendation (collaborative filtering)",
+  "input": "user-item interaction graph",
+  "output": "item recommendations for each user",
+  "backbone": "lightweight GCN (CF-LGCN-U) that learns only user embeddings via neighborhood aggregation",
+  "loss": "BPR loss (implied by LightGCN baseline)",
+  "key_idea": "learn only user embeddings and derive item embeddings via neighborhood aggregation to achieve inductive capability for new items",
+  "datasets": [
+    "Gowalla",
+    "Yelp2018",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

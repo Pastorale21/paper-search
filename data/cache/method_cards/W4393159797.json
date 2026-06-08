@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4393159797",
+  "task": "multimodal recommendation",
+  "input": "user-item interaction graph and item multimodal features (visual, textual)",
+  "output": "ranked list of items per user",
+  "backbone": "local graph embedding module (GCN) + global hypergraph embedding module",
+  "loss": "BPR loss (implicitly, as typical for recommendation)",
+  "key_idea": "decouple collaborative and modality-specific local embeddings, then enhance with global hypergraph embeddings capturing high-order dependencies",
+  "datasets": [
+    "Baby",
+    "Sports",
+    "Clothing"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,27 @@
+{
+  "paper_id": "W4407750656",
+  "task": "top-K recommendation with dynamic user preferences",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "dual actor-critic GCN with multi-hop aggregation and attention",
+  "loss": "policy gradient (actor-critic) + BPR loss (implied by recommendation task)",
+  "key_idea": "combine dual GCN-based actor-critic reinforcement learning with multi-hop aggregation and attention to balance exploration and exploitation",
+  "datasets": [
+    "MovieLens 100K",
+    "MovieLens 1M",
+    "Amazon Subscription Boxes",
+    "Amazon Magazine Subscriptions",
+    "Mod Cloth"
+  ],
+  "metrics": [
+    "Precision@K",
+    "Recall@K",
+    "NDCG@K",
+    "MRR@K",
+    "Hit@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

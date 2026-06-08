@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4413740997",
+  "task": "personalized financial product recommendation",
+  "input": "user-product interaction graph with textual features (e.g., user reviews)",
+  "output": "ranked list of financial products per user",
+  "backbone": "hybrid LLM + GNN with custom message-passing",
+  "loss": "joint optimization (not specified in abstract)",
+  "key_idea": "combine pre-trained LLM embeddings of text with GNN on a heterogeneous user-product graph via a custom message-passing mechanism",
+  "datasets": [
+    "public financial dataset",
+    "real-world financial dataset"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

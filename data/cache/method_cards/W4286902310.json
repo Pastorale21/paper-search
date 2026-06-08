@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4286902310",
+  "task": "graph representation learning (node/graph-level tasks)",
+  "input": "graph (nodes, edges, optional features)",
+  "output": "node embeddings (or graph-level representation)",
+  "backbone": "GNN with decoupled structural and positional encodings (LSPE)",
+  "loss": "task-specific (e.g., cross-entropy for classification, regression loss)",
+  "key_idea": "decouple structural and positional representations by learning separate encodings and combining them in the GNN",
+  "datasets": [
+    "molecular datasets (e.g., ZINC, OGB)"
+  ],
+  "metrics": [
+    "accuracy",
+    "MAE",
+    "ROC-AUC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

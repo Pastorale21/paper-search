@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4409671195",
+  "task": "general representation learning on multimodal graphs",
+  "input": "multimodal graphs (nodes with multimodal features, edges capturing relationships)",
+  "output": "unified low-dimensional embeddings for nodes",
+  "backbone": "modality-specific encoders + graph neural network (GNN) + Mixture of Experts (MoE)",
+  "loss": "cross-domain multi-graph pre-training objective (not specified in detail)",
+  "key_idea": "learn a unified embedding space for multimodal graphs by combining modality-specific encoders, GNN, and MoE alignment across domains and modalities",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

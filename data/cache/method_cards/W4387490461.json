@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4387490461",
+  "task": "systematic review and classification of deep learning-based recommendation systems",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "comprehensive analysis of deep learning techniques (GNN, CNN, RNN) in recommendation systems across domains",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

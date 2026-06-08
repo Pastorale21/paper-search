@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4400490061",
+  "task": "social recommendation",
+  "input": "user-item interaction graph (multi-behavior) and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN-based encoder with behavior-aware aggregation",
+  "loss": "joint optimization of recommendation loss and self-supervised contrastive loss",
+  "key_idea": "distinguish behavior strengths via GNN and improve robustness via in-distribution perturbation contrastive learning",
+  "datasets": [
+    "Yelp",
+    "Ciao"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

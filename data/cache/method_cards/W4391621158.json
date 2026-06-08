@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4391621158",
+  "task": "diversified recommendation",
+  "input": "user-item interaction graph with category information",
+  "output": "diversified ranked item list per user",
+  "backbone": "graph neural network (GNN) with category-aware components",
+  "loss": "multi-task loss (interaction loss + two contrastive losses)",
+  "key_idea": "integrate category information via category-related sampling and dual contrastive learning between users/items and categories",
+  "datasets": [
+    "Yelp",
+    "Amazon-Book",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Diversity (e.g., ILD, Coverage)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

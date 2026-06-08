@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4220909642",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph collaborative filtering (GCN-based)",
+  "loss": "BPR + contrastive loss (InfoNCE)",
+  "key_idea": "construct contrastive pairs based on neighborhood structure rather than random sampling",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

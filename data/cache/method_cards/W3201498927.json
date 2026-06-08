@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3201498927",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social relation graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "dual GCN with hierarchical attention (neighbor-level and graph-level)",
+  "loss": "BPR loss (implied by recommendation task, not explicitly stated)",
+  "key_idea": "simultaneous neighborhood propagation on user-item and social graphs with hierarchical attention to weigh different factors",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4323844718",
+  "task": "personalized recommendation",
+  "input": "web log files (searched data, browsing history, explicit and implicit feedback)",
+  "output": "ranked list of recommended items",
+  "backbone": "SoftMax model, k-means clustering, EIMNF (neural matrix model), CNN FT, GNN re-ranker",
+  "loss": "not specified",
+  "key_idea": "multi-stage pipeline combining clustering, neural matrix factorization, cross-domain CNN, and GNN-based re-ranking",
+  "datasets": [],
+  "metrics": [
+    "precision",
+    "recall",
+    "F-Measure",
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

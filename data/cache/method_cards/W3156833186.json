@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3156833186",
+  "task": "collaborative filtering (recommendation)",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "GCN with stochastic binary masks per layer",
+  "loss": "BPR loss + nuclear norm regularization",
+  "key_idea": "prune noisy edges via trainable stochastic binary masks and enforce low-rank structure via nuclear norm regularization",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

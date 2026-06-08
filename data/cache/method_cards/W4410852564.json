@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4410852564",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "GNN + sequential model",
+  "loss": "",
+  "key_idea": "integrate user characteristics from sequential historical interactions into GNN-based social recommendation to mitigate over-smoothing",
+  "datasets": [
+    "three benchmark datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

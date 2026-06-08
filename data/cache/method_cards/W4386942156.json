@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4386942156",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "GCN (graph convolutional network)",
+  "loss": "BPR loss + contrastive loss (InfoNCE) + GAN loss",
+  "key_idea": "learnable long-tail augmentation that supplements neighbor information for tail nodes to generate contrastive views, with an auto-drop module and knowledge transfer module, regularized by GAN",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

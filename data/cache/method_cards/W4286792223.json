@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4286792223",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "predicted rating or preference score for user-item pairs",
+  "backbone": "graph neural network with dynamic and static representations",
+  "loss": "not specified in abstract",
+  "key_idea": "model both dynamic (short-term) and static (long-term) representations of users and items, and aggregate social and item correlations via attention",
+  "datasets": [
+    "three real-world recommender system datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

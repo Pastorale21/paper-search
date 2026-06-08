@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4400526084",
+  "task": "sequential recommendation",
+  "input": "user interaction sequences (temporal order) and short-term graphs built from time intervals",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "Graph Neural Network (GNN) for short-term graphs + sequence model for long-term patterns",
+  "loss": "self-supervised contrastive loss + supervised next-item prediction loss",
+  "key_idea": "encode short-term collaborative graphs via GNN and augment with personalized self-augmented learning to denoise short-term behaviors using long-term user interests",
+  "datasets": [
+    "Yelp",
+    "Amazon",
+    "Gowalla",
+    "Tmall"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2755092149",
+  "task": "representation learning on graphs",
+  "input": "graph structure (nodes, edges, optionally node/edge features)",
+  "output": "low-dimensional embeddings for nodes or entire (sub)graphs",
+  "backbone": "survey of multiple methods (matrix factorization, random-walk, GNNs)",
+  "loss": "",
+  "key_idea": "review of automatic graph representation learning techniques, unifying matrix factorization, random-walk, and GNN approaches",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

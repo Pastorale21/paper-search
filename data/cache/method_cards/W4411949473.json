@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4411949473",
+  "task": "federated recommendation",
+  "input": "user-item interaction data distributed across clients",
+  "output": "personalized item recommendations",
+  "backbone": "federated graph neural network (FedGR)",
+  "loss": "",
+  "key_idea": "federated learning with homomorphic encryption to protect user privacy while training a graph neural network for recommendations",
+  "datasets": [
+    "two popular public datasets (not named)"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

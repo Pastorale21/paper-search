@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4404781529",
+  "task": "zero-shot graph learning (link prediction, node classification)",
+  "input": "graph data (e.g., user-item interaction, social network)",
+  "output": "node embeddings or predictions for downstream tasks",
+  "backbone": "scalable graph transformer",
+  "loss": "not specified",
+  "key_idea": "unified graph tokenizer and LLM-enhanced data augmentation for zero-shot generalization to unseen graphs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

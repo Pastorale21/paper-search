@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4392904110",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network with hypergraph-enhanced contrastive learning",
+  "loss": "BPR loss + contrastive loss (hypergraph and embedding perturbation)",
+  "key_idea": "use hypergraph contrastive learning to capture implicit global social signals and embedding perturbation to improve robustness against noise",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

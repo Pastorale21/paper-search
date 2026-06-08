@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4401202647",
+  "task": "personalized health behavior nudging",
+  "input": "user profile, health data, wearable device data, knowledge graph",
+  "output": "personalized and context-aware nudges (recommendations for health actions)",
+  "backbone": "Graph Neural Network augmented with Knowledge Graph",
+  "loss": "",
+  "key_idea": "combines GNN with an extensible Knowledge Graph to generate personalized nudges at scale",
+  "datasets": [],
+  "metrics": [
+    "daily steps increase",
+    "exercise minutes increase",
+    "open rate"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

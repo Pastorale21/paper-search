@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4414405736",
+  "task": "movie recommendation",
+  "input": "user-item interaction history and item metadata (movie features)",
+  "output": "ranked list of recommended movies",
+  "backbone": "hybrid of collaborative filtering and content-based filtering with TF-IDF similarity",
+  "loss": "",
+  "key_idea": "combine CF and CBF using TF-IDF similarity to address cold start",
+  "datasets": [
+    "MovieLens 20M"
+  ],
+  "metrics": [
+    "precision",
+    "recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

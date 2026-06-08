@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4386858993",
+  "task": "socially-aware recommendation",
+  "input": "user-service interaction graph, social relationships, and user sessions",
+  "output": "ranked list of services per user",
+  "backbone": "graph contrastive learning module + graph convolutional network + gated recurrent units",
+  "loss": "not specified in abstract",
+  "key_idea": "evolving graph contrastive learning with time-sliced dual-side representations to capture users' fresh interests",
+  "datasets": [
+    "three datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

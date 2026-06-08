@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4386521447",
+  "task": "session-aware recommendation",
+  "input": "user interaction sequences (sessions) with user identity",
+  "output": "next-item recommendation (or advertisement segment generation)",
+  "backbone": "session-aware graph neural network (inspired by SR-GNN and A-PGNN)",
+  "loss": "",
+  "key_idea": "leverage both current session and historical session information via graph neural networks for session-aware recommendations",
+  "datasets": [
+    "two publicly available datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4409657257",
+  "task": "vertical federated social recommendation",
+  "input": "user-item interaction graph (one party) and user-user social graph (another party), with overlapping users but no direct access to each other's data",
+  "output": "recommended items for users",
+  "backbone": "two-party graph convolution network (GCN) with privacy-preserving Sandwich-Encryption",
+  "loss": "not specified in abstract",
+  "key_idea": "privacy-preserving two-party GCN that uses a Sandwich-Encryption module to enable collaborative graph convolution without exposing sensitive social data",
+  "datasets": [
+    "four real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "recommendation accuracy (specific metrics not named in abstract)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

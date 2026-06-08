@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4310413633",
+  "task": "link prediction",
+  "input": "graph (transductive and inductive settings)",
+  "output": "predicted link existence between node pairs",
+  "backbone": "BGRL (with cheap corruptions for T-BGRL)",
+  "loss": "non-contrastive (positive-only) loss",
+  "key_idea": "incorporate cheap corruptions into BGRL to improve generalization for inductive link prediction",
+  "datasets": [
+    "6 datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Hits@50"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

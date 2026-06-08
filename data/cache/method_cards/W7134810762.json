@@ -1,0 +1,19 @@
+{
+  "paper_id": "W7134810762",
+  "task": "knowledge graph-enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph (multi-relational entity graph)",
+  "output": "diversified ranked list of items per user",
+  "backbone": "Multi-Relational Graph Attention Network (MR-GAT) + Hierarchical Interest Modeling (HIM) + Graph-Content Synergy Module (GCSM) + Adaptive Boosted Fusion (ABF) + Diversity-Aware Re-ranking (DAR)",
+  "loss": "not specified in abstract",
+  "key_idea": "progressively integrate multi-relational graph attention, hierarchical interest modeling, and graph-content synergy via adaptive fusion and diversity-aware re-ranking",
+  "datasets": [
+    "MovieLens-1M"
+  ],
+  "metrics": [
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3132011986",
+  "task": "sequential recommendation in online games",
+  "input": "multiple action sequences (heterogeneous) from players at different user levels",
+  "output": "next-item recommendations per player",
+  "backbone": "Graph Neural Network (GNN) with multi-task learning",
+  "loss": "multi-task loss (not specified in abstract)",
+  "key_idea": "model multiple sequences, tasks, and user levels jointly via GNN and multi-task learning",
+  "datasets": [
+    "Tencent Games platform (three online games)"
+  ],
+  "metrics": [
+    "offline metrics (not specified)",
+    "online metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

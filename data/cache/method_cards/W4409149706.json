@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4409149706",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (e.g., view, click, buy)",
+  "output": "recommendation scores for target behavior (e.g., buy)",
+  "backbone": "combinatorial optimization guided GCN (COGCN) + multi-expert fusion (DFME)",
+  "loss": "multi-task learning loss (not explicitly named in abstract)",
+  "key_idea": "treat multi-behavior fusion as a combinatorial optimization problem with behavior-specific constraints, and mitigate negative transfer via distribution-aware multi-expert fusion",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4387848877",
+  "task": "privacy-preserving recommendation",
+  "input": "user-item interaction data (with optional public interactions)",
+  "output": "personalized item recommendations",
+  "backbone": "decentralized GNN with local inner-item hypergraph and global inter-user graph",
+  "loss": "not specified (implicitly BPR or similar ranking loss)",
+  "key_idea": "decentralized training with local hypergraph modeling and secure gradient-sharing for differential privacy",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3176365208",
+  "task": "share recommendation (predicting which friend a user would share a specific item with)",
+  "input": "heterogeneous graph with user-item interactions and user-user social relations",
+  "output": "binary prediction of whether a share action occurs for a (user, item, friend) triplet",
+  "backbone": "tripartite heterogeneous graph neural network with dual co-attention",
+  "loss": "not explicitly stated (likely binary cross-entropy or BPR)",
+  "key_idea": "model ternary (user, item, friend) interactions via a heterogeneous GNN with dual co-attention and transitive triplet representation to capture asymmetric share actions",
+  "datasets": [
+    "Taobao (online A/B test)",
+    "offline datasets not specified"
+  ],
+  "metrics": [
+    "AUC",
+    "F1",
+    "Precision",
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

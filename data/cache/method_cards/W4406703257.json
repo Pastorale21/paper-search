@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4406703257",
+  "task": "personalized course resource recommendation",
+  "input": "learner-item interaction graph, multimodal course features (text, video, audio), knowledge graph",
+  "output": "ranked list of course resources with explanations",
+  "backbone": "graph attention network with differentiable pooling",
+  "loss": "not specified in abstract",
+  "key_idea": "integrates multimodal features via graph attention and uses graph edit distance to measure structural similarity between learner knowledge state and course content",
+  "datasets": [
+    "MOOCCubeX"
+  ],
+  "metrics": [
+    "Precision@10",
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

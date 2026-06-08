@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3174195742",
+  "task": "data discovery recommendation for large-scale scientific facilities",
+  "input": "user-query patterns, facility metadata, domain-specific data models, user associations (knowledge graph)",
+  "output": "ranked list of relevant data products (e.g., datasets, observations) for a given user query",
+  "backbone": "collaborative knowledge-aware graph attention network (CKAT) with GNN encoder",
+  "loss": "not specified in abstract",
+  "key_idea": "leverage collaborative signals and knowledge associations via graph neural networks with a knowledge-aware attention mechanism to recommend scientific data products",
+  "datasets": [
+    "two real-world facility datasets"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

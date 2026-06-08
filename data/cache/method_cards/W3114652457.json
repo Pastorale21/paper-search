@@ -1,0 +1,24 @@
+{
+  "paper_id": "W3114652457",
+  "task": "social recommendation",
+  "input": "heterogeneous graph with user-user social network and user-item interest network",
+  "output": "predicted user preferences for items",
+  "backbone": "graph neural network with influence and interest diffusion",
+  "loss": "BPR loss (implicitly, as typical for recommendation)",
+  "key_idea": "unified framework modeling both social influence diffusion and interest diffusion via iterative aggregation from social neighbors and item neighbors with multi-level attention",
+  "datasets": [
+    "Yelp",
+    "Flickr",
+    "Epinions",
+    "Ciao"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

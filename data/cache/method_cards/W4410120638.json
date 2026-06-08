@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4410120638",
+  "task": "survey of graph machine learning in the era of LLMs",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "systematic review of how LLMs enhance graph ML and how graphs enhance LLMs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

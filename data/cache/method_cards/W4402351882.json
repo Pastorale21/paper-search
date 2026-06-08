@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4402351882",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "hypergraph-based GCN, GCN, and perturbed GCN",
+  "loss": "bilateral slicing contrastive loss + dispersing loss",
+  "key_idea": "slice embeddings from three GCN variants into user- and item-side subviews and combine them bilaterally based on node relation density asymmetry",
+  "datasets": [
+    "two public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

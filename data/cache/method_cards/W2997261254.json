@@ -1,0 +1,25 @@
+{
+  "paper_id": "W2997261254",
+  "task": "top-K sequential recommendation",
+  "input": "chronologically ordered user-item interaction sequences",
+  "output": "ranked list of items per user (next-item prediction)",
+  "backbone": "memory augmented graph neural network (MA-GNN)",
+  "loss": "BPR loss (implicitly from sequential recommendation context)",
+  "key_idea": "combine GNN for short-term item context with a shared memory network for long-term dependencies",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Gowalla",
+    "Foursquare",
+    "Tmall"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

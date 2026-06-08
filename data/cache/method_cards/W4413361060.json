@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4413361060",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "ranked item recommendations per user",
+  "backbone": "GCN with graph bottleneck refinement",
+  "loss": "BPR loss + HSIC-based bottleneck regularization",
+  "key_idea": "refine social graph by minimizing redundant information via Hilbert-Schmidt Independence Criterion bottleneck",
+  "datasets": [],
+  "metrics": [
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

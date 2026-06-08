@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4401829895",
+  "task": "online course recommendation",
+  "input": "user behavior patterns and course attributes",
+  "output": "personalized course recommendations",
+  "backbone": "graph neural networks (GNNs), Transformer, and Large Language Models (LLMs)",
+  "loss": "",
+  "key_idea": "combines graph collaborative filtering and sequential recommendation to improve accuracy and personalization",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

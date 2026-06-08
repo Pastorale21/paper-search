@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3047838342",
+  "task": "session-based product recommendation",
+  "input": "session-based user interaction sequences (session graphs)",
+  "output": "next-item recommendation (predicted product)",
+  "backbone": "optimized graph convolutional neural network (OpGCN)",
+  "loss": "",
+  "key_idea": "apply an optimized GCN on session graphs for product recommendation, achieving higher accuracy than standard GCN",
+  "datasets": [],
+  "metrics": [
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

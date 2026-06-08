@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4415125212",
+  "task": "sequential recommendation",
+  "input": "user behavior sequences (item interaction sequences)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "graph neural network (Spatial Intent Graph) + Transformer (Multi-Span Self-Attention)",
+  "loss": "cross-entropy loss (implicitly, as typical for sequential recommendation)",
+  "key_idea": "model user intent via a Spatial Intent Graph capturing multi-hop relationships and a Multi-Span Self-Attention fusing long/short-term temporal dynamics",
+  "datasets": [
+    "Amazon Beauty",
+    "Amazon Games",
+    "Amazon Sports",
+    "Yelp",
+    "ML-1M"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

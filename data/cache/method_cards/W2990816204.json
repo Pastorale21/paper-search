@@ -1,0 +1,21 @@
+{
+  "paper_id": "W2990816204",
+  "task": "product knowledge graph embedding for e-commerce",
+  "input": "raw customer activity data (multi-modal e-commerce data)",
+  "output": "product knowledge graph embeddings",
+  "backbone": "self-attention-enhanced distributed representation learning model",
+  "loss": "multi-task learning loss (not specified in detail)",
+  "key_idea": "self-attention-enhanced distributed representation learning with Poincaré embedding for complex entity structures",
+  "datasets": [
+    "real-world dataset from grocery.walmart.com"
+  ],
+  "metrics": [
+    "knowledge completion metrics",
+    "search ranking metrics",
+    "recommendation metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

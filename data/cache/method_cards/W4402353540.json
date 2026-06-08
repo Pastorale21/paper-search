@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4402353540",
+  "task": "sequential recommendation",
+  "input": "user purchase sequences (implicit feedback)",
+  "output": "next-item recommendation list",
+  "backbone": "graph neural network (GNN) on dynamic subgraphs",
+  "loss": "contrastive loss (InfoNCE) + sequential recommendation loss (e.g., cross-entropy)",
+  "key_idea": "construct dynamic subgraphs from multiple user sequences using user activity, item popularity, and interaction time, then apply GNN with contrastive learning across layers",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Gowalla"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

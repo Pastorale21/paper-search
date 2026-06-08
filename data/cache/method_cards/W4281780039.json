@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4281780039",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, social network graph, user/item static features",
+  "output": "predicted rating or preference score for each user-item pair",
+  "backbone": "graph neural network with GRU and graph attention",
+  "loss": "",
+  "key_idea": "combine static features (via graph embedding) and dynamic features (via GRU on user behavior sequence) with graph attention for social influence",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

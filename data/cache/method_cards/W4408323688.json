@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4408323688",
+  "task": "unsupervised network alignment",
+  "input": "two attributed graphs (e.g., social networks, knowledge graphs)",
+  "output": "alignment matrix (node correspondences between graphs)",
+  "backbone": "multi-scale GNN with quotient graph coarsening",
+  "loss": "Matched Neighborhood Consistency (MNC) optimization",
+  "key_idea": "reduce computational cost via embedding-driven graph coarsening (quotient graph) while preserving structural information",
+  "datasets": [
+    "Douban Online-Offline",
+    "Allmovie-Imdb",
+    "ACM-DBLP"
+  ],
+  "metrics": [
+    "MAP",
+    "Precision@5"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

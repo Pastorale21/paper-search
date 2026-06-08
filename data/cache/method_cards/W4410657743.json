@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4410657743",
+  "task": "osteoporosis detection (binary classification)",
+  "input": "multimodal data: structured clinical data, DXA scans, biochemical markers, and graph-based bone connectivity",
+  "output": "osteoporosis risk prediction (binary classification output)",
+  "backbone": "Graph Neural Network (GNN) with Federated Learning",
+  "loss": "not specified (likely cross-entropy based on classification task)",
+  "key_idea": "federated graph-based multimodal fusion that models trabecular bone connectivity for privacy-preserving and explainable osteoporosis detection",
+  "datasets": [
+    "real-world dataset (10,000 patient records, 5,000 DXA scans, biochemical profiles)"
+  ],
+  "metrics": [
+    "accuracy",
+    "precision",
+    "recall",
+    "ROC-AUC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

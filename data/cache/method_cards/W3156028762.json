@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3156028762",
+  "task": "cross-domain app recommendation",
+  "input": "multi-graph constructed from user behaviors across different domains (e.g., download, rating, review)",
+  "output": "app embeddings for recommendation",
+  "backbone": "multi-graph neural network",
+  "loss": "not specified",
+  "key_idea": "construct a multi-graph from user behaviors across domains and learn cross-domain app embeddings via a multi-graph neural network with adaptive domain weighting",
+  "datasets": [
+    "real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

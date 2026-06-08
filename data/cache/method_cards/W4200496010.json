@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4200496010",
+  "task": "social-based item recommendation",
+  "input": "user-item interaction graph and social graph (user-user relations)",
+  "output": "predicted preference scores for items",
+  "backbone": "GCN + Transformer layers",
+  "loss": "",
+  "key_idea": "add Transformer layers on top of GCN embeddings to capture frequent patterns in embedding space",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

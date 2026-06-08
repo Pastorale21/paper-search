@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4391967190",
+  "task": "drug-disease association prediction",
+  "input": "heterogeneous information graph (drug-drug, drug-disease, disease-disease networks)",
+  "output": "predicted association scores between drugs and diseases",
+  "backbone": "graph transformer + multi-aggregate GCN",
+  "loss": "not specified in abstract",
+  "key_idea": "fuse graph transformer and multi-aggregate GCN with neural collaborative filtering to model local and global node interactions on heterogeneous graph",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

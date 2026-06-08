@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4385749907",
+  "task": "multi-purpose recipe recommendation",
+  "input": "user queries (natural language or image) and a multi-modal knowledge graph (MMKG) of recipes",
+  "output": "ranked list of recipes",
+  "backbone": "multi-modal knowledge graph embedding (KGE) with KG-VAE for images",
+  "loss": "knowledge graph embedding loss (e.g., TransE, RotatE) + VAE loss",
+  "key_idea": "combine pre-trained NLP embeddings and a KG-guided VAE for multi-modal recipe recommendation",
+  "datasets": [
+    "Kaggle recipe datasets (two KGs)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

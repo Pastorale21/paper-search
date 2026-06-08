@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4292259374",
+  "task": "streaming session-based recommendation",
+  "input": "chronologically ordered sessions of user-item interactions",
+  "output": "next-item recommendation in a session",
+  "backbone": "Bi-directed Attentional Graph Convolutional Network (BA-GCN) with global item and user embeddings",
+  "loss": "not specified in abstract",
+  "key_idea": "combine global user/item embeddings with local session information via attention, and use a bi-directed attentional GCN to capture feature importance",
+  "datasets": [
+    "three real-world datasets (sizes not named)"
+  ],
+  "metrics": [
+    "MRR",
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

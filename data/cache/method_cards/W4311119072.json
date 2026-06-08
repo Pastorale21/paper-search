@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4311119072",
+  "task": "recommendation with side information",
+  "input": "user-item interaction graph and side information graphs (multi-relational graphs for users and items)",
+  "output": "user and item embeddings for downstream recommendation",
+  "backbone": "multi-graph neural network (pre-training) + any representation-based recommender (e.g., MF, NCF, NGCF, LightGCN) for fine-tuning",
+  "loss": "pre-training: graph reconstruction or link prediction loss (not explicitly stated); fine-tuning: BPR or cross-entropy (depends on base model)",
+  "key_idea": "pre-train entity embeddings on side information graphs using multi-graph neural networks, then fine-tune with a base recommender",
+  "datasets": [
+    "not specified in abstract"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

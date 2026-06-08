@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4405968073",
+  "task": "group recommendation",
+  "input": "user-item interaction graph and group membership information",
+  "output": "recommendation lists for groups and individual users",
+  "backbone": "graph convolution and attention mechanisms",
+  "loss": "multi-task joint training (group and individual recommendation losses + self-supervised auxiliary losses)",
+  "key_idea": "multi-view collaborative training with self-supervised learning to address data sparsity in group recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

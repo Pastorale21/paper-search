@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4360995091",
+  "task": "inductive QoS prediction for cloud services",
+  "input": "user-service interaction graph with QoS values",
+  "output": "predicted QoS value for a user-service pair",
+  "backbone": "subgraph-sampling-aware GNN",
+  "loss": "not specified in abstract",
+  "key_idea": "inductive subgraph sampling with compositional context embeddings to generalize to unseen users/services",
+  "datasets": [
+    "large-scale real-world service QoS dataset"
+  ],
+  "metrics": [
+    "prediction accuracy",
+    "memory efficiency"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

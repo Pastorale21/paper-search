@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4390971083",
+  "task": "social recommendation with multi-behavior interactions",
+  "input": "user-item multi-behavior interaction graph, user-user social graph, item-item dependency graph",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "multi-layer cross-domain heterogeneous graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "jointly model multi-behavior interactions, social connections, and item dependencies via a heterogeneous GNN",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

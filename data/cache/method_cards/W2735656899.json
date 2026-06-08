@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2735656899",
+  "task": "top-N recommendation",
+  "input": "knowledge graph (alloying content-based and collaborative information)",
+  "output": "ranked list of items per user",
+  "backbone": "graph embedding (two-dimensional embedding of knowledge graph)",
+  "loss": "",
+  "key_idea": "map users and items to the same vector space via graph embedding on a knowledge graph, then compute recommendations spatially",
+  "datasets": [],
+  "metrics": [
+    "precision",
+    "recall",
+    "nDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400880042",
+  "task": "academic reviewer recommendation",
+  "input": "academic submission-reviewer interaction graph (with unobserved interactions)",
+  "output": "ranked list of reviewers per submission",
+  "backbone": "two-stage graph encoder (scientific knowledge + behavior)",
+  "loss": "graph contrastive learning (InfoNCE) with pseudo negative labels",
+  "key_idea": "use a Pseudo Neg-Label strategy to assign soft negative labels to unobserved interactions for contrastive learning",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "four metrics (not specified in abstract)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

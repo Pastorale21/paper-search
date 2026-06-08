@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4293519289",
+  "task": "sequential recommendation",
+  "input": "user interaction sequences with timestamps",
+  "output": "next-item recommendation (ranked list)",
+  "backbone": "hierarchical graph neural network (HGNN)",
+  "loss": "not specified",
+  "key_idea": "construct a timespan-aware sequence graph and softly cluster nodes into factor nodes to model diverse user preferences",
+  "datasets": [
+    "two datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

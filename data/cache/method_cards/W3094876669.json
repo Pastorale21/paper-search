@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3094876669",
+  "task": "self-supervised node representation learning on large-scale bipartite graphs",
+  "input": "large-scale bipartite graph with distinct node features in two domains",
+  "output": "node embeddings for both partitions",
+  "backbone": "Cascade Bipartite Graph Neural Network (Cascade-BGNN) with Inter-domain Message Passing (IDMP) and Intra-domain Alignment (IDA)",
+  "loss": "self-supervised loss (adversarial alignment + reconstruction)",
+  "key_idea": "cascade training of multi-layer BGNN with inter-domain message passing and intra-domain adversarial alignment for efficient and scalable bipartite graph representation learning",
+  "datasets": [
+    "several datasets of varying scales",
+    "large-scale real-world bipartite graph"
+  ],
+  "metrics": [
+    "accuracy",
+    "efficiency (training speed, memory cost)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

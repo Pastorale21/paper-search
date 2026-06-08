@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4390992364",
+  "task": "Traditional Chinese Medicine prescription recommendation",
+  "input": "symptom-herb co-occurrence graphs (symptom graph, symptom-herb graph, herb-herb graph) and external knowledge graph",
+  "output": "ranked list of recommended herbs",
+  "backbone": "Graph Convolutional Network (GCN) with large language model embeddings",
+  "loss": "not specified",
+  "key_idea": "integrate symptom embeddings from GCN with large language model embeddings and incorporate external knowledge graph into herb embeddings for prescription recommendation",
+  "datasets": [],
+  "metrics": [
+    "P@5",
+    "P@10",
+    "P@20",
+    "R@5",
+    "R@10",
+    "R@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

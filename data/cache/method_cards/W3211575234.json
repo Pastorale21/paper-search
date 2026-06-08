@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3211575234",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "item recommendations in the target domain",
+  "backbone": "graph neural network (GNN) encoder",
+  "loss": "contrastive self-supervised loss (pre-training) + BPR (fine-tuning)",
+  "key_idea": "pre-train a GNN on source domain with contrastive learning, then fine-tune on target domain to transfer knowledge without bias",
+  "datasets": [
+    "Amazon (cross-domain pairs)"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

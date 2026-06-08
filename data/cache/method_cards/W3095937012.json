@@ -1,0 +1,25 @@
+{
+  "paper_id": "W3095937012",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "ranked item recommendations per user",
+  "backbone": "graph convolutional networks (GCN)",
+  "loss": "adversarial training (minimax game) with reconstruction loss for social profile and recommendation loss",
+  "key_idea": "adversarial GCN framework that augments and purifies social relations via a GCN autoencoder and captures heterogeneous strengths of social relations via attentive social recommendation",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Last.fm",
+    "Douban"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE",
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

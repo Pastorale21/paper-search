@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4224324925",
+  "task": "session-based recommendation",
+  "input": "user session sequences (no explicit social graph)",
+  "output": "next item prediction in a session",
+  "backbone": "graph structure learning + GNN",
+  "loss": "not specified in abstract",
+  "key_idea": "collectively learn user-user graph structure and session-based recommendations in a coupled framework with a two-stage neighbor screening and phased heuristic training",
+  "datasets": [
+    "five public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

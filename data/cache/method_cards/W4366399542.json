@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4366399542",
+  "task": "tag-based cross-domain recommendation",
+  "input": "heterogeneous information network (users, items, tags) across domains",
+  "output": "ranked item recommendations in target domain",
+  "backbone": "metapath and multi-interest aggregated GNN",
+  "loss": "BPR loss (implied by recommendation task, not explicitly stated)",
+  "key_idea": "hierarchical aggregation with intra-metapath filtering of trivial tags and inter-metapath filtering of useless cross-domain interests",
+  "datasets": [
+    "Dianping (industrial dataset)"
+  ],
+  "metrics": [
+    "offline metrics (not specified)",
+    "online A/B test metrics"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

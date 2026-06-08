@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3176302227",
+  "task": "group-buying recommendation for social e-commerce",
+  "input": "directed heterogeneous graph with user launch/join behaviors and social network",
+  "output": "ranked list of items for initiating a group-buying",
+  "backbone": "graph convolutional network with multi-view embedding propagation",
+  "loss": "double-pairwise loss",
+  "key_idea": "model group-buying as a directed heterogeneous graph and use multi-view propagation to capture launch/join behaviors and social relations",
+  "datasets": [
+    "real-world group-buying dataset (collected from Pinduoduo-like platform)"
+  ],
+  "metrics": [
+    "HR@5",
+    "NDCG@5"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

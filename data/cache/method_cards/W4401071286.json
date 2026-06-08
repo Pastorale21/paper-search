@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4401071286",
+  "task": "learning resource recommendation",
+  "input": "heterogeneous graph of learners, courses, and knowledge points with meta-paths",
+  "output": "personalized list of learning resources",
+  "backbone": "meta-path graph convolutional network + recurrent neural network",
+  "loss": "",
+  "key_idea": "model long-term behavior via meta-path GCN and short-term behavior via RNN, then concatenate embeddings",
+  "datasets": [],
+  "metrics": [
+    "Hit Rate",
+    "NDCG",
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

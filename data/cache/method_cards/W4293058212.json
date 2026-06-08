@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4293058212",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user-user social graph, item-item collaborative similarity graph",
+  "output": "predicted user-item interaction scores",
+  "backbone": "graph convolutional network (GCN) with gating mechanism",
+  "loss": "not specified in abstract",
+  "key_idea": "unify user-item, social, and item similarity graphs into a single GCN framework with gated fusion of heterogeneous embeddings",
+  "datasets": [
+    "two real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

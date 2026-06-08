@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4402676512",
+  "task": "federated learning for big data labeling systems",
+  "input": "distributed data labeling tasks with heterogeneous nodes",
+  "output": "trained global model with improved communication efficiency",
+  "backbone": "reputation-driven asynchronous federated learning with graph neural network",
+  "loss": "not specified",
+  "key_idea": "use reputation consensus and deep reinforcement learning for node selection to reduce communication overhead",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3044311607",
+  "task": "collaborative filtering recommendation",
+  "input": "user-item interaction graph",
+  "output": "user and item representations (embeddings)",
+  "backbone": "disentangled graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "disentangle user intents into multiple latent factors via graph neural networks",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

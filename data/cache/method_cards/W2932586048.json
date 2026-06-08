@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2932586048",
+  "task": "recommendation (unsupervised)",
+  "input": "user-item interactions (implicit and explicit)",
+  "output": "recommendations (short and long term user interests)",
+  "backbone": "multi-layer graph generative model with AutoEncoder",
+  "loss": "",
+  "key_idea": "generate a multi-layer high-dimensional graph preserving implicit and explicit interactions using AutoEncoders, then apply GNN for recommendations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

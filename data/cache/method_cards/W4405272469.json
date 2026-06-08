@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4405272469",
+  "task": "sequential recommendation",
+  "input": "user interaction sequences and knowledge graph (Wikidata) embeddings",
+  "output": "next-item prediction (ranked list of items)",
+  "backbone": "graph neural network (GNN) with knowledge graph embeddings",
+  "loss": "not specified",
+  "key_idea": "integrate translation-based knowledge graph embeddings into a GNN to enrich item representations for sequential recommendation",
+  "datasets": [
+    "MovieLens"
+  ],
+  "metrics": [
+    "Hit@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

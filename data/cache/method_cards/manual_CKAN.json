@@ -1,0 +1,15 @@
+{
+  "paper_id": "manual_CKAN",
+  "task": "top-N recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "attentive propagation network over collaborative and knowledge graph",
+  "loss": "",
+  "key_idea": "attentively propagate collaborative signals and knowledge graph connections to enhance user and item representations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

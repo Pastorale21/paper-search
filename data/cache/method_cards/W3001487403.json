@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3001487403",
+  "task": "within-basket recommendation (basket-item link prediction)",
+  "input": "User-Basket-Item (UBI) heterogeneous graph",
+  "output": "predicted links between baskets and items",
+  "backbone": "graph convolutional neural network with three types of aggregators",
+  "loss": "not specified in abstract",
+  "key_idea": "design three specialized aggregators for user, basket, and item nodes to capture collectivity and heterogeneity in the UBI graph",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

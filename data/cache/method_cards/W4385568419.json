@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4385568419",
+  "task": "node classification and link prediction",
+  "input": "graph with tree-like structures (e.g., social networks, recommendation systems)",
+  "output": "node labels (classification) or edge existence scores (link prediction)",
+  "backbone": "curvature-aware hyperbolic graph convolutional neural network (κHGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "leverage discrete and continuous curvature to guide message passing in hyperbolic space for heterogeneous tree-like structures",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

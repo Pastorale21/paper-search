@@ -1,0 +1,18 @@
+{
+  "paper_id": "W3204879380",
+  "task": "personalized recommendation with group information",
+  "input": "user-item, group-item, and user-group bipartite graphs",
+  "output": "predicted user preference scores for items",
+  "backbone": "graph neural network (GNN) on multiple bipartite graphs",
+  "loss": "not specified in abstract",
+  "key_idea": "integrate group preferences via separate bipartite graphs and learn user-item preferences end-to-end with GNN",
+  "datasets": [
+    "Last.fm",
+    "Douban Movie"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

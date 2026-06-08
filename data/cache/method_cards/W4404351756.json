@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4404351756",
+  "task": "link prediction",
+  "input": "graph (e.g., user-item interaction graph or knowledge graph)",
+  "output": "predicted links (edges) between nodes",
+  "backbone": "contextual bandit + PageRank",
+  "loss": "not specified (bandit reward formulation)",
+  "key_idea": "reformulate link prediction as sequential decision-making and combine contextual bandits with PageRank for collaborative exploitation and exploration",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

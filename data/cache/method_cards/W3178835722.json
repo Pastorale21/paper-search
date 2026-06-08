@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3178835722",
+  "task": "sequential recommendation",
+  "input": "user historical behavior sequences (item sequences)",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "graph neural network (SURGE) with graph construction, cluster-aware convolution, and graph pooling",
+  "loss": "not specified in abstract",
+  "key_idea": "reconstruct loose item sequences into tight item-item interest graphs via metric learning, then apply cluster-aware graph convolution and pooling to extract core interests",
+  "datasets": [
+    "public datasets",
+    "proprietary industrial datasets"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

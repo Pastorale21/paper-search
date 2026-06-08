@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4414604832",
+  "task": "multi-objective personalized news recommendation",
+  "input": "user-item interactions, news content, user-entity relations, user interaction sequences",
+  "output": "ranked list of news articles per user",
+  "backbone": "Hierarchical Contextual Graph-Transformer Network (HCGTN) combining BERT, GNN, and Transformer",
+  "loss": "multi-objective ranking loss (accuracy, diversity, long-term engagement)",
+  "key_idea": "interweave BERT for semantic content, GNN for relational structure, and Transformer for sequential behavior, optimized with a multi-objective loss",
+  "datasets": [
+    "standard news recommendation datasets (e.g., MIND, Adressa)"
+  ],
+  "metrics": [
+    "CTR",
+    "diversity",
+    "coverage"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

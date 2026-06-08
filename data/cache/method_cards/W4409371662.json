@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4409371662",
+  "task": "personalized learning resource recommendation",
+  "input": "learner-resource interaction graph and knowledge graph",
+  "output": "ranked list of learning resources per learner",
+  "backbone": "knowledge graph attention network (KGAT) with residual connections",
+  "loss": "not specified in abstract",
+  "key_idea": "enhance learner representation by incorporating collaborative signals from co-clicked resources and using attention with residual connections to aggregate multi-hop neighbors",
+  "datasets": [
+    "real-world dataset (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

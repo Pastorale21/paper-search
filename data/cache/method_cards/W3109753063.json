@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3109753063",
+  "task": "session-based recommendation",
+  "input": "anonymous user sessions (sequences of item clicks)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "Weighted Graph Interest Networks (WGIN) with RWGNN and Transformer",
+  "loss": "cross-entropy loss",
+  "key_idea": "model repeated item transitions via a weighted graph neural network and combine with Transformer for long/short-term preferences",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

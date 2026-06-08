@@ -1,0 +1,23 @@
+{
+  "paper_id": "W2963911286",
+  "task": "knowledge-aware recommendation",
+  "input": "user-item interaction graph and item-side knowledge graph",
+  "output": "personalized item scores/rankings",
+  "backbone": "user-specific weighted graph neural network (KGNN-LS)",
+  "loss": "BPR loss + label smoothness regularization",
+  "key_idea": "transform the knowledge graph into a user-specific weighted graph via a trainable function and apply GNN with label smoothness regularization",
+  "datasets": [
+    "Amazon-Book",
+    "Last-FM",
+    "MovieLens-20M",
+    "Yelp2018"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3209428859",
+  "task": "point-of-interest (POI) recommendation",
+  "input": "user-POI interaction graph, social relations, and time series",
+  "output": "ranked list of POIs per user",
+  "backbone": "social-time context graph neural network (GNN)",
+  "loss": "",
+  "key_idea": "integrates social relations and temporal behavior into graph neural network for POI recommendation",
+  "datasets": [
+    "real datasets (not specified)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

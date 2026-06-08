@@ -1,0 +1,26 @@
+{
+  "paper_id": "W3028395849",
+  "task": "graph representation learning (link prediction, node classification, recommendation)",
+  "input": "graph (e.g., user-item interaction graph for recommendation)",
+  "output": "node embeddings",
+  "backbone": "any graph encoder (e.g., GCN, LightGCN)",
+  "loss": "contrastive loss (e.g., InfoNCE) with negative sampling",
+  "key_idea": "negative sampling distribution should be positively but sub-linearly correlated to the positive sampling distribution, approximated via self-contrast and Metropolis-Hastings",
+  "datasets": [
+    "Cora",
+    "Citeseer",
+    "Pubmed",
+    "Amazon",
+    "Yelp"
+  ],
+  "metrics": [
+    "Accuracy",
+    "F1",
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

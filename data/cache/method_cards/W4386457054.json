@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4386457054",
+  "task": "list recommendation",
+  "input": "user-item bipartite graph",
+  "output": "list of items (ordered) for a user request",
+  "backbone": "graph neural network (GNN) with attention mechanism",
+  "loss": "reinforcement learning reward (maximizing recommendation effect)",
+  "key_idea": "use GNN with attention to generate graph-structured representations and end-to-end RL training for list recommendation",
+  "datasets": [],
+  "metrics": [
+    "hit rate",
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

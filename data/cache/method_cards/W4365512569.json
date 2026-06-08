@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4365512569",
+  "task": "click prediction (recommendation)",
+  "input": "user-item interaction matrix and knowledge graph",
+  "output": "click probability for a user-item pair",
+  "backbone": "Knowledge Graph Convolutional Network + GAN",
+  "loss": "not specified (implicitly adversarial loss for GAN and prediction loss for click)",
+  "key_idea": "combine local interest features from KGCN and global interest features from GAN to capture user preferences",
+  "datasets": [
+    "three real datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "AUC",
+    "ACC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4328027780",
+  "task": "top-K recommendation with multi-intent modeling",
+  "input": "user-item bipartite graph (behavior data)",
+  "output": "vector representations for recall (ranked items)",
+  "backbone": "graph neural network (GNN) with multi-intent modeling",
+  "loss": "contrastive learning loss (InfoNCE-style)",
+  "key_idea": "model multiple user intents via graph contrastive learning on a bipartite graph",
+  "datasets": [
+    "MovieLens",
+    "private e-commerce dataset"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

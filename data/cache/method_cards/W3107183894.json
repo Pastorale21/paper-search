@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3107183894",
+  "task": "rating prediction (personalized recommendation)",
+  "input": "user-item interactions and knowledge graph (entities and relations)",
+  "output": "predicted rating score for a user-item pair",
+  "backbone": "neural network (MLP) with knowledge graph embeddings as input",
+  "loss": "not specified (likely MSE or cross-entropy for rating prediction)",
+  "key_idea": "use knowledge graph embeddings as input features to a neural network for rating prediction",
+  "datasets": [
+    "MovieLens-1M"
+  ],
+  "metrics": [
+    "RMSE",
+    "MAE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

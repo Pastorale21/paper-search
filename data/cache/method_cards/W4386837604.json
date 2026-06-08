@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4386837604",
+  "task": "automatic playlist continuation",
+  "input": "knowledge graph with user, item, and contextual entities",
+  "output": "ranked list of tracks for playlist continuation",
+  "backbone": "graph neural network with representational learning",
+  "loss": "",
+  "key_idea": "integrates knowledge graph embeddings and GNNs to fuse multiple data streams for playlist recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

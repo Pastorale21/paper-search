@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4417401993",
+  "task": "secure and private federated social recommendation",
+  "input": "user-item interaction graph and social network (local data on clients)",
+  "output": "recommended items per user",
+  "backbone": "federated graph neural network",
+  "loss": "not specified in abstract",
+  "key_idea": "defend against data poisoning and inference attacks via Diffie-Hellman secure embedding transmission, removal of collaboration mechanism, cosine similarity initialization, and mask cancellation for unbiased aggregation",
+  "datasets": [
+    "Filmtrust",
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "test accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

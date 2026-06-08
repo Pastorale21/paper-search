@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4393186329",
+  "task": "knowledge-aware collaborative recommendation",
+  "input": "user-item interaction graph, item-entity knowledge graph, merged user-item KG graph",
+  "output": "recommended items for users",
+  "backbone": "multi-view graph neural network (GAT + GNN)",
+  "loss": "not specified in abstract",
+  "key_idea": "leverages three graph views (merged user-item KG, collaborative view, item-entity view) with a cross module to share high-level information and edge computing for preprocessing",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

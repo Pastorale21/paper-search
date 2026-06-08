@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4312467948",
+  "task": "session-based recommendation",
+  "input": "session sequences (item interactions within anonymous sessions)",
+  "output": "next-item prediction (recommended items for the current session)",
+  "backbone": "global context-aware graph neural network (GCA-GNN) with capsule graph neural network",
+  "loss": "main prediction loss + auxiliary self-supervised learning loss",
+  "key_idea": "capture both local-session and cross-session preferences via two views, and extract fine-grained global contextual factors using capsule GNN",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "Tmall",
+    "Nowplaying"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

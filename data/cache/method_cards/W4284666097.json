@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4284666097",
+  "task": "health thread recommendation",
+  "input": "graph of users, threads, and posts with associations; medical knowledge graph",
+  "output": "ranked list of relevant threads for a user",
+  "backbone": "graph neural network with message passing",
+  "loss": "",
+  "key_idea": "knowledge-enhanced attention mechanism to capture latent clinical conditions and symptoms",
+  "datasets": [
+    "MedHelp",
+    "Patient",
+    "HealthBoards"
+  ],
+  "metrics": [
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

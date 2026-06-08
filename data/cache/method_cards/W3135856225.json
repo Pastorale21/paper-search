@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3135856225",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences and item attribute sequences",
+  "output": "next-item prediction (recommendation)",
+  "backbone": "graph neural network with node aggregation and attention",
+  "loss": "",
+  "key_idea": "augment user-item interaction graphs with item attribute information to capture user preference patterns",
+  "datasets": [
+    "multiple datasets (not specified)"
+  ],
+  "metrics": [
+    "Recall",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

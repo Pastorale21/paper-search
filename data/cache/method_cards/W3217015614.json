@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3217015614",
+  "task": "cross-domain recommendation (matching/candidate generation)",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "ranked item candidates in the target domain",
+  "backbone": "diversified preference network (graph neural network)",
+  "loss": "intra-domain contrastive loss + inter-domain contrastive losses (user, taxonomy, neighbor)",
+  "key_idea": "intra- and inter-domain contrastive learning with graph augmentation and multi-aspect cross-domain interactions",
+  "datasets": [
+    "WeChat Top Stories (real-world system)"
+  ],
+  "metrics": [
+    "offline metrics (not specified)",
+    "online metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

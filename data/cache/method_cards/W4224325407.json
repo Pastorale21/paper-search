@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4224325407",
+  "task": "node representation learning on large graphs",
+  "input": "large graph (e.g., social networks, recommendation systems)",
+  "output": "node embeddings (approximate representations)",
+  "backbone": "Graph Convolutional Network (GCN)",
+  "loss": "not specified (likely cross-entropy for node classification)",
+  "key_idea": "train GCN on a cumulatively sampled subgraph to reduce computation while minimizing bias via label-centric sampling",
+  "datasets": [
+    "four real-world network datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "accuracy (not specified in abstract)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4380991578",
+  "task": "music recommendation",
+  "input": "multi-modal knowledge graph (MMKG) with user-item interactions and multi-modal features (text, image, audio, sentiment) of music items",
+  "output": "ranked list of music items for a user",
+  "backbone": "graph convolutional network with three aggregators (multi-modal, user, item)",
+  "loss": "BPR loss with ratio negative sampling",
+  "key_idea": "aggregate multi-modal features (text, image, audio, sentiment) of music items and high-order structural information via GCN on a multi-modal knowledge graph",
+  "datasets": [
+    "Last-FM (four different-sized MMKGs)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4366773981",
+  "task": "knowledge-enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "hierarchical graph capsule network",
+  "loss": "not specified",
+  "key_idea": "use graph capsule network to learn hierarchical entity representations and remove noise via entity disentanglement and attentive aggregation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

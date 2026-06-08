@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3155496675",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user social relations (hypergraph)",
+  "output": "ranked list of items per user",
+  "backbone": "multi-channel hypergraph convolutional network",
+  "loss": "BPR loss + self-supervised hierarchical mutual information maximization",
+  "key_idea": "encode high-order user relations via multi-channel hypergraph convolution and integrate self-supervised learning to preserve connectivity information",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

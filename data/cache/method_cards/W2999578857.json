@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2999578857",
+  "task": "user geolocation detection",
+  "input": "user tweets and social network (user interaction graph)",
+  "output": "predicted geographical location (e.g., coordinates or region) for each user",
+  "backbone": "TF-MF (text and network fusion model)",
+  "loss": "",
+  "key_idea": "combines text representations from tweets with graph neural network embeddings from the user interaction network for geolocation prediction",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

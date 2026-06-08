@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4306317335",
+  "task": "domain-level zero-shot recommendation",
+  "input": "user-item interaction graphs from multiple public domains and a knowledge graph connecting items across domains",
+  "output": "recommendations for a target domain with no collaborative behaviors",
+  "backbone": "transferable interest extractor (GCN with layer-wise separation)",
+  "loss": "BPR loss (implied by collaborative filtering objective)",
+  "key_idea": "propagate collaborative signals from public domains to a zero-shot target domain via a shared interest graph, discarding bottom GCN layers for user interest to enable transfer",
+  "datasets": [
+    "Amazon (four public datasets)"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

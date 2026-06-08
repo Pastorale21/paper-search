@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4389274344",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph and item knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) encoder",
+  "loss": "BPR loss for recommendation + contrastive loss (InfoNCE) for self-supervised learning",
+  "key_idea": "generate contrastive views from both user-item interaction graph and a semantic-based item similarity graph derived from the knowledge graph, then maximize mutual information between them",
+  "datasets": [
+    "Yelp2018",
+    "Amazon-Book",
+    "Last-FM"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4399259876",
+  "task": "scalable recommendation with knowledge graph",
+  "input": "user-item interaction graph and item knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "GCN with interconnected propagation between KG and IG",
+  "loss": "not specified",
+  "key_idea": "multi-stage pipeline including user segmentation, LLM-based KG construction, and joint propagation over interaction and knowledge graphs",
+  "datasets": [
+    "telecom e-commerce domain dataset"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "W4389775049",
+  "task": "knowledge concept recommendation in MOOCs",
+  "input": "knowledge graph (KG) of MOOCs with student-concept interactions",
+  "output": "ranked list of knowledge concepts for a student",
+  "backbone": "GCN with SBERT-based initial embeddings",
+  "loss": "not specified in abstract",
+  "key_idea": "combine KG, GCN, and SBERT for transparent and personalized concept recommendation, showing that self-connection and semantic similarity aggregation are unnecessary when SBERT initializes item embeddings",
+  "datasets": [
+    "CourseMapper (proprietary)"
+  ],
+  "metrics": [
+    "accuracy",
+    "novelty",
+    "diversity",
+    "usefulness",
+    "overall satisfaction",
+    "use intentions",
+    "reading intention"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

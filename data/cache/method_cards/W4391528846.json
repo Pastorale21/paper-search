@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4391528846",
+  "task": "reciprocal recommendation",
+  "input": "bilateral user interaction sequences with feedback behaviors",
+  "output": "reciprocal recommendations (matching users from two sides)",
+  "backbone": "bilateral sequential hypergraph convolution network",
+  "loss": "not specified",
+  "key_idea": "model complex multidimensional relationships and sequential preferences via bilateral sequential hypergraphs and convolution",
+  "datasets": [
+    "several real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

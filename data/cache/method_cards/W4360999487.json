@@ -1,0 +1,23 @@
+{
+  "paper_id": "W4360999487",
+  "task": "web service recommendation",
+  "input": "Mashup-API interaction bipartite graph",
+  "output": "recommended API services for a given mashup",
+  "backbone": "Motif-based Graph Attention Network",
+  "loss": "not specified",
+  "key_idea": "aggregate high-order information from motif-based neighbors using a motif attention mechanism",
+  "datasets": [
+    "ProgrammableWeb"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "F1",
+    "MAP",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4390882086",
+  "task": "crop recommendation",
+  "input": "soil and environmental factors (nitrogen, potassium, phosphorus, temperature, humidity, soil pH, rainfall) structured as a graph",
+  "output": "optimal crop for a season",
+  "backbone": "GCN (compared with GNN)",
+  "loss": "supervised learning (cross-entropy implied)",
+  "key_idea": "model environmental factors as graph nodes with edges reflecting feature relationships, then apply GCN for crop prediction",
+  "datasets": [],
+  "metrics": [
+    "F1-score",
+    "recall",
+    "accuracy",
+    "precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

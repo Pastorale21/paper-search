@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3196999283",
+  "task": "sequential recommendation",
+  "input": "user historical behavior sequences and heterogeneous information networks",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "GCN with degree encoding + Transformer encoder",
+  "loss": "",
+  "key_idea": "combine GCN with degree encoding on heterogeneous graphs and Transformer encoder to capture both structural and sequential dependencies",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

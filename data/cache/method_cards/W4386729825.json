@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4386729825",
+  "task": "knowledge-aware recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "personalized item recommendations",
+  "backbone": "GNN (Graph Neural Network)",
+  "loss": "not specified in abstract",
+  "key_idea": "selects the most discriminative semantic features from the KG for each user to learn personalized item representations",
+  "datasets": [
+    "three well-known datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

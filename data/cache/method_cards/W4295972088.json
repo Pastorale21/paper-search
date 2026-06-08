@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4295972088",
+  "task": "privacy-preserving recommendation for online social networks",
+  "input": "user data and interaction graph (with malicious node detection)",
+  "output": "secure and private recommendations (malicious node detection results)",
+  "backbone": "blockchain (smart contracts RG-SH, RG-ST) + GCN",
+  "loss": "",
+  "key_idea": "integrate GCN with blockchain smart contracts to detect malicious nodes while preserving user privacy",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

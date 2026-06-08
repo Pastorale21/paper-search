@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4281488784",
+  "task": "recommendation with knowledge graph",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "predicted preference scores for items",
+  "backbone": "bi-layer graph convolutional network (KGCN + LightGCN)",
+  "loss": "not specified",
+  "key_idea": "two-layer GCN: first layer learns embeddings on user-item graph, second layer aggregates knowledge graph neighborhoods with a hybrid aggregation function",
+  "datasets": [
+    "MovieLens-20M",
+    "Yelp2018",
+    "Last.FM"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4405965829",
+  "task": "learning resource recommendation",
+  "input": "user-course interaction bipartite graph",
+  "output": "ranked list of courses per user",
+  "backbone": "lightweight graph convolutional network (LightGCN-like)",
+  "loss": "main recommendation loss (BPR) + auxiliary graph contrastive loss (InfoNCE)",
+  "key_idea": "add random noise to node embeddings in the embedding space to create contrastive views, replacing graph augmentations",
+  "datasets": [
+    "MOOCCube",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@5",
+    "NDCG@5"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

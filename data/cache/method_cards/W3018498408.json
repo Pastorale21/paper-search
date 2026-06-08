@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3018498408",
+  "task": "recommender systems (survey)",
+  "input": "",
+  "output": "",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "systematic review of graph learning based recommender systems, covering challenges and developments",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

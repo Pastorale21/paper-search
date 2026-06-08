@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3195121207",
+  "task": "player-guild matching/recommendation in MMORPGs",
+  "input": "player social graph and behavior features",
+  "output": "likelihood score of player-guild match",
+  "backbone": "graph convolutional network (GCN)",
+  "loss": "not specified",
+  "key_idea": "combine social relationships and behavior preferences via GCN with expert knowledge",
+  "datasets": [
+    "industrial dataset from a popular online game"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

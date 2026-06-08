@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4386729701",
+  "task": "sequential recommendation",
+  "input": "user interaction sequences (ordered lists of items)",
+  "output": "next item prediction",
+  "backbone": "",
+  "loss": "",
+  "key_idea": "graph-based modeling of sequences introduces structured inductive bias for sequential recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

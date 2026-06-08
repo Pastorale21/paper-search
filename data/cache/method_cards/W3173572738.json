@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3173572738",
+  "task": "top-N recommendation (mitigating sparsity and cold start)",
+  "input": "user-item interaction graph and knowledge graph (item-side)",
+  "output": "predicted preference scores for items",
+  "backbone": "KGCN (knowledge graph convolution network) + user-based collaborative filtering",
+  "loss": "not specified (implicitly cross-entropy or BPR from KGCN context)",
+  "key_idea": "augment KGCN with user-based collaborative filtering to capture user correlations",
+  "datasets": [
+    "Dianping-Food",
+    "Book-Crossing",
+    "Last.FM"
+  ],
+  "metrics": [
+    "AUC",
+    "F1-measure"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

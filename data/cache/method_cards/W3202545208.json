@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3202545208",
+  "task": "location recommendation in LBSNs",
+  "input": "heterogeneous information network (HIN) of users, locations, and contextual relations",
+  "output": "top-n location recommendations per user",
+  "backbone": "subgraph-based graph embedding (random walk + node embedding)",
+  "loss": "not specified (implicitly from embedding learning, e.g., skip-gram)",
+  "key_idea": "build user subgraphs based on location context, then perform random walks on these subgraphs to learn node embeddings for recommendation",
+  "datasets": [
+    "benchmark LBSN datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "top-n accuracy (e.g., @5)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

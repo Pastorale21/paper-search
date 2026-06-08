@@ -1,0 +1,24 @@
+{
+  "paper_id": "W3049694790",
+  "task": "accuracy-diversity trade-off in top-K recommendation",
+  "input": "user-item interaction graph (implicit feedback)",
+  "output": "ranked list of items per user",
+  "backbone": "dual graph convolutional network (nearest neighbor and furthest neighbor graphs)",
+  "loss": "BPR loss + multi-kernel learning regularizer",
+  "key_idea": "jointly learn from nearest neighbor graph for accuracy and furthest neighbor graph for diversity, balanced via multi-kernel regularization",
+  "datasets": [
+    "MovieLens-1M",
+    "Yelp",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Catalog Coverage",
+    "Intra-list Diversity"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

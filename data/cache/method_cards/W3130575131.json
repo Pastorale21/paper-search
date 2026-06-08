@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3130575131",
+  "task": "scientific paper recommendation",
+  "input": "knowledge graph (with concept, user, paper, and metadata nodes) and paper content (text)",
+  "output": "ranked list of recommended papers",
+  "backbone": "two-layer self-attention block (for content) + improved graph convolutional network (for knowledge graph)",
+  "loss": "not specified in abstract",
+  "key_idea": "combine content-based global features via self-attention with knowledge graph high-order associations via improved GCN to capture explicit and implicit user preferences",
+  "datasets": [
+    "CiteULike-a",
+    "AHData"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

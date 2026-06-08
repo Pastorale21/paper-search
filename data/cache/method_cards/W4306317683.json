@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4306317683",
+  "task": "image caption generation",
+  "input": "image",
+  "output": "text caption",
+  "backbone": "scene graph generation + object detection encoder, graph attention network + recurrent neural network decoder",
+  "loss": "contrastive learning (self-supervised) + fine-tuning with cross-entropy (supervised)",
+  "key_idea": "self-supervised contrastive learning with scene graph augmentations for image caption generation",
+  "datasets": [
+    "MS COCO",
+    "Flickr30k"
+  ],
+  "metrics": [
+    "BLEU",
+    "METEOR",
+    "ROUGE-L",
+    "CIDEr",
+    "SPICE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

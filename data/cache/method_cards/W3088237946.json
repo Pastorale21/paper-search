@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3088237946",
+  "task": "node-level information protection against adversarial inference attacks",
+  "input": "graph-structured data (e.g., user-item interaction graph, knowledge graph, molecular graph)",
+  "output": "robust node embeddings that resist attribute inference",
+  "backbone": "Graph Neural Network (GNN) encoder",
+  "loss": "minimax adversarial loss (task loss + adversarial defense loss)",
+  "key_idea": "minimax game between GNN encoder and worst-case attacker to defend against inference attacks",
+  "datasets": [
+    "recommender system datasets",
+    "knowledge graph datasets",
+    "quantum chemistry datasets"
+  ],
+  "metrics": [
+    "predictive accuracy",
+    "adversarial defense effectiveness"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

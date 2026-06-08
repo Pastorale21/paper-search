@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4224983022",
+  "task": "collaborative filtering (top-K recommendation)",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "hypergraph-enhanced GCN",
+  "loss": "BPR loss + hypergraph contrastive loss (InfoNCE)",
+  "key_idea": "hypergraph structure learning and cross-view contrastive learning to capture local and global collaborative relations",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

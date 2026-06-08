@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4403778803",
+  "task": "movie recommendation",
+  "input": "user-item rating matrix (explicit feedback) with optional auxiliary information",
+  "output": "predicted rating score for each user-item pair",
+  "backbone": "graph convolutional network (GCN) with multi-layer perceptron (MLP) and attention mechanism",
+  "loss": "mean squared error (MSE) / RMSE",
+  "key_idea": "combine GCN-based collaborative filtering with attention and auxiliary information for rating prediction",
+  "datasets": [
+    "MovieLens 100K",
+    "MovieLens 1M"
+  ],
+  "metrics": [
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

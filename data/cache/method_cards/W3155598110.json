@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3155598110",
+  "task": "knowledge graph-enhanced recommendation",
+  "input": "user-item interaction graph and knowledge graph (KG) with entities and relations",
+  "output": "ranked list of items per user",
+  "backbone": "quad-channel graph neural network (GNN) with edge-embedded KG information",
+  "loss": "not specified in abstract",
+  "key_idea": "embed KG information as edge attributes in a bi-directional manner and use a quad-channel learning scheme to separate CF and KG signals",
+  "datasets": [
+    "two real-world benchmarks (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

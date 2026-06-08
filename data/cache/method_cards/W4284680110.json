@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4284680110",
+  "task": "collaborative filtering for recommendation",
+  "input": "user-item interaction graph",
+  "output": "predicted user-item preference scores",
+  "backbone": "Graph Denoising Encoder (GDE) as a band-pass filter",
+  "loss": "BPR loss with dynamic gradient adjustment on negative samples",
+  "key_idea": "replace neighborhood aggregation with a graph denoising encoder that acts as a band-pass filter to retain only important spectral graph features",
+  "datasets": [
+    "five real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

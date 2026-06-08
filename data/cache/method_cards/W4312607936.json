@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4312607936",
+  "task": "music sequential recommendation",
+  "input": "user listening sequences with music metadata (singer, album) and a directed listening graph",
+  "output": "next music item prediction",
+  "backbone": "graph neural network (GNN) on directed listening graph + personalized attention networks",
+  "loss": "not specified in abstract",
+  "key_idea": "incorporate music metadata (singer, album) via a directed listening graph and decompose user preference into long-term, short-term, and dynamic components",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

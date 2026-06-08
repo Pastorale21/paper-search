@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4308670589",
+  "task": "graph representation learning (tutorial, not a specific method)",
+  "input": "graph-structured data (e.g., social networks, recommender systems, knowledge graphs)",
+  "output": "node/graph embeddings in hyperbolic space",
+  "backbone": "hyperbolic neural networks / hyperbolic shallow models",
+  "loss": "not specified (varies by method)",
+  "key_idea": "leverage hyperbolic space's exponential growth to better model tree-like or scale-free graphs with hierarchical structures",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

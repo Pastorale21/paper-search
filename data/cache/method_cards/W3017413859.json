@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3017413859",
+  "task": "joint friend and item recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked lists of friends and items for each user",
+  "backbone": "mutualistic graph neural network",
+  "loss": "not specified",
+  "key_idea": "mutualistic mechanism modeling mutual reinforcement between consumption and social behaviors",
+  "datasets": [
+    "two real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

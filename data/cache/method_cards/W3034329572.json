@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3034329572",
+  "task": "session-based recommendation",
+  "input": "anonymous behavior sequences (sessions) of user clicks",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "dual-level GNN (session graph + global graph)",
+  "loss": "cross-entropy loss",
+  "key_idea": "exploit item transitions from all sessions via a global graph with session-aware attention, combined with session-level GNN",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "LastFM"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

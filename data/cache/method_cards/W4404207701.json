@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4404207701",
+  "task": "travel route recommendation",
+  "input": "historical trajectory data, road network, departure time, multi-source context (weather, traffic)",
+  "output": "multiple candidate routes from start to destination",
+  "backbone": "Position-aware Graph Neural Network",
+  "loss": "not specified (implicitly next intersection prediction loss)",
+  "key_idea": "integrates multi-source context and road network features via position-aware GNN and beam search for route generation",
+  "datasets": [
+    "four large real-world datasets (not named)"
+  ],
+  "metrics": [
+    "four key performance metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

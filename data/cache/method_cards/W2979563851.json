@@ -1,0 +1,20 @@
+{
+  "paper_id": "W2979563851",
+  "task": "cross-domain recommendation",
+  "input": "user-item rating matrices and user/item features from two domains",
+  "output": "predicted ratings in both domains",
+  "backbone": "dual learning with autoencoders and latent orthogonal mapping",
+  "loss": "reconstruction loss + dual transfer loss",
+  "key_idea": "iterative bidirectional transfer via dual learning and orthogonal mapping to preserve cross-domain user relations",
+  "datasets": [
+    "Amazon (movies, books, music)"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

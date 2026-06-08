@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3153381203",
+  "task": "session-based academic text recommendation",
+  "input": "anonymous sessions of user-text interactions",
+  "output": "ranked list of texts for next-item prediction",
+  "backbone": "graph neural network with attention mechanism",
+  "loss": "",
+  "key_idea": "incorporate semantic relations between adjacent texts via graph neural network and attention",
+  "datasets": [
+    "CiteULike"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

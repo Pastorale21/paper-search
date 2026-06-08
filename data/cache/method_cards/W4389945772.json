@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4389945772",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "multi-channel graph neural network",
+  "loss": "BPR loss + contrastive learning loss",
+  "key_idea": "classify users into groups based on preferences and propagate social influence through separate group-specific channels",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

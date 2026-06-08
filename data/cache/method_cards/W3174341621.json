@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3174341621",
+  "task": "feature interaction detection for recommendation",
+  "input": "user and item features (tabular data)",
+  "output": "predicted user-item interaction (rating/click) and identified beneficial feature interactions",
+  "backbone": "graph neural network (edge prediction)",
+  "loss": "recommendation loss + L0 activation regularization",
+  "key_idea": "automatically detect beneficial feature interactions via edge prediction with L0 regularization",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

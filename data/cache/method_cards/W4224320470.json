@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4224320470",
+  "task": "collaborative filtering for recommendation",
+  "input": "user-item interaction graph",
+  "output": "user and item embeddings",
+  "backbone": "graph neural network with non-local attention",
+  "loss": "",
+  "key_idea": "use non-local attention to capture long-range collaborative signals without deep GNNs",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4401071835",
+  "task": "personalized micro-video recommendation in e-commerce",
+  "input": "user-item interaction graph (micro-videos and products) augmented with a unified knowledge graph",
+  "output": "ranked list of micro-videos per user",
+  "backbone": "Self-adapting Generative Gating Graph (SGGG) with SGGA attention and KG gating",
+  "loss": "not specified in abstract",
+  "key_idea": "leverage a unified knowledge graph linking micro-videos and products, and use a self-adapting generative graph attention mechanism with KG-driven hierarchical gating to capture sequential dependencies in neighbor aggregation",
+  "datasets": [
+    "two publicly available datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

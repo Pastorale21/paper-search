@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4385682046",
+  "task": "multimedia recommendation",
+  "input": "user-item interaction graph and item multimodal features (e.g., visual, textual)",
+  "output": "ranked list of items per user",
+  "backbone": "multi-view graph convolutional network",
+  "loss": "BPR loss",
+  "key_idea": "separate modality-specific views from behavior view to avoid noise contamination and learn modality-aware user preferences",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Tiktok"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

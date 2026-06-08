@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3124954285",
+  "task": "social trust evaluation and signed network analysis",
+  "input": "online social network graph (explicit/implicit relationships, possibly signed)",
+  "output": "trustworthiness score between any two users (Guardian); user embeddings for signed networks (SiGCN)",
+  "backbone": "graph convolutional network (GCN) with multiple trust convolutional layers (Guardian); signed graph convolutional network (SiGCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "stack multiple trust convolutional layers to propagate trust information (Guardian); learn low-dimensional representations of signed networks with positive and negative links (SiGCN)",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

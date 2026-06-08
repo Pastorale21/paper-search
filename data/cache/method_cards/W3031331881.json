@@ -1,0 +1,21 @@
+{
+  "paper_id": "W3031331881",
+  "task": "session-based recommendation",
+  "input": "session sequences (user-item interactions within sessions) and cross-session graph",
+  "output": "next-item recommendation for a given session",
+  "backbone": "Full Graph Neural Network (FGNN) with Broadly Connected Session (BCS) graph",
+  "loss": "cross-entropy loss (implied by session-based recommendation task)",
+  "key_idea": "model each session as a graph and link sessions via a BCS graph to exploit cross-session information",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

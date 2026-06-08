@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4391815737",
+  "task": "session-based recommendation",
+  "input": "session sequences (anonymous user interaction sequences) and neighborhood graph",
+  "output": "next-item recommendation (ranked list of items per session)",
+  "backbone": "GCN with attention and Ta-LSTM",
+  "loss": "cross-entropy (implied by session-based recommendation task)",
+  "key_idea": "combine session graph and neighborhood graph with a session graph attention module using Ta-LSTM for sequential dependencies and GCN with attention for item features",
+  "datasets": [
+    "three public real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

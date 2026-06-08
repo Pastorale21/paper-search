@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4390484007",
+  "task": "sequential recommendation",
+  "input": "user historical item sequences and user-item bipartite graph",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "Transformer with global-local graph fusion",
+  "loss": "",
+  "key_idea": "incorporate global user-item graph information (first-order, second-order, or higher-order via pretrained GNN) into Transformer-based sequential model",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "HR@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

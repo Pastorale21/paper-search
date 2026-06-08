@@ -1,0 +1,19 @@
+{
+  "paper_id": "W7129091516",
+  "task": "cross-domain recommendation (cold-start users)",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "item recommendations in the target domain for cold-start users",
+  "backbone": "LightGCN with similarity-based transfer (item-KNN + graph convolution)",
+  "loss": "not specified",
+  "key_idea": "construct a similarity matrix across domains to transfer user preferences from source to target domain",
+  "datasets": [
+    "two paired domain transfer tasks (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

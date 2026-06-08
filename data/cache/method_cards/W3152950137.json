@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3152950137",
+  "task": "ML method recommendation for given datasets",
+  "input": "ML knowledge graph with entity descriptions (dataset and method entities)",
+  "output": "ranked list of recommended ML methods",
+  "backbone": "hybrid: GNN (attention-based neighbor aggregation) + deep collaborative filtering on description text",
+  "loss": "not specified in abstract",
+  "key_idea": "fuse structural knowledge graph information with textual descriptions of entities for recommendation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

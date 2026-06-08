@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4389776388",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social network",
+  "output": "ranked list of items per user",
+  "backbone": "hyperbolic graph learning (heterogeneous graph convolution + hyperbolic social embedding pre-training)",
+  "loss": "not specified in abstract",
+  "key_idea": "combine explicit heterogeneous graph learning and implicit hyperbolic social embedding enhancement to handle heterogeneity and social noise",
+  "datasets": [
+    "four datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

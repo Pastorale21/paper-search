@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4395057293",
+  "task": "knowledge graph recommendation",
+  "input": "user-item interaction graph and item knowledge graph",
+  "output": "recommendation scores (implicit feedback)",
+  "backbone": "graph neural network (GNN) with collaborative enhancement",
+  "loss": "not specified in abstract",
+  "key_idea": "mine first-order similar users from historical interactions to decouple user and entity embeddings and enhance user representations",
+  "datasets": [
+    "MovieLen1M",
+    "BookCrossing"
+  ],
+  "metrics": [
+    "AUC",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

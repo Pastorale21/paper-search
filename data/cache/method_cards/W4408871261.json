@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4408871261",
+  "task": "top-K recommendation for sparse users and items",
+  "input": "user-item interaction graph with node sparsity labels (dense/sparse quadrants)",
+  "output": "ranked list of items per user",
+  "backbone": "Heterogeneous Graph Neural Network with Domain Adaptation and Enrichment Networks",
+  "loss": "not specified in abstract",
+  "key_idea": "discover high-quality latent neighbors for sparse nodes by categorizing interactions into four quadrants and transferring knowledge from dense to sparse quadrants",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4399019044",
+  "task": "social recommendation",
+  "input": "user-item interactions and user-user social relations (heterogeneous graph)",
+  "output": "recommended items for each user",
+  "backbone": "federated hypergraph neural network (HGNN) with multiple channels and attention",
+  "loss": "not specified in abstract",
+  "key_idea": "federated learning with hypergraph neural network to capture higher-order triangular relations from heterogeneous data while preserving privacy",
+  "datasets": [
+    "three publicly available social recommendation datasets (not named)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

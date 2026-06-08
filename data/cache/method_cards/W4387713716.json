@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4387713716",
+  "task": "user geolocation prediction",
+  "input": "user text content and social network graph (including isolated users via text topic similarity)",
+  "output": "predicted geographic coordinates (latitude/longitude) for each user",
+  "backbone": "graph convolutional network (GCN) with text feature fusion",
+  "loss": "not specified",
+  "key_idea": "jointly model text features and social network structure, and construct social relationships for isolated users via text topic similarity",
+  "datasets": [
+    "real-world benchmark dataset (not named)"
+  ],
+  "metrics": [
+    "average distance error",
+    "median distance error",
+    "prediction accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

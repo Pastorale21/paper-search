@@ -1,0 +1,21 @@
+{
+  "paper_id": "W7115725946",
+  "task": "advertisement recommendation",
+  "input": "multi-behavior heterogeneous graph (users, ads, behavior edges: click, browse, purchase)",
+  "output": "predicted user interest scores for advertisements",
+  "backbone": "three-layer graph convolution network with attention mechanism",
+  "loss": "not specified",
+  "key_idea": "integrates multi-behavior relationships with edge type encoding and time decay in a heterogeneous GNN",
+  "datasets": [
+    "proprietary advertisement dataset (18520 users, 13740 ads, 47398 edges)"
+  ],
+  "metrics": [
+    "AUC",
+    "NDCG@10",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

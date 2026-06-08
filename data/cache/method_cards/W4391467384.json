@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4391467384",
+  "task": "multimodal representation learning (for recommendation)",
+  "input": "multimodal data (e.g., micro-video features) and user-item interaction graph",
+  "output": "enhanced multimodal representations",
+  "backbone": "hypergraph neural network",
+  "loss": "joint hypergraph feature extraction and self-supervised learning loss",
+  "key_idea": "dual embedding strategy with self-supervised hypergraph learning to capture inter-modal dependencies and improve robustness",
+  "datasets": [
+    "TikTok",
+    "MovieLens-10M"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

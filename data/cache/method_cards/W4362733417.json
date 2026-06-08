@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4362733417",
+  "task": "recommendation with knowledge graph",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "recommended items for users",
+  "backbone": "knowledge-aware graph neural network with attention propagation",
+  "loss": "stratified sampling joint learning",
+  "key_idea": "use attentive knowledge graph perceptual propagation to fuse structural and contextual information for fine-grained user-item representations",
+  "datasets": [
+    "MovieLens-1M",
+    "Last-FM",
+    "Book-Crossing"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

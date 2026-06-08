@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4307847583",
+  "task": "brain network analysis (classification/prediction)",
+  "input": "brain networks (structural/functional connectivity matrices)",
+  "output": "predictions (e.g., subject classification)",
+  "backbone": "Graph Neural Networks (GNNs)",
+  "loss": "not specified (task-dependent)",
+  "key_idea": "standardized benchmark for GNN-based brain network analysis with modular design and empirical recipes",
+  "datasets": [
+    "multiple cohorts across modalities"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

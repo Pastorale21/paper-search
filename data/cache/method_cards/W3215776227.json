@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3215776227",
+  "task": "pandemic trend forecasting and risk factor identification",
+  "input": "social media posts (tweets) over time",
+  "output": "predicted new cases and death rates; identified high-risk events",
+  "backbone": "dynamic graph neural network",
+  "loss": "not specified",
+  "key_idea": "construct dynamic heterogeneous graphs from entity-relation extraction on social media, then use a dynamic GNN to forecast pandemic trends and identify risk factors",
+  "datasets": [
+    "COVID-19 related tweets from Twitter"
+  ],
+  "metrics": [
+    "prediction accuracy (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

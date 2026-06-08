@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3193714538",
+  "task": "recommendation (collaborative filtering)",
+  "input": "user-item interaction graph with social information (heterogeneous graph)",
+  "output": "low-dimensional user and item embeddings for recommendation",
+  "backbone": "hybrid graph neural network with attention mechanism",
+  "loss": "",
+  "key_idea": "model high-order semantic information via heterogeneous graph with attention and social integration",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

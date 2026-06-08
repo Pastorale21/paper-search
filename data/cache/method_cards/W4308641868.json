@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4308641868",
+  "task": "node classification on graphs with privacy-sensitive edges",
+  "input": "graph with node features and edge structure (privacy-sensitive)",
+  "output": "node class labels",
+  "backbone": "LPGNet (novel architecture for differentially private edge usage)",
+  "loss": "not specified in abstract",
+  "key_idea": "train on graphs with privacy-sensitive edges by providing differential privacy guarantees for edges through a novel design of how graph edge structure is used during training",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

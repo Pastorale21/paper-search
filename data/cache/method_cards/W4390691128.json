@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4390691128",
+  "task": "course recommendation",
+  "input": "user-course interaction graph (bipartite graph) with additional user-user and course-course relations via hypergraph",
+  "output": "ranked list of courses per user",
+  "backbone": "hybrid graph convolution network (fusion graph + hypergraph) with layer dropout",
+  "loss": "BPR loss + differential contrastive loss (adjusted by prior similarity)",
+  "key_idea": "use layer dropout to generate contrastive views and incorporate prior similarity to differentiate contrastive learning for graph nodes",
+  "datasets": [
+    "XuetangX",
+    "MOOCCube"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10",
+    "Precision@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

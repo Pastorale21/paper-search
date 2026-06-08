@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2624407581",
+  "task": "matrix completion for recommender systems (rating prediction)",
+  "input": "bipartite user-item graph with labeled edges (ratings)",
+  "output": "predicted rating for each user-item pair",
+  "backbone": "graph auto-encoder (message-passing GCN)",
+  "loss": "",
+  "key_idea": "formulate matrix completion as link prediction on a bipartite graph using a differentiable message-passing auto-encoder",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

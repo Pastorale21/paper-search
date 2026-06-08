@@ -1,0 +1,17 @@
+{
+  "paper_id": "W2945623882",
+  "task": "top-K recommendation with side information",
+  "input": "user-item interaction graph + knowledge graph (items linked to attributes)",
+  "output": "ranked list of items per user",
+  "backbone": "graph attention network (GAT) with recursive embedding propagation",
+  "loss": "BPR",
+  "key_idea": "explicitly model high-order connectivities in a hybrid user-item-KG graph via attention-guided embedding propagation",
+  "datasets": [
+    "three public benchmarks"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

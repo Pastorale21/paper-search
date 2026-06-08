@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3042370959",
+  "task": "graph convolutional network acceleration",
+  "input": "graph-structured data (e.g., web graphs, social networks)",
+  "output": "accelerated GCN computation (node embeddings)",
+  "backbone": "partition-centric GCN with dual-mode processing",
+  "loss": "",
+  "key_idea": "partition graph into locality-based chunks and process sparse/dense subgraphs with selective/full methods",
+  "datasets": [
+    "real-world graphs",
+    "synthetic datasets"
+  ],
+  "metrics": [
+    "speedup"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4283080593",
+  "task": "hydrocarbon-bearing formation identification and potential pay recommendation",
+  "input": "well logging data (multiple dimensions and scales) and well logging knowledge graph",
+  "output": "identification of hydrocarbon-bearing formations and ranked list of potential pay zones",
+  "backbone": "Knowledge-Powered Neural Network (graph embedding + neural network)",
+  "loss": "not specified",
+  "key_idea": "integrates domain expertise via a well logging knowledge graph with graph embedding and neural network for formation evaluation",
+  "datasets": [
+    "547 wells from Chang 6 Member, Triassic, Jiyuan Block, Ordos Basin"
+  ],
+  "metrics": [
+    "coincidence rate with expert interpretation",
+    "coincidence rate for oil testing layers"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

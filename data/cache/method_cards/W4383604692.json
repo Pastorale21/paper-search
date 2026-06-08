@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4383604692",
+  "task": "knowledge-aware recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "recommended items for users",
+  "backbone": "knowledge graph rationalization with GNN",
+  "loss": "generative (masking-reconstructing) + contrastive (InfoNCE) + BPR",
+  "key_idea": "self-supervised rationalization that masks important knowledge triplets to learn rationales for recommendation",
+  "datasets": [
+    "Amazon-Book",
+    "Last-FM",
+    "Yelp2018"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

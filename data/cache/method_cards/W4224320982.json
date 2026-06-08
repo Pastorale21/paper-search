@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4224320982",
+  "task": "self-supervised graph representation learning for social network prediction",
+  "input": "social network graph (nodes and edges)",
+  "output": "structural node embeddings",
+  "backbone": "graph neural network with deep implicit layer for Wasserstein distance",
+  "loss": "distributionally robust self-supervised contrastive loss (InfoNCE-like with distributional robustness)",
+  "key_idea": "learn structural embeddings using 1-Wasserstein distance on subgraphs and distributionally robust optimization to handle distribution shift",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4320057682",
+  "task": "social recommendation",
+  "input": "user-item rating matrix and social network graph",
+  "output": "recommended items for users",
+  "backbone": "multi-agent deep reinforcement learning with GCN and attention",
+  "loss": "reinforcement learning reward (not explicitly specified)",
+  "key_idea": "two agents collaborate: one captures dynamic user preferences, the other leverages social network to mitigate cold start and data sparsity",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

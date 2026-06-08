@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4396846534",
+  "task": "link prediction",
+  "input": "graph (network) with nodes and edges",
+  "output": "predicted probability of a link between two nodes",
+  "backbone": "customized GNN layer with node centrality and similarity as edge features",
+  "loss": "",
+  "key_idea": "integrates node centrality and similarity measures as edge features in a parameterized GNN layer to leverage topological information",
+  "datasets": [
+    "five benchmark graph datasets (not named)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

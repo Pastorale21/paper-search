@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4312993805",
+  "task": "multiple behaviors recommendation",
+  "input": "multi-behavior user-item interaction data (e.g., purchase, view, add-to-cart) and knowledge graph with entity relations",
+  "output": "predicted user preferences under different behaviors",
+  "backbone": "relation-aware GAT with residual connections",
+  "loss": "multi-task learning loss (not specified in detail)",
+  "key_idea": "construct a heterogeneous user-item graph from multi-behavior data and use relation-aware GAT with residual network and attention fusion for high-order dependency learning",
+  "datasets": [
+    "real-world dataset (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

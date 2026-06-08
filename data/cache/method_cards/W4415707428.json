@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4415707428",
+  "task": "enzyme discovery for polyurethane recycling",
+  "input": "protein sequences and/or structures",
+  "output": "recommended urethanase candidates with high activity and stability",
+  "backbone": "graph neural network (GNN) with self-supervised and supervised learning",
+  "loss": "not specified (likely contrastive or prediction loss)",
+  "key_idea": "GNN-based framework integrating self-supervised and supervised learning to recommend enzymes that are active and stable under industrial glycolysis conditions",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

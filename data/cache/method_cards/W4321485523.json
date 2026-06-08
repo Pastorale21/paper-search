@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4321485523",
+  "task": "node recommendation in directed graphs",
+  "input": "directed graph and a query node",
+  "output": "top-k nodes likely to have a link with the query node",
+  "backbone": "GNN with dual embeddings and biased neighborhood sampling",
+  "loss": "asymmetric loss function",
+  "key_idea": "biased neighborhood sampling that generates locally varying neighborhoods based on node connectivity to handle low- and high-degree nodes",
+  "datasets": [
+    "open-source directed graphs",
+    "proprietary directed graphs"
+  ],
+  "metrics": [
+    "HitRate",
+    "MRR",
+    "AUC"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

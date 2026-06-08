@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4321593635",
+  "task": "aggregation optimization in GNN-based recommender systems",
+  "input": "user-item interaction graph (optionally with knowledge graph)",
+  "output": "optimized user and item embeddings for recommendation",
+  "backbone": "dual policy learning (two Deep-Q-Networks) + base GNN-R (e.g., LightGCN, KGAT)",
+  "loss": "reinforcement learning reward (based on recommendation performance)",
+  "key_idea": "use dual policy learning with two DQNs to adaptively determine high-order aggregation for users and items",
+  "datasets": [
+    "six real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "nDCG",
+    "Recall"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

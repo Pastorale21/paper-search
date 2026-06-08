@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4309801571",
+  "task": "multi-domain recommendation",
+  "input": "user-item interaction graphs from multiple domains",
+  "output": "recommendations for all domains simultaneously",
+  "backbone": "hierarchical hypergraph network",
+  "loss": "not specified in abstract",
+  "key_idea": "unify multi-domain interactions into a single graph and use hyperedge-based modules for correlative preference transfer",
+  "datasets": [
+    "public datasets",
+    "production datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4396877992",
+  "task": "overlapping community detection",
+  "input": "complex network (graph with node features)",
+  "output": "overlapping community assignments for each node",
+  "backbone": "Graph Convolutional Network (GCN) with dual-decoder (inner product and GCN)",
+  "loss": "not specified (likely reconstruction loss for embeddings and modularity Q optimization)",
+  "key_idea": "combine GCN-based node embedding with Fuzzy C-Means clustering guided by modularity Q for overlapping community detection",
+  "datasets": [
+    "ten real-world complex networks (not named individually)"
+  ],
+  "metrics": [
+    "overlapping NMI",
+    "F1-score",
+    "modularity Q"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4288061664",
+  "task": "deep collaborative alert recommendation for COVID-19",
+  "input": "knowledge graph with COVID-19 data and user-item interactions",
+  "output": "region-aware precautionary alert recommendations",
+  "backbone": "graph neural network (GNN) with matrix factorization",
+  "loss": "not specified",
+  "key_idea": "encodes cocurricular features and context tendencies via GNN and uses matrix factorization with relevance estimator and cross transistor for generalization",
+  "datasets": [
+    "two real-world datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

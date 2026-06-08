@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4401535886",
+  "task": "point-of-interest (POI) recommendation",
+  "input": "user check-in records transformed into graph-structured data",
+  "output": "ranked list of POIs for each user",
+  "backbone": "CNN (applied to grid-like feature matrix obtained via PPR sampling)",
+  "loss": "",
+  "key_idea": "convert graph-structured data into a grid-like feature matrix using PPR sampling, then apply CNN to extract POI representations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

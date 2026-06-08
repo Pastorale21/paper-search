@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3035283595",
+  "task": "demographic attribute prediction (user profiling)",
+  "input": "spatiotemporal behavior logs (sessions with location, start time, end time, and item sequence)",
+  "output": "user embeddings for predicting demographic attributes",
+  "backbone": "calendar graph neural network (tripartite network + hierarchical calendar network)",
+  "loss": "not specified (likely cross-entropy for classification)",
+  "key_idea": "model spatiotemporal user behaviors via a tripartite network of items, sessions, and locations, and a hierarchical calendar network capturing multiple periodicities",
+  "datasets": [
+    "real-world mobile app news click logs"
+  ],
+  "metrics": [
+    "accuracy",
+    "F1"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

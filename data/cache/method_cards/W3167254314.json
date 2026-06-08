@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3167254314",
+  "task": "efficient GNN training on giant graphs",
+  "input": "large graph (e.g., hundreds of millions of nodes)",
+  "output": "trained GNN model",
+  "backbone": "GNN (any architecture, e.g., GCN, GraphSAGE)",
+  "loss": "not specified (depends on downstream task)",
+  "key_idea": "periodically sample a global cache of nodes for all mini-batches to enable in-GPU importance sampling, reducing CPU-GPU data transfer and mini-batch size",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

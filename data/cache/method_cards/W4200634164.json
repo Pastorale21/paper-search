@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4200634164",
+  "task": "occasional group recommendation (cold-start group recommendation)",
+  "input": "user-item and group-item interaction graphs",
+  "output": "recommended items for occasional groups",
+  "backbone": "self-supervised graph learning framework with GNN encoder",
+  "loss": "pretext task (embedding reconstruction) + main recommendation loss (not specified)",
+  "key_idea": "self-supervised embedding reconstruction pretext task and self-attention enhancer to improve cold-start high-order neighbor embeddings",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

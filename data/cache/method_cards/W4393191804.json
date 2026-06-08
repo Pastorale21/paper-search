@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4393191804",
+  "task": "social recommendation (Top-N recommendation)",
+  "input": "user-item interaction graph, social relations (including comment relations), item attributes",
+  "output": "ranked list of items per user",
+  "backbone": "hypergraph convolution network with motifs",
+  "loss": "main recommendation loss + cross-view contrastive learning loss",
+  "key_idea": "dual homogeneity (social and item) via hypergraph motifs and cross-view contrastive learning",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

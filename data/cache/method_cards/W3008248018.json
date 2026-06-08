@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3008248018",
+  "task": "multi-relational link prediction (drug-drug interaction prediction)",
+  "input": "hypergraph with multiple edge types (drug-drug interactions) and node attributes (chemical fingerprints)",
+  "output": "predicted existence and type of links (drug interactions) between node pairs",
+  "backbone": "hypergraph convolutional network with augmented adjacency matrix and pooling",
+  "loss": "not specified in abstract",
+  "key_idea": "encode both local neighborhood and global hypergraph structure via augmented adjacency and pooling to capture multi-relational node interaction profiles",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

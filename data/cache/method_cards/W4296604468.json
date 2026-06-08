@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4296604468",
+  "task": "streaming session-based recommendation",
+  "input": "stream of anonymous user sessions (sequences of item interactions)",
+  "output": "next-item recommendation for each session",
+  "backbone": "nearest-neighbor methods (e.g., item-kNN, session-kNN)",
+  "loss": "",
+  "key_idea": "simple nearest-neighbor methods outperform complex GNN models in streaming session-based recommendation",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "MRR@20",
+    "Recall@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

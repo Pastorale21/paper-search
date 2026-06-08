@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4288472167",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences and knowledge graph (entities and relations)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "GCN + Bi-GRU",
+  "loss": "",
+  "key_idea": "combine knowledge graph embeddings (TransR) with graph convolution and bidirectional GRU to capture both semantic associations and sequential patterns",
+  "datasets": [
+    "MovieLens-1M",
+    "Book-Crossing"
+  ],
+  "metrics": [
+    "Precision",
+    "Recall",
+    "F1",
+    "Hit Rate",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

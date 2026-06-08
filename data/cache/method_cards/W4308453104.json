@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4308453104",
+  "task": "short video recommendation",
+  "input": "user-item interaction graph (bipartite graph) and sequential user behavior",
+  "output": "ranked list of short videos per user",
+  "backbone": "graph neural network with two propagation mechanisms for long-term and short-term interests",
+  "loss": "",
+  "key_idea": "model users' long-term and short-term preferences via separate graph propagation vectors",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

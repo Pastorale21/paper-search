@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4383220144",
+  "task": "knowledge graph embedding",
+  "input": "knowledge graph (set of triplets (head, relation, tail))",
+  "output": "embeddings for entities and relations",
+  "backbone": "any base KGE model (e.g., TransE, DistMult)",
+  "loss": "mixup loss (combining standard KGE loss with virtual triplet loss)",
+  "key_idea": "generate virtual mixup triplets by interpolating between existing triplets to augment sparse knowledge graphs",
+  "datasets": [
+    "WN18RR",
+    "FB15k-237",
+    "YAGO3-10"
+  ],
+  "metrics": [
+    "MRR",
+    "Hits@1",
+    "Hits@3",
+    "Hits@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "W4408564437",
+  "task": "multi-objective recommendation (accuracy + non-accuracy)",
+  "input": "user-item interaction graph",
+  "output": "ranked list of items per user",
+  "backbone": "two GCN encoders (one for accuracy, one for non-accuracy) + embedding fusion + transfer learning",
+  "loss": "BPR loss + contrastive loss (mutual information maximization)",
+  "key_idea": "separate GCN encoders for accuracy and non-accuracy objectives, fused with complementary weights and enhanced by contrastive transfer learning",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Diversity",
+    "Novelty",
+    "Percentage of long-tail items"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

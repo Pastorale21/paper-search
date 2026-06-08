@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4389474234",
+  "task": "IoT service recommendation",
+  "input": "user-item interaction graphs from multiple IoT institutions",
+  "output": "recommended services per user",
+  "backbone": "federated graph learning with shortest path graph kernel",
+  "loss": "not specified",
+  "key_idea": "decentralized cross-institutional federated graph learning that uses shortest path graph kernel embeddings and blockchain-based matching to reduce data heterogeneity",
+  "datasets": [
+    "two benchmark data sets (not named)"
+  ],
+  "metrics": [
+    "accuracy",
+    "collaboration costs"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

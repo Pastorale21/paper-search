@@ -1,0 +1,21 @@
+{
+  "paper_id": "W7162714438",
+  "task": "session-based recommendation",
+  "input": "session sequences (user click sequences) and multi-source graph information (repeat behavior, item content)",
+  "output": "next-click item prediction (ranked list of items)",
+  "backbone": "graph neural network with multi-source graph information and external attention",
+  "loss": "cross-entropy (implied by next-item prediction task)",
+  "key_idea": "incorporate users' repeat behavior and item content into session graph modeling, then use external attention to capture hidden item associations",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "MRR@20",
+    "Recall@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,25 @@
+{
+  "paper_id": "W4390534655",
+  "task": "continuous-time sequential recommendation",
+  "input": "user-item interaction sequences with timestamps (irregularly-sampled)",
+  "output": "next-item prediction (ranked list of items)",
+  "backbone": "graph ordinary differential equation (ODE) with two GNNs",
+  "loss": "binary cross-entropy (BCE) loss",
+  "key_idea": "model user preference dynamics via an autoregressive graph ODE that combines an ODE-based GNN for temporal evolution and an attention-based GNN for collaborative signals",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Gowalla",
+    "Foursquare",
+    "Tmall"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10",
+    "MRR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

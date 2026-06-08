@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4312842549",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from two domains (may not fully share users)",
+  "output": "ranked item recommendations in both domains",
+  "backbone": "multi-graph convolutional network with feature transfer",
+  "loss": "BPR loss (implied by recommendation task)",
+  "key_idea": "transfer pre-trained overlapping user embeddings via residual network and fuse domain-specific features with attention",
+  "datasets": [
+    "two pairs of real-world cross-domain datasets (not named)"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

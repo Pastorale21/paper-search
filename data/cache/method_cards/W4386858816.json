@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4386858816",
+  "task": "bundle recommendation",
+  "input": "user-item, bundle-item, and user-bundle-item tripartite graphs",
+  "output": "ranked list of bundles per user",
+  "backbone": "GNN encoder with cross-level contrastive learning",
+  "loss": "contrastive loss (InfoNCE) + BPR loss",
+  "key_idea": "cross-view contrastive learning across local interaction, local dependency, and global structure views",
+  "datasets": [
+    "Youshu",
+    "NetEase"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4211037329",
+  "task": "temporal interaction prediction (predicting exact time of future interactions)",
+  "input": "temporal graph (sequence of timestamped interactions between node pairs)",
+  "output": "predicted time of next interaction for a given node pair",
+  "backbone": "graph neural message passing on line graph + temporal point process",
+  "loss": "negative log-likelihood of the point process",
+  "key_idea": "combine time encoding and line graph message passing to define a neural conditional intensity function",
+  "datasets": [
+    "synthetic temporal graphs",
+    "real-world temporal graphs"
+  ],
+  "metrics": [
+    "event prediction accuracy (e.g., RMSE, MAE)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

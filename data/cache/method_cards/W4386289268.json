@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4386289268",
+  "task": "micro-video recommendation",
+  "input": "user-item interactions and multimodal features (visual, acoustic, textual) of micro-videos",
+  "output": "ranked list of micro-videos per user",
+  "backbone": "meta-learning-based multimodal fusion network",
+  "loss": "BPR loss (implicitly, as typical for recommendation)",
+  "key_idea": "dynamically parameterize the multimodal fusion function per micro-video via meta-learning, treating each item's fusion as an independent task",
+  "datasets": [
+    "TikTok",
+    "MicroLens",
+    "Kwai"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

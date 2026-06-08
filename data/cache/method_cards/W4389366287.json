@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4389366287",
+  "task": "video recommendation",
+  "input": "user-video interaction graph and video content features",
+  "output": "ranked list of recommended videos",
+  "backbone": "Graph Convolution Neural Network (GCN)",
+  "loss": "",
+  "key_idea": "integrates video content features with user interaction history via GCN for scalable video recommendation",
+  "datasets": [
+    "users' video viewing histories on social networks"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

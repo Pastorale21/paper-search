@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3195417473",
+  "task": "Web service network embedding",
+  "input": "Mashup-API composition network (bipartite graph) with service functional content",
+  "output": "low-dimensional vector representations for each service (Mashup or API)",
+  "backbone": "Service Graph Convolutional Network (Service-GCN)",
+  "loss": "not specified (unsupervised embedding; downstream tasks use classification/clustering loss)",
+  "key_idea": "combine probabilistic topic model for link prediction with GCN-based message passing to encode both structure and content",
+  "datasets": [
+    "two real-world Web service datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Micro-F1 (classification)",
+    "Accuracy (clustering)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4408898231",
+  "task": "social recommendation",
+  "input": "user-item interactions and user-user social relationships (knowledge graph enhanced)",
+  "output": "personalized item recommendations (user, movie, or explainable)",
+  "backbone": "Light Graph Convolutional Network (LGCN), Hyperbolic Recommender (HSR), Knowledge Enhanced Graph Neural Networks (KEGNN)",
+  "loss": "",
+  "key_idea": "Leverages both user-item interactions and user-user social relationships to address data sparsity and cold start, using knowledge graphs to enhance user embeddings.",
+  "datasets": [],
+  "metrics": [
+    "recall@N",
+    "precision@N"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

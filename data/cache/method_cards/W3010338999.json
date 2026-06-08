@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3010338999",
+  "task": "friend recommendation",
+  "input": "multiple social graphs (user-user social networks)",
+  "output": "personalized friend recommendation list",
+  "backbone": "multi-social graph convolutional network (MSGCN)",
+  "loss": "Bayesian personalized ranking (BPR) loss",
+  "key_idea": "integrates multiple social graphs via Laplacian matrix fusion and higher-order neighbor aggregation",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

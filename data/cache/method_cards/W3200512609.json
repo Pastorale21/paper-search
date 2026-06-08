@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3200512609",
+  "task": "movie recommendation",
+  "input": "user-movie rating matrix (with noise) and possibly social network data",
+  "output": "predicted rating scores for user-movie pairs",
+  "backbone": "graph autoencoder (GCN) integrated with denoising autoencoder",
+  "loss": "not specified (likely reconstruction loss for autoencoder)",
+  "key_idea": "combine PCA, denoising autoencoder, and graph convolutional network to handle noisy rating data and extract robust hidden features",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

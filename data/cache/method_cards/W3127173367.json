@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3127173367",
+  "task": "privacy-preserving recommendation",
+  "input": "decentralized user-item interaction data (local user-item graphs)",
+  "output": "personalized item recommendations",
+  "backbone": "federated GNN (local GNN per user client + server aggregation)",
+  "loss": "not specified (implicitly BPR or similar ranking loss)",
+  "key_idea": "federated learning framework with local differential privacy and pseudo-item sampling to protect user privacy while enabling high-order interaction modeling",
+  "datasets": [
+    "six benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified (likely Recall, NDCG)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

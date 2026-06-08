@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4283079518",
+  "task": "shared-account cross-domain sequential recommendation",
+  "input": "user-item interaction graphs from multiple domains with shared accounts",
+  "output": "next-item recommendation for a shared account across domains",
+  "backbone": "domain-aware graph convolutional network (TiDA-GCN)",
+  "loss": "not specified in abstract",
+  "key_idea": "incorporate time interval information into graph message passing and use domain-aware attention to handle shared-account cross-domain sequential patterns",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,24 @@
+{
+  "paper_id": "W3197851404",
+  "task": "multi-behavior recommendation (purchasing prediction)",
+  "input": "user-item multi-behavior interaction graph (e.g., click, add-to-cart, purchase)",
+  "output": "predicted purchase scores for user-item pairs",
+  "backbone": "graph neural network with hyper meta-path guided contrastive learning",
+  "loss": "contrastive loss (InfoNCE) + recommendation loss (e.g., BPR)",
+  "key_idea": "use hyper meta-paths to model complex dependencies among multiple user behaviors and apply graph contrastive learning to learn adaptive behavior pattern embeddings",
+  "datasets": [
+    "Yelp",
+    "Taobao",
+    "IJCAI-15"
+  ],
+  "metrics": [
+    "AUC",
+    "F1",
+    "Recall",
+    "Precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4417479525",
+  "task": "session-based recommendation",
+  "input": "session sequences (click orders and click counts)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "GNN with relationship-enhanced session graph",
+  "loss": "",
+  "key_idea": "construct relationship-enhanced session graph incorporating click orders and counts, then apply soft and multi-layer self-attention",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4405625281",
+  "task": "multimodal recommendation",
+  "input": "user-item interaction graph and multimodal item features (e.g., visual, textual)",
+  "output": "predicted preference scores for user-item pairs",
+  "backbone": "spectrum-based modality representation fusion graph convolutional network",
+  "loss": "BPR loss (implicitly, as typical for recommendation)",
+  "key_idea": "project multimodal features into frequency domain for fusion and adaptively suppress modality-specific noise via spectral filtering",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Tiktok"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

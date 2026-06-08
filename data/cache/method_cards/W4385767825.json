@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4385767825",
+  "task": "top-K recommendation with intent disentanglement",
+  "input": "user-item-concept graph (user behavior data modeled as a tripartite graph)",
+  "output": "ranked list of items per user with interpretable intent distributions",
+  "backbone": "GNN-based behavior disentangling module",
+  "loss": "intent-wise contrastive loss + coding rate reduction regularization",
+  "key_idea": "disentangle user intents via a GNN on a user-item-concept graph and enhance with intent-wise contrastive learning",
+  "datasets": [
+    "Yelp2018",
+    "Amazon-Book",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

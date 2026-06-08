@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4409494323",
+  "task": "personalized recommendation of learning question types for teachers' digital learning models",
+  "input": "student interaction data (knowledge point mastery, cognitive ability levels) and sequential relationships between subject knowledge points",
+  "output": "personalized recommended question types for each student",
+  "backbone": "graph convolutional neural network (GCN) with DINA cognitive diagnosis and gray partial correlation evaluation",
+  "loss": "not specified",
+  "key_idea": "integrates cognitive diagnosis and gray partial correlation to model student knowledge states, then uses GCN on knowledge point sequential graph for recommendation",
+  "datasets": [],
+  "metrics": [
+    "accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

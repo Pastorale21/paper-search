@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4385687011",
+  "task": "top-K recommendation",
+  "input": "user-item bipartite graph",
+  "output": "user and item embeddings for ranking",
+  "backbone": "dual-encoder GNN (online encoder and target encoder)",
+  "loss": "graph structural contrastive loss + node-level semantic loss + graph-level contrastive loss",
+  "key_idea": "bootstrapped contrastive learning with local and global regularization using two augmented views and two encoders",
+  "datasets": [
+    "Yelp2018",
+    "Gowalla",
+    "Amazon-Book"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

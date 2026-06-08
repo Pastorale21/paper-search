@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4225930596",
+  "task": "session-based recommendation",
+  "input": "session sequences with micro-behaviors (e.g., click, add-to-cart, read-comments)",
+  "output": "next item recommendation",
+  "backbone": "multigraph GNN + extended self-attention network",
+  "loss": "cross-entropy loss",
+  "key_idea": "model both sequential and dyadic relational patterns of micro-behaviors via a multigraph and self-attention",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "RetailRocket"
+  ],
+  "metrics": [
+    "Recall@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

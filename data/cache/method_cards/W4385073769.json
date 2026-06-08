@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4385073769",
+  "task": "content caching recommendation in edge caching networks",
+  "input": "user-content request history (implicit feedback)",
+  "output": "cached content items per base station",
+  "backbone": "graph-based recommendation model with Mixing and Conversion layers",
+  "loss": "simplified self-supervised loss (InfoNCE variant)",
+  "key_idea": "replace data augmentation with a Mixing layer and simplify the SSL loss with a Conversion layer to avoid semantic loss and reduce model complexity",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

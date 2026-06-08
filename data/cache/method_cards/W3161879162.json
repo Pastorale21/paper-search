@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3161879162",
+  "task": "node/graph representation learning with sensitive attribute protection",
+  "input": "graph structured data (e.g., user-item graph, knowledge graph, molecular graph)",
+  "output": "node/graph embeddings with obfuscated sensitive attributes",
+  "backbone": "Graph Neural Network (GNN) encoder",
+  "loss": "adversarial training with total variation and Wasserstein distance",
+  "key_idea": "locally filter out sensitive attributes via adversarial training using total variation and Wasserstein distance",
+  "datasets": [
+    "recommender system datasets",
+    "knowledge graph datasets",
+    "quantum chemistry datasets"
+  ],
+  "metrics": [
+    "task performance (e.g., accuracy)",
+    "information leakage (e.g., adversary inference accuracy)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

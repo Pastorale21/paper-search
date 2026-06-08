@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4384648826",
+  "task": "friend recommendation in social networks",
+  "input": "social graph (user-user connections)",
+  "output": "ranked list of friend candidates",
+  "backbone": "Graph Neural Network (GNN) for user embedding generation",
+  "loss": "",
+  "key_idea": "use embedding-based retrieval (EBR) to complement Friends-of-Friends (FoF) by retrieving candidates beyond 2-hop and providing natural ranking",
+  "datasets": [],
+  "metrics": [
+    "number of friendships made (online A/B test)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

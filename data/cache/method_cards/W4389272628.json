@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4389272628",
+  "task": "sequential recommendation",
+  "input": "user-item interaction graph and user behavior sequences",
+  "output": "next-item prediction (personalized recommendation)",
+  "backbone": "graph convolutional network + self-attentive sequential model",
+  "loss": "instance-wise contrastive learning (ICL) + prototype contrastive learning (PCL)",
+  "key_idea": "combine graph convolution for item embedding dispersion and self-attention for sequence modeling, enhanced by dual contrastive learning",
+  "datasets": [
+    "four distinct datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

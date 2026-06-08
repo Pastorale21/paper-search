@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4206696046",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction data from multiple domains",
+  "output": "predicted user preferences for items in target domain",
+  "backbone": "graph neural network (GNN) for user-group features, Wasserstein autoencoder for cross-domain features",
+  "loss": "not specified in abstract",
+  "key_idea": "enhance user representation via user clustering and multidimensional information fusion, combining individual, group, and cross-domain features",
+  "datasets": [
+    "real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

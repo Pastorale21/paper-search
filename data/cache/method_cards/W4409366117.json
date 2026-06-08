@@ -1,0 +1,18 @@
+{
+  "paper_id": "W4409366117",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from source and target domains",
+  "output": "recommendations in the target domain",
+  "backbone": "graph neural architecture search (supernetwork) with GNN",
+  "loss": "not specified (auxiliary learning for behavior importance)",
+  "key_idea": "jointly optimize GNN architecture and behavior data importance via a cross-domain supernetwork and a behavior importance perceptron",
+  "datasets": [
+    "benchmark CDR datasets",
+    "large-scale industry advertising dataset"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

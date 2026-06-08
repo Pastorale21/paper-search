@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4386422321",
+  "task": "privacy-preserving POI recommendation",
+  "input": "user-POI check-in graph from LBSN",
+  "output": "ranked list of POIs per user",
+  "backbone": "simplified graph convolutional network (LightGCN-like)",
+  "loss": "not specified in abstract",
+  "key_idea": "generate a privacy-preserving subset of POIs via a generative model, then apply simplified GCN on the sanitized graph",
+  "datasets": [
+    "two public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

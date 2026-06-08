@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4319792931",
+  "task": "session-based recommendation (next-item prediction)",
+  "input": "session graphs (item sequences as graphs)",
+  "output": "next-item prediction scores",
+  "backbone": "GNN encoder (graph neural network)",
+  "loss": "contrastive loss (InfoNCE) + cross-entropy",
+  "key_idea": "contrastive learning on session graphs with a novel negative sample selection strategy",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

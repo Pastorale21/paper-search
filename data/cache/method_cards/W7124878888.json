@@ -1,0 +1,21 @@
+{
+  "paper_id": "W7124878888",
+  "task": "cross-domain recommendation",
+  "input": "user-item interaction graphs from multiple domains",
+  "output": "ranked item recommendations per domain",
+  "backbone": "hybrid embedding + GNN (BiTGCF-inspired)",
+  "loss": "MSE (warm-up) + BPR (fine-tuning)",
+  "key_idea": "combine shared/domain-specific embeddings with a GNN that models higher-order dependencies and domain alignment",
+  "datasets": [
+    "Amazon",
+    "Yelp"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4362670211",
+  "task": "link prediction (edge prediction) in recommendation",
+  "input": "user-item interaction graph (with noisy data)",
+  "output": "predicted edges (user-item interactions)",
+  "backbone": "graph autoencoder (GAE) with denoising and regularization",
+  "loss": "reconstruction loss (implicitly, for edge prediction)",
+  "key_idea": "introduce L1/L2 regularization and denoising autoencoder into graph autoencoder to handle over-smoothing and noise",
+  "datasets": [
+    "four widely used datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "edge prediction accuracy (improvements of 1.3, 1.4, 1.2)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

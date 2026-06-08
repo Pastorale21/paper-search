@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4379053239",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences (chronological order)",
+  "output": "next-item prediction (recommendation list)",
+  "backbone": "deep learning models (RNN, CNN, GAN, GNN, Transformer, SSL-based)",
+  "loss": "",
+  "key_idea": "survey of deep learning-based sequential recommender systems, covering RNN, CNN, GAN, GNN, Transformer, and SSL models",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

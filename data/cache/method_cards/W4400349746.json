@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4400349746",
+  "task": "food recommendation",
+  "input": "user-recipe interaction graph and nutrition-related knowledge graph",
+  "output": "personalized food recommendations",
+  "backbone": "graph convolutional network (GCN)",
+  "loss": "not specified",
+  "key_idea": "integrates user nutritional preferences and recipe nutritional components via a heterogeneous knowledge graph",
+  "datasets": [
+    "real-world food datasets"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2899457523",
+  "task": "session-based recommendation",
+  "input": "anonymous session sequences (modeled as session graphs)",
+  "output": "next-item prediction for each session",
+  "backbone": "GNN (graph neural network) on session graphs",
+  "loss": "",
+  "key_idea": "model session sequences as graph-structured data and use GNN to capture complex item transitions",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

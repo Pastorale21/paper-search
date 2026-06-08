@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4386245167",
+  "task": "dynamic social trust prediction",
+  "input": "time-varying online social network (sequence of graph snapshots with edge features)",
+  "output": "predicted trust scores for edges at current and future time slots",
+  "backbone": "dynamic graph neural network (NNConv + GRU)",
+  "loss": "not specified (likely regression loss, e.g., MSE)",
+  "key_idea": "combine static spatial aggregation via NNConv and temporal modeling via GRU to capture evolving trust relationships",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified (likely MAE, RMSE, AUC)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

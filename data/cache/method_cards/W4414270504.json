@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4414270504",
+  "task": "next POI recommendation",
+  "input": "user-POI check-in sequences and global POI graph",
+  "output": "ranked list of next POIs for a user",
+  "backbone": "temporal-aware self-attentive GCN with channel attention",
+  "loss": "not specified",
+  "key_idea": "extract local structures from a global POI graph and use temporal-aware self-attentive GCN plus channel attention to capture sequential visitation patterns and feature-channel relationships",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

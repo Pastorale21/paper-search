@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3209214893",
+  "task": "knowledge graph-aware recommendation",
+  "input": "user-item interaction graph and knowledge graph (item-entity connections)",
+  "output": "ranked list of items per user",
+  "backbone": "relation-aware GNN with meta-path based user encoder and relation-aware self-attention item encoder",
+  "loss": "not specified in abstract",
+  "key_idea": "exploit entity-aware relational semantics via meta-paths from users to entities and relation-aware self-attention for collaborative signals",
+  "datasets": [
+    "three benchmarks (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3005691956",
+  "task": "knowledge-based recommendation",
+  "input": "user-item-entity interaction graph (user-item, user-entity, item-entity)",
+  "output": "recommended items for users",
+  "backbone": "GNN + KGE with split-and-recombine strategy",
+  "loss": "not specified (implicitly BPR or similar ranking loss)",
+  "key_idea": "split user-item-entity interactions into three 2-way graphs, model each with GNN/KGE, then recombine with gated fusion",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

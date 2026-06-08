@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4391528769",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (multiple behavior types)",
+  "output": "predicted preference scores for target behavior (e.g., purchase)",
+  "backbone": "variational graph autoencoder (GNN encoder + VAE decoder)",
+  "loss": "ELBO (reconstruction + KL divergence) + behavior contrastive regularization",
+  "key_idea": "model complex transition relationships across behaviors via a behavior transition network and contrastive regularization to capture varying semantic strength",
+  "datasets": [
+    "Yelp",
+    "Taobao",
+    "Tmall"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

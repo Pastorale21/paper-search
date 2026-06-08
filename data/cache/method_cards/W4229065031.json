@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4229065031",
+  "task": "session-based recommendation",
+  "input": "session sequences (item sequences within a session)",
+  "output": "next item recommendation (ranked list of items)",
+  "backbone": "graph neural network with category attention",
+  "loss": "",
+  "key_idea": "incorporate item category information via category attention to capture user interest transfer",
+  "datasets": [
+    "two real datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

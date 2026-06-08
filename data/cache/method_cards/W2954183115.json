@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2954183115",
+  "task": "unsupervised representation learning on large-scale bipartite graphs",
+  "input": "large-scale bipartite graph (two types of nodes, e.g., users and items)",
+  "output": "node embeddings for both domains",
+  "backbone": "Bipartite Graph Convolutional Network (BGCN) with cascaded architecture",
+  "loss": "adversarial learning (generator-discriminator)",
+  "key_idea": "use BGCN encoder with adversarial training and cascaded multi-hop aggregation for scalable unsupervised bipartite representation learning",
+  "datasets": [
+    "multiple datasets of varying scales (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

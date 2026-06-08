@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4396712858",
+  "task": "next POI recommendation",
+  "input": "user check-in sequences and POI features (geographical locations, visiting peaks)",
+  "output": "next POI prediction",
+  "backbone": "multi-relational graph network with bi-level graph structure learning",
+  "loss": "not specified in abstract",
+  "key_idea": "learns a hierarchical graph structure (POI-prototype) and pairwise relationships to capture fine-to-coarse connectivity, improving robustness and exploration",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "recommendation accuracy",
+    "exploration performance"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

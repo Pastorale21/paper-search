@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4391682413",
+  "task": "accelerating GNN computation on single and multiple GPUs",
+  "input": "graph-structured data (e.g., user-item interaction graphs, molecular graphs, social networks)",
+  "output": "computed GNN outputs (e.g., node embeddings or predictions)",
+  "backbone": "two-level parallelism paradigm (vertex parallelism + feature parallelism) with hybrid dynamic workload assignment and kernel fusion",
+  "loss": "",
+  "key_idea": "divide GNN computation into vertex-level and feature-level parallelism with hybrid dynamic workload assignment and kernel fusion to reduce overhead",
+  "datasets": [
+    "benchmark datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "speedup (vs. DGL, GNNAdvisor, FeatGraph)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

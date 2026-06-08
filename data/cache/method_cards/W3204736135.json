@@ -1,0 +1,25 @@
+{
+  "paper_id": "W3204736135",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (GNN) for influence propagation path prediction + any neural recommendation model as black box",
+  "loss": "multi-task loss: recommendation loss + path prediction loss, balanced by uncertainty-based weighting",
+  "key_idea": "model social homophily via influence propagation path prediction as an auxiliary task in a multi-task learning framework",
+  "datasets": [
+    "Ciao",
+    "Epinions",
+    "Yelp",
+    "Douban"
+  ],
+  "metrics": [
+    "MAE",
+    "RMSE",
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

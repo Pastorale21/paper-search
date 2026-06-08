@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4383200182",
+  "task": "explainable recommendation",
+  "input": "collaborative knowledge graph (CKG) and user social graph (USG)",
+  "output": "ranked item recommendations with explanations",
+  "backbone": "social enhanced knowledge graph attention network (SKGAN) with GCNs and attention",
+  "loss": "not specified in abstract",
+  "key_idea": "combine collaborative knowledge graph and user social graph via graph-level user-specific attention to capture personalized preferences",
+  "datasets": [],
+  "metrics": [
+    "NDCG",
+    "precision",
+    "recall",
+    "HR"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

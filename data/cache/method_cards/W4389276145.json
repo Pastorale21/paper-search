@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4389276145",
+  "task": "adversarial attack on graph neural networks",
+  "input": "graph (e.g., social network, biological network)",
+  "output": "perturbed graph that degrades GNN performance",
+  "backbone": "K-Means clustering + Class Activation Mapping (CAM)",
+  "loss": "",
+  "key_idea": "use K-Means to identify critical nodes and CAM to highlight influential regions for crafting targeted perturbations",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3128205583",
+  "task": "product recommendation",
+  "input": "user-item interaction graph",
+  "output": "product recommendations",
+  "backbone": "Graph Convolutional Neural Network (GCNN) with neighbor sampling based on similarity",
+  "loss": "",
+  "key_idea": "pre-sample neighbors using KL divergence on interaction probability distributions to reduce computational complexity",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

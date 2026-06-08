@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4318812521",
+  "task": "next POI recommendation",
+  "input": "user-POI check-in sequences and POI geographical graph",
+  "output": "ranked list of next POIs for a user",
+  "backbone": "Kernel-Based Graph Neural Network (KBGNN) with geographical module (MPNN) and sequential module (graph kernel NN)",
+  "loss": "consistency learning (jointly incorporating geographical and sequential information)",
+  "key_idea": "combine topological geographical influences via MPNN and high-order sequential substructures via graph kernel neural network, with consistency learning to align both modules",
+  "datasets": [
+    "two real-world LBSN datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,23 @@
+{
+  "paper_id": "W3172512543",
+  "task": "session-based recommendation",
+  "input": "anonymous session sequences (user click/behavior sequences)",
+  "output": "next-item recommendation (ranked list of items for a session)",
+  "backbone": "demand-aware graph neural network (DAGNN)",
+  "loss": "mutual information loss + (implicitly) recommendation loss",
+  "key_idea": "model session-level demand via a global demand matrix and demand-aware graph to learn demand-aware item embeddings",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica",
+    "Tmall",
+    "RetailRocket"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

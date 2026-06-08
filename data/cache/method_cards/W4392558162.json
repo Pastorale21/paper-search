@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4392558162",
+  "task": "personalized attraction recommendation",
+  "input": "multi-modal knowledge graph (user-item interactions, images, text) with user historical interaction data",
+  "output": "ranked list of tourist attractions for each user",
+  "backbone": "graph neural network with attention mechanism",
+  "loss": "not specified",
+  "key_idea": "construct a collaborative multi-modal knowledge graph with image and text features as entity attributes, and use GNN with attention and dynamic time-weighted user representation for recommendation",
+  "datasets": [
+    "Travel Yunnan app data"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

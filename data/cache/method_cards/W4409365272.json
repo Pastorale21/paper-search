@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4409365272",
+  "task": "robust recommendation against shilling attacks",
+  "input": "user-item interaction graph (with potential fake profiles)",
+  "output": "ranked item recommendations per user",
+  "backbone": "GNN-based recommender (e.g., LightGCN) with trustworthy aggregation and contrastive learning",
+  "loss": "not specified (likely BPR + contrastive loss)",
+  "key_idea": "two-stage framework that models fake data probability in zero-knowledge and builds trustworthy neighborhood aggregation and contrastive learning",
+  "datasets": [
+    "multiple benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified (likely Recall, NDCG, etc.)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

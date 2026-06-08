@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4393207704",
+  "task": "group recommendation",
+  "input": "user-item interaction graph and group-item interaction graph (with user-group membership)",
+  "output": "ranked list of items for a group",
+  "backbone": "graph convolutional network with hypergraph and bipartite graph propagation modules",
+  "loss": "cross-view self-supervised learning loss (e.g., InfoNCE) + recommendation loss (e.g., BPR)",
+  "key_idea": "cross-view self-supervised learning between hypergraph and bipartite graph views to enhance group preference modeling",
+  "datasets": [
+    "Yelp",
+    "Douban"
+  ],
+  "metrics": [
+    "Recall@k",
+    "NDCG@k"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

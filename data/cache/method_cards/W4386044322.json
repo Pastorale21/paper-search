@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4386044322",
+  "task": "group identification (recommending groups to users)",
+  "input": "user-item interactions and user-group memberships (hypergraph)",
+  "output": "ranked list of groups for each user",
+  "backbone": "transitional hypergraph convolution network",
+  "loss": "cross-view self-supervised learning + group-based regularization",
+  "key_idea": "transitional hypergraph convolution that leverages user-item preferences as prior knowledge for group preference learning, enhanced by cross-view self-supervised learning",
+  "datasets": [
+    "Yelp",
+    "Gowalla",
+    "Foursquare"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

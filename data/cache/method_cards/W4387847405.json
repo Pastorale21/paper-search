@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4387847405",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network with celebrity-aware aggregation",
+  "loss": "not specified (likely BPR or contrastive loss)",
+  "key_idea": "explicitly model the celebrity effect in social networks by measuring node influence via closeness centrality and incorporating it into message propagation",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3211498856",
+  "task": "sequential recommendation",
+  "input": "time-sliced user-item interaction graphs (sequences of interactions over time slices)",
+  "output": "ranked list of items for a target user at the next time step",
+  "backbone": "time-sliced graph neural networks",
+  "loss": "main recommendation loss + auxiliary temporal prediction loss (temporal point process)",
+  "key_idea": "build a global user-item interaction graph per time slice and learn dual dynamic representations via time-sliced GNNs with an auxiliary temporal prediction task",
+  "datasets": [
+    "Amazon",
+    "Yelp",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

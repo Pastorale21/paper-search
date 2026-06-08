@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4404953621",
+  "task": "social and sequential recommendation",
+  "input": "user-item interaction graph, social graph, and sequential behavior data",
+  "output": "ranked list of items per user",
+  "backbone": "bidirectional graph convolutional network",
+  "loss": "",
+  "key_idea": "bidirectional graph convolution to capture dynamic user preferences from social and sequential perspectives, fused via a Bidirectional Gate",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

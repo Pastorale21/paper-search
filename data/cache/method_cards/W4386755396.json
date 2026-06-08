@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4386755396",
+  "task": "multi-behavior recommendation",
+  "input": "user-item interaction graphs under multiple behavior types",
+  "output": "personalized item recommendations",
+  "backbone": "GNN with SVD-augmented graphs",
+  "loss": "InfoNCE contrastive loss + (implicitly) BPR or other recommendation loss",
+  "key_idea": "use SVD to generate augmented graph views with global collaborative relations for contrastive learning",
+  "datasets": [
+    "real-world datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4372262735",
+  "task": "knowledge graph enhanced recommendation",
+  "input": "user-item interaction graph and item-entity knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "dual-graph GNN (two separate GNNs for user-item graph and knowledge graph)",
+  "loss": "not specified in abstract",
+  "key_idea": "dual-graph co-representation learning with a Cycle Transfer Unit to align and transfer information between the recommendation and knowledge graph domains",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

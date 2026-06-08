@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4401967293",
+  "task": "machine learning method recommendation",
+  "input": "knowledge graph of datasets and machine learning methods (with textual descriptions)",
+  "output": "ranked list of recommended machine learning methods for a given dataset",
+  "backbone": "feature-enhanced graph neural network with anti-smoothing aggregation",
+  "loss": "not specified in abstract",
+  "key_idea": "enhance node representations with neighborhood information before propagation and use exponential decay to reduce over-smoothing",
+  "datasets": [
+    "public dataset (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

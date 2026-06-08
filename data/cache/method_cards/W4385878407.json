@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4385878407",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (heterogeneous behavior types)",
+  "output": "predicted preference scores for target behavior (e.g., purchase)",
+  "backbone": "graph neural network (GCN-based information transfer network)",
+  "loss": "not specified in abstract",
+  "key_idea": "capture personalized semantics of each behavior type and model dependencies among behaviors via graph convolution",
+  "datasets": [
+    "three benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "recommendation accuracy (not specified in abstract)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4328006281",
+  "task": "group recommendation",
+  "input": "unified heterogeneous graph with user-item, group-user, and group-item interactions",
+  "output": "recommended items for a group",
+  "backbone": "graph convolution network (GCN)",
+  "loss": "",
+  "key_idea": "construct a unified heterogeneous graph capturing high-order interactions among groups, users, and items, and learn representations via GCN",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

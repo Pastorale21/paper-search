@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4417257704",
+  "task": "semantically-rich recommendation",
+  "input": "RDF knowledge graph (user-item interactions with object and datatype properties)",
+  "output": "item recommendations for users",
+  "backbone": "various GNNs (e.g., GCN, GAT, GraphSAGE) adapted for RDF graph structure",
+  "loss": "not specified in abstract",
+  "key_idea": "integrate RDF knowledge graphs with GNNs by leveraging both topological (object properties) and content (datatype properties) information for recommendation",
+  "datasets": [
+    "multi-million-node RDF graphs (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4387665309",
+  "task": "exercise recommendation in intelligent tutoring systems",
+  "input": "student exercise records and a knowledge graph of skills",
+  "output": "recommended exercises for students",
+  "backbone": "graph neural network (GNN) for exercise and skill embeddings",
+  "loss": "not specified (likely cross-entropy or similar for cognitive diagnosis)",
+  "key_idea": "select exercises based on representativeness and informativeness using a knowledge graph with multiple relation types and a neural attentive cognitive diagnosis model",
+  "datasets": [
+    "two types of publicly available educational datasets"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

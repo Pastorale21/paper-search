@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4362576715",
+  "task": "session-based recommendation",
+  "input": "session sequences (item click sequences within sessions)",
+  "output": "next-item recommendation (ranked list of items for the current session)",
+  "backbone": "dual hypergraph convolutional network with capsule networks",
+  "loss": "recommendation loss (cross-entropy) + self-supervised contrastive loss (InfoNCE)",
+  "key_idea": "disentangle user intents via capsule hypergraph convolution and learn inter-session item transitions via dual-primal hypergraph, combined with self-supervised contrastive learning",
+  "datasets": [
+    "Tmall",
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [
+    "P@20",
+    "MRR@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

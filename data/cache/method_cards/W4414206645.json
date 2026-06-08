@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4414206645",
+  "task": "personalized e-commerce recommendation",
+  "input": "user-item interaction graph and sequential user interactions with contextual metadata (timestamp, device type, location)",
+  "output": "ranked list of items with relevance scores",
+  "backbone": "GNN (graph relational modeling) + Transformer (contextual sequence learning) with fusion mechanism",
+  "loss": "not specified",
+  "key_idea": "hybrid framework combining GNN-based collaborative filtering and Transformer-based contextual sequence modeling with a real-time feedback loop",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

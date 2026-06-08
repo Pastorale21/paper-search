@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4296911831",
+  "task": "session-based social recommendation",
+  "input": "time-varying session sequences and social graph",
+  "output": "recommended services (items) for users",
+  "backbone": "gated graph neural network + multi-head attention + graph attention network",
+  "loss": "not specified",
+  "key_idea": "capture evolving user interests via gated GNN on session sequences and social influence via graph attention",
+  "datasets": [
+    "three datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "various evaluation metrics (not specified)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

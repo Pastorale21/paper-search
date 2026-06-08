@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4324105747",
+  "task": "federated recommendation",
+  "input": "user-item interaction graphs distributed across multiple parties (vertical federated setting)",
+  "output": "predicted user-item interaction scores",
+  "backbone": "vertical federated GNN",
+  "loss": "not specified in abstract",
+  "key_idea": "first vertical federated GNN for recommendation, transmitting neighbor embedding sums via random projection and perturbed gradients via ternary quantization",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4391361120",
+  "task": "sequential recommendation with differential privacy",
+  "input": "user-item interaction sequences (dynamic and dependent) and sensitive user features",
+  "output": "ranked list of items for next-item prediction",
+  "backbone": "noisy graph neural network (GNN with aggregation perturbation)",
+  "loss": "not specified in abstract",
+  "key_idea": "add calibrated noise to GNN aggregation step to protect sequentially dependent interactions while preserving differential privacy",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

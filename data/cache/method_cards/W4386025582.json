@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4386025582",
+  "task": "cross-domain recommendation (cold-start alleviation)",
+  "input": "user-item interaction graphs with metadata (features/embeddings) from source and target domains",
+  "output": "item recommendations in target domain",
+  "backbone": "Graph Convolution Network (GCN)",
+  "loss": "",
+  "key_idea": "leverage metadata and cross-domain transfer via GCNs to address cold-start users",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

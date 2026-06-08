@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3175450343",
+  "task": "multi-behavior recommendation",
+  "input": "user-item multi-behavior interaction graph (e.g., browse, purchase)",
+  "output": "predicted preference scores for items per user",
+  "backbone": "graph neural network with relation aggregation",
+  "loss": "not specified in abstract",
+  "key_idea": "model heterogeneous user-item interactions via a relation aggregation network and graph message passing",
+  "datasets": [
+    "real-world recommendation datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

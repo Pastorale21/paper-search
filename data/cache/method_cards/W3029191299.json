@@ -1,0 +1,20 @@
+{
+  "paper_id": "W3029191299",
+  "task": "personalized outfit recommendation",
+  "input": "user-outfit interactions and outfit-item mappings (hierarchical graph)",
+  "output": "personalized outfit recommendations (ranked outfits per user)",
+  "backbone": "hierarchical graph neural network (embedding propagation on user-outfit-item graph)",
+  "loss": "joint training of compatibility and recommendation tasks (implicitly BPR-like)",
+  "key_idea": "hierarchical graph structure with embedding propagation to jointly model user-outfit and outfit-item relationships",
+  "datasets": [
+    "benchmark dataset (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall@K",
+    "NDCG@K"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

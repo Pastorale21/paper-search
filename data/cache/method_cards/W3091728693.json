@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3091728693",
+  "task": "group recommendation",
+  "input": "user-item interactions, group-item interactions, user social networks",
+  "output": "recommended items for a group",
+  "backbone": "BGEM + self-attention + GCN",
+  "loss": "not specified in abstract",
+  "key_idea": "learn group representations via self-attention over members and enhance user representations with social network GCN to overcome data sparsity",
+  "datasets": [
+    "three large-scale benchmark datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

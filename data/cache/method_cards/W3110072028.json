@@ -1,0 +1,22 @@
+{
+  "paper_id": "W3110072028",
+  "task": "social recommendation (item recommendation with social relations)",
+  "input": "user-item interaction graph and user-user social graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph convolutional network (GCN) for embedding propagation",
+  "loss": "BPR loss (implicitly, from comparison with baselines using BPR)",
+  "key_idea": "recursively propagate user embeddings along the social network to incorporate high-order social influence directly into the predictive model",
+  "datasets": [
+    "Yelp",
+    "Douban"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG",
+    "Precision"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

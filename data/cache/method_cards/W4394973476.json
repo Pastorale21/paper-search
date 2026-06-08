@@ -1,0 +1,24 @@
+{
+  "paper_id": "W4394973476",
+  "task": "top-K recommendation with signed user feedback",
+  "input": "signed user-item interaction graph (positive and negative feedback)",
+  "output": "ranked list of items per user",
+  "backbone": "Transformer with sign-aware positional encodings",
+  "loss": "BPR loss (implicitly, as typical for recommendation)",
+  "key_idea": "leverage both positive and negative feedback via a signed graph and transformer with spectral and path-based positional encodings",
+  "datasets": [
+    "Yelp",
+    "Ciao",
+    "Epinions",
+    "MovieLens",
+    "Amazon"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4390134877",
+  "task": "fairness-aware recommendation",
+  "input": "user-item interaction graph with sensitive user attributes",
+  "output": "fair user and item representations for recommendation",
+  "backbone": "graph neural network (GNN) based recommender",
+  "loss": "not explicitly stated (likely BPR or similar ranking loss with fairness regularization)",
+  "key_idea": "generate a counterfactual graph by intervening on observed interactions to remove influence of sensitive attributes, enabling unbiased fair representation learning",
+  "datasets": [
+    "three real-world datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

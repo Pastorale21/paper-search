@@ -1,0 +1,20 @@
+{
+  "paper_id": "W4385488564",
+  "task": "top-K recommendation",
+  "input": "user-item interaction graph with user and item features",
+  "output": "ranked list of items per user",
+  "backbone": "LightGCN with multi-feature aggregation",
+  "loss": "BPR + contrastive loss (InfoNCE)",
+  "key_idea": "propagate both interaction and feature information in LightGCN, and use three-channel contrastive learning with uniform noise to alleviate sparsity",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "Recall",
+    "NDCG"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

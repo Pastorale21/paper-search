@@ -1,0 +1,15 @@
+{
+  "paper_id": "W4387444137",
+  "task": "session-based recommendation",
+  "input": "session sequences (item interactions within sessions) and global item co-occurrence graph",
+  "output": "next-item prediction (ranked list of items for a session)",
+  "backbone": "global context graph neural network (GNN) with attention",
+  "loss": "",
+  "key_idea": "combine session graph and global graph to learn item embeddings, then use attention to derive session representation for next-item prediction",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

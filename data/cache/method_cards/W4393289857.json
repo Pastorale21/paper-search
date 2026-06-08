@@ -1,0 +1,21 @@
+{
+  "paper_id": "W4393289857",
+  "task": "social recommendation",
+  "input": "user-item interaction graph and social network graph",
+  "output": "ranked item recommendations for users",
+  "backbone": "dual-stage graph neural network",
+  "loss": "contrastive learning loss (self-contrastive) + recommendation loss (implicit)",
+  "key_idea": "construct a robust social preference network and apply self-contrastive learning on multiple node representations to reduce noise from both social and user-item graphs",
+  "datasets": [
+    "Ciao",
+    "Epinions"
+  ],
+  "metrics": [
+    "Recall@10",
+    "NDCG@10"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4387042629",
+  "task": "insurance purchase classification for recommendation",
+  "input": "tabular insurance dataset with 86 customer features transformed into a graph representation",
+  "output": "binary classification of insurance purchase (recommendation)",
+  "backbone": "Graph Convolutional Network (GCN)",
+  "loss": "not specified (likely cross-entropy)",
+  "key_idea": "convert tabular insurance data into a graph to capture feature interrelationships and apply GCN for classification",
+  "datasets": [
+    "insurance dataset (9422 records, 86 features)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

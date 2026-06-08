@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4393159933",
+  "task": "graph classification",
+  "input": "graph-structured data (node features and adjacency matrix)",
+  "output": "graph-level class label",
+  "backbone": "any GNN backbone (e.g., GCN, GAT, etc.)",
+  "loss": "distillation loss (teacher-student framework with label-attentive encoder)",
+  "key_idea": "use a label-attentive teacher to generate ideal embeddings that guide the student GNN to learn class-friendly node representations",
+  "datasets": [
+    "10 benchmark datasets (e.g., MUTAG, PROTEINS, IMDB-BINARY, etc.)"
+  ],
+  "metrics": [
+    "graph classification accuracy"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

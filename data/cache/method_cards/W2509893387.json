@@ -1,0 +1,17 @@
+{
+  "paper_id": "W2509893387",
+  "task": "top-K recommendation (collaborative filtering with auxiliary knowledge base)",
+  "input": "user-item interaction matrix + knowledge base (structured, textual, visual content)",
+  "output": "predicted preference scores for items",
+  "backbone": "collaborative filtering with knowledge base embeddings (TransR, SDAE, SCAE)",
+  "loss": "not explicitly named in abstract",
+  "key_idea": "jointly learn collaborative filtering latent factors and item semantic representations from heterogeneous knowledge base (structural, textual, visual)",
+  "datasets": [
+    "two real-world datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

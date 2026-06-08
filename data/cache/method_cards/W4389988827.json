@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4389988827",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph neural network (KGAT-style)",
+  "loss": "contrastive loss (InfoNCE) + BPR loss",
+  "key_idea": "two-level debiased contrastive learning on user-item and user-user pairs with noise-based negative sampling to mitigate long-tail and noise issues",
+  "datasets": [
+    "Amazon-Book",
+    "Last-FM",
+    "Yelp2018"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

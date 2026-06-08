@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4310801900",
+  "task": "knowledge graph-based recommendation",
+  "input": "user-item interaction graph and knowledge graph (with user and item attributes)",
+  "output": "probability of user preference for items",
+  "backbone": "double end knowledge graph convolutional network (DEKGCN)",
+  "loss": "not specified",
+  "key_idea": "incorporates both user and item side neighborhood information from the knowledge graph via separate receptive fields",
+  "datasets": [
+    "real datasets (not named)"
+  ],
+  "metrics": [
+    "not specified"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

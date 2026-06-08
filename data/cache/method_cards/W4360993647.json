@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4360993647",
+  "task": "social recommendation",
+  "input": "user-item interaction graph, user social graph, and context information",
+  "output": "predicted user-item interaction probabilities",
+  "backbone": "multi-channel GNN with user-context collaboration module",
+  "loss": "not specified in abstract",
+  "key_idea": "incorporate context information into user features via a multi-channel GNN and fuse channels with tensor factorization",
+  "datasets": [
+    "three public datasets (not named in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

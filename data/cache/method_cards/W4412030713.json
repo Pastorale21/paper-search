@@ -1,0 +1,19 @@
+{
+  "paper_id": "W4412030713",
+  "task": "personalized recommendation with explanations",
+  "input": "user-item interaction graph and knowledge graph",
+  "output": "personalized item recommendations with user preference explanations",
+  "backbone": "graph neural network (GNN) with two-view aggregation",
+  "loss": "contrastive learning loss (maximizing spatial distance between user representations)",
+  "key_idea": "model fine-grained user preferences by aggregating historical interactions and KG relations, then apply contrastive learning to diversify user representations",
+  "datasets": [
+    "public datasets (not specified in abstract)"
+  ],
+  "metrics": [
+    "not specified in abstract"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

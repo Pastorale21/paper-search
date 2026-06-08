@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3106154945",
+  "task": "pharmacy product cross-selling recommendation",
+  "input": "graph with product nodes, edges from sales transactions, and product features (indications, ingredients, adverse effects) as node attributes",
+  "output": "ranked list of cross-sell product recommendations",
+  "backbone": "Graph Convolutional Network (PharmaSage)",
+  "loss": "not specified (likely a ranking loss, but not stated in abstract)",
+  "key_idea": "incorporate both cross-sales information and pharmaceutical product properties as node features in a GCN, with modified sampling to mitigate popularity bias",
+  "datasets": [
+    "real-world pharmacy sales data (700k articles, 100M transactions)"
+  ],
+  "metrics": [
+    "not specified (abstract mentions better results than statistics-based approach but no explicit metrics)"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

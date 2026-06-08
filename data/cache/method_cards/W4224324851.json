@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4224324851",
+  "task": "session-based recommendation",
+  "input": "session sequences (anonymous user-item interactions)",
+  "output": "next-item prediction for each session",
+  "backbone": "graph neural network with self-attention and graph attention network",
+  "loss": "",
+  "key_idea": "capture intra-session item transitions via GNN and self-attention, then combine short-term and long-term preferences with a global session graph enhanced by similar session information",
+  "datasets": [
+    "three public datasets (not named)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

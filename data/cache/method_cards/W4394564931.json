@@ -1,0 +1,22 @@
+{
+  "paper_id": "W4394564931",
+  "task": "top-K recommendation",
+  "input": "user-item bipartite graph",
+  "output": "ranked list of items per user",
+  "backbone": "graph collaborative filtering (e.g., LightGCN)",
+  "loss": "recommendation loss (e.g., BPR) + contrastive loss (InfoNCE)",
+  "key_idea": "introduce global graph view self-supervised learning with multi-view contrastive learning using node loss, edge loss, and random noise augmentations",
+  "datasets": [
+    "Yelp2018",
+    "Amazon-Book",
+    "Gowalla"
+  ],
+  "metrics": [
+    "Recall@20",
+    "NDCG@20"
+  ],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

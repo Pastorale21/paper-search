@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4412809859",
+  "task": "electrical power material recommendation",
+  "input": "user-item interaction graph, knowledge graph (User-Item-Topic tripartite graph), and user behavior sequences",
+  "output": "ranked list of electrical power materials per user",
+  "backbone": "graph neural network (GNN) + multi-head attention (Transformer)",
+  "loss": "not specified in abstract",
+  "key_idea": "explicitly model user intent via a tripartite graph and fuse it with preference from behavior sequences using adaptive attention",
+  "datasets": [
+    "real-life electric power materials"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}
