@@ -20,9 +20,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from schemas import Paper
-from spike import config as spike_config
 
 GOLD_SET_PATH = Path(__file__).resolve().parent / "gold_set.json"
+PAPERS_JSON_PATH = Path(__file__).resolve().parents[1] / "data" / "cache" / "papers.json"
 MIN_RESOLUTION_RATE = 0.60  # STOP gate per the scaffold rules
 
 # Hand-maintained alias map: abbreviation (normalized) -> substring of canonical paper
@@ -37,18 +37,25 @@ DEFAULT_ALIASES: dict[str, str] = {
     "lrgccf": "revisiting graph based collaborative filtering",
     "lr gccf": "revisiting graph based collaborative filtering",
     "dgcf": "disentangled graph collaborative filtering",
+    "ultragcn": "ultragcn",
     # Contrastive seed papers
     "sgl": "self supervised graph learning for recommendation",
     "ncl": "neighborhood enriched contrastive learning",
     "hccf": "hypergraph contrastive collaborative filtering",
     # title: "Are Graph Augmentations Necessary? Simple Graph Contrastive Learning..."
     "simgcl": "simple graph contrastive learning",
+    "xsim gcl": "extremely simple graph contrastive learning",
+    "xsimgcl": "extremely simple graph contrastive learning",
+    "lightgcl": "lightgcl simple yet effective graph contrastive learning",
+    "dccf": "disentangled contrastive collaborative filtering",
     # Knowledge-graph seed paper(s)
     "kgin": "learning intents behind interactions",
     # title: "Knowledge Graph Convolutional Networks for Recommender Systems"
     "kgcn": "knowledge graph convolutional network",
     "cke": "collaborative knowledge base embedding",
     "ckan": "collaborative knowledge aware attentive network",
+    "kgnnls": "knowledge graph neural networks with label smoothness",
+    "kgnn ls": "knowledge graph neural networks with label smoothness",
     # Cross-domain seed paper
     "bitgcf": "bi directional transfer graph",
     "bi tgcf": "bi directional transfer graph",
@@ -56,6 +63,13 @@ DEFAULT_ALIASES: dict[str, str] = {
     "disencdr": "disencdr",
     "ddtcdr": "deep dual transfer cross domain recommendation",
     "ppgn": "preference propagation graphnet",
+    "disencdr": "disentangled representations for cross domain recommendation",
+    "disen cdr": "disentangled representations for cross domain recommendation",
+    "ddtcdr": "dual dynamic transfer for cross domain recommendation",
+    "ddt cdr": "dual dynamic transfer for cross domain recommendation",
+    "ppgn": "personalized propagation graph neural network",
+    "ptupcdr": "pre train user preference for cross domain recommendation",
+    "ptup cdr": "pre train user preference for cross domain recommendation",
     # Session-based seed papers
     "gcsan": "graph contextualized self attention",
     "gc san": "graph contextualized self attention",
@@ -68,11 +82,34 @@ DEFAULT_ALIASES: dict[str, str] = {
     "surge": "sequential recommendation with graph neural networks",
     "fgnn": "handling information loss of graph neural networks",
     "tagnn": "target attentive graph neural networks",
+    "tagnn": "target attentive graph neural networks",
+    "gc egnn": "global context enhanced graph neural",
+    "surge": "sequential recommendation with graph neural networks",
+    "fgnn": "feature graph neural networks for session based recommendation",
+    "lessr": "less is more recurrent neural networks",
     # Social seed papers
     "diffnet": "diffusion network for social recommendation",
     "mhcn": "multi channel hypergraph convolutional network for social recommendation",
     "graphrec": "graph neural networks for social recommendation",
     "sociallgn": "light graph convolution network for social recommendation",
+    "mhcn": "multi channel hypergraph convolutional network",
+    "sociallgn": "light graph convolution network for social recommendation",
+    "social lgn": "light graph convolution network for social recommendation",
+    "diffnet plus plus": "diffnet plus plus",
+    "dhcf": "dual channel hypergraph collaborative filtering",
+    "hgcn": "hypergraph convolutional network for collaborative filtering",
+    "hyperrec": "hypergraph based recommendation",
+    "fairgo": "fairgo",
+    "fairrec": "fairrec",
+    "nfcf": "neural fairness collaborative filtering",
+    "gfair": "gfair",
+    "fairgnn": "fairgnn",
+    "metahin": "meta learning on heterogeneous information networks",
+    "duorec": "contrastive learning for representation degeneration problem",
+    "coserec": "contrastive learning for sequential recommendation with robust augmentation",
+    "iclrec": "intent contrastive learning for sequential recommendation",
+    "gfcf": "graph filter collaborative filtering",
+    "pinsage": "graph convolutional neural networks for web scale recommender systems",
     # Non-seed but verified present-via-full-expansion-title
     "gcegnn": "global context enhanced graph neural",
     "gce gnn": "global context enhanced graph neural",
@@ -91,6 +128,7 @@ def _norm(text: str | None) -> str:
         return ""
     cleaned = _HTML_TAG_RE.sub(" ", text)
     cleaned = cleaned.replace("++", " plusplus ")
+    cleaned = cleaned.replace("+", " plus ")
     cleaned = _NONALNUM_RE.sub(" ", cleaned.lower())
     return _WS_RE.sub(" ", cleaned).strip()
 
@@ -228,9 +266,9 @@ class TitleResolver:
 
 def _load_corpus() -> list[dict]:
     """Read ``data/cache/papers.json`` (dicts, no schema dependency)."""
-    if not spike_config.PAPERS_JSON.exists():
-        raise FileNotFoundError(f"{spike_config.PAPERS_JSON} missing; run data.corpus first")
-    raw = json.loads(spike_config.PAPERS_JSON.read_text(encoding="utf-8"))
+    if not PAPERS_JSON_PATH.exists():
+        raise FileNotFoundError(f"{PAPERS_JSON_PATH} missing; run data.corpus first")
+    raw = json.loads(PAPERS_JSON_PATH.read_text(encoding="utf-8"))
     return raw if isinstance(raw, list) else list(raw.values())
 
 

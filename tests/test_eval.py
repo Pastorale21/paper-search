@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 
+from eval.error_analysis import print_report
 from eval.gold_set import DEFAULT_ALIASES, TitleResolver
 from eval.metrics import mrr, ndcg_at_k, recall_at_k
 
@@ -132,3 +133,43 @@ def test_title_resolver_logs_non_exact_matches():
     resolver = TitleResolver(papers)
     resolver.resolve("NGCF")
     assert any(strategy == "alias" for _, _, strategy in resolver.fuzzy_log)
+
+
+def test_title_resolver_distinguishes_plus_suffix_alias():
+    papers = _papers(
+        ("W1", "Diffusion Network for Social Recommendation"),
+        ("W2", "DiffNet++: A Neural Influence and Interest Diffusion Network"),
+    )
+    resolver = TitleResolver(papers)
+    assert resolver.resolve("DiffNet") == "W1"
+    assert resolver.resolve("DiffNet++") == "W2"
+
+
+def test_error_analysis_report_prints_low_score_context(capsys):
+    payload = {
+        "query_meta": {
+            "Qx": {
+                "text": "session graph query",
+                "notes": "diagnostic case",
+            }
+        },
+        "resolved_gold_per_query": {"Qx": ["G1"]},
+        "unresolved_per_query": {"Qx": ["MissingGold"]},
+        "per_query": [
+            {
+                "query_id": "Qx",
+                "mode": "short",
+                "method": "dense",
+                "metrics": {"ndcg@5": 0.0, "mrr": 0.0, "recall@10": 0.0},
+                "top10": ["P1", "G1"],
+            }
+        ],
+    }
+    titles = {"P1": "Wrong Paper", "G1": "Gold Paper"}
+
+    print_report(payload, titles, threshold=0.30)
+
+    out = capsys.readouterr().out
+    assert "Low-score eval cases" in out
+    assert "MissingGold" in out
+    assert "  2. * G1 | Gold Paper" in out

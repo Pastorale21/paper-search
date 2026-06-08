@@ -292,6 +292,17 @@ def run(methods: list[str], output_path: Path | None) -> int:
         "version": "eval-v1",
         "created": stamp,
         "gold_set_version": gs.version,
+        "query_meta": {
+            q.id: {
+                "mode": q.mode,
+                "text": q.text,
+                "gold_titles": q.gold_titles,
+                "notes": q.notes,
+                "anchor_title": q.anchor_title,
+                "arxiv": q.arxiv,
+            }
+            for q in gs.queries
+        },
         "resolved_gold_per_query": {qid: sorted(pids) for qid, pids in resolved_gold.items()},
         "unresolved_per_query": unresolved_per_query,
         "aggregates_full": {
