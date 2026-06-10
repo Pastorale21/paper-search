@@ -70,6 +70,16 @@ _CSS = """
   font-size: 0.92rem;
   line-height: 1.5;
 }
+.paper-demo-code {
+  margin-top: 0.55rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86rem;
+  color: #1f2937;
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 0.45rem 0.55rem;
+  word-break: break-word;
+}
 div[data-testid="stHorizontalBlock"] button[kind="secondary"] {
   white-space: nowrap;
 }
@@ -114,5 +124,22 @@ def section_label(text: str) -> None:
     """Render a compact all-caps section label."""
     st.markdown(
         f'<div class="paper-section-label">{html.escape(text)}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def demo_card(title: str, body: str, *, code: str | None = None) -> None:
+    """Render a compact demo route card."""
+    safe_code = ""
+    if code:
+        safe_code = f'<div class="paper-demo-code">{html.escape(code)}</div>'
+    st.markdown(
+        f"""
+        <div class="paper-mini-card">
+          <div class="paper-mini-title">{html.escape(title)}</div>
+          <div class="paper-mini-body">{html.escape(body)}</div>
+          {safe_code}
+        </div>
+        """,
         unsafe_allow_html=True,
     )

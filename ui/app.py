@@ -17,7 +17,7 @@ if str(_ROOT) not in sys.path:
 import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
-from ui.style import apply_page_style, callout  # noqa: E402
+from ui.style import apply_page_style, callout, demo_card  # noqa: E402
 
 st.set_page_config(page_title="GNN-RecSys 论文检索", layout="wide")
 apply_page_style()
@@ -74,14 +74,25 @@ with coverage_cols[1]:
 st.divider()
 
 st.subheader("演示路线")
-st.markdown(
-    """
-    1. **搜索**: 用 hybrid 检索,看每条结果旁边的 `dense / bm25 / method_match` 信号标签。
-    2. **方法卡**: 选一篇论文,查看 `task / backbone / loss / key_idea`,再运行机制相似匹配。
-    3. **引文图**: 展示祖先、跨域同机制和对立方法的路径解释。对立方法目前是机制距离 fallback。
-    4. **相关工作**: 用户手动点击后才调用 LLM,生成带 `[N]` 引用的段落并做事实核查。
-    """
-)
+route_cols = st.columns(3)
+with route_cols[0]:
+    demo_card(
+        "1. Hybrid 搜索",
+        "加载短查询后运行搜索,重点展示每条结果的 dense / BM25 / method_match 信号标签。",
+        code="?query=graph%20contrastive%20learning%20for%20recommendation&mode=short&method=hybrid&k=10",
+    )
+with route_cols[1]:
+    demo_card(
+        "2. 方法卡与图推理",
+        "从搜索结果跳到方法卡,再运行机制相似匹配;或切到引文图展示路径解释。",
+        code="?paper_id=W3004578093",
+    )
+with route_cols[2]:
+    demo_card(
+        "3. 相关工作草稿",
+        "先召回候选证据,确认论文和方法卡合理后,再手动调用 LLM 生成带 [N] 标记的段落。",
+        code="Tab 4: 召回候选论文 → 调用 LLM",
+    )
 
 st.caption(
     "状态:demo 已具备完整链路。交付前请运行 eval smoke check,并按 docs/eval_findings_d.md 使用最新结论。"
