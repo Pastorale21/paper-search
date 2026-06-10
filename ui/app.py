@@ -17,17 +17,25 @@ if str(_ROOT) not in sys.path:
 import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
+from ui.style import apply_page_style, callout  # noqa: E402
 
 st.set_page_config(page_title="GNN-RecSys 论文检索", layout="wide")
+apply_page_style()
 st.title("GNN-RecSys 论文检索系统")
 
-st.markdown("""
-    一个论文检索系统,核心差异化在于**机制级匹配**与**引文图多跳推理**。标准稠密检索
-    在主题簇内部会饱和——top-5 余弦相似度的跨度仅约 0.006,根本无法挑出*正确的*
-    GNN 推荐论文。本系统通过比对**方法卡**(`task / backbone / loss / key_idea`)、
-    并沿意图加权路径游走引文图来打破这种平局。在 10 条查询的 gold set 上评测(同子域、
-    paper 查询):**method_match 相比 dense +0.112 nDCG@5**;**hybrid 相比 dense +0.091**。
-    """)
+st.markdown(
+    """
+    这个系统面向 GNN-based recommendation 论文检索。它把语义检索、方法卡机制匹配和
+    引文图推理放在同一个工作流里,让演示不只停在“搜到相关论文”,还可以解释每篇论文为什么被召回。
+    """
+)
+
+callout(
+    "当前可报告结论",
+    "在扩展 gold set 的 paper-query same subset 上,hybrid nDCG@5 为 0.266,略高于 dense 的 0.253。"
+    "standalone method_match 暂低于 dense,所以报告中应表述为机制级信号在融合后带来增益。",
+    tone="green",
+)
 
 st.subheader("语料与覆盖")
 stats = api.corpus_stats()
@@ -43,23 +51,16 @@ cols[3].metric(
 
 st.divider()
 
-st.subheader("使用说明")
-st.markdown("""
-    侧边栏有四个标签页:
-
-    1. **🔍 搜索** — 语义 + 混合检索。每条结果都带有*检索信号标签*
-       (`dense / bm25 / method_match`),便于你看清是哪个信号召回了它。
-    2. **📋 方法卡** — 每篇论文的结构化 `task / backbone / loss / key_idea`,外加一个
-       **“查找相似机制”**按钮,展示**逐字段余弦相似度**(`backbone: 0.91,
-       loss: 0.95, key_idea: 0.78`)——机制级匹配的可见证据。
-    3. **🕸 引文图** — 选一篇论文,运行三种推理查询之一
-       (**祖先 / 跨域同机制 / 对立方法**),得到一张交互式子图以及
-       人类可读的*路径解释*。
-    4. **✍️ 相关工作草稿** — 粘贴你自己的想法或摘要,基于召回论文及其方法卡
-       生成一段相关工作。
-    """)
+st.subheader("演示路线")
+st.markdown(
+    """
+    1. **搜索**: 用 hybrid 检索,看每条结果旁边的 `dense / bm25 / method_match` 信号标签。
+    2. **方法卡**: 选一篇论文,查看 `task / backbone / loss / key_idea`,再运行机制相似匹配。
+    3. **引文图**: 展示祖先、跨域同机制和对立方法的路径解释。对立方法目前是机制距离 fallback。
+    4. **相关工作**: 用户手动点击后才调用 LLM,生成带 `[N]` 引用的段落并做事实核查。
+    """
+)
 
 st.caption(
-    "状态:demo 脚手架已搭好。视觉打磨、prompt 迭代与链接分享是模块负责人 D 的"
-    "后续任务——见 ``ui/HANDOFF.md``。"
+    "状态:demo 已具备完整链路。交付前请运行 eval smoke check,并按 docs/eval_findings_d.md 使用最新结论。"
 )

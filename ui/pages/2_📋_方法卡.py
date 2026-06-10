@@ -13,8 +13,10 @@ import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
 from ui.query_params import get_param, set_params  # noqa: E402
+from ui.style import apply_page_style, callout, section_label  # noqa: E402
 
 st.set_page_config(page_title="方法卡 · GNN-RecSys", layout="wide")
+apply_page_style()
 st.title("📋 方法卡")
 
 # Chinese display labels for method-card fields; English values are preserved as-is.
@@ -61,17 +63,18 @@ col_card, col_abs = st.columns([3, 2])
 
 with col_card:
     if card is None:
-        st.warning("该论文尚未抽取方法卡。")
+        callout(
+            "该论文尚未抽取方法卡",
+            "按照团队约定,UI 不会自动触发付费 LLM 抽取。需要先运行下面的 CLI 生成缓存。",
+            tone="orange",
+        )
         st.code(
             "uv run python -m nlp.method_card.extractor --top 400",
             language="bash",
         )
-        st.caption(
-            "根据团队的付费抽取约定,UI 不会触发 LLM 抽取调用。请运行上面的 CLI"
-            "(或传入更小的 `--top N`);成本估算见 `nlp/HANDOFF.md`。"
-        )
+        st.caption("可以先用更小的 `--top N` 试跑;成本估算见 `nlp/HANDOFF.md`。")
     else:
-        st.markdown("#### 机制级字段")
+        section_label("机制级字段")
         st.markdown(
             f"**🎯 任务:** {card.task or '_(空)_'}  \n"
             f"**📥 输入:** {card.input or '_(空)_'}  \n"
@@ -86,7 +89,7 @@ with col_card:
             st.markdown("**📊 指标:** " + " ".join(f":violet-badge[{m}]" for m in card.metrics))
 
 with col_abs:
-    st.markdown("#### 摘要")
+    section_label("摘要")
     abstract = selected.get("abstract") or "_(本地无摘要)_"
     st.write(abstract)
 
@@ -95,14 +98,15 @@ st.divider()
 # --- The showcase: Find Similar Mechanism (prominent, not buried) ------------------------
 
 st.header("🔍 查找机制相似的论文")
-st.markdown(
-    "本系统的核心差异化功能。每个候选都会展示**逐字段余弦相似度**——这是机制级匹配"
-    "(而非表面相似)排出该论文的*可见证据*。字段权重"
-    f"(用于聚合打分):{api.field_weights()}。"
+callout(
+    "可见证据",
+    "每个候选都会展示逐字段余弦相似度。字段权重用于聚合打分:"
+    f" {api.field_weights()}。",
+    tone="blue",
 )
 
 if card is None:
-    st.info("运行相似度排序前需要方法卡——请先抽取(见上方 CLI)。")
+    callout("无法运行机制匹配", "运行相似度排序前需要锚点论文的方法卡。", tone="gray")
 else:
     if st.button(
         "在全语料上运行机制匹配",
@@ -115,7 +119,11 @@ if st.session_state.get("_run_match_for") == selected_pid and card is not None:
     with st.spinner("正在按加权字段余弦为全部语料论文打分..."):
         matches = api.match_similar_mechanism(selected_pid, k=10)
     if not matches:
-        st.info("无匹配——锚点论文的方法卡为空。")
+        callout(
+            "没有可展示的机制匹配",
+            "锚点论文的方法卡可能为空,或候选论文缺少可比较字段。",
+            tone="orange",
+        )
     else:
         st.markdown(f"### Top-{len(matches)} 机制匹配论文")
         weights = api.field_weights()

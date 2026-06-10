@@ -23,6 +23,7 @@ from ui.related_work_prompt import (  # noqa: E402
     extract_citation_markers,
     parse_llm_response,
 )
+from ui.style import apply_page_style, callout  # noqa: E402
 
 DEMO_DRAFT = (
     "We study graph contrastive learning for collaborative filtering under sparse "
@@ -35,13 +36,15 @@ DEMO_DRAFT = (
 )
 
 st.set_page_config(page_title="相关工作 · GNN-RecSys", layout="wide")
+apply_page_style()
 st.title("✍️ 相关工作草稿")
 st.caption(
     "粘贴一段草稿想法或摘要 → 系统通过 hybrid 检索召回 top 候选论文,加载它们的"
     "方法卡,并请 LLM 生成一段带 [N] 引用标记的连贯相关工作段落。"
 )
 
-if st.button("加载 demo 摘要"):
+load_demo = st.button("加载 demo 摘要")
+if load_demo:
     st.session_state["related_work_draft"] = DEMO_DRAFT
 
 user_input = st.text_area(
@@ -63,11 +66,22 @@ generate = st.button(
     disabled=not user_input.strip(),
 )
 
+if not user_input.strip():
+    callout(
+        "等待草稿",
+        "粘贴你的 idea 或摘要后再生成。LLM 调用只会在你点击按钮后发生。",
+        tone="gray",
+    )
+
 if generate:
     with st.spinner("正在召回候选论文..."):
         retrieved = api.search(user_input.strip(), mode="paper", method="hybrid", k=n_citations)
     if not retrieved:
-        st.warning("检索返回 0 个候选。请尝试更长 / 更具体的草稿。")
+        callout(
+            "检索返回 0 个候选",
+            "请尝试更长、更具体的草稿,尤其补充模型机制、任务和数据场景。",
+            tone="orange",
+        )
         st.stop()
 
     st.subheader(f"已召回 {len(retrieved)} 篇候选论文")
@@ -82,13 +96,17 @@ if generate:
 
     st.subheader("LLM 调用")
     if not nlp_config.LLM_API_KEY:
-        st.error("`LLM_API_KEY` 未配置。请按 `nlp/HANDOFF.md` 在 `.env` 中设置,然后重新加载页面。")
+        callout(
+            "LLM_API_KEY 未配置",
+            "候选论文已经召回;如需生成段落,请按 nlp/HANDOFF.md 在 .env 中配置 key 后重新加载页面。",
+            tone="orange",
+        )
         st.stop()
 
     try:
         client = api.get_llm_client()
     except RuntimeError as e:
-        st.error(str(e))
+        callout("无法初始化 LLM 客户端", str(e), tone="red")
         st.stop()
 
     with st.spinner(f"正在调用 {nlp_config.LLM_MODEL} ..."):
@@ -101,7 +119,7 @@ if generate:
             )
             raw = resp.choices[0].message.content or ""
         except Exception as e:
-            st.error(f"LLM 调用失败:{e}")
+            callout("LLM 调用失败", str(e), tone="red")
             st.stop()
 
     parsed = parse_llm_response(raw)
@@ -110,17 +128,29 @@ if generate:
 
     st.subheader("生成的段落")
     if parsed.get("_parse_error"):
-        st.warning("LLM 返回了非 JSON 输出(已启用解析回退)。下方显示原始文本。")
+        callout(
+            "LLM 返回了非 JSON 输出",
+            "页面已启用解析回退。请在事实核查区查看原始响应,必要时继续迭代 prompt。",
+            tone="orange",
+        )
     st.markdown(paragraph)
 
     markers = extract_citation_markers(paragraph)
     if markers:
         st.caption(f"段落中发现的引用标记:{markers}")
+        valid_markers = set(range(1, len(retrieved) + 1))
+        out_of_range = [m for m in markers if m not in valid_markers]
+        if out_of_range:
+            callout(
+                "引用标记越界",
+                f"这些标记没有对应召回论文:{out_of_range}。请检查原始 LLM 响应或继续调 prompt。",
+                tone="red",
+            )
 
     st.subheader("参考文献")
     paper_by_id = api.get_papers_by_id()
     if not references:
-        st.info("LLM 未返回参考文献列表——见下方事实核查。")
+        callout("缺少参考文献列表", "LLM 未返回 references 字段;见下方事实核查。", tone="orange")
     else:
         for ref in references:
             n = ref.get("n")

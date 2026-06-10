@@ -14,8 +14,10 @@ import streamlit as st  # noqa: E402
 from ui import api  # noqa: E402
 from ui.components.graph_view import render_graph  # noqa: E402
 from ui.query_params import get_param, set_params  # noqa: E402
+from ui.style import apply_page_style, callout  # noqa: E402
 
 st.set_page_config(page_title="引文图 · GNN-RecSys", layout="wide")
+apply_page_style()
 st.title("🕸 引文图")
 st.caption(
     "选择一个锚点论文,然后运行三种推理查询之一。每条结果都带有路径解释——即系统返回它的“原因”。"
@@ -63,7 +65,11 @@ elif opposing_clicked:
 
 query_state = st.session_state.get("_graph_query")
 if not query_state or query_state[1] != anchor_pid:
-    st.info("点击上方的查询按钮以查看推理轨迹。")
+    callout(
+        "选择一种图推理",
+        "建议演示顺序:祖先 → 跨域同机制 → 对立方法。对立方法目前会显示机制距离 fallback 说明。",
+        tone="gray",
+    )
     st.stop()
 
 query_kind, _ = query_state
@@ -85,16 +91,19 @@ with st.spinner("正在基于引文图推理..."):
 st.subheader(kind_label)
 
 if not results:
-    st.warning(
-        "无结果——见 `retrieval/HANDOFF.md`(图推理、OUT 稀疏性)。请换一篇更新的论文作为锚点。"
+    callout(
+        "当前锚点没有可展示路径",
+        "这通常是语料内引用边太稀疏导致的,尤其是经典 foundational papers。请换一篇更新的论文作为锚点。",
+        tone="orange",
     )
     st.stop()
 
 if query_kind == "opposing":
-    st.caption(
-        "ℹ️ 对立方法目前运行在**机制距离回退**上——磁盘上尚无逐边意图元数据。每条结果"
-        "按其与锚点在 1 跳邻居(cites ∪ cited-by)上的 `1 - similarity` 排序;在排除空"
-        "方法卡的基础上,再过滤掉综述类标题的论文。下方的解释横幅会标明这一回退。"
+    callout(
+        "对立方法是 fallback",
+        "磁盘上还没有逐边 citation intent,因此这里按 1-hop 邻居上的机制距离排序,并过滤综述类标题。"
+        "不要把它讲成真正的“观点反对”。",
+        tone="orange",
     )
 
 # Two-column layout: graph on the left, ranked list on the right.
@@ -105,7 +114,7 @@ with col_g:
     if paths:
         render_graph(anchor_pid, paths, papers, height=520)
     else:
-        st.info("图视图不可用(未返回路径)。")
+        callout("图视图不可用", "后端返回了候选结果,但没有可绘制的路径。", tone="gray")
 
 with col_l:
     st.markdown("#### 排序结果 + 原因")
