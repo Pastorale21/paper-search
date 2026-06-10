@@ -31,10 +31,7 @@ _FIELD_LABELS = {
 
 papers = api.get_papers_by_id()
 options = sorted(papers.values(), key=lambda p: -int(p.get("citation_count") or 0))
-labels = [
-    f"[{p.get('citation_count', 0):>5} 引用] {p.get('title') or '?'} ({p.get('year') or '?'})"
-    for p in options
-]
+labels = [api.paper_option_label(p) for p in options]
 ids = [p["paper_id"] for p in options]
 
 query_pid = get_param("paper_id")
@@ -170,3 +167,12 @@ if st.session_state.get("_run_match_for") == selected_pid and card is not None:
                     st.caption(f"**骨干网络:** {cand_card.backbone} · **损失:** {cand_card.loss}")
                 with st.expander("摘要"):
                     st.write(paper.get("abstract") or "_(本地无摘要)_")
+                action_cols = st.columns([1, 1, 4])
+                if action_cols[0].button("设为锚点", key=f"match_anchor_{pid}_{i}"):
+                    st.session_state["selected_paper_id"] = pid
+                    set_params(paper_id=pid)
+                    st.rerun()
+                if action_cols[1].button("在图中查看", key=f"match_graph_{pid}_{i}"):
+                    st.session_state["selected_paper_id"] = pid
+                    set_params(paper_id=pid)
+                    st.switch_page("pages/3_🕸_引文图.py")

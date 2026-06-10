@@ -217,6 +217,15 @@ def test_selected_paper_link_hint_is_copyable():
     assert selected_paper_link_hint("W123") == "?paper_id=W123"
 
 
+def test_paper_option_label_formats_selectbox_entries():
+    """Paper selectboxes share one compact label formatter."""
+    from ui import api
+
+    assert api.paper_option_label({"citation_count": 42, "title": "Test Paper", "year": 2024}) == (
+        "[   42 引用] Test Paper (2024)"
+    )
+
+
 def test_cache_health_reports_demo_artifacts(monkeypatch, tmp_path):
     """Landing page can check cache readiness before loading heavier resources."""
     from nlp import config as nlp_config

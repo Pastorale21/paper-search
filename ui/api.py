@@ -296,5 +296,13 @@ def method_card_to_dict(card: MethodCard | None) -> dict | None:
     return asdict(card)
 
 
+def paper_option_label(paper: dict) -> str:
+    """Format one paper for selectbox options."""
+    cites = int(paper.get("citation_count") or 0)
+    title = paper.get("title") or "?"
+    year = paper.get("year") or "?"
+    return f"[{cites:>5} 引用] {title} ({year})"
+
+
 def project_root() -> Path:
     return spike_config.CACHE_DIR.parent.parent

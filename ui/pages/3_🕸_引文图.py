@@ -25,10 +25,7 @@ st.caption(
 
 papers = api.get_papers_by_id()
 options = sorted(papers.values(), key=lambda p: -int(p.get("citation_count") or 0))
-labels = [
-    f"[{p.get('citation_count', 0):>5} 引用] {p.get('title') or '?'} ({p.get('year') or '?'})"
-    for p in options
-]
+labels = [api.paper_option_label(p) for p in options]
 ids = [p["paper_id"] for p in options]
 
 query_pid = get_param("paper_id")
@@ -128,7 +125,13 @@ with col_l:
             st.caption(f"`{r.paper_id}` · 分数 `{r.score:.3f}`")
             for p in r.paths[:2]:
                 st.markdown(f"› {p.explanation}")
-            if st.button("查看方法卡", key=f"graph_result_card_{r.paper_id}_{i}"):
+            action_cols = st.columns([1, 1])
+            if action_cols[0].button("查看方法卡", key=f"graph_result_card_{r.paper_id}_{i}"):
                 st.session_state["selected_paper_id"] = r.paper_id
                 set_params(paper_id=r.paper_id)
                 st.switch_page("pages/2_📋_方法卡.py")
+            if action_cols[1].button("设为锚点", key=f"graph_result_anchor_{r.paper_id}_{i}"):
+                st.session_state["selected_paper_id"] = r.paper_id
+                st.session_state.pop("_graph_query", None)
+                set_params(paper_id=r.paper_id)
+                st.rerun()

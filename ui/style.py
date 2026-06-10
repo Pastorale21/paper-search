@@ -116,16 +116,3 @@ def section_label(text: str) -> None:
         f'<div class="paper-section-label">{html.escape(text)}</div>',
         unsafe_allow_html=True,
     )
-
-
-def mini_card(title: str, body: str) -> None:
-    """Render a compact card for dense evidence lists."""
-    st.markdown(
-        f"""
-        <div class="paper-mini-card">
-          <div class="paper-mini-title">{html.escape(title)}</div>
-          <div class="paper-mini-body">{html.escape(body)}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
