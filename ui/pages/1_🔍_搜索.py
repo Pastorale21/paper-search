@@ -26,6 +26,15 @@ initial_method = get_param("method", "hybrid")
 initial_query = get_param("query", "") or ""
 initial_k = get_int_param("k", 10, allowed=range(3, 21))
 method_options = ["hybrid", "dense", "bm25", "dense_rerank"]
+METHOD_NOTES = {
+    "hybrid": (
+        "主展示方法:RRF 融合 dense、BM25 和 method_match。当前 eval 结论是 hybrid "
+        "在 paper-query same subset 上略高于 dense。"
+    ),
+    "dense": "语义检索基线:适合主题相关召回,但在同主题簇内区分机制相似论文时容易饱和。",
+    "bm25": "词面稀疏检索基线:适合捕捉明确术语、模型名或数据集名,不理解机制语义。",
+    "dense_rerank": "负面对照:当前 cross-encoder 默认不用于 hybrid,因为现有 eval 中它会伤害学术机制匹配。",
+}
 
 DEMO_SHORT_QUERY = "graph contrastive learning for recommendation"
 DEMO_PAPER_QUERY = (
@@ -63,6 +72,7 @@ with st.container(border=True):
         help="Hybrid 通过 RRF 融合 dense + BM25 + method_match。只有 hybrid 会为每条结果生成检索信号标签。",
     )
     top_k = cols[1].slider("返回数量 (Top-K)", min_value=3, max_value=20, value=initial_k)
+    meta(METHOD_NOTES[method])
 
     placeholder = (
         "如: Collaborative filtering benefits from graph convolution..."

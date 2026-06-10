@@ -14,7 +14,7 @@ import streamlit as st  # noqa: E402
 from ui import api  # noqa: E402
 from ui.components.graph_view import render_graph  # noqa: E402
 from ui.query_params import get_param, selected_paper_link_hint, set_params  # noqa: E402
-from ui.style import apply_page_style, callout  # noqa: E402
+from ui.style import apply_page_style, callout, meta  # noqa: E402
 
 st.set_page_config(page_title="引文图 · GNN-RecSys", layout="wide")
 apply_page_style()
@@ -53,6 +53,12 @@ col_a, col_b, col_c = st.columns(3)
 ancestors_clicked = col_a.button("🌳 祖先", use_container_width=True)
 crossdomain_clicked = col_b.button("🌐 跨域同机制", use_container_width=True)
 opposing_clicked = col_c.button("⚔️ 对立方法", use_container_width=True)
+with col_a:
+    meta("沿引用边找方法来源;经典论文可能因 out-edge 稀疏返回空。")
+with col_b:
+    meta("找不同子域中机制相近的论文,适合展示跨域发现。")
+with col_c:
+    meta("当前为机制距离 fallback,不是严格观点反对。")
 
 if ancestors_clicked:
     st.session_state["_graph_query"] = ("ancestors", anchor_pid)
