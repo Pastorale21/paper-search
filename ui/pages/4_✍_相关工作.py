@@ -43,6 +43,12 @@ st.caption(
     "粘贴一段草稿想法或摘要 → 系统通过 hybrid 检索召回 top 候选论文,加载它们的"
     "方法卡,并请 LLM 生成一段带 [N] 引用标记的连贯相关工作段落。"
 )
+if not api.is_llm_configured():
+    callout(
+        "生成暂未启用",
+        "当前未配置 LLM_API_KEY。你仍然可以召回候选论文并检查证据;配置 key 后再生成段落。",
+        tone="gray",
+    )
 
 
 def _render_candidate(index: int, item: dict) -> None:
@@ -134,6 +140,8 @@ if retrieve:
 
 if retrieved:
     st.subheader(f"已召回 {len(retrieved)} 篇候选论文")
+    cards_available = sum(1 for item in retrieved if item.get("method_card") is not None)
+    st.caption(f"其中 {cards_available}/{len(retrieved)} 篇带有本地方法卡证据。")
     for i, r in enumerate(retrieved, 1):
         _render_candidate(i, r)
 elif user_input.strip():
