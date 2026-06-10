@@ -14,7 +14,7 @@ import streamlit as st  # noqa: E402
 from ui import api  # noqa: E402
 from ui.components.paper_card import render_paper_card  # noqa: E402
 from ui.query_params import get_int_param, get_param, set_params  # noqa: E402
-from ui.style import apply_page_style, callout  # noqa: E402
+from ui.style import apply_page_style, callout, meta  # noqa: E402
 
 st.set_page_config(page_title="搜索 · GNN-RecSys", layout="wide")
 apply_page_style()
@@ -41,6 +41,9 @@ if demo_cols[0].button("加载短查询", use_container_width=True):
 if demo_cols[1].button("加载论文式查询", use_container_width=True):
     set_params(query=DEMO_PAPER_QUERY, mode="paper", method="hybrid", k=10)
     st.rerun()
+
+if initial_query:
+    meta(f"当前深链查询: mode={initial_mode}, method={initial_method}, k={initial_k}")
 
 with st.container(border=True):
     mode_label = st.radio(
@@ -79,11 +82,36 @@ if not query.strip():
         "输入一个研究方向、机制描述或论文摘要。hybrid 模式会同时展示 dense、BM25 和 method_match 的召回证据。",
         tone="gray",
     )
+elif not submitted and not st.session_state.get("_last_search"):
+    callout(
+        "查询已就绪",
+        "点击“搜索”运行当前查询。运行后结果会保留在本页,方便继续跳转到方法卡或引文图。",
+        tone="blue",
+    )
 
 if submitted:
     set_params(query=query.strip(), mode=mode, method=method, k=top_k)
     with st.spinner("正在加载索引并检索候选论文...首次运行可能需要几十秒"):
         results = api.search(query.strip(), mode=mode, method=method, k=top_k)
+    st.session_state["_last_search"] = {
+        "query": query.strip(),
+        "mode": mode,
+        "method": method,
+        "k": top_k,
+        "results": results,
+    }
+else:
+    cached = st.session_state.get("_last_search")
+    same_search = (
+        cached
+        and cached.get("query") == query.strip()
+        and cached.get("mode") == mode
+        and cached.get("method") == method
+        and cached.get("k") == top_k
+    )
+    results = cached["results"] if same_search else None
+
+if results is not None:
     if not results:
         callout(
             "没有找到结果",
