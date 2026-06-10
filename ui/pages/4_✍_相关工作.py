@@ -87,6 +87,7 @@ target_words = cols[1].slider("目标段落长度(词数)", min_value=150, max_v
 
 st.divider()
 
+st.subheader("1. 召回证据")
 retrieve = st.button(
     "召回候选论文",
     type="secondary",
@@ -101,8 +102,9 @@ same_retrieval = (
 retrieved = cached["results"] if same_retrieval else None
 stale_retrieval = bool(cached and not same_retrieval)
 
+st.subheader("2. 生成段落")
 generate = st.button(
-    "生成相关工作段落",
+    "调用 LLM 生成相关工作段落",
     type="primary",
     disabled=not user_input.strip() or not retrieved,
 )
@@ -143,7 +145,7 @@ elif user_input.strip():
         )
     callout(
         "候选论文尚未召回",
-        "先点击“召回候选论文”查看证据列表。确认候选合理后,再点击“生成相关工作段落”。",
+        "先点击“召回候选论文”查看证据列表。确认候选合理后,再点击“调用 LLM 生成相关工作段落”。",
         tone="blue",
     )
 
@@ -159,7 +161,7 @@ if generate and retrieved:
     if not api.is_llm_configured():
         callout(
             "LLM_API_KEY 未配置",
-            "候选论文已经召回;如需生成段落,请按 nlp/HANDOFF.md 在 .env 中配置 key 后重新加载页面。",
+            "候选论文证据仍可展示;如需生成段落,请按 nlp/HANDOFF.md 在 .env 中配置 key 后重新加载页面。",
             tone="orange",
         )
         st.stop()
