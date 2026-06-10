@@ -217,6 +217,30 @@ def test_selected_paper_link_hint_is_copyable():
     assert selected_paper_link_hint("W123") == "?paper_id=W123"
 
 
+def test_cache_health_reports_demo_artifacts(monkeypatch, tmp_path):
+    """Landing page can check cache readiness before loading heavier resources."""
+    from nlp import config as nlp_config
+    from spike import config as spike_config
+    from ui import api
+
+    papers = tmp_path / "papers.json"
+    papers.write_text("[]", encoding="utf-8")
+    cards = tmp_path / "method_cards"
+    cards.mkdir()
+
+    monkeypatch.setattr(spike_config, "PAPERS_JSON", papers)
+    monkeypatch.setattr(spike_config, "FAISS_INDEX", tmp_path / "missing.index")
+    monkeypatch.setattr(spike_config, "GRAPH_PKL", tmp_path / "missing.pkl")
+    monkeypatch.setattr(nlp_config, "METHOD_CARDS_DIR", cards)
+
+    assert api.cache_health() == {
+        "papers": True,
+        "faiss_index": False,
+        "citation_graph": False,
+        "method_cards_dir": True,
+    }
+
+
 def test_filter_survey_titles_drops_review_papers(monkeypatch):
     """The Tab 3 belt-and-suspenders filter drops papers with 'survey' / 'review' in the title."""
     from retrieval.graph_reason import ReasoningResult

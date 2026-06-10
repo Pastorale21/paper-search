@@ -38,6 +38,16 @@ callout(
 )
 
 st.subheader("语料与覆盖")
+health = api.cache_health()
+missing = [name for name, ok in health.items() if not ok]
+if missing:
+    callout(
+        "本地缓存不完整",
+        "缺少: " + "、".join(missing) + "。请先运行 `uv run python -m spike` 重建演示缓存。",
+        tone="orange",
+    )
+    st.stop()
+
 stats = api.corpus_stats()
 cols = st.columns(4)
 cols[0].metric("语料论文数", f"{stats['papers']:,}")

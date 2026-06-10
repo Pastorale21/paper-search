@@ -277,6 +277,16 @@ def corpus_stats() -> dict[str, int]:
     }
 
 
+def cache_health() -> dict[str, bool]:
+    """Report whether demo-critical cache artifacts are present on disk."""
+    return {
+        "papers": spike_config.PAPERS_JSON.exists(),
+        "faiss_index": spike_config.FAISS_INDEX.exists(),
+        "citation_graph": spike_config.GRAPH_PKL.exists(),
+        "method_cards_dir": nlp_config.METHOD_CARDS_DIR.exists(),
+    }
+
+
 # --- Helpers for the UI ------------------------------------------------------------------
 
 
