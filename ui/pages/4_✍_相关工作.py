@@ -99,6 +99,7 @@ same_retrieval = (
     and cached.get("n_citations") == n_citations
 )
 retrieved = cached["results"] if same_retrieval else None
+stale_retrieval = bool(cached and not same_retrieval)
 
 generate = st.button(
     "生成相关工作段落",
@@ -134,11 +135,22 @@ if retrieved:
     for i, r in enumerate(retrieved, 1):
         _render_candidate(i, r)
 elif user_input.strip():
+    if stale_retrieval:
+        callout(
+            "候选已过期",
+            "草稿或引用数量已变化。请重新召回候选论文,避免用旧证据生成段落。",
+            tone="orange",
+        )
     callout(
         "候选论文尚未召回",
         "先点击“召回候选论文”查看证据列表。确认候选合理后,再点击“生成相关工作段落”。",
         tone="blue",
     )
+
+if cached:
+    if st.button("清除候选缓存"):
+        st.session_state.pop("_related_work_retrieval", None)
+        st.rerun()
 
 if generate and retrieved:
     messages = build_messages(user_input.strip(), retrieved, target_words=target_words)
