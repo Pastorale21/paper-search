@@ -111,7 +111,12 @@ def test_api_search_bm25_method_has_none_breakdown(monkeypatch):
 
 def test_related_work_prompt_build_messages_and_parse():
     """build_messages() requires no network; parser handles fenced JSON + missing keys."""
-    from ui.related_work_prompt import build_messages, extract_citation_markers, parse_llm_response
+    from ui.related_work_prompt import (
+        build_messages,
+        extract_citation_markers,
+        parse_llm_response,
+        validate_references,
+    )
 
     retrieved = [
         {
@@ -153,6 +158,16 @@ def test_related_work_prompt_build_messages_and_parse():
 
     # Citation-marker extractor preserves order and dedupes.
     assert extract_citation_markers("Foo [1], bar [2], also [1] again.") == [1, 2]
+
+    issues = validate_references(
+        markers=[1, 3],
+        references=[{"n": 1, "paper_id": "W2"}, {"n": 2, "paper_id": "W2"}],
+        retrieved_papers=retrieved,
+    )
+    assert "引用标记越界:[3]" in issues
+    assert "段落中出现但 references 缺失:[3]" in issues
+    assert "references 中存在未被段落引用的编号:[2]" in issues
+    assert "[1] paper_id 应为 W1,实际为 W2" in issues
 
 
 def test_related_work_parse_fallback_on_malformed_json():

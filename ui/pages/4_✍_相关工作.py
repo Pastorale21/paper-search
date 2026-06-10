@@ -22,6 +22,7 @@ from ui.related_work_prompt import (  # noqa: E402
     build_messages,
     extract_citation_markers,
     parse_llm_response,
+    validate_references,
 )
 from ui.style import apply_page_style, callout  # noqa: E402
 
@@ -138,14 +139,13 @@ if generate:
     markers = extract_citation_markers(paragraph)
     if markers:
         st.caption(f"段落中发现的引用标记:{markers}")
-        valid_markers = set(range(1, len(retrieved) + 1))
-        out_of_range = [m for m in markers if m not in valid_markers]
-        if out_of_range:
-            callout(
-                "引用标记越界",
-                f"这些标记没有对应召回论文:{out_of_range}。请检查原始 LLM 响应或继续调 prompt。",
-                tone="red",
-            )
+    reference_issues = validate_references(markers, references, retrieved)
+    if reference_issues:
+        callout(
+            "引用一致性需要检查",
+            "；".join(reference_issues),
+            tone="red",
+        )
 
     st.subheader("参考文献")
     paper_by_id = api.get_papers_by_id()
