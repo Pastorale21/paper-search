@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from ui.components.reason_tags import render_reason_tags
+from ui.query_params import set_params
 from ui.style import meta
 
 
@@ -50,7 +51,9 @@ def render_paper_card(
             a, b, _ = st.columns([1, 1, 4])
             if a.button("📋 方法卡", key=f"{action_prefix}mc_{pid}"):
                 st.session_state["selected_paper_id"] = pid
+                set_params(paper_id=pid)
                 st.switch_page("pages/2_📋_方法卡.py")
             if b.button("🕸 在图中查看", key=f"{action_prefix}gr_{pid}"):
                 st.session_state["selected_paper_id"] = pid
+                set_params(paper_id=pid)
                 st.switch_page("pages/3_🕸_引文图.py")

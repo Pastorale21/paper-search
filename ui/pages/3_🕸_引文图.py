@@ -13,7 +13,7 @@ import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
 from ui.components.graph_view import render_graph  # noqa: E402
-from ui.query_params import get_param, set_params  # noqa: E402
+from ui.query_params import get_param, selected_paper_link_hint, set_params  # noqa: E402
 from ui.style import apply_page_style, callout  # noqa: E402
 
 st.set_page_config(page_title="引文图 · GNN-RecSys", layout="wide")
@@ -48,6 +48,7 @@ set_params(paper_id=anchor_pid)
 st.markdown(
     f"**锚点:** {anchor.get('title') or '?'} · {anchor.get('year') or '?'} · `{anchor_pid}`"
 )
+st.caption(f"深链参数: `{selected_paper_link_hint(anchor_pid)}`")
 
 # Button order per the eval feedback: strongest demo (Ancestors) → mid (Cross-domain) →
 # weakest fallback (Opposing) last.
@@ -127,3 +128,7 @@ with col_l:
             st.caption(f"`{r.paper_id}` · 分数 `{r.score:.3f}`")
             for p in r.paths[:2]:
                 st.markdown(f"› {p.explanation}")
+            if st.button("查看方法卡", key=f"graph_result_card_{r.paper_id}_{i}"):
+                st.session_state["selected_paper_id"] = r.paper_id
+                set_params(paper_id=r.paper_id)
+                st.switch_page("pages/2_📋_方法卡.py")

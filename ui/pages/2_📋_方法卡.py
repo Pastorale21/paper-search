@@ -12,7 +12,7 @@ if str(_ROOT) not in sys.path:
 import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
-from ui.query_params import get_param, set_params  # noqa: E402
+from ui.query_params import get_param, selected_paper_link_hint, set_params  # noqa: E402
 from ui.style import apply_page_style, callout, section_label  # noqa: E402
 
 st.set_page_config(page_title="方法卡 · GNN-RecSys", layout="wide")
@@ -58,6 +58,7 @@ card = api.load_method_card(selected_pid)
 
 st.markdown(f"### {selected.get('title') or '?'} · {selected.get('year') or '?'}")
 st.caption(f"`{selected_pid}` · {selected.get('citation_count', 0):,} 次引用")
+st.caption(f"深链参数: `{selected_paper_link_hint(selected_pid)}`")
 
 col_card, col_abs = st.columns([3, 2])
 

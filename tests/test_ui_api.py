@@ -210,6 +210,13 @@ def test_api_exposes_llm_config_for_ui(monkeypatch):
     assert api.llm_model_name() == "test-model"
 
 
+def test_selected_paper_link_hint_is_copyable():
+    """The UI exposes a compact query string for selected-paper deep links."""
+    from ui.query_params import selected_paper_link_hint
+
+    assert selected_paper_link_hint("W123") == "?paper_id=W123"
+
+
 def test_filter_survey_titles_drops_review_papers(monkeypatch):
     """The Tab 3 belt-and-suspenders filter drops papers with 'survey' / 'review' in the title."""
     from retrieval.graph_reason import ReasoningResult

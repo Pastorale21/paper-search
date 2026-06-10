@@ -36,3 +36,8 @@ def set_params(**params: str | int | None) -> None:
             st.query_params.pop(key, None)
         else:
             st.query_params[key] = str(value)
+
+
+def selected_paper_link_hint(paper_id: str) -> str:
+    """Return a short copyable query string for linking to the selected paper."""
+    return f"?paper_id={paper_id}"
