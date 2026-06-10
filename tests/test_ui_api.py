@@ -198,6 +198,18 @@ def test_api_get_llm_client_raises_without_key(monkeypatch):
         api.get_llm_client()
 
 
+def test_api_exposes_llm_config_for_ui(monkeypatch):
+    """Pages read LLM display/config state through ``ui.api`` instead of importing NLP config."""
+    from nlp import config as nlp_config
+    from ui import api
+
+    monkeypatch.setattr(nlp_config, "LLM_API_KEY", "test-key")
+    monkeypatch.setattr(nlp_config, "LLM_MODEL", "test-model")
+
+    assert api.is_llm_configured() is True
+    assert api.llm_model_name() == "test-model"
+
+
 def test_filter_survey_titles_drops_review_papers(monkeypatch):
     """The Tab 3 belt-and-suspenders filter drops papers with 'survey' / 'review' in the title."""
     from retrieval.graph_reason import ReasoningResult

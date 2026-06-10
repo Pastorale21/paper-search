@@ -92,6 +92,16 @@ def get_llm_client():
     return OpenAI(api_key=nlp_config.LLM_API_KEY, base_url=nlp_config.LLM_BASE_URL)
 
 
+def is_llm_configured() -> bool:
+    """Return whether the paid LLM surface can be called by the UI."""
+    return bool(nlp_config.LLM_API_KEY)
+
+
+def llm_model_name() -> str:
+    """Return the configured chat model name for display only."""
+    return nlp_config.LLM_MODEL
+
+
 # --- Method cards on disk -----------------------------------------------------------------
 
 

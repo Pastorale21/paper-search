@@ -16,7 +16,6 @@ if str(_ROOT) not in sys.path:
 
 import streamlit as st  # noqa: E402
 
-from nlp import config as nlp_config  # noqa: E402
 from ui import api  # noqa: E402
 from ui.components.reason_tags import render_reason_tags  # noqa: E402
 from ui.related_work_prompt import (  # noqa: E402
@@ -119,7 +118,7 @@ if generate:
     messages = build_messages(user_input.strip(), retrieved, target_words=target_words)
 
     st.subheader("LLM 调用")
-    if not nlp_config.LLM_API_KEY:
+    if not api.is_llm_configured():
         callout(
             "LLM_API_KEY 未配置",
             "候选论文已经召回;如需生成段落,请按 nlp/HANDOFF.md 在 .env 中配置 key 后重新加载页面。",
@@ -133,10 +132,10 @@ if generate:
         callout("无法初始化 LLM 客户端", str(e), tone="red")
         st.stop()
 
-    with st.spinner(f"正在调用 {nlp_config.LLM_MODEL} ..."):
+    with st.spinner(f"正在调用 {api.llm_model_name()} ..."):
         try:
             resp = client.chat.completions.create(
-                model=nlp_config.LLM_MODEL,
+                model=api.llm_model_name(),
                 messages=messages,
                 temperature=0.2,
                 response_format={"type": "json_object"},
