@@ -87,10 +87,23 @@ target_words = cols[1].slider("目标段落长度(词数)", min_value=150, max_v
 
 st.divider()
 
+retrieve = st.button(
+    "召回候选论文",
+    type="secondary",
+    disabled=not user_input.strip(),
+)
+cached = st.session_state.get("_related_work_retrieval")
+same_retrieval = (
+    cached
+    and cached.get("draft") == user_input.strip()
+    and cached.get("n_citations") == n_citations
+)
+retrieved = cached["results"] if same_retrieval else None
+
 generate = st.button(
     "生成相关工作段落",
     type="primary",
-    disabled=not user_input.strip(),
+    disabled=not user_input.strip() or not retrieved,
 )
 
 if not user_input.strip():
@@ -100,9 +113,14 @@ if not user_input.strip():
         tone="gray",
     )
 
-if generate:
+if retrieve:
     with st.spinner("正在召回候选论文..."):
         retrieved = api.search(user_input.strip(), mode="paper", method="hybrid", k=n_citations)
+    st.session_state["_related_work_retrieval"] = {
+        "draft": user_input.strip(),
+        "n_citations": n_citations,
+        "results": retrieved,
+    }
     if not retrieved:
         callout(
             "检索返回 0 个候选",
@@ -111,10 +129,18 @@ if generate:
         )
         st.stop()
 
+if retrieved:
     st.subheader(f"已召回 {len(retrieved)} 篇候选论文")
     for i, r in enumerate(retrieved, 1):
         _render_candidate(i, r)
+elif user_input.strip():
+    callout(
+        "候选论文尚未召回",
+        "先点击“召回候选论文”查看证据列表。确认候选合理后,再点击“生成相关工作段落”。",
+        tone="blue",
+    )
 
+if generate and retrieved:
     messages = build_messages(user_input.strip(), retrieved, target_words=target_words)
 
     st.subheader("LLM 调用")
