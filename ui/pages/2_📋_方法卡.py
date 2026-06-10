@@ -75,6 +75,22 @@ with col_card:
         st.caption("可以先用更小的 `--top N` 试跑;成本估算见 `nlp/HANDOFF.md`。")
     else:
         section_label("机制级字段")
+        missing_core = [
+            label
+            for field, label in (
+                ("task", "任务"),
+                ("backbone", "骨干网络"),
+                ("loss", "损失"),
+                ("key_idea", "核心思想"),
+            )
+            if not getattr(card, field)
+        ]
+        if missing_core:
+            callout(
+                "方法卡字段不完整",
+                "缺失字段:" + "、".join(missing_core) + "。这会降低 standalone method_match 的稳定性。",
+                tone="orange",
+            )
         st.markdown(
             f"**🎯 任务:** {card.task or '_(空)_'}  \n"
             f"**📥 输入:** {card.input or '_(空)_'}  \n"

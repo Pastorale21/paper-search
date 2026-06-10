@@ -53,6 +53,23 @@ _CSS = """
   text-transform: uppercase;
   margin-bottom: 0.35rem;
 }
+.paper-mini-card {
+  border: 1px solid var(--paper-border);
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0.85rem 1rem;
+  margin: 0.45rem 0;
+}
+.paper-mini-title {
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+.paper-mini-body {
+  color: var(--paper-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
 div[data-testid="stHorizontalBlock"] button[kind="secondary"] {
   white-space: nowrap;
 }
@@ -97,5 +114,18 @@ def section_label(text: str) -> None:
     """Render a compact all-caps section label."""
     st.markdown(
         f'<div class="paper-section-label">{html.escape(text)}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def mini_card(title: str, body: str) -> None:
+    """Render a compact card for dense evidence lists."""
+    st.markdown(
+        f"""
+        <div class="paper-mini-card">
+          <div class="paper-mini-title">{html.escape(title)}</div>
+          <div class="paper-mini-body">{html.escape(body)}</div>
+        </div>
+        """,
         unsafe_allow_html=True,
     )

@@ -108,6 +108,8 @@ if query_kind == "opposing":
 
 # Two-column layout: graph on the left, ranked list on the right.
 col_g, col_l = st.columns([3, 2])
+path_count = sum(len(r.paths) for r in results)
+st.caption(f"返回 {len(results)} 个结果,包含 {path_count} 条可解释路径。")
 
 with col_g:
     paths = [p for r in results for p in r.paths]

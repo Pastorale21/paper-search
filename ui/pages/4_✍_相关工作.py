@@ -18,13 +18,14 @@ import streamlit as st  # noqa: E402
 
 from nlp import config as nlp_config  # noqa: E402
 from ui import api  # noqa: E402
+from ui.components.reason_tags import render_reason_tags  # noqa: E402
 from ui.related_work_prompt import (  # noqa: E402
     build_messages,
     extract_citation_markers,
     parse_llm_response,
     validate_references,
 )
-from ui.style import apply_page_style, callout  # noqa: E402
+from ui.style import apply_page_style, callout, section_label  # noqa: E402
 
 DEMO_DRAFT = (
     "We study graph contrastive learning for collaborative filtering under sparse "
@@ -43,6 +44,32 @@ st.caption(
     "粘贴一段草稿想法或摘要 → 系统通过 hybrid 检索召回 top 候选论文,加载它们的"
     "方法卡,并请 LLM 生成一段带 [N] 引用标记的连贯相关工作段落。"
 )
+
+
+def _render_candidate(index: int, item: dict) -> None:
+    """Render one retrieved paper as compact evidence for the LLM prompt."""
+    paper = item["paper"] or {}
+    card = item.get("method_card")
+    with st.container(border=True):
+        st.markdown(
+            f"**[{index}] {paper.get('title') or '?'}** · {paper.get('year') or '?'}  \n"
+            f"`{item['paper_id']}` · 分数 `{item['score']:.3f}`"
+        )
+        render_reason_tags(item.get("signal_breakdown"))
+        if card is None:
+            st.caption("本地没有方法卡;prompt 将只使用标题和年份。")
+            return
+        section_label("方法卡证据")
+        lines = []
+        if card.task:
+            lines.append(f"任务: {card.task}")
+        if card.backbone:
+            lines.append(f"骨干: {card.backbone}")
+        if card.loss:
+            lines.append(f"损失: {card.loss}")
+        if card.key_idea:
+            lines.append(f"核心思想: {card.key_idea}")
+        st.caption(" · ".join(lines) if lines else "方法卡字段为空。")
 
 load_demo = st.button("加载 demo 摘要")
 if load_demo:
@@ -87,11 +114,7 @@ if generate:
 
     st.subheader(f"已召回 {len(retrieved)} 篇候选论文")
     for i, r in enumerate(retrieved, 1):
-        paper = r["paper"] or {}
-        st.markdown(
-            f"**[{i}]** {paper.get('title') or '?'} · {paper.get('year') or '?'} · "
-            f"`{r['paper_id']}` · 分数 `{r['score']:.3f}`"
-        )
+        _render_candidate(i, r)
 
     messages = build_messages(user_input.strip(), retrieved, target_words=target_words)
 

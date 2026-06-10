@@ -49,6 +49,18 @@ cols[3].metric(
     delta=f"{stats['graph_nodes']:,} 个节点",
 )
 
+coverage_cols = st.columns(2)
+card_coverage = stats["method_cards"] / max(stats["papers"], 1)
+abstract_coverage = stats["papers_with_abstract"] / max(stats["papers"], 1)
+isolated_ratio = stats["graph_isolated"] / max(stats["graph_nodes"], 1)
+with coverage_cols[0]:
+    st.caption("方法卡覆盖")
+    st.progress(card_coverage, text=f"{stats['method_cards']:,}/{stats['papers']:,}")
+with coverage_cols[1]:
+    st.caption("摘要覆盖 / 图孤立节点")
+    st.progress(abstract_coverage, text=f"摘要 {abstract_coverage:.0%}")
+    st.progress(1 - isolated_ratio, text=f"非孤立节点 {1 - isolated_ratio:.0%}")
+
 st.divider()
 
 st.subheader("演示路线")

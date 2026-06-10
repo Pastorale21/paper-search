@@ -27,6 +27,21 @@ initial_query = get_param("query", "") or ""
 initial_k = get_int_param("k", 10, allowed=range(3, 21))
 method_options = ["hybrid", "dense", "bm25", "dense_rerank"]
 
+DEMO_SHORT_QUERY = "graph contrastive learning for recommendation"
+DEMO_PAPER_QUERY = (
+    "We study graph contrastive learning for collaborative filtering under sparse "
+    "user-item interactions. The method keeps lightweight graph propagation while "
+    "constructing contrastive views from user-item neighborhoods and item co-occurrence."
+)
+
+demo_cols = st.columns([1, 1, 4])
+if demo_cols[0].button("加载短查询", use_container_width=True):
+    set_params(query=DEMO_SHORT_QUERY, mode="short", method="hybrid", k=10)
+    st.rerun()
+if demo_cols[1].button("加载论文式查询", use_container_width=True):
+    set_params(query=DEMO_PAPER_QUERY, mode="paper", method="hybrid", k=10)
+    st.rerun()
+
 with st.container(border=True):
     mode_label = st.radio(
         "查询模式",
