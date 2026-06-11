@@ -62,8 +62,10 @@ DEFAULT_ALIASES: dict[str, str] = {
     "ccdr": "contrastive cross domain recommendation",
     "disencdr": "disentangled representations for cross domain recommendation",
     "disen cdr": "disentangled representations for cross domain recommendation",
-    "ddtcdr": "dual dynamic transfer for cross domain recommendation",
-    "ddt cdr": "dual dynamic transfer for cross domain recommendation",
+    # DDTCDR canonical title is "Deep Dual Transfer Cross Domain Recommendation" (WSDM'20);
+    # colon-prefix already catches "DDTCDR:" titles, this is the no-colon substring fallback.
+    "ddtcdr": "deep dual transfer cross domain recommendation",
+    "ddt cdr": "deep dual transfer cross domain recommendation",
     "ppgn": "preference propagation graphnet",
     "ptupcdr": "pre train user preference for cross domain recommendation",
     "ptup cdr": "pre train user preference for cross domain recommendation",
@@ -87,7 +89,9 @@ DEFAULT_ALIASES: dict[str, str] = {
     "graphrec": "graph neural networks for social recommendation",
     "sociallgn": "light graph convolution network for social recommendation",
     "social lgn": "light graph convolution network for social recommendation",
-    "diffnet plus plus": "diffnet plus plus",
+    # `_norm("DiffNet++")` collapses "++" to one "plusplus" token, so the key MUST match that
+    # (the old "diffnet plus plus" key was unreachable). See test_diffnet_plusplus_alias_key.
+    "diffnet plusplus": "diffnet plusplus",
     "dhcf": "dual channel hypergraph collaborative filtering",
     "hgcn": "hypergraph convolutional network for collaborative filtering",
     "hyperrec": "hypergraph based recommendation",
