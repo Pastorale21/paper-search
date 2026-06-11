@@ -1,56 +1,111 @@
 # Paper Search & Citation Reasoning System
 
-## 项目定位
-NLP 课程大作业(4 人组),做一个 GNN-based recsys 方向的论文语义搜索系统。
-核心差异化:**机制级检索**(method-level)+ 引文图多跳推理,而非词面/主题相似。
+> 这是 Claude Code 的项目入口(agent 指令)。面向人的项目总览 / 任务分发在 `docs/onboarding.md`,各模块细则在该模块的 `HANDOFF.md`。
+> 仓库:`github.com/Pastorale21/paper-search`(private)
 
-## 五层架构
-1. data/      论文摄入:arXiv API + Semantic Scholar API + GROBID
-2. nlp/       结构化抽取:NER、关系抽取、引文意图分类、方法卡 LLM 抽取
-3. index/     索引:FAISS 向量库 + NetworkX 引文图 + JSON 方法卡
-4. retrieval/ 在线推理:混合检索 + cross-encoder 重排 + 多跳图推理
-5. ui/        Streamlit 前端 + PyVis 图可视化
+## 项目定位
+NLP 课程大作业(4 人组),GNN-based recsys 方向的论文语义搜索系统。
+核心差异化:**机制级检索**(method-level)+ **引文图多跳推理**,而非词面 / 主题相似。
+论点:dense embedding 在同一话题簇里饱和(一堆 GNN 推荐论文余弦挤在 0.95–0.96),用 LLM 把摘要抽成结构化"方法卡"做字段级比对来破局。
+核心结果(v2-expanded-d gold set,n=30;paper-query same subset、未调参默认权重):**hybrid 0.266 nDCG@5 > dense 0.253**;standalone **method_match 0.188 暂不稳定胜过 dense**——method-card 信号是 hybrid 融合里的互补项,而非 dense 的独立替代。增益集中在 session/social 这类 cross-cluster 查询。(早期 n=5 子集上 method_match 曾报 +0.112 / hybrid +0.091,样本过小,已以 n=30 为准;细节见 `docs/eval_findings_d.md`。)
+
+## 五层架构(+ 冻结参考实现)
+运行依赖顺序:`data → (nlp ∥ retrieval) → eval / graph_reason → ui`。
+
+1. **data/** — 语料摄入与处理
+   - `sources/openalex.py` 抓 metadata/corpus、`sources/s2_contexts.py` 抓 Semantic Scholar 引用上下文句子(**目前 NotImplementedError,B 的活**)、`sources/seed_papers.py` 种子论文
+   - `parse/grobid_client.py` PDF 解析(GROBID)
+   - `corpus.py` 去重 + 质量过滤
+2. **nlp/** — 结构化抽取
+   - `method_card/`(extractor + prompts):DeepSeek 把摘要抽成方法卡(差异化核心)
+   - `scientific_ner/`(extractor + train_ner)
+   - `citation_intent/`(classifier + train_scicite):SciCite 类意图分类 background/method/comparison(**classifier 仍是 stub,B 的活**)
+3. **retrieval/** — 在线检索与推理(**不存在独立 index/ 层**;FAISS 索引 / 引文图缓存由 `spike/` 构建,落在 `data/cache/`)
+   - `dense.py`(SPECTER2)+ `bm25.py` + `method_match.py`(字段级加权余弦)+ `rerank.py`(cross-encoder,**默认禁用,见局限**)+ `hybrid.py`(RRF 融合)
+   - `graph_reason.py`:引文图多跳推理 ancestors / cross-domain / opposing
+4. **eval/** — `gold_set.py` + `gold_set.json` + `metrics.py`(nDCG@5 / MRR / Recall@10)+ `run.py`(五方法对比)+ `history.py`
+5. **ui/** — 4-tab Streamlit,**全部经 `ui/api.py` 单一后端入口**
+   - `pages/`:搜索 / 方法卡 / 引文图 / 相关工作
+   - `components/`:graph_view(PyVis)、paper_card、reason_tags
+   - `related_work_prompt.py`:Tab4 RAG prompt
+
+> **`spike/` 是冻结的 walking skeleton 参考实现,任何人不要改。** 它同时是建索引 / 建图的入口(`build_index.py`、`build_graph.py`、`embed.py`、`fetch.py`)。
 
 ## 模块 owner
-- data/      → A
-- nlp/       → B
-- retrieval/, index/ → C
-- ui/, tests/eval/   → D
+- `data/`                        → A
+- `nlp/`                         → B
+- `retrieval/`(含 graph_reason) → C
+- `eval/` + `ui/`                → D
+- `tests/` 就近归各 owner;`spike/`、`schemas.py` 全队共有
 
 ## Commands
-- `uv run python -m spike`     # 100 篇语料端到端 smoke test(必须先通过才能深做)
-- `uv run python -m data.ingest`   # 抓取 + 解析论文
-- `uv run python -m index.build`   # 建 FAISS + 引文图
-- `uv run streamlit run ui/app.py` # 起 UI(localhost:8501)
-- `uv run pytest -q`           # 单元测试
-- `uv run ruff check . && uv run black --check .`  # lint
+均在仓库根目录、用 `uv` 跑。
+
+- `KMP_DUPLICATE_LIB_OK=TRUE uv run streamlit run ui/app.py` — 起 UI(localhost:8501;macOS 需要 KMP fix)
+- `uv run python -m spike` — 端到端 smoke + **重建语料 / 索引 / 引文图缓存**(walking skeleton)
+- `uv run python -m eval.gold_set --check` — gold set 解析率检查
+- `uv run python -m eval.run --method all` — 五方法对比表(无付费)
+- `uv run pytest -q` — 全套测试(应全绿)
+- `uv run ruff check . && uv run black --check .` — lint(**提交前必跑**)
+
+> 不存在 `data.ingest` / `index.build` 这类模块,别调。摄入与建索引统一走 `spike`。
 
 ## 技术栈
 - Python 3.10+,环境用 `uv` 管理
-- transformers, sentence-transformers(SPECTER2、SciBERT)
+- transformers, sentence-transformers(SPECTER2 dense embedding、SciBERT/SciCite 意图)
 - faiss-cpu, rank_bm25, networkx
 - streamlit, pyvis
-- LLM API:DeepSeek(默认)/ Claude / OpenAI,通过环境变量切换
+- 数据源:**OpenAlex**(metadata/corpus)+ **Semantic Scholar**(引用上下文)+ **GROBID**(PDF 解析)。不是 arXiv。
+- LLM API:DeepSeek(默认)/ Claude / OpenAI,通过 `.env` 切换
+- 重训练类重依赖(transformers / datasets / accelerate)应放 `pyproject.toml` 的可选依赖组,不进核心依赖
 
 ## 数据 schema(改前必须全队同意)
 见 `schemas.py`,核心两个:`Paper` 和 `MethodCard`。
+`MethodCard` 字段(改 = method_match 崩):`task / input / output / backbone / loss / key_idea / datasets / metrics`。
+
+## 缓存策略(读清楚再操作)
+- 基准缓存(papers.json、方法卡、embeddings.npy、faiss.index、ids.json、citation_graph.pkl)**已用 allow-list 方式提交进 git**——新 clone 不用重建、不花钱直接能跑。
+- `.gitignore` 只放行这几个 canonical 文件,其余 `data/cache/*`(临时 / 中间产物)仍被忽略。
+- **缓存更新是受控操作、走 PR 提交**(默认由 A 在扩语料 / 重建后提交):别把本地随手重建的二进制 churn 提上去——二进制 merge conflict 没法解。
+- **重建语料时不要 `spike --force`**:`--force` 会覆盖 `papers.json`。正确做法是 `rm data/cache/{embeddings.npy,ids.json,faiss.index,citation_graph.pkl}` 后跑 `uv run python -m spike`(不带 force)。
+- 运行时只把缓存 load 进内存做近邻检索,SPECTER2 不会对文档侧重新编码;实时编码的只有查询本身。
+
+## 付费政策(agent 必须遵守)
+- 任何**付费 LLM 调用**(新语料的方法卡抽取、Tab4 prompt 迭代等)**由组长手动授权执行**。
+- **agent 在任何付费调用前停下**,把计划交给组长 review,不自行触发。
 
 ## 约定
-- 所有缓存数据放 `data/cache/`,**永不提交 git**(已在 .gitignore)
+- `main` 受保护,功能分支 `feat/xxx` / `fix/xxx`,PR 至少 1 个 reviewer,合并用 `--no-ff`
+- 分支保护:approval 必须来自非最后 push 者(four-eyes);commit 加 co-author trailer
 - 所有公开函数有 type hints 和单行 docstring
-- 测试文件就近放:`foo.py` ↔ `test_foo.py`
+- 测试就近放:`foo.py` ↔ `test_foo.py`
 - Commit message:祈使句、≤72 字符
-- 分支:`main` 受保护,功能分支 `feat/xxx`、`fix/xxx`,PR 至少 1 个 reviewer
+- LLM API key 统一走 `.env`,**永不写进代码**
 
 ## Do NOT
-- 不要在测试里跑 GROBID(慢且依赖 Docker),用 `tests/fixtures/` 的预解析 JSON
-- 不要提交 PDF、模型权重、任何 `data/` 下的东西
-- 不要改 `schemas.py` 不通知队友
-- 不要把 LLM API key 写进代码,统一走 `.env`
+- **不要碰 `spike/`**(冻结参考实现)
+- 不要 `spike --force`(覆盖 papers.json,见缓存策略)
+- 不要在测试里跑 GROBID(慢、依赖 Docker),用 `tests/fixtures/papers_sample.json` 的预解析 JSON
+- 不要提交 PDF、模型权重、以及 allow-list 之外的 `data/cache/` 临时产物;**别 recommit 本地重建的二进制 churn**(注意:`data/` 下的**源码**如 `corpus.py`、`sources/*.py` 是要提交的,别误删跟踪)
+- 不要改 `schemas.py` / 下列接口契约 不通知全队
+- 不要在 n=5 的 gold set 上调检索权重(过拟合;等 D 扩到 30–50 再调)
 
-## 子模块详细规则
-更细的规则在各子模块的 CLAUDE.md:
-- `data/CLAUDE.md` — GROBID、API 限速、schema
-- `nlp/CLAUDE.md`  — prompt 模板、SciCite 微调
-- `retrieval/CLAUDE.md` — 混合检索权重、图遍历
-- `ui/CLAUDE.md`   — Streamlit + PyVis 集成踩坑
+## 不能破的接口契约
+- `papers.json` schema(A 改 = 全员下游崩)
+- `MethodCard` 字段 task/input/output/backbone/loss/key_idea/datasets/metrics(B)
+- `gold_set.json` schema + `metrics.py` 函数签名(D)
+- `ui/api.py` 单一后端入口(所有 UI 调用只走它)
+- `citation_graph.pkl` 的 `intent` 边属性:写显示标签不改 key,key 永远是英文 `background` / `method` / `comparison`(B 写、graph_reason 读)
+
+## 已知坑 / 诚实局限(答辩也要说)
+- **find_opposing 目前是机制距离 fallback**——没有真 citation intent(B 的 `s2_contexts` + classifier + 标注脚本落地后才升级),别吹成已完成。
+- **cross-encoder rerank 是诚实负结果**:ms-marco 在学术机制匹配上 −0.106,默认禁用。
+- **near-dup 去重缺口**:LightGCN 有两条副本(A 的 P0)。
+- **引文图 OUT-sparsity**:奠基论文 out-edge 少,ancestors 偏"下游→上游";A 扩到 800 后改善。
+- **sub-area 推理是关键词启发式**,偶尔误判(C 的 P1 换分类器)。
+- **eval 已扩到 n=30**(v2-expanded-d):解析率 78.7%、Q13(fairness)因语料缺口跳过;趋势明确但仍受语料覆盖 / 方法卡完整度影响。standalone method_match 在 n=30 上**不再稳定胜过 dense**(见 `docs/eval_findings_d.md`),诚实结论是 hybrid > dense、method-card 为互补信号。
+
+## 索引
+- 面向人的总览 / 任务分发:`docs/onboarding.md`
+- 各模块细则:`data/HANDOFF.md`、`nlp/HANDOFF.md`、`retrieval/HANDOFF.md`、`eval/HANDOFF.md`、`ui/HANDOFF.md`
+- 脚手架 slash 命令:`.claude/commands/scaffold-*.md`

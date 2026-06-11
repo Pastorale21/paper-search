@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 
 from eval.error_analysis import print_report
-from eval.gold_set import DEFAULT_ALIASES, TitleResolver
+from eval.gold_set import DEFAULT_ALIASES, TitleResolver, _norm
 from eval.metrics import mrr, ndcg_at_k, recall_at_k
 
 
@@ -143,6 +143,12 @@ def test_title_resolver_distinguishes_plus_suffix_alias():
     resolver = TitleResolver(papers)
     assert resolver.resolve("DiffNet") == "W1"
     assert resolver.resolve("DiffNet++") == "W2"
+
+
+def test_diffnet_plusplus_alias_key_is_reachable():
+    # Regression: `_norm("DiffNet++")` collapses "++" to a single "plusplus" token, so the alias
+    # key must be "diffnet plusplus" to ever fire. The old "diffnet plus plus" key was dead code.
+    assert _norm("DiffNet++") in DEFAULT_ALIASES
 
 
 def test_title_resolver_alias_miss_blocks_acronym_substring_fallback():
