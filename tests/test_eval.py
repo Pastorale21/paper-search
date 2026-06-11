@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import sys
 
 from eval.error_analysis import print_report
 from eval.gold_set import DEFAULT_ALIASES, TitleResolver, _norm
@@ -190,3 +191,17 @@ def test_error_analysis_report_prints_low_score_context(capsys):
     assert "Low-score eval cases" in out
     assert "MissingGold" in out
     assert "  2. * G1 | Gold Paper" in out
+
+
+def test_eval_registers_method_match_norm_variants(monkeypatch):
+    """Variants must be in METHODS AND accepted by the separate --method CLI choices tuple."""
+    import eval.run as run_mod
+
+    assert "method_match_norm" in run_mod.METHODS
+    assert "method_match_norm2" in run_mod.METHODS
+
+    # The CLI choices is a second hardcoded list; verify it stays in sync by parsing an argv
+    # that selects a variant (run() stubbed so no real eval executes).
+    monkeypatch.setattr(run_mod, "run", lambda methods, output: 0)
+    monkeypatch.setattr(sys, "argv", ["eval.run", "--method", "method_match_norm2"])
+    assert run_mod.main() == 0  # raises SystemExit(2) if the choice were rejected
