@@ -119,12 +119,15 @@ def fetch_papers(query: str = config.QUERY, n: int = config.N_PAPERS) -> list[Pa
 
 def save_papers(papers: list[Paper], path: Path = config.PAPERS_JSON) -> None:
     """Write papers to cache as JSON."""
-    path.write_text(json.dumps([p.to_dict() for p in papers], ensure_ascii=False, indent=2))
+    path.write_text(
+        json.dumps([p.to_dict() for p in papers], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
 
 def load_papers(path: Path = config.PAPERS_JSON) -> list[Paper]:
     """Read papers from cache JSON."""
-    return [Paper.from_dict(d) for d in json.loads(path.read_text())]
+    return [Paper.from_dict(d) for d in json.loads(path.read_text(encoding="utf-8"))]
 
 
 def main(force: bool = False, query: str = config.QUERY, n: int = config.N_PAPERS) -> list[Paper]:

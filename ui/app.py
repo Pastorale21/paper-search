@@ -17,19 +17,35 @@ if str(_ROOT) not in sys.path:
 import streamlit as st  # noqa: E402
 
 from ui import api  # noqa: E402
+from ui.style import apply_page_style, callout, demo_card  # noqa: E402
 
 st.set_page_config(page_title="GNN-RecSys 论文检索", layout="wide")
+apply_page_style()
 st.title("GNN-RecSys 论文检索系统")
 
 st.markdown("""
-    一个论文检索系统,核心差异化在于**机制级匹配**与**引文图多跳推理**。标准稠密检索
-    在主题簇内部会饱和——top-5 余弦相似度的跨度仅约 0.006,根本无法挑出*正确的*
-    GNN 推荐论文。本系统通过比对**方法卡**(`task / backbone / loss / key_idea`)、
-    并沿意图加权路径游走引文图来打破这种平局。在 10 条查询的 gold set 上评测(同子域、
-    paper 查询):**method_match 相比 dense +0.112 nDCG@5**;**hybrid 相比 dense +0.091**。
+    这个系统面向 GNN-based recommendation 论文检索。它把语义检索、方法卡机制匹配和
+    引文图推理放在同一个工作流里,让演示不只停在“搜到相关论文”,还可以解释每篇论文为什么被召回。
     """)
 
+callout(
+    "当前可报告结论",
+    "在扩展 gold set 的 paper-query same subset 上,hybrid nDCG@5 为 0.266,略高于 dense 的 0.253。"
+    "standalone method_match 暂低于 dense,所以报告中应表述为机制级信号在融合后带来增益。",
+    tone="green",
+)
+
 st.subheader("语料与覆盖")
+health = api.cache_health()
+missing = [name for name, ok in health.items() if not ok]
+if missing:
+    callout(
+        "本地缓存不完整",
+        "缺少: " + "、".join(missing) + "。请先运行 `uv run python -m spike` 重建演示缓存。",
+        tone="orange",
+    )
+    st.stop()
+
 stats = api.corpus_stats()
 cols = st.columns(4)
 cols[0].metric("语料论文数", f"{stats['papers']:,}")
@@ -41,25 +57,42 @@ cols[3].metric(
     delta=f"{stats['graph_nodes']:,} 个节点",
 )
 
+coverage_cols = st.columns(2)
+card_coverage = stats["method_cards"] / max(stats["papers"], 1)
+abstract_coverage = stats["papers_with_abstract"] / max(stats["papers"], 1)
+isolated_ratio = stats["graph_isolated"] / max(stats["graph_nodes"], 1)
+with coverage_cols[0]:
+    st.caption("方法卡覆盖")
+    st.progress(card_coverage, text=f"{stats['method_cards']:,}/{stats['papers']:,}")
+with coverage_cols[1]:
+    st.caption("摘要覆盖 / 图孤立节点")
+    st.progress(abstract_coverage, text=f"摘要 {abstract_coverage:.0%}")
+    st.progress(1 - isolated_ratio, text=f"非孤立节点 {1 - isolated_ratio:.0%}")
+
 st.divider()
 
-st.subheader("使用说明")
-st.markdown("""
-    侧边栏有四个标签页:
-
-    1. **🔍 搜索** — 语义 + 混合检索。每条结果都带有*检索信号标签*
-       (`dense / bm25 / method_match`),便于你看清是哪个信号召回了它。
-    2. **📋 方法卡** — 每篇论文的结构化 `task / backbone / loss / key_idea`,外加一个
-       **“查找相似机制”**按钮,展示**逐字段余弦相似度**(`backbone: 0.91,
-       loss: 0.95, key_idea: 0.78`)——机制级匹配的可见证据。
-    3. **🕸 引文图** — 选一篇论文,运行三种推理查询之一
-       (**祖先 / 跨域同机制 / 对立方法**),得到一张交互式子图以及
-       人类可读的*路径解释*。
-    4. **✍️ 相关工作草稿** — 粘贴你自己的想法或摘要,基于召回论文及其方法卡
-       生成一段相关工作。
-    """)
+st.subheader("演示路线")
+route_cols = st.columns(3)
+with route_cols[0]:
+    demo_card(
+        "1. Hybrid 搜索",
+        "加载短查询后运行搜索,重点展示每条结果的 dense / BM25 / method_match 信号标签。",
+        code="?query=graph%20contrastive%20learning%20for%20recommendation&mode=short&method=hybrid&k=10",
+    )
+with route_cols[1]:
+    demo_card(
+        "2. 方法卡与图推理",
+        "从搜索结果跳到方法卡,再运行机制相似匹配;或切到引文图展示路径解释。",
+        code="?paper_id=W3004578093",
+    )
+with route_cols[2]:
+    demo_card(
+        "3. 相关工作草稿",
+        "先召回候选证据,确认论文和方法卡合理后,再手动调用 LLM 生成带 [N] 标记的段落。",
+        code="Tab 4: 召回候选论文 → 调用 LLM",
+    )
 
 st.caption(
-    "状态:demo 脚手架已搭好。视觉打磨、prompt 迭代与链接分享是模块负责人 D 的"
-    "后续任务——见 ``ui/HANDOFF.md``。"
+    "状态:demo 已具备完整链路。"
+    "交付前请运行 eval smoke check,并按 docs/eval_findings_d.md 使用最新结论。"
 )

@@ -19,7 +19,7 @@ _SIGNAL_COLORS = {
 def render_reason_tags(signal_breakdown: dict | None) -> None:
     """Render one chip per signal that surfaced the paper; skip ``None`` values."""
     if not signal_breakdown:
-        st.caption("_该方法无逐信号分解_")
+        st.caption("该方法无逐信号分解")
         return
     chips: list[str] = []
     skipped: list[str] = []
@@ -30,7 +30,7 @@ def render_reason_tags(signal_breakdown: dict | None) -> None:
             continue
         chips.append(f":{color}-badge[{signal}: {score:.3f}]")
     if chips:
-        st.caption("检索信号(哪些信号召回了该论文)")
+        st.caption("检索信号")
         st.markdown(" ".join(chips))
     if skipped:
-        st.caption("未召回该论文的信号:" + ", ".join(skipped))
+        st.caption("未召回信号: " + ", ".join(skipped))

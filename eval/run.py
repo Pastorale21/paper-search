@@ -204,6 +204,8 @@ def run(methods: list[str], output_path: Path | None) -> int:
 
     for q in gs.queries:
         gold_ids = resolved_gold[q.id]
+        if not gold_ids:
+            continue
         anchor_pid = anchor_for[q.id]
         for method in methods:
             top10 = _retrieve(
@@ -283,6 +285,12 @@ def run(methods: list[str], output_path: Path | None) -> int:
     for qid, misses in unresolved_per_query.items():
         if misses:
             print(f"  {qid}: {', '.join(misses)}")
+    skipped_empty_gold = [q.id for q in gs.queries if not resolved_gold[q.id]]
+    if skipped_empty_gold:
+        print(
+            "\nSkipped queries with 0 resolved gold "
+            f"(pure corpus gaps): {', '.join(skipped_empty_gold)}"
+        )
 
     # Save raw + history.
     EVAL_OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -292,8 +300,20 @@ def run(methods: list[str], output_path: Path | None) -> int:
         "version": "eval-v1",
         "created": stamp,
         "gold_set_version": gs.version,
+        "query_meta": {
+            q.id: {
+                "mode": q.mode,
+                "text": q.text,
+                "gold_titles": q.gold_titles,
+                "notes": q.notes,
+                "anchor_title": q.anchor_title,
+                "arxiv": q.arxiv,
+            }
+            for q in gs.queries
+        },
         "resolved_gold_per_query": {qid: sorted(pids) for qid, pids in resolved_gold.items()},
         "unresolved_per_query": unresolved_per_query,
+        "skipped_empty_gold_queries": skipped_empty_gold,
         "aggregates_full": {
             m: by_method[m]["agg"] | {"n_queries": by_method[m]["n_queries"]} for m in methods
         },

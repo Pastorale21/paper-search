@@ -1,43 +1,148 @@
 {
-  "version": "v1-seed",
-  "created": "2026-05-30",
-  "owner": "Pastorale",
-  "scope": "GNN-based recommendation; 10-query seed for module D to expand to 30-50",
+  "version": "v2-expanded-d",
+  "created": "2026-06-08",
+  "owner": "D",
+  "scope": "GNN-based recommendation; expanded 30-query gold set for mechanism-level retrieval evaluation",
   "queries": [
     {
       "id": "Q1",
       "mode": "short",
       "text": "graph contrastive learning for recommendation",
-      "gold_titles": ["SGL", "SimGCL", "NCL", "HCCF", "LightGCN"],
-      "notes": "第 5 (LightGCN) 是噪声测试 — 不是 contrastive 但是 canonical baseline,好的 rerank 应把它压到 5 名后"
+      "gold_titles": ["SGL", "SimGCL", "NCL", "HCCF", "LightGCL"],
+      "notes": "Core graph-contrastive cluster; LightGCN is intentionally excluded because it is a backbone baseline rather than a contrastive mechanism."
     },
     {
       "id": "Q2",
       "mode": "short",
       "text": "graph neural network collaborative filtering",
       "gold_titles": ["NGCF", "LightGCN", "GC-MC", "LR-GCCF", "UltraGCN"],
-      "notes": "GCN-CF 简化路径代表作,机制连续演化"
+      "notes": "Canonical graph-CF family from early graph matrix completion to simplified propagation."
     },
     {
       "id": "Q3",
       "mode": "short",
       "text": "cross-domain recommendation with graph neural network",
       "gold_titles": ["BiTGCF", "CCDR", "DisenCDR", "DDTCDR", "PPGN"],
-      "notes": "跟 ERICA 直接相关;BiTGCF 双向 transfer 跟 ERICA 对称跨域消息传递最近"
+      "notes": "Cross-domain transfer and disentanglement papers; several remain corpus-expansion signals for A."
     },
     {
       "id": "Q4",
       "mode": "short",
       "text": "knowledge graph enhanced recommendation",
       "gold_titles": ["KGAT", "KGIN", "KGCN", "RippleNet", "CKE"],
-      "notes": "第 5 (CKE) 非 GNN 也合理出现,看 rerank 怎么处理"
+      "notes": "Knowledge-aware recommendation cluster; includes both GNN propagation and KG embedding baselines."
     },
     {
       "id": "Q5",
       "mode": "short",
       "text": "self-supervised learning for recommendation",
       "gold_titles": ["SGL", "SimGCL", "S3-Rec", "CL4SRec", "MHCN"],
-      "notes": "故意跟 Q1 重叠 — 测能否区分 SSL 广义 vs graph contrastive 狭义;S3-Rec/CL4SRec 是 sequential 路径"
+      "notes": "Broad SSL query mixing graph CF, sequential, and social hypergraph SSL."
+    },
+    {
+      "id": "Q6",
+      "mode": "short",
+      "text": "sequential recommendation with graph neural networks",
+      "gold_titles": ["SR-GNN", "GC-SAN", "TAGNN", "GCE-GNN", "SURGE"],
+      "notes": "Session/sequential graph transition modeling; tests whether retrieval avoids pure user-item CF leakage."
+    },
+    {
+      "id": "Q7",
+      "mode": "short",
+      "text": "session based recommendation item transition graph",
+      "gold_titles": ["SR-GNN", "GC-SAN", "TAGNN", "FGNN", "LESSR"],
+      "notes": "Adversarial near-duplicate of Q6, focused on short anonymous sessions and item-transition graphs."
+    },
+    {
+      "id": "Q8",
+      "mode": "short",
+      "text": "social recommendation graph neural network influence propagation",
+      "gold_titles": ["DiffNet", "DiffNet++", "GraphRec", "MHCN", "SocialLGN"],
+      "notes": "Social influence and hypergraph social recommendation cluster."
+    },
+    {
+      "id": "Q9",
+      "mode": "short",
+      "text": "hypergraph neural network for recommendation",
+      "gold_titles": ["HCCF", "MHCN", "DHCF", "HGCN", "HyperRec"],
+      "notes": "Hypergraph mechanisms across collaborative filtering and social recommendation."
+    },
+    {
+      "id": "Q10",
+      "mode": "short",
+      "text": "disentangled graph collaborative filtering recommendation",
+      "gold_titles": ["DGCF", "DisenHAN", "DisenCDR", "KGIN", "DCCF"],
+      "notes": "Mechanism query for disentangled factors/intents rather than broad graph recommendation."
+    },
+    {
+      "id": "Q11",
+      "mode": "short",
+      "text": "scalable graph recommendation without expensive message passing",
+      "gold_titles": ["UltraGCN", "LightGCN", "GFCF", "PinSage", "SGL"],
+      "notes": "Scalability edge case: simplified propagation, closed-form filters, and industrial-scale graph recommenders."
+    },
+    {
+      "id": "Q12",
+      "mode": "short",
+      "text": "cold start recommendation with graph neural networks",
+      "gold_titles": ["GraphRec", "MHCN", "KCGN", "MetaHIN", "DiffNet"],
+      "notes": "Cold-start/sparsity edge case; social and KG signals should outrank pure CF when the query stresses missing interactions."
+    },
+    {
+      "id": "Q13",
+      "mode": "short",
+      "text": "fairness aware graph recommendation",
+      "gold_titles": ["FairGo", "FairRec", "NFCF", "GFair", "FairGNN"],
+      "notes": "Fairness coverage query; likely exposes corpus gaps, which should be documented rather than silently ignored."
+    },
+    {
+      "id": "Q14",
+      "mode": "short",
+      "text": "knowledge graph attention network for recommendation",
+      "gold_titles": ["KGAT", "KGCN", "CKAN", "RippleNet", "KGIN"],
+      "notes": "KG attention/propagation query; checks whether attention-specific KG papers rank above generic KG embedding baselines."
+    },
+    {
+      "id": "Q15",
+      "mode": "short",
+      "text": "contrastive learning sequential recommendation",
+      "gold_titles": ["CL4SRec", "S3-Rec", "DuoRec", "CoSeRec", "ICLRec"],
+      "notes": "Sequential SSL cluster; adversarial against graph-CF contrastive papers such as SGL and SimGCL."
+    },
+    {
+      "id": "Q16",
+      "mode": "short",
+      "text": "cross domain recommendation disentangled graph transfer",
+      "gold_titles": ["DisenCDR", "BiTGCF", "DDTCDR", "CCDR", "PPGN"],
+      "notes": "Cross-domain transfer query stressing disentangled/shared-private representations."
+    },
+    {
+      "id": "Q17",
+      "mode": "short",
+      "text": "knowledge aware social recommendation graph neural network",
+      "gold_titles": ["KCGN", "GraphRec", "DiffNet", "MHCN", "KGAT"],
+      "notes": "Mixed social+KG query; useful for detecting whether hybrid fusion overweights generic KG titles."
+    },
+    {
+      "id": "Q18",
+      "mode": "short",
+      "text": "lightweight graph convolution collaborative filtering",
+      "gold_titles": ["LightGCN", "LR-GCCF", "UltraGCN", "GFCF", "NGCF"],
+      "notes": "Light/simplified graph-CF cluster; tests ranking within closely related propagation methods."
+    },
+    {
+      "id": "Q19",
+      "mode": "short",
+      "text": "session recommendation with directed item transition graph",
+      "gold_titles": ["SR-GNN", "GC-SAN", "TAGNN", "GCE-GNN", "LESSR"],
+      "notes": "Adversarial case: should avoid LightGCN/NGCF despite shared GNN vocabulary; exclusion terms are kept out of the query text to avoid lexical drift."
+    },
+    {
+      "id": "Q20",
+      "mode": "short",
+      "text": "knowledge graph recommendation with entity relation propagation",
+      "gold_titles": ["KGAT", "KGIN", "KGCN", "RippleNet", "CKAN"],
+      "notes": "Adversarial case: should avoid DiffNet/GraphRec despite graph terminology; exclusion terms are kept out of the query text to avoid lexical drift."
     },
     {
       "id": "P1",
@@ -46,7 +151,7 @@
       "arxiv": "2002.02126",
       "text": "Collaborative filtering benefits from graph convolution, but standard GCN designs include components like feature transformation and nonlinear activation that are not essential for CF. We propose LightGCN, a simplified GCN model that retains only neighborhood aggregation, learning user and item embeddings by linearly propagating them on the user-item interaction graph and combining embeddings learned at all layers as the final representation. Experiments on four benchmarks show LightGCN outperforms NGCF substantially while being far simpler to train and tune. We analyze the rationality of each simplification empirically and theoretically.",
       "gold_titles": ["NGCF", "GC-MC", "LR-GCCF", "UltraGCN", "DGCF"],
-      "notes": "经典机制相近兄弟集群"
+      "notes": "Canonical graph-CF paper-as-query cluster."
     },
     {
       "id": "P2",
@@ -55,7 +160,7 @@
       "arxiv": "2112.08679",
       "text": "Graph contrastive learning has shown strong gains for recommendation, but the role of graph augmentations remains unclear. We empirically and theoretically analyze the effect of augmentations and find that the key driver of performance is not graph structure changes but rather the uniformity of learned embeddings. Motivated by this, we propose SimGCL, which discards graph augmentations entirely and simply adds uniform random noise to the embedding space to construct contrastive views. Despite its simplicity, SimGCL outperforms more complex graph contrastive methods on multiple benchmarks while training much faster.",
       "gold_titles": ["SGL", "NCL", "XSimGCL", "HCCF", "LightGCL"],
-      "notes": "contrastive 紧密集群;故意没放 LightGCN(是 backbone 但机制层不算 contrastive),看 rerank 是否误召"
+      "notes": "Graph contrastive paper-as-query; LightGCN should not be enough by itself."
     },
     {
       "id": "P3",
@@ -64,7 +169,7 @@
       "arxiv": "1905.07854",
       "text": "Knowledge graphs encode rich side information that can enhance recommendation, but existing methods treat KG facts independently without exploiting the relational structure. We propose KGAT, which models high-order connectivity between users, items, and KG entities through an attentive embedding propagation mechanism. By recursively aggregating neighborhood information with attention weights, KGAT explicitly learns the importance of each connection. Experiments on three KG-augmented benchmarks show consistent improvements over both KG-free and KG-aware baselines, and ablations confirm the contribution of attention and high-order propagation.",
       "gold_titles": ["KGIN", "KGCN", "CKAN", "RippleNet", "CKE"],
-      "notes": "KG 集群;看是否被 attention/GNN 关键词误导到非 KG 的 attention-rec"
+      "notes": "KG reasoning paper-as-query."
     },
     {
       "id": "P4",
@@ -73,7 +178,7 @@
       "arxiv": "1811.00855",
       "text": "Session-based recommendation predicts the next item from a short anonymous interaction sequence. Existing methods often rely on RNNs, which cannot capture complex transitions among items. We model each session as a directed graph and apply a gated graph neural network to learn item embeddings that incorporate all session transitions. We then aggregate item embeddings into a session representation via a soft-attention mechanism and predict the next item based on this representation. On standard session-based recommendation benchmarks, our method significantly outperforms RNN and attention-only baselines.",
       "gold_titles": ["GC-SAN", "SURGE", "GCE-GNN", "FGNN", "TAGNN"],
-      "notes": "关键测试 — session/sequential 跟主流 CF+contrastive 完全不同子任务。top-5 出现 NGCF/LightGCN 说明 SPECTER2 在 GNN-rec 大伞下混淆了子任务,正是机制级精排该补的"
+      "notes": "Session/sequential paper-as-query."
     },
     {
       "id": "P5",
@@ -82,7 +187,47 @@
       "arxiv": "1902.00724",
       "text": "Social recommendation leverages a user's social connections to alleviate sparsity, but most existing methods only use direct neighbors. We propose DiffNet, a deep influence propagation model that recursively diffuses each user's latent embedding through the social network, capturing how user preferences are shaped by both direct friends and higher-order social contacts. Each layer aggregates a user's current embedding with the average of their social neighbors' embeddings, modeling layer-wise influence. On real-world datasets DiffNet substantially improves over both classical social-aware and deep recommendation baselines.",
       "gold_titles": ["DiffNet++", "MHCN", "GraphRec", "SocialLGN", "KCGN"],
-      "notes": "social-rec 集群;测是否被 LightGCN 等纯 CF 污染(都基于 user-item 二部图)"
+      "notes": "Social recommendation paper-as-query."
+    },
+    {
+      "id": "P6",
+      "mode": "paper",
+      "anchor_title": "S3-Rec",
+      "text": "Sequential recommendation benefits from self-supervised pre-training because item sequences contain multiple latent signals beyond next-item labels. S3-Rec designs auxiliary objectives over attributes, items, subsequences, and sequences so that a sequential encoder can learn transferable user preference representations before supervised fine-tuning. The method targets sparse sequential data and improves next-item prediction by exploiting mutual information among sequence components.",
+      "gold_titles": ["CL4SRec", "DuoRec", "CoSeRec", "ICLRec", "SR-GNN"],
+      "notes": "New paper-as-query for sequential SSL."
+    },
+    {
+      "id": "P7",
+      "mode": "paper",
+      "anchor_title": "MHCN",
+      "text": "Social recommendation can be modeled with multiple hypergraph channels because user preference is shaped by user-item interactions, social relations, and joint social-behavioral signals. MHCN constructs several hypergraphs, applies hypergraph convolution to each channel, and uses self-supervised learning to align user representations across views. This mechanism is designed to capture high-order social influence and alleviate sparsity beyond pairwise graph aggregation.",
+      "gold_titles": ["DiffNet", "DiffNet++", "GraphRec", "SocialLGN", "KCGN"],
+      "notes": "New paper-as-query for social hypergraph SSL."
+    },
+    {
+      "id": "P8",
+      "mode": "paper",
+      "anchor_title": "BiTGCF",
+      "text": "Cross-domain recommendation aims to transfer useful preference signals between domains when user-item interactions are sparse. BiTGCF builds graph collaborative filtering models for two domains and performs bidirectional transfer so that domain-specific and shared preference information can reinforce each other. The mechanism emphasizes graph propagation across domains rather than treating each domain independently.",
+      "gold_titles": ["CCDR", "DisenCDR", "DDTCDR", "PPGN", "PTUPCDR"],
+      "notes": "New paper-as-query for cross-domain transfer."
+    },
+    {
+      "id": "P9",
+      "mode": "paper",
+      "anchor_title": "UltraGCN",
+      "text": "Graph convolutional recommendation models often spend most computation on explicit multi-layer message passing. UltraGCN approximates infinite-layer graph convolution through constraint losses, directly tying users to positive items, negative items, and item-item relations without repeatedly propagating embeddings. The method targets scalable collaborative filtering while preserving the collaborative signal captured by graph convolution.",
+      "gold_titles": ["LightGCN", "LR-GCCF", "GFCF", "NGCF", "GC-MC"],
+      "notes": "New paper-as-query for scalability and simplified propagation."
+    },
+    {
+      "id": "P10",
+      "mode": "paper",
+      "anchor_title": "KGIN",
+      "text": "Knowledge graph recommendation can benefit from modeling why users interact with items rather than only propagating over KG edges. KGIN represents user intents as latent factors behind interactions and disentangles item representations through intent-aware graph aggregation over the knowledge graph. The method explains high-order KG signals through learned intents and improves recommendation beyond relation-agnostic propagation.",
+      "gold_titles": ["KGAT", "KGCN", "CKAN", "RippleNet", "CKE"],
+      "notes": "New paper-as-query for intent-aware KG recommendation."
     }
   ]
 }

@@ -1,4 +1,4 @@
-"""Related-Work LLM prompt — v0, ITERATE.
+"""Related-Work LLM prompt.
 
 # TODO(D): iterate on this prompt. The goal is a paragraph that
 # (a) reads coherently in academic English,
@@ -22,11 +22,15 @@ import re
 SYSTEM_PROMPT = (
     "You are an expert academic writer in graph neural network recommendation. "
     "Given (1) a draft idea or abstract from the user, and (2) a curated list of related "
-    "papers with brief method cards, write a single coherent related-work paragraph in "
-    "academic English. Cite each paper using bracket markers like [1], [2], ... matching "
-    "the input order. Every numbered marker MUST correspond to a real paper from the input "
-    "list — do NOT invent paper titles or authors. End the paragraph with one sentence "
-    "explicitly contrasting the user's idea against the cited line of work.\n\n"
+    "papers with brief method cards, write one coherent related-work paragraph in academic "
+    "English. Organize the paragraph by mechanism when possible: task setting, graph "
+    "backbone, learning objective, and key idea are more important than chronology. Cite "
+    "papers with bracket markers like [1], [2], ... using the exact input order. Every "
+    "numbered marker MUST correspond to a real paper from the input list. Do NOT invent "
+    "paper titles, paper ids, authors, datasets, or results. If the evidence is not present "
+    "in the input, write more generally rather than guessing. Use only citations that are "
+    "actually relevant to the sentence where they appear. End with one sentence that "
+    "explicitly contrasts the user's idea against the cited line of work.\n\n"
     "Output strictly in this JSON shape:\n"
     "{\n"
     '  "paragraph": "<the related-work paragraph with [N] markers>",\n'
@@ -35,7 +39,9 @@ SYSTEM_PROMPT = (
     "    ...\n"
     "  ]\n"
     "}\n\n"
-    "If a paper in the input does not fit, omit it (do not pad with off-topic citations)."
+    "The references array must include every [N] marker used in the paragraph, and no "
+    "uncited papers. If a paper in the input does not fit, omit it; do not pad with "
+    "off-topic citations."
 )
 
 
@@ -112,3 +118,45 @@ def extract_citation_markers(paragraph: str) -> list[int]:
         if n not in seen:
             seen.append(n)
     return seen
+
+
+def validate_references(
+    markers: list[int],
+    references: list[dict],
+    retrieved_papers: list[dict],
+) -> list[str]:
+    """Return human-readable citation/reference consistency issues."""
+    issues: list[str] = []
+    valid_numbers = set(range(1, len(retrieved_papers) + 1))
+    marker_set = set(markers)
+    ref_numbers = {int(ref["n"]) for ref in references if str(ref.get("n", "")).isdigit()}
+
+    out_of_range = [n for n in markers if n not in valid_numbers]
+    if out_of_range:
+        issues.append(f"引用标记越界:{out_of_range}")
+
+    missing_refs = sorted(marker_set - ref_numbers)
+    if missing_refs:
+        issues.append(f"段落中出现但 references 缺失:{missing_refs}")
+
+    uncited_refs = sorted(ref_numbers - marker_set)
+    if uncited_refs:
+        issues.append(f"references 中存在未被段落引用的编号:{uncited_refs}")
+
+    paper_ids_by_n = {
+        n: (item.get("paper") or {}).get("paper_id") or item.get("paper_id")
+        for n, item in enumerate(retrieved_papers, start=1)
+    }
+    for ref in references:
+        raw_n = ref.get("n")
+        if not str(raw_n).isdigit():
+            issues.append(f"reference 缺少合法 n:{ref}")
+            continue
+        n = int(raw_n)
+        expected_pid = paper_ids_by_n.get(n)
+        actual_pid = ref.get("paper_id")
+        if expected_pid is None:
+            issues.append(f"reference 编号不在召回列表中:[{n}]")
+        elif actual_pid != expected_pid:
+            issues.append(f"[{n}] paper_id 应为 {expected_pid},实际为 {actual_pid}")
+    return issues

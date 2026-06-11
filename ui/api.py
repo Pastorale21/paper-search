@@ -92,6 +92,16 @@ def get_llm_client():
     return OpenAI(api_key=nlp_config.LLM_API_KEY, base_url=nlp_config.LLM_BASE_URL)
 
 
+def is_llm_configured() -> bool:
+    """Return whether the paid LLM surface can be called by the UI."""
+    return bool(nlp_config.LLM_API_KEY)
+
+
+def llm_model_name() -> str:
+    """Return the configured chat model name for display only."""
+    return nlp_config.LLM_MODEL
+
+
 # --- Method cards on disk -----------------------------------------------------------------
 
 
@@ -267,6 +277,16 @@ def corpus_stats() -> dict[str, int]:
     }
 
 
+def cache_health() -> dict[str, bool]:
+    """Report whether demo-critical cache artifacts are present on disk."""
+    return {
+        "papers": spike_config.PAPERS_JSON.exists(),
+        "faiss_index": spike_config.FAISS_INDEX.exists(),
+        "citation_graph": spike_config.GRAPH_PKL.exists(),
+        "method_cards_dir": nlp_config.METHOD_CARDS_DIR.exists(),
+    }
+
+
 # --- Helpers for the UI ------------------------------------------------------------------
 
 
@@ -274,6 +294,14 @@ def method_card_to_dict(card: MethodCard | None) -> dict | None:
     if card is None:
         return None
     return asdict(card)
+
+
+def paper_option_label(paper: dict) -> str:
+    """Format one paper for selectbox options."""
+    cites = int(paper.get("citation_count") or 0)
+    title = paper.get("title") or "?"
+    year = paper.get("year") or "?"
+    return f"[{cites:>5} 引用] {title} ({year})"
 
 
 def project_root() -> Path:

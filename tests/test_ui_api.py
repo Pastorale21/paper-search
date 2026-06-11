@@ -111,7 +111,12 @@ def test_api_search_bm25_method_has_none_breakdown(monkeypatch):
 
 def test_related_work_prompt_build_messages_and_parse():
     """build_messages() requires no network; parser handles fenced JSON + missing keys."""
-    from ui.related_work_prompt import build_messages, extract_citation_markers, parse_llm_response
+    from ui.related_work_prompt import (
+        build_messages,
+        extract_citation_markers,
+        parse_llm_response,
+        validate_references,
+    )
 
     retrieved = [
         {
@@ -154,6 +159,16 @@ def test_related_work_prompt_build_messages_and_parse():
     # Citation-marker extractor preserves order and dedupes.
     assert extract_citation_markers("Foo [1], bar [2], also [1] again.") == [1, 2]
 
+    issues = validate_references(
+        markers=[1, 3],
+        references=[{"n": 1, "paper_id": "W2"}, {"n": 2, "paper_id": "W2"}],
+        retrieved_papers=retrieved,
+    )
+    assert "引用标记越界:[3]" in issues
+    assert "段落中出现但 references 缺失:[3]" in issues
+    assert "references 中存在未被段落引用的编号:[2]" in issues
+    assert "[1] paper_id 应为 W1,实际为 W2" in issues
+
 
 def test_related_work_parse_fallback_on_malformed_json():
     """Malformed JSON falls back to raw paragraph + empty refs + _parse_error flag."""
@@ -181,6 +196,58 @@ def test_api_get_llm_client_raises_without_key(monkeypatch):
 
     with pytest.raises(RuntimeError, match="LLM_API_KEY not set"):
         api.get_llm_client()
+
+
+def test_api_exposes_llm_config_for_ui(monkeypatch):
+    """Pages read LLM display/config state through ``ui.api`` instead of importing NLP config."""
+    from nlp import config as nlp_config
+    from ui import api
+
+    monkeypatch.setattr(nlp_config, "LLM_API_KEY", "test-key")
+    monkeypatch.setattr(nlp_config, "LLM_MODEL", "test-model")
+
+    assert api.is_llm_configured() is True
+    assert api.llm_model_name() == "test-model"
+
+
+def test_selected_paper_link_hint_is_copyable():
+    """The UI exposes a compact query string for selected-paper deep links."""
+    from ui.query_params import selected_paper_link_hint
+
+    assert selected_paper_link_hint("W123") == "?paper_id=W123"
+
+
+def test_paper_option_label_formats_selectbox_entries():
+    """Paper selectboxes share one compact label formatter."""
+    from ui import api
+
+    assert api.paper_option_label({"citation_count": 42, "title": "Test Paper", "year": 2024}) == (
+        "[   42 引用] Test Paper (2024)"
+    )
+
+
+def test_cache_health_reports_demo_artifacts(monkeypatch, tmp_path):
+    """Landing page can check cache readiness before loading heavier resources."""
+    from nlp import config as nlp_config
+    from spike import config as spike_config
+    from ui import api
+
+    papers = tmp_path / "papers.json"
+    papers.write_text("[]", encoding="utf-8")
+    cards = tmp_path / "method_cards"
+    cards.mkdir()
+
+    monkeypatch.setattr(spike_config, "PAPERS_JSON", papers)
+    monkeypatch.setattr(spike_config, "FAISS_INDEX", tmp_path / "missing.index")
+    monkeypatch.setattr(spike_config, "GRAPH_PKL", tmp_path / "missing.pkl")
+    monkeypatch.setattr(nlp_config, "METHOD_CARDS_DIR", cards)
+
+    assert api.cache_health() == {
+        "papers": True,
+        "faiss_index": False,
+        "citation_graph": False,
+        "method_cards_dir": True,
+    }
 
 
 def test_filter_survey_titles_drops_review_papers(monkeypatch):
