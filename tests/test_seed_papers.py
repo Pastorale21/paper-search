@@ -23,6 +23,12 @@ def test_seed_titles_nonempty_and_uppercased_canonicals_present():
         "s3-rec",
         "sociallgn",
         "xsimgcl",
+        # canonical DiffNet title (regression: the old seed was "Diffusion Network …", wrong)
+        "neuralinfluencediffusion",
+        # gold-gap additions from docs/corpus_gap_request_for_a.md
+        "featuregraphneural",  # FGNN
+        "disenhan",  # DisenHAN
+        "fairrec",  # FairRec
     ):
         # We don't expect every acronym in the strings, but at least these telltale tokens.
         assert must.replace(" ", "").replace("-", "") in joined
