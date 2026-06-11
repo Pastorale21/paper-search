@@ -33,7 +33,9 @@ METHOD_NOTES = {
     ),
     "dense": "语义检索基线:适合主题相关召回,但在同主题簇内区分机制相似论文时容易饱和。",
     "bm25": "词面稀疏检索基线:适合捕捉明确术语、模型名或数据集名,不理解机制语义。",
-    "dense_rerank": "负面对照:当前 cross-encoder 默认不用于 hybrid,因为现有 eval 中它会伤害学术机制匹配。",
+    "dense_rerank": (
+        "负面对照:当前 cross-encoder 默认不用于 hybrid," "因为现有 eval 中它会伤害学术机制匹配。"
+    ),
 }
 
 DEMO_SHORT_QUERY = "graph contrastive learning for recommendation"
@@ -69,7 +71,10 @@ with st.container(border=True):
         "检索方法",
         options=method_options,
         index=method_options.index(initial_method) if initial_method in method_options else 0,
-        help="Hybrid 通过 RRF 融合 dense + BM25 + method_match。只有 hybrid 会为每条结果生成检索信号标签。",
+        help=(
+            "Hybrid 通过 RRF 融合 dense + BM25 + method_match。"
+            "只有 hybrid 会为每条结果生成检索信号标签。"
+        ),
     )
     top_k = cols[1].slider("返回数量 (Top-K)", min_value=3, max_value=20, value=initial_k)
     meta(METHOD_NOTES[method])
@@ -89,7 +94,8 @@ with st.container(border=True):
 if not query.strip():
     callout(
         "等待查询",
-        "输入一个研究方向、机制描述或论文摘要。hybrid 模式会同时展示 dense、BM25 和 method_match 的召回证据。",
+        "输入一个研究方向、机制描述或论文摘要。"
+        "hybrid 模式会同时展示 dense、BM25 和 method_match 的召回证据。",
         tone="gray",
     )
 elif not submitted and not st.session_state.get("_last_search"):

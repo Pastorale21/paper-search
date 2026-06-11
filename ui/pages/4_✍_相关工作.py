@@ -76,6 +76,7 @@ def _render_candidate(index: int, item: dict) -> None:
             lines.append(f"核心思想: {card.key_idea}")
         st.caption(" · ".join(lines) if lines else "方法卡字段为空。")
 
+
 load_demo = st.button("加载 demo 摘要")
 if load_demo:
     st.session_state["related_work_draft"] = DEMO_DRAFT
@@ -169,7 +170,8 @@ if generate and retrieved:
     if not api.is_llm_configured():
         callout(
             "LLM_API_KEY 未配置",
-            "候选论文证据仍可展示;如需生成段落,请按 nlp/HANDOFF.md 在 .env 中配置 key 后重新加载页面。",
+            "候选论文证据仍可展示;"
+            "如需生成段落,请按 nlp/HANDOFF.md 在 .env 中配置 key 后重新加载页面。",
             tone="orange",
         )
         st.stop()

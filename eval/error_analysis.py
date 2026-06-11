@@ -41,11 +41,7 @@ def _title(pid: str, titles: dict[str, str]) -> str:
 def _rows_below_threshold(payload: dict, threshold: float) -> list[dict]:
     """Filter per-query rows with nDCG@5 below threshold."""
     rows = payload.get("per_query", [])
-    return [
-        row
-        for row in rows
-        if float(row.get("metrics", {}).get("ndcg@5", 0.0)) < threshold
-    ]
+    return [row for row in rows if float(row.get("metrics", {}).get("ndcg@5", 0.0)) < threshold]
 
 
 def print_report(payload: dict, titles: dict[str, str], threshold: float) -> None:

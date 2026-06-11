@@ -23,12 +23,10 @@ st.set_page_config(page_title="GNN-RecSys 论文检索", layout="wide")
 apply_page_style()
 st.title("GNN-RecSys 论文检索系统")
 
-st.markdown(
-    """
+st.markdown("""
     这个系统面向 GNN-based recommendation 论文检索。它把语义检索、方法卡机制匹配和
     引文图推理放在同一个工作流里,让演示不只停在“搜到相关论文”,还可以解释每篇论文为什么被召回。
-    """
-)
+    """)
 
 callout(
     "当前可报告结论",
@@ -95,5 +93,6 @@ with route_cols[2]:
     )
 
 st.caption(
-    "状态:demo 已具备完整链路。交付前请运行 eval smoke check,并按 docs/eval_findings_d.md 使用最新结论。"
+    "状态:demo 已具备完整链路。"
+    "交付前请运行 eval smoke check,并按 docs/eval_findings_d.md 使用最新结论。"
 )

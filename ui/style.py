@@ -6,7 +6,6 @@ import html
 
 import streamlit as st
 
-
 _CSS = """
 <style>
 :root {

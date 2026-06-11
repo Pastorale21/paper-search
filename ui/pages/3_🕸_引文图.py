@@ -97,7 +97,8 @@ st.subheader(kind_label)
 if not results:
     callout(
         "当前锚点没有可展示路径",
-        "这通常是语料内引用边太稀疏导致的,尤其是经典 foundational papers。请换一篇更新的论文作为锚点。",
+        "这通常是语料内引用边太稀疏导致的,尤其是经典 foundational papers。"
+        "请换一篇更新的论文作为锚点。",
         tone="orange",
     )
     st.stop()

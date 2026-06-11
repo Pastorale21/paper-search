@@ -86,7 +86,9 @@ with col_card:
         if missing_core:
             callout(
                 "方法卡字段不完整",
-                "缺失字段:" + "、".join(missing_core) + "。这会降低 standalone method_match 的稳定性。",
+                "缺失字段:"
+                + "、".join(missing_core)
+                + "。这会降低 standalone method_match 的稳定性。",
                 tone="orange",
             )
         st.markdown(
@@ -114,8 +116,7 @@ st.divider()
 st.header("🔍 查找机制相似的论文")
 callout(
     "可见证据",
-    "每个候选都会展示逐字段余弦相似度。字段权重用于聚合打分:"
-    f" {api.field_weights()}。",
+    "每个候选都会展示逐字段余弦相似度。字段权重用于聚合打分:" f" {api.field_weights()}。",
     tone="blue",
 )
 
