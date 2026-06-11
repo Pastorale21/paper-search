@@ -24,6 +24,12 @@ SYSTEM_PROMPT = (
     "- Be concise and factual. Extract only what the abstract supports.\n"
     "- If the abstract explicitly names an objective such as BPR, InfoNCE, "
     'cross-entropy, pairwise ranking, or regularization, put it in "loss".\n'
+    "- If the abstract DESCRIBES the training objective but does not give it a canonical "
+    'name, extract it by category, e.g. "optimized with a contrastive objective" -> '
+    '"contrastive loss"; "trained to rank positive items above negatives" -> "pairwise '
+    'ranking loss"; "minimizes reconstruction error" -> "reconstruction loss". This is '
+    "extraction of what the abstract states, NOT inference from the task type (the rule "
+    "below still forbids inferring a loss the abstract never describes).\n"
     "- If the abstract explicitly names benchmark datasets or metrics, extract them "
     'exactly into "datasets" and "metrics".\n'
     '- Do not leave "datasets" or "metrics" empty when they are explicitly mentioned.\n'
@@ -141,6 +147,36 @@ FEW_SHOT_EXAMPLES: list[dict] = [
             "metrics": [],
         },
     },
+    {
+        # Teaches described-but-unnamed loss extraction: the abstract says "reconstruct the
+        # rating links / minimize reconstruction error" (no canonical loss name) -> categorize
+        # as "reconstruction loss" rather than leaving it empty.
+        "paper_id": "example-gcmc",
+        "title": "Graph Convolutional Matrix Completion",
+        "abstract": (
+            "We consider matrix completion for recommender systems from the point of view of "
+            "link prediction on graphs. Interaction data such as movie ratings is represented "
+            "by a bipartite user-item graph with labeled edges denoting observed ratings. We "
+            "propose a graph auto-encoder framework based on differentiable message passing on "
+            "the bipartite interaction graph: an encoder produces latent features of user and "
+            "item nodes through message passing, and a bilinear decoder reconstructs the rating "
+            "links by minimizing the reconstruction error over observed ratings. The model "
+            "achieves competitive RMSE on MovieLens, Flixster, Douban, and YahooMusic."
+        ),
+        "card": {
+            "task": "matrix completion for recommendation (rating prediction)",
+            "input": "bipartite user-item rating graph with observed ratings as labeled edges",
+            "output": "predicted ratings (reconstructed user-item rating links)",
+            "backbone": "graph convolutional auto-encoder (message passing + bilinear decoder)",
+            "loss": "reconstruction loss",
+            "key_idea": (
+                "frame matrix completion as link prediction on a bipartite graph via a graph "
+                "auto-encoder"
+            ),
+            "datasets": ["MovieLens", "Flixster", "Douban", "YahooMusic"],
+            "metrics": ["RMSE"],
+        },
+    },
 ]
 
 
@@ -154,7 +190,7 @@ def _user_content(title: str, abstract: str) -> str:
 
 
 def build_prompt(abstract: str, title: str) -> list[dict]:
-    """Build OpenAI-format messages: system + 3 few-shot (user, assistant) pairs + target user."""
+    """Build OpenAI-format messages: system + 4 few-shot (user, assistant) pairs + target user."""
     import json
 
     messages: list[dict] = [{"role": "system", "content": SYSTEM_PROMPT}]
