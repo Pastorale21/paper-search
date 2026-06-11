@@ -37,7 +37,13 @@ def test_bm25_search_handles_empty_query():
     assert len(hits) == 2
 
 
-def _make_matcher_with(cards: dict[str, MethodCard], cache: dict[str, np.ndarray]):
+def _make_matcher_with(
+    cards: dict[str, MethodCard],
+    cache: dict[str, np.ndarray],
+    *,
+    normalize: bool = False,
+    min_comparable_fields: int = 1,
+):
     """Construct a MethodCardMatcher with mocked embedder + preloaded cache (no file IO)."""
     from retrieval.method_match import MethodCardMatcher
 
@@ -45,6 +51,8 @@ def _make_matcher_with(cards: dict[str, MethodCard], cache: dict[str, np.ndarray
     m.embedder = MagicMock()
     m.cards = cards
     m._cache = cache
+    m.normalize = normalize
+    m.min_comparable_fields = min_comparable_fields
     m._embed_batch = lambda texts: np.array([[1.0, 0.0]] * len(texts), dtype="float32")
     m._get_or_embed_query_field = lambda v: np.array([1.0, 0.0], dtype="float32") if v else None
     return m
@@ -117,6 +125,75 @@ def test_method_match_field_weights_applied(monkeypatch):
     result = matcher.match(None, q, ["W_good", "W_bad"], k=10)
     assert result[0][0] == "W_good"
     assert result[0][1] > result[1][1]
+
+
+def _sparse_match_setup():
+    """A perfectly-matching card with only 2/4 fields filled (task=0.20, backbone=0.30)."""
+    cards = {"W1": MethodCard(paper_id="W1", task="t", backbone="b")}
+    cache = {
+        "W1::task": np.array([1.0, 0.0], dtype="float32"),
+        "W1::backbone": np.array([1.0, 0.0], dtype="float32"),
+    }
+    q = MethodCard(paper_id="Q", task="t", backbone="b")
+    return cards, cache, q
+
+
+def test_method_match_normalize_lifts_sparse_card():
+    """A sparse-but-perfect 2/4 card caps at 0.50 unnormalized but reaches 1.0 normalized."""
+    cards, cache, q = _sparse_match_setup()
+    plain = _make_matcher_with(cards, cache)
+    norm = _make_matcher_with(cards, cache, normalize=True, min_comparable_fields=1)
+    s_plain = dict(plain.match(None, q, ["W1"], k=1))["W1"]
+    s_norm = dict(norm.match(None, q, ["W1"], k=1))["W1"]
+    assert s_plain == pytest.approx(0.50)  # 0.20 + 0.30, weight unspent on loss/key_idea
+    assert s_norm == pytest.approx(1.0)  # 0.50 / (0.20 + 0.30)
+
+
+def test_method_match_norm2_zero_on_single_comparable_field():
+    """min_comparable_fields=2 refuses to trust a single matching field (returns 0.0)."""
+    cards = {"W1": MethodCard(paper_id="W1", task="t")}
+    cache = {"W1::task": np.array([1.0, 0.0], dtype="float32")}
+    q = MethodCard(paper_id="Q", task="t")
+    norm2 = _make_matcher_with(cards, cache, normalize=True, min_comparable_fields=2)
+    assert dict(norm2.match(None, q, ["W1"], k=1))["W1"] == 0.0
+
+
+def test_method_match_normalize_zero_comparable_no_nan():
+    """No overlapping non-empty fields → 0.0, never NaN (no divide-by-zero)."""
+    import math
+
+    cards = {"W1": MethodCard(paper_id="W1", loss="l")}
+    cache = {"W1::loss": np.array([1.0, 0.0], dtype="float32")}
+    q = MethodCard(paper_id="Q", task="t")  # task vs loss → zero comparable fields
+    norm = _make_matcher_with(cards, cache, normalize=True, min_comparable_fields=1)
+    score = dict(norm.match(None, q, ["W1"], k=1))["W1"]
+    assert score == 0.0 and not math.isnan(score)
+
+
+def test_method_match_full_card_score_unchanged_by_normalization():
+    """A full 4/4 perfect match is 1.0 either way — normalization only rescues sparse cards."""
+    cards = {"W1": MethodCard(paper_id="W1", task="t", backbone="b", loss="l", key_idea="k")}
+    cache = {
+        f"W1::{f}": np.array([1.0, 0.0], dtype="float32")
+        for f in ("task", "backbone", "loss", "key_idea")
+    }
+    q = MethodCard(paper_id="Q", task="t", backbone="b", loss="l", key_idea="k")
+    plain = _make_matcher_with(cards, cache)
+    norm = _make_matcher_with(cards, cache, normalize=True, min_comparable_fields=1)
+    assert dict(plain.match(None, q, ["W1"], k=1))["W1"] == pytest.approx(1.0)  # 0.2+0.3+0.2+0.3
+    assert dict(norm.match(None, q, ["W1"], k=1))["W1"] == pytest.approx(1.0)  # 1.0 / 1.0
+
+
+def test_with_config_shares_cache_and_overrides_flags():
+    """with_config reuses the base matcher's loaded cards + field cache (no reload)."""
+    cards = {"W1": MethodCard(paper_id="W1", task="t")}
+    cache = {"W1::task": np.array([1.0, 0.0], dtype="float32")}
+    base = _make_matcher_with(cards, cache)
+    clone = base.with_config(normalize=True, min_comparable_fields=2)
+    assert clone._cache is base._cache
+    assert clone.cards is base.cards
+    assert clone.normalize is True and clone.min_comparable_fields == 2
+    assert base.normalize is False and base.min_comparable_fields == 1  # base untouched
 
 
 def test_hybrid_signal_breakdown_present():

@@ -56,8 +56,12 @@ report needs fairness/cold-start breadth:
 D will run:
 
 ```powershell
+# After A rebuilds the corpus (uv run python -m data.corpus --force):
 uv run python -m eval.gold_set --check
-uv run python -m index.build
+# Rebuild indexes/graph from the updated papers.json (there is NO `index.build` module;
+# building goes through spike). Do NOT pass --force to spike — it would overwrite papers.json.
+rm data/cache/embeddings.npy data/cache/ids.json data/cache/faiss.index data/cache/citation_graph.pkl
+uv run python -m spike
 uv run python -m eval.run --method all
 ```
 

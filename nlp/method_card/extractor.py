@@ -172,10 +172,34 @@ def _top_papers(n: int) -> list[Paper]:
     return sorted(papers, key=lambda p: p.citation_count, reverse=True)[:n]
 
 
+def _papers_by_ids(ids: list[str]) -> list[Paper]:
+    """Select specific papers by paper_id (preserving order); warn on any not in the corpus."""
+    by_id = {p.paper_id: p for p in config.load_papers()}
+    out: list[Paper] = []
+    missing: list[str] = []
+    for pid in ids:
+        if pid in by_id:
+            out.append(by_id[pid])
+        else:
+            missing.append(pid)
+    if missing:
+        print(
+            f"[warn] {len(missing)} paper-id(s) not in corpus: {', '.join(missing)}",
+            file=sys.stderr,
+        )
+    return out
+
+
 def main() -> None:
     """CLI entry point: extract top-N method cards, or sample cached ones."""
     ap = argparse.ArgumentParser(description="Extract method cards from cached papers via LLM.")
     ap.add_argument("--top", type=int, default=50, help="extract for top-N papers by citations")
+    ap.add_argument(
+        "--paper-ids",
+        type=str,
+        help="comma-separated paper_ids to (re)extract instead of --top (e.g. for targeted "
+        "re-extraction of specific weak cards); use with --force to overwrite cached cards",
+    )
     ap.add_argument("--force", action="store_true", help="re-extract even if cached")
     ap.add_argument("--dry-run", action="store_true", help="print token estimate, no API call")
     ap.add_argument("--sample", type=int, help="print N random cached cards, no extraction")
@@ -185,10 +209,18 @@ def main() -> None:
         _print_cards(_load_cached_cards(), args.sample)
         return
 
-    papers = _top_papers(args.top)
+    if args.paper_ids:
+        papers = _papers_by_ids([s.strip() for s in args.paper_ids.split(",") if s.strip()])
+        selection = f"{len(papers)} papers by id"
+    else:
+        papers = _top_papers(args.top)
+        selection = f"top {len(papers)} papers by citation_count"
+    if not papers:
+        print("No papers selected; nothing to do.", file=sys.stderr)
+        return
     est = sum(_estimate_input_tokens(build_prompt(p.abstract or "", p.title)) for p in papers)
     print(
-        f"Selected top {len(papers)} papers by citation_count.\n"
+        f"Selected {selection}.\n"
         f"Estimated input tokens: ~{est:,} (~{est // max(len(papers), 1):,}/paper, "
         f"output not counted). Model: {config.LLM_MODEL}"
     )

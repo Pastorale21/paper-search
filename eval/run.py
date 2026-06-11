@@ -33,7 +33,18 @@ from .gold_set import GoldQuery, GoldSet, TitleResolver
 from .history import record as record_history
 from .metrics import mrr, ndcg_at_k, recall_at_k
 
-METHODS = ("dense", "bm25", "dense_rerank", "method_match", "hybrid")
+# method_match_norm / _norm2 are renormalized-field-score ablations of method_match (same
+# retriever, different score combiner); see retrieval/method_match.py and
+# docs/method_match_followup_for_bc.md. They are NOT part of the thesis-gate exit code.
+METHODS = (
+    "dense",
+    "bm25",
+    "dense_rerank",
+    "method_match",
+    "method_match_norm",
+    "method_match_norm2",
+    "hybrid",
+)
 TOP_N_FOR_RERANK = 50  # cross-encoder reranks this many candidates
 EVAL_OUT_DIR = spike_config.CACHE_DIR / "eval"
 NDCG_FLAG_THRESHOLD = 0.30
@@ -54,7 +65,7 @@ def _retrieve(
     dense,
     bm25,
     reranker,
-    matcher,
+    matchers: dict,
     hybrid,
     all_ids: list[str],
 ) -> list[str]:
@@ -66,11 +77,12 @@ def _retrieve(
     if method == "dense_rerank":
         candidates = dense.search(q.text, mode=q.mode, k=TOP_N_FOR_RERANK)
         return [pid for pid, _ in reranker.rerank(q.text, candidates, k=10)]
-    if method == "method_match":
+    if method.startswith("method_match"):
         if anchor_pid is None:
             return []
-        # Independent retriever: score every paper, not just dense's top-50.
-        top = matcher.match(anchor_pid, None, all_ids, k=10)
+        # Independent retriever: score every paper, not just dense's top-50. Each variant
+        # (plain / norm / norm2) is a separately-configured matcher sharing one field cache.
+        top = matchers[method].match(anchor_pid, None, all_ids, k=10)
         return [pid for pid, _ in top]
     if method == "hybrid":
         triples = hybrid.search(
@@ -169,20 +181,26 @@ def run(methods: list[str], output_path: Path | None) -> int:
     print()
 
     # Lazy-construct retrievers (only what's requested).
+    _mm_methods = ("method_match", "method_match_norm", "method_match_norm2", "hybrid")
     dense = (
         DenseRetriever()
-        if any(m in methods for m in ("dense", "dense_rerank", "method_match", "hybrid"))
+        if any(m in methods for m in ("dense", "dense_rerank", *_mm_methods))
         else None
     )
     bm25 = BM25Retriever() if any(m in methods for m in ("bm25", "hybrid")) else None
     reranker = (
         CrossEncoderReranker() if any(m in methods for m in ("dense_rerank", "hybrid")) else None
     )
-    matcher = (
-        MethodCardMatcher(embedder=dense)
-        if any(m in methods for m in ("method_match", "hybrid"))
-        else None
-    )
+    matcher = MethodCardMatcher(embedder=dense) if any(m in methods for m in _mm_methods) else None
+    # Lightweight reconfigured clones that SHARE the base matcher's loaded cards + field cache
+    # (no second npz load). hybrid always uses the unnormalized base matcher (the shipped default).
+    matchers = {"method_match": matcher} if matcher else {}
+    if matcher and "method_match_norm" in methods:
+        matchers["method_match_norm"] = matcher.with_config(normalize=True, min_comparable_fields=1)
+    if matcher and "method_match_norm2" in methods:
+        matchers["method_match_norm2"] = matcher.with_config(
+            normalize=True, min_comparable_fields=2
+        )
     # No explicit use_rerank: pick up HybridRetriever's new False default. CE rerank is
     # default-disabled in hybrid per eval-v1 finding (see eval/HANDOFF.md).
     hybrid = (
@@ -215,12 +233,12 @@ def run(methods: list[str], output_path: Path | None) -> int:
                 dense=dense,
                 bm25=bm25,
                 reranker=reranker,
-                matcher=matcher,
+                matchers=matchers,
                 hybrid=hybrid,
                 all_ids=all_ids,
             )
             # Skip queries where the method genuinely can't run (e.g. method_match w/o anchor).
-            if method == "method_match" and anchor_pid is None:
+            if method.startswith("method_match") and anchor_pid is None:
                 continue
             m = _eval_one(top10, gold_ids)
             per_query_rows.append(
@@ -267,7 +285,13 @@ def run(methods: list[str], output_path: Path | None) -> int:
     dense_agg = same_subset.get("dense", {}).get("agg")
     print()
     if dense_agg and dense_agg["ndcg@5"] > 0:
-        for m in ("dense_rerank", "method_match", "hybrid"):
+        for m in (
+            "dense_rerank",
+            "method_match",
+            "method_match_norm",
+            "method_match_norm2",
+            "hybrid",
+        ):
             agg = same_subset.get(m, {}).get("agg")
             if not agg:
                 continue
@@ -356,12 +380,19 @@ def run(methods: list[str], output_path: Path | None) -> int:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(
-        description="Run all 5 retrievers on the gold set; report metrics."
-    )
+    ap = argparse.ArgumentParser(description="Run the retrievers on the gold set; report metrics.")
     ap.add_argument(
         "--method",
-        choices=("dense", "bm25", "dense_rerank", "method_match", "hybrid", "all"),
+        choices=(
+            "dense",
+            "bm25",
+            "dense_rerank",
+            "method_match",
+            "method_match_norm",
+            "method_match_norm2",
+            "hybrid",
+            "all",
+        ),
         default="all",
     )
     ap.add_argument("--output", type=Path, default=None, help="raw JSON dump path override")

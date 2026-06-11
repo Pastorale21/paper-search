@@ -48,10 +48,11 @@ SEED_TITLES: list[str] = [
     "S3-Rec: Self-Supervised Learning for Sequential Recommendation",
     "Contrastive Learning for Sequential Recommendation",  # CL4SRec
     "Sequential Recommendation with Graph Neural Networks",  # SURGE
-    "Handling Information Loss of Graph Neural Networks for Session-based Recommendation",  # FGNN
+    # LESSR (this title is LESSR's paper, not FGNN — the real FGNN is added in the gap block below)
+    "Handling Information Loss of Graph Neural Networks for Session-based Recommendation",
     "Global Context Enhanced Graph Neural Networks for Session-based Recommendation",  # GCE-GNN
     "TAGNN: Target Attentive Graph Neural Networks for Session-based Recommendation",
-    "Diffusion Network for Social Recommendation",  # DiffNet
+    "A Neural Influence Diffusion Model for Social Recommendation",  # DiffNet (canonical title)
     "DiffNet++: A Neural Influence and Interest Diffusion Network for Social Recommendation",
     # MHCN
     "Self-Supervised Multi-Channel Hypergraph Convolutional Network for Social Recommendation",
@@ -61,6 +62,32 @@ SEED_TITLES: list[str] = [
     "Collaborative Knowledge Base Embedding for Recommender Systems",  # CKE
     "Collaborative Knowledge-aware Attentive Network for Recommender Systems",  # CKAN
     "XSimGCL: Towards Extremely Simple Graph Contrastive Learning for Recommendation",
+    # --- Gold-set gaps requested in docs/corpus_gap_request_for_a.md (titles per that doc) ---
+    # P0: directly affect the paper-query same-subset / unblock an anchor.
+    "Knowledge Graph Convolutional Networks for Recommender Systems",  # KGCN (P0)
+    # P1: repeated gold gaps across session / scalable-CF / sequential-contrastive queries.
+    "Feature Graph Neural Networks for Session-based Recommendation",  # FGNN (P1)
+    "Graph Filter Collaborative Filtering",  # GFCF (P1)
+    # DuoRec (P1)
+    "Contrastive Learning for Representation Degeneration Problem in Sequential Recommendation",
+    "Contrastive Learning for Sequential Recommendation with Robust Augmentation",  # CoSeRec (P1)
+    "Intent Contrastive Learning for Sequential Recommendation",  # ICLRec (P1)
+    # P2 (add-if-time): hypergraph / disentanglement / cold-start / cross-domain breadth.
+    "Dual Channel Hypergraph Collaborative Filtering",  # DHCF (P2)
+    "Hypergraph Convolutional Network for Collaborative Filtering",  # HGCN (P2)
+    "Next-item Recommendation with Sequential Hypergraphs",  # HyperRec (P2)
+    "DisenHAN: Disentangled Heterogeneous Graph Attention Network for Recommendation",  # P2
+    "Disentangled Contrastive Collaborative Filtering",  # DCCF (P2)
+    # MetaHIN (P2)
+    "Meta-learning on Heterogeneous Information Networks for Cold-start Recommendation",
+    "Personalized Transfer of User Preferences for Cross-domain Recommendation",  # PTUPCDR (P2)
+    # Fairness coverage (P2, Q13). NOTE: several fairness gold ALIASES in eval/gold_set.py are
+    # bare acronyms that won't substring-match these real titles — D may need an alias follow-up
+    # for Q13 to resolve even after these crawl in. Flagged in the PR, not fixed here (D's domain).
+    "FairRec: Two-Sided Fairness for Personalized Recommendations",  # FairRec
+    "Learning Fair Representations for Recommendation: A Graph-based Perspective",  # FairGo
+    "Debiasing Career Recommendations with Neural Fair Collaborative Filtering",  # NFCF
+    "Say No to the Discrimination: Learning Fair Graph Neural Networks",  # FairGNN
 ]
 
 _TOKEN_OVERLAP_THRESHOLD = 0.70

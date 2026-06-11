@@ -87,11 +87,48 @@ def _cards_newer_than(cache_path: Path) -> bool:
 class MethodCardMatcher:
     """Score candidate papers by weighted field-level cosine of their method cards."""
 
-    def __init__(self, embedder: DenseRetriever | None = None) -> None:
+    def __init__(
+        self,
+        embedder: DenseRetriever | None = None,
+        *,
+        normalize: bool = False,
+        min_comparable_fields: int = 1,
+    ) -> None:
+        # normalize=False / min_comparable_fields=1 reproduce the original "weight unspent"
+        # scoring (the shipped default); the normalized variants are eval ablations only.
         self.embedder = embedder or DenseRetriever()
         self.cards: dict[str, MethodCard] = _load_method_cards()
         self._cache: dict[str, np.ndarray] = {}
+        self.normalize = normalize
+        self.min_comparable_fields = min_comparable_fields
         self._load_or_build_corpus_field_cache()
+
+    def with_config(self, *, normalize: bool, min_comparable_fields: int) -> "MethodCardMatcher":
+        """Return a reconfigured matcher SHARING this one's loaded cards + field cache (no IO)."""
+        other = self.__class__.__new__(self.__class__)
+        other.embedder = self.embedder
+        other.cards = self.cards
+        other._cache = self._cache
+        other.normalize = normalize
+        other.min_comparable_fields = min_comparable_fields
+        return other
+
+    def _combine(self, pairs: list[tuple[str, float]]) -> float:
+        """Combine per-field (field, cosine) pairs into one score.
+
+        ``pairs`` holds only fields non-empty on BOTH papers. Default (normalize=False) is the
+        original weighted sum with weight unspent on missing fields. When normalize=True the sum
+        is divided by the weights of the comparable fields, so a sparse-but-perfect card is not
+        structurally capped. Returns 0.0 (never NaN) when fewer than ``min_comparable_fields``
+        fields are comparable.
+        """
+        if len(pairs) < self.min_comparable_fields:
+            return 0.0
+        num = sum(FIELD_WEIGHTS[f] * cos for f, cos in pairs)
+        if not self.normalize:
+            return num
+        denom = sum(FIELD_WEIGHTS[f] for f, _ in pairs)
+        return num / denom if denom else 0.0
 
     def _load_or_build_corpus_field_cache(self) -> None:
         if not _cards_newer_than(FIELD_EMB_NPZ) and FIELD_EMB_NPZ.exists():
@@ -140,14 +177,14 @@ class MethodCardMatcher:
         behaviour as ``match`` — fields empty on either side contribute 0; see the module
         docstring for the structural-cap caveat.
         """
-        score = 0.0
+        pairs: list[tuple[str, float]] = []
         for field in FIELDS_TO_MATCH:
             ea = self._candidate_field_emb(pid_a, field)
             eb = self._candidate_field_emb(pid_b, field)
             if ea is None or eb is None:
                 continue
-            score += FIELD_WEIGHTS[field] * float(np.dot(ea, eb))
-        return score
+            pairs.append((field, float(np.dot(ea, eb))))
+        return self._combine(pairs)
 
     def has_comparable_fields(self, pid_a: str, pid_b: str) -> bool:
         """True iff at least one ``FIELDS_TO_MATCH`` is non-empty on BOTH papers.
@@ -200,13 +237,13 @@ class MethodCardMatcher:
                 continue
             if pid in self.cards:
                 any_card_found = True
-            score = 0.0
+            pairs: list[tuple[str, float]] = []
             for f, q_emb in query_field_embs.items():
                 c_emb = self._candidate_field_emb(pid, f)
                 if c_emb is None:
-                    continue  # "weight unspent" — see module docstring + TODO
-                score += FIELD_WEIGHTS[f] * float(np.dot(q_emb, c_emb))
-            scored.append((pid, score))
+                    continue  # "weight unspent" — see module docstring + _combine
+                pairs.append((f, float(np.dot(q_emb, c_emb))))
+            scored.append((pid, self._combine(pairs)))
 
         if not any_card_found:
             logger.warning("no method cards in candidate set; method_match contributes nothing")
