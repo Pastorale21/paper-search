@@ -16,17 +16,27 @@ from spike import config
 
 
 def _get(url: str, params: dict, headers: dict | None = None, max_retries: int = 5) -> dict:
-    """GET a JSON endpoint with polite exponential backoff on rate limits (429)."""
+    """GET a JSON endpoint with polite exponential backoff.
+
+    Retries on rate limits (429) AND transient network errors (read timeouts, connection
+    resets) — a multi-hundred-call crawl (e.g. corpus build / seed merge) must not abort on a
+    single slow OpenAlex response.
+    """
     delay = 2.0
     for _ in range(max_retries):
-        resp = requests.get(url, params=params, headers=headers or {}, timeout=30)
+        try:
+            resp = requests.get(url, params=params, headers=headers or {}, timeout=30)
+        except (requests.Timeout, requests.ConnectionError):
+            time.sleep(delay)
+            delay *= 2
+            continue
         if resp.status_code == 429:
             time.sleep(delay)
             delay *= 2
             continue
         resp.raise_for_status()
         return resp.json()
-    raise RuntimeError(f"Rate limit: exhausted retries for {url}")
+    raise RuntimeError(f"exhausted retries (rate limit or network) for {url}")
 
 
 def _short_id(oa_id: str | None) -> str | None:
