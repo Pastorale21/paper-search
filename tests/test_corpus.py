@@ -9,6 +9,7 @@ from data.corpus import (
     filter_with_abstract,
     is_gnn_recsys,
     merge_seeds_into_corpus,
+    merge_works_by_ids,
     normalize_title,
     titles_are_duplicates,
 )
@@ -148,3 +149,24 @@ def test_merge_seeds_appends_only_new(tmp_path, monkeypatch):
     assert missed == ["Missed Title"]
     on_disk = {p["paper_id"] for p in json.loads(papers_json.read_text(encoding="utf-8"))}
     assert on_disk == {"W1", "W2", "W3new"}
+
+
+def test_merge_works_by_ids_appends_new_skips_present_and_failed(tmp_path, monkeypatch):
+    """By-id merge adds new papers, skips already-present ids, and tolerates failed lookups."""
+    existing = [_paper("W1", "Neural Graph Collaborative Filtering", oa="W1")]
+    papers_json = tmp_path / "papers.json"
+    papers_json.write_text(json.dumps([p.to_dict() for p in existing]), encoding="utf-8")
+
+    by_id = {
+        "W1": _paper("W1", "Neural Graph Collaborative Filtering", oa="W1"),  # already present
+        "W9": _paper("W9", "A Neural Influence Diffusion Model for Social Recommendation", oa="W9"),
+    }
+    # "Wbad" not in by_id -> fetch returns None -> failed
+    monkeypatch.setattr(corpus_mod.openalex, "fetch_work_by_id", lambda i: by_id.get(i))
+
+    merged, added, failed = merge_works_by_ids(["W1", "W9", "Wbad"], path=papers_json)
+
+    assert [p.paper_id for p in added] == ["W9"]
+    assert failed == ["Wbad"]
+    on_disk = {p["paper_id"] for p in json.loads(papers_json.read_text(encoding="utf-8"))}
+    assert on_disk == {"W1", "W9"}

@@ -2,7 +2,8 @@
 
 CLI:
   `uv run python -m data.corpus --target 800 --per-query 500 [--force]`  # full (re)build
-  `uv run python -m data.corpus --merge-seeds`  # add seeds to the existing corpus, no re-crawl
+  `uv run python -m data.corpus --merge-seeds`        # add seed titles, no re-crawl
+  `uv run python -m data.corpus --merge-ids W1,W2`    # add specific papers by OpenAlex id (light)
 """
 
 from __future__ import annotations
@@ -416,6 +417,56 @@ def merge_seeds_into_corpus(
     return merged, added, missed
 
 
+def merge_works_by_ids(
+    ids: list[str], path: Path | None = None
+) -> tuple[list[Paper], list[Paper], list[str]]:
+    """Add specific papers by exact OpenAlex id to the EXISTING corpus (light, reliable path).
+
+    Each id is a single direct lookup (``openalex.fetch_work_by_id``), so this stays usable when
+    the search endpoint behind ``--merge-seeds`` is rate-limited. Skips ids already present
+    (by id / OpenAlex id / fuzzy title). Returns ``(merged, added, failed_ids)``.
+    """
+    if path is None:
+        path = config.PAPERS_JSON
+    if not path.exists():
+        raise FileNotFoundError(f"{path} missing; build the corpus first (data.corpus --force)")
+    existing = [Paper.from_dict(d) for d in json.loads(path.read_text(encoding="utf-8"))]
+    existing_pids = {p.paper_id for p in existing}
+    existing_oas = {p.source_ids.get("openalex") for p in existing if p.source_ids.get("openalex")}
+    existing_titles = {normalize_title(p.title) for p in existing}
+
+    added: list[Paper] = []
+    failed: list[str] = []
+    for oa_id in ids:
+        p = openalex.fetch_work_by_id(oa_id)
+        if p is None or not p.abstract:
+            failed.append(oa_id)
+            continue
+        nt = normalize_title(p.title)
+        oa = p.source_ids.get("openalex")
+        if p.paper_id in existing_pids or (oa and oa in existing_oas):
+            continue
+        if any(titles_are_duplicates(nt, et) for et in existing_titles):
+            continue
+        added.append(p)
+        existing_pids.add(p.paper_id)
+        existing_titles.add(nt)
+        if oa:
+            existing_oas.add(oa)
+
+    merged = existing + added
+    path.write_text(
+        json.dumps([p.to_dict() for p in merged], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"\n[merge-ids] {len(existing)} existing + {len(added)} new = {len(merged)} papers")
+    for p in added:
+        print(f"  + {p.paper_id} ({p.year or '?'})  {p.title}")
+    if failed:
+        print(f"[merge-ids] could not fetch (skipped): {', '.join(failed)}")
+    return merged, added, failed
+
+
 def _save(papers: list[Paper]) -> None:
     """Overwrite the corpus cache JSON (shared with the spike pipeline)."""
     config.PAPERS_JSON.write_text(
@@ -467,10 +518,20 @@ def main() -> None:
         action="store_true",
         help="add curated seed papers to the EXISTING corpus without re-crawling (no regression)",
     )
+    ap.add_argument(
+        "--merge-ids",
+        type=str,
+        help="comma-separated OpenAlex ids to add by direct lookup (light; use when the "
+        "--merge-seeds title search is rate-limited)",
+    )
     args = ap.parse_args()
 
     if args.merge_seeds:
         merge_seeds_into_corpus()
+        return
+
+    if args.merge_ids:
+        merge_works_by_ids([s.strip() for s in args.merge_ids.split(",") if s.strip()])
         return
 
     if config.PAPERS_JSON.exists() and not args.force:

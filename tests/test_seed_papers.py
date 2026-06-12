@@ -94,3 +94,28 @@ def test_fetch_seed_papers_resolves_matches_and_misses():
     assert resolved[0].paper_id == "W3004578093"
     assert resolved[1].paper_id == "manual_CKAN"
     assert missed == ["Imaginary Paper That Does Not Exist"]
+
+
+def test_fetch_seed_papers_skips_failed_fetch():
+    """A per-title OpenAlex error (exhausted retries) is a miss, not a crash of the whole crawl."""
+
+    def flaky_fetch(query, n):  # noqa: ARG001
+        if "LightGCN" in query:
+            return [
+                Paper(
+                    paper_id="W1",
+                    title="LightGCN Simplifying and Powering Graph Convolution Network",
+                    abstract="abs",
+                )
+            ]
+        raise RuntimeError("exhausted retries (rate limit or network)")
+
+    titles = [
+        "LightGCN Simplifying and Powering Graph Convolution Network",
+        "Some Paper OpenAlex Times Out On",
+    ]
+    with patch("data.sources.seed_papers.openalex.fetch_works", side_effect=flaky_fetch):
+        resolved, missed = fetch_seed_papers(titles)
+
+    assert [p.paper_id for p in resolved] == ["W1"]
+    assert missed == ["Some Paper OpenAlex Times Out On"]
