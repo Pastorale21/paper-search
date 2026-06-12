@@ -1,6 +1,8 @@
 """Build the multi-sub-area GNN-recsys corpus: fetch per sub-area, dedupe, filter, persist.
 
-CLI: `uv run python -m data.corpus --target 800 --per-query 500 [--force]`
+CLI:
+  `uv run python -m data.corpus --target 800 --per-query 500 [--force]`  # full (re)build
+  `uv run python -m data.corpus --merge-seeds`  # add seeds to the existing corpus, no re-crawl
 """
 
 from __future__ import annotations
@@ -9,6 +11,7 @@ import argparse
 import json
 import re
 from collections import Counter
+from pathlib import Path
 
 from schemas import Paper
 from spike import config
@@ -357,6 +360,62 @@ def _dedupe_seed_papers(seeds: list[Paper]) -> list[Paper]:
     return kept
 
 
+def merge_seeds_into_corpus(
+    path: Path | None = None,
+) -> tuple[list[Paper], list[Paper], list[str]]:
+    """Add curated seed papers to the EXISTING corpus without re-crawling the sub-areas.
+
+    A full ``--force`` rebuild re-rolls every sub-area crawl and can SHRINK the corpus (OpenAlex
+    relevance ranking + the off-topic filter are not stable run-to-run). This adds only the
+    genuinely-new seed papers on top of the committed corpus, so nothing already present is lost.
+
+    Seeds are matched against the existing corpus by paper_id, OpenAlex id, and fuzzy title; only
+    new ones are appended. Returns ``(merged, added, missed_seed_titles)``. Verify the printed
+    ``added`` list (title + year) — OpenAlex can resolve an acronym to a look-alike paper.
+    """
+    if path is None:
+        path = config.PAPERS_JSON
+    if not path.exists():
+        raise FileNotFoundError(f"{path} missing; build the corpus first (data.corpus --force)")
+    existing = [Paper.from_dict(d) for d in json.loads(path.read_text(encoding="utf-8"))]
+    existing_pids = {p.paper_id for p in existing}
+    existing_oas = {p.source_ids.get("openalex") for p in existing if p.source_ids.get("openalex")}
+    existing_titles = {normalize_title(p.title) for p in existing}
+
+    seeds_raw, missed = fetch_seed_papers(SEED_TITLES)
+    seeds = filter_with_abstract(seeds_raw)
+
+    added: list[Paper] = []
+    for sp in seeds:
+        nt = normalize_title(sp.title)
+        oa = sp.source_ids.get("openalex")
+        if sp.paper_id in existing_pids or (oa and oa in existing_oas):
+            continue
+        if any(titles_are_duplicates(nt, et) for et in existing_titles):
+            continue
+        added.append(sp)
+        existing_pids.add(sp.paper_id)
+        existing_titles.add(nt)
+        if oa:
+            existing_oas.add(oa)
+
+    merged = existing + added
+    path.write_text(
+        json.dumps([p.to_dict() for p in merged], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"\n[merge] {len(existing)} existing + {len(added)} new seeds = {len(merged)} papers")
+    if added:
+        print("[merge] added (verify these are the REAL papers, not acronym look-alikes):")
+        for sp in added:
+            print(f"  + {sp.paper_id} ({sp.year or '?'})  {sp.title}")
+    if missed:
+        print(f"[merge] OpenAlex couldn't match {len(missed)} seed titles:")
+        for t in missed:
+            print(f"  - {t!r}")
+    return merged, added, missed
+
+
 def _save(papers: list[Paper]) -> None:
     """Overwrite the corpus cache JSON (shared with the spike pipeline)."""
     config.PAPERS_JSON.write_text(
@@ -403,7 +462,16 @@ def main() -> None:
     )
     ap.add_argument("--per-query", type=int, default=500, help="works to fetch per sub-area")
     ap.add_argument("--force", action="store_true", help="rebuild even if papers.json exists")
+    ap.add_argument(
+        "--merge-seeds",
+        action="store_true",
+        help="add curated seed papers to the EXISTING corpus without re-crawling (no regression)",
+    )
     args = ap.parse_args()
+
+    if args.merge_seeds:
+        merge_seeds_into_corpus()
+        return
 
     if config.PAPERS_JSON.exists() and not args.force:
         n = len(json.loads(config.PAPERS_JSON.read_text()))

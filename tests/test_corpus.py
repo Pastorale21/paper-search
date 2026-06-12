@@ -1,10 +1,14 @@
 """Unit tests for corpus dedup + abstract filtering (no network)."""
 
+import json
+
+from data import corpus as corpus_mod
 from data.corpus import (
     _select_balanced,
     dedupe,
     filter_with_abstract,
     is_gnn_recsys,
+    merge_seeds_into_corpus,
     normalize_title,
     titles_are_duplicates,
 )
@@ -109,3 +113,38 @@ def test_gnn_recsys_filter_drops_offtopic():
         ),
     )
     assert not is_gnn_recsys(p)
+
+
+def test_merge_seeds_appends_only_new(tmp_path, monkeypatch):
+    """merge_seeds_into_corpus appends genuinely-new seeds and skips ones already present
+    (by id / OpenAlex id / fuzzy title), without re-crawling — guarding against the
+    full-rebuild regression. Verifies persistence to the given path."""
+    existing = [
+        _paper("W1", "Neural Graph Collaborative Filtering", oa="W1"),
+        _paper(
+            "W2",
+            "LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation",
+            oa="W2",
+        ),
+    ]
+    papers_json = tmp_path / "papers.json"
+    papers_json.write_text(json.dumps([p.to_dict() for p in existing]), encoding="utf-8")
+
+    seeds = [
+        _paper(
+            "W2dup", "LightGCN Simplifying and Powering Graph Convolution Network", oa="W2"
+        ),  # same OA id → skip
+        _paper("W1variant", "neural graph collaborative filtering", oa="Wx"),  # dup title → skip
+        _paper(
+            "W3new", "A Neural Influence Diffusion Model for Social Recommendation", oa="W3"
+        ),  # NEW
+    ]
+    monkeypatch.setattr(corpus_mod, "fetch_seed_papers", lambda titles: (seeds, ["Missed Title"]))
+
+    merged, added, missed = merge_seeds_into_corpus(path=papers_json)
+
+    assert [p.paper_id for p in added] == ["W3new"]
+    assert len(merged) == 3  # 2 existing + 1 new; no regression
+    assert missed == ["Missed Title"]
+    on_disk = {p["paper_id"] for p in json.loads(papers_json.read_text(encoding="utf-8"))}
+    assert on_disk == {"W1", "W2", "W3new"}

@@ -67,8 +67,9 @@ DEFAULT_ALIASES: dict[str, str] = {
     "ddtcdr": "deep dual transfer cross domain recommendation",
     "ddt cdr": "deep dual transfer cross domain recommendation",
     "ppgn": "preference propagation graphnet",
-    "ptupcdr": "pre train user preference for cross domain recommendation",
-    "ptup cdr": "pre train user preference for cross domain recommendation",
+    # real PTUPCDR paper (W3209185641) added via data.corpus --merge-seeds; align to its title
+    "ptupcdr": "personalized transfer of user preferences for cross domain recommendation",
+    "ptup cdr": "personalized transfer of user preferences for cross domain recommendation",
     # Session-based seed papers
     "gcsan": "graph contextualized self attention",
     "gc san": "graph contextualized self attention",
@@ -94,15 +95,18 @@ DEFAULT_ALIASES: dict[str, str] = {
     "diffnet plusplus": "diffnet plusplus",
     "dhcf": "dual channel hypergraph collaborative filtering",
     "hgcn": "hypergraph convolutional network for collaborative filtering",
-    "hyperrec": "hypergraph based recommendation",
-    "fairgo": "fairgo",
+    # Aliases below aligned to the REAL papers added via `data.corpus --merge-seeds` (verified
+    # by year/venue). HyperRec/FairGo/FairGNN titles don't contain the acronym, so the bare-token
+    # aliases never matched until the real paper was present.
+    "hyperrec": "next item recommendation with sequential hypergraphs",
+    "fairgo": "learning fair representations for recommendation a graph based perspective",
     "fairrec": "fairrec",
     "nfcf": "neural fairness collaborative filtering",
     "gfair": "gfair",
-    "fairgnn": "fairgnn",
+    "fairgnn": "say no to the discrimination learning fair graph neural networks",
     "metahin": "meta learning on heterogeneous information networks",
     "duorec": "contrastive learning for representation degeneration problem",
-    "coserec": "contrastive learning for sequential recommendation with robust augmentation",
+    "coserec": "contrastive self supervised sequential recommendation with robust augmentation",
     "iclrec": "intent contrastive learning for sequential recommendation",
     "gfcf": "graph filter collaborative filtering",
     "pinsage": "graph convolutional neural networks for web scale recommender systems",
