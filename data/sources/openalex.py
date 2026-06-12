@@ -109,3 +109,24 @@ def fetch_works(query: str, n: int) -> list[Paper]:
         cursor = (data.get("meta") or {}).get("next_cursor")
     print(f"[openalex] query={query!r} fetched {len(papers)} works")
     return papers
+
+
+def fetch_work_by_id(oa_id: str) -> Paper | None:
+    """Fetch ONE work by its exact OpenAlex id (e.g. 'W2963146368'); None if unavailable.
+
+    Direct id lookup is far lighter than ``fetch_works`` (a paged search with candidate
+    ranking), so it is the reliable path for adding known papers when the search endpoint is
+    rate-limited. Returns None (never raises) on any fetch error so a batch can skip + continue.
+    """
+    oa_id = (oa_id or "").strip()
+    if not oa_id:
+        return None
+    params = {"select": config.OPENALEX_SELECT}
+    if config.OPENALEX_MAILTO:
+        params["mailto"] = config.OPENALEX_MAILTO
+    try:
+        data = _get(f"{config.OPENALEX_URL.rstrip('/')}/{oa_id}", params)
+    except Exception as exc:  # noqa: BLE001 — caller treats any failure as "couldn't fetch"
+        print(f"[openalex] by-id fetch failed for {oa_id!r}: {exc}")
+        return None
+    return _oa_to_paper(data) if data.get("id") else None

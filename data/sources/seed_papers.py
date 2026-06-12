@@ -14,6 +14,7 @@ returned to the caller so the SEED_TITLES list can be tightened.
 from __future__ import annotations
 
 import re
+import sys
 
 from schemas import Paper
 
@@ -154,7 +155,12 @@ def fetch_seed_papers(titles: list[str]) -> tuple[list[Paper], list[str]]:
         if manual is not None:
             resolved.append(manual)
             continue
-        candidates = openalex.fetch_works(title, n=_CANDIDATES_PER_TITLE)
+        try:
+            candidates = openalex.fetch_works(title, n=_CANDIDATES_PER_TITLE)
+        except Exception as exc:  # noqa: BLE001 — one flaky OpenAlex call must not abort the crawl
+            print(f"[seed] fetch failed for {title!r}: {exc}; skipping", file=sys.stderr)
+            missed.append(title)
+            continue
         match = next(
             (c for c in candidates if _is_match(seed_norm, _norm(c.title or ""))),
             None,
