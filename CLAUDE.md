@@ -7,7 +7,9 @@
 NLP 课程大作业(4 人组),GNN-based recsys 方向的论文语义搜索系统。
 核心差异化:**机制级检索**(method-level)+ **引文图多跳推理**,而非词面 / 主题相似。
 论点:dense embedding 在同一话题簇里饱和(一堆 GNN 推荐论文余弦挤在 0.95–0.96),用 LLM 把摘要抽成结构化"方法卡"做字段级比对来破局。
-核心结果(v2-expanded-d gold set,n=30;paper-query same subset、未调参默认权重):**hybrid 0.266 nDCG@5 > dense 0.253**;standalone **method_match 0.188 暂不稳定胜过 dense**——method-card 信号是 hybrid 融合里的互补项,而非 dense 的独立替代。增益集中在 session/social 这类 cross-cluster 查询。(早期 n=5 子集上 method_match 曾报 +0.112 / hybrid +0.091,样本过小,已以 n=30 为准;细节见 `docs/eval_findings_d.md`。)
+核心结果(v2-expanded-d gold set,n=30;817-paper 语料、解析率 98.7%、paper-query same subset n=10、未调参默认权重):在最完整的语料上 **hybrid 0.247 nDCG@5 > dense 0.221(+0.026)**;standalone method_match 0.198、最佳变体 method_match_norm2 0.196 仍略低于 dense。**驱动力是 per-query 机制级差异化**——method-card 在 dense 饱和 / 失效的查询上明显拉开(P2:0.131 → 0.553;P5:0.000 → 0.339;P1 / P4 hybrid 0.509 / 0.485 vs dense 0.214 / 0.170),代价是 KG 类查询(P3 / P9 / P10)dense 更强。诚实补充:n=10、deltas 偏小、dense 仍领先 Recall@10;优势随语料完整度上升(800 时 +0.013、810 补卡前 −0.002、817 card-complete +0.026)。细节见 `docs/eval_findings_d.md`。
+
+
 
 ## 五层架构(+ 冻结参考实现)
 运行依赖顺序:`data → (nlp ∥ retrieval) → eval / graph_reason → ui`。
@@ -102,8 +104,10 @@ NLP 课程大作业(4 人组),GNN-based recsys 方向的论文语义搜索系统
 - **cross-encoder rerank 是诚实负结果**:ms-marco 在学术机制匹配上 −0.106,默认禁用。
 - **near-dup 去重缺口**:LightGCN 有两条副本(A 的 P0)。
 - **引文图 OUT-sparsity**:奠基论文 out-edge 少,ancestors 偏"下游→上游";A 扩到 800 后改善。
-- **sub-area 推理是关键词启发式**,偶尔误判(C 的 P1 换分类器)。
-- **eval 已扩到 n=30**(v2-expanded-d):解析率 78.7%、Q13(fairness)因语料缺口跳过;趋势明确但仍受语料覆盖 / 方法卡完整度影响。standalone method_match 在 n=30 上**不再稳定胜过 dense**(见 `docs/eval_findings_d.md`),诚实结论是 hybrid > dense、method-card 为互补信号。
+- **eval:语料 817、解析率 98.7%、n=30**(by-id 补了 17 篇真论文 + 抽卡;只剩 HGCN / GFair 未识别)。same-subset n=10 card-complete 上 **hybrid 0.247 > dense 0.221(+0.026)**,优势随语料完整度恢复;诚实结论:method-card 为 per-query 机制级互补信号(P1/P2/P4/P5 拉开、KG 类 dense 更强),standalone norm2 仍略低于 dense。n=10、dense 领先 Recall@10。look-alike 用 `GOLD_ANCHORS` exact-id 锚定。见 `docs/eval_findings_d.md`。
+
+
+
 
 ## 索引
 - 面向人的总览 / 任务分发:`docs/onboarding.md`
