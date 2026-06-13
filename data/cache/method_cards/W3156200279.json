@@ -1,0 +1,18 @@
+{
+  "paper_id": "W3156200279",
+  "task": "fair collaborative filtering for career recommendation",
+  "input": "user-item interaction data (social media) with sensitive attribute (gender)",
+  "output": "debiased ranked item recommendations (career-related items)",
+  "backbone": "neural collaborative filtering (pre-training + fine-tuning)",
+  "loss": "not explicitly named in abstract",
+  "key_idea": "mitigate gender bias via pre-training and fine-tuning with bias correction techniques",
+  "datasets": [
+    "MovieLens",
+    "Facebook"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}
