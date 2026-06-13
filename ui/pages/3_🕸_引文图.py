@@ -111,34 +111,31 @@ if query_kind == "opposing":
         tone="orange",
     )
 
-# Two-column layout: graph on the left, ranked list on the right.
-col_g, col_l = st.columns([3, 2])
+# Vertical layout: graph full-width on top, ranked results stacked below it.
 path_count = sum(len(r.paths) for r in results)
 st.caption(f"返回 {len(results)} 个结果,包含 {path_count} 条可解释路径。")
 
-with col_g:
-    paths = [p for r in results for p in r.paths]
-    if paths:
-        render_graph(anchor_pid, paths, papers, height=520)
-    else:
-        callout("图视图不可用", "后端返回了候选结果,但没有可绘制的路径。", tone="gray")
+paths = [p for r in results for p in r.paths]
+if paths:
+    render_graph(anchor_pid, paths, papers, height=560)
+else:
+    callout("图视图不可用", "后端返回了候选结果,但没有可绘制的路径。", tone="gray")
 
-with col_l:
-    st.markdown("#### 排序结果 + 原因")
-    for i, r in enumerate(results, 1):
-        paper = papers.get(r.paper_id, {})
-        with st.container(border=True):
-            st.markdown(f"**{i}. {paper.get('title') or '?'}** · {paper.get('year') or '?'}")
-            st.caption(f"`{r.paper_id}` · 分数 `{r.score:.3f}`")
-            for p in r.paths[:2]:
-                st.markdown(f"› {p.explanation}")
-            action_cols = st.columns([1, 1])
-            if action_cols[0].button("查看方法卡", key=f"graph_result_card_{r.paper_id}_{i}"):
-                st.session_state["selected_paper_id"] = r.paper_id
-                set_params(paper_id=r.paper_id)
-                st.switch_page("pages/2_📋_方法卡.py")
-            if action_cols[1].button("设为锚点", key=f"graph_result_anchor_{r.paper_id}_{i}"):
-                st.session_state["selected_paper_id"] = r.paper_id
-                st.session_state.pop("_graph_query", None)
-                set_params(paper_id=r.paper_id)
-                st.rerun()
+st.markdown("#### 排序结果 + 原因")
+for i, r in enumerate(results, 1):
+    paper = papers.get(r.paper_id, {})
+    with st.container(border=True):
+        st.markdown(f"**{i}. {paper.get('title') or '?'}** · {paper.get('year') or '?'}")
+        st.caption(f"`{r.paper_id}` · 分数 `{r.score:.3f}`")
+        for p in r.paths[:2]:
+            st.markdown(f"› {p.explanation}")
+        action_cols = st.columns([1, 1, 6])
+        if action_cols[0].button("查看方法卡", key=f"graph_result_card_{r.paper_id}_{i}"):
+            st.session_state["selected_paper_id"] = r.paper_id
+            set_params(paper_id=r.paper_id)
+            st.switch_page("pages/2_📋_方法卡.py")
+        if action_cols[1].button("设为锚点", key=f"graph_result_anchor_{r.paper_id}_{i}"):
+            st.session_state["selected_paper_id"] = r.paper_id
+            st.session_state.pop("_graph_query", None)
+            set_params(paper_id=r.paper_id)
+            st.rerun()
