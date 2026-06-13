@@ -1,0 +1,18 @@
+{
+  "paper_id": "W3080566854",
+  "task": "collaborative filtering (top-K recommendation)",
+  "input": "user-item interaction data (implicit feedback)",
+  "output": "user and item embeddings for recommendation",
+  "backbone": "dual channel hypergraph convolutional network (JHConv)",
+  "loss": "",
+  "key_idea": "dual-channel learning with hypergraph convolution to capture high-order correlations",
+  "datasets": [
+    "two public benchmarks",
+    "two new real-world datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

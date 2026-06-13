@@ -1,0 +1,18 @@
+{
+  "paper_id": "W2986515219",
+  "task": "session-based recommendation (next item prediction)",
+  "input": "anonymous interaction sessions (item sequences)",
+  "output": "next item recommendation (predicted item for the current session)",
+  "backbone": "weighted attention graph layer + Readout function",
+  "loss": "",
+  "key_idea": "model item transitions via a session graph that captures both sequential and latent order",
+  "datasets": [
+    "Yoochoose",
+    "Diginetica"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

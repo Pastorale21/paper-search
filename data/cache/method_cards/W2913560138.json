@@ -1,0 +1,19 @@
+{
+  "paper_id": "W2913560138",
+  "task": "recommendation with side information (knowledge graph)",
+  "input": "user-item interaction graph and item knowledge graph",
+  "output": "predicted user-item interaction scores",
+  "backbone": "knowledge graph convolutional network (KGCN)",
+  "loss": "",
+  "key_idea": "propagate user preferences over item knowledge graph via neighborhood aggregation to capture high-order item relatedness",
+  "datasets": [
+    "movie",
+    "book",
+    "music recommendation datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

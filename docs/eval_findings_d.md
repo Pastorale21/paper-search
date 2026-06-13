@@ -1,43 +1,46 @@
 # D Eval Findings
 
-## Latest Run (810 corpus)
+## Latest Run (817 corpus, card-complete)
 
-- Corpus expanded to **810 papers** — 10 real gap papers added by id (`data.corpus --merge-ids`):
-  DiffNet, DuoRec, CoSeRec, HyperRec, DisenHAN, MetaHIN, PTUPCDR, FairRec, FairGo, FairGNN.
+- Corpus expanded to **817 papers** — 17 real gap papers added by exact OpenAlex id
+  (`data.corpus --merge-ids`), all with extracted method cards. Round 1 (10): DiffNet, DuoRec,
+  CoSeRec, HyperRec, DisenHAN, MetaHIN, PTUPCDR, FairRec, FairGo, FairGNN. Round 2 (7): KGCN, FGNN,
+  GFCF, DHCF, DCCF, ICLRec, NFCF.
 - Gold set: `v2-expanded-d`
-- Gold-title resolution: **133 / 150 = 88.7%** (was `118 / 150 = 78.7%`). `Q13` fairness recovered
-  from 0/5 to **3/5**.
-- `P5` re-enters the same-subset now that the real **DiffNet anchor resolves** → same-subset n: 9 → 10.
-- Still absent (real paper not in corpus — only acronym **look-alikes** like "Double-End KGCN"):
-  **KGCN, FGNN, GFCF, DHCF, DCCF, ICLRec, NFCF, GFair**. These need manual seeds (exact OpenAlex id)
-  + alias fixes; do NOT point their aliases at look-alikes (false positives).
+- Gold-title resolution: **148 / 150 = 98.7%** (was 78.7%). `Q13` fairness 4/5.
+- Only **2 gold titles still unresolved**: `HGCN`, `GFair` (real papers not yet identified — do NOT
+  point their aliases at look-alikes).
+- Resolution robustness: several acronyms whose real title is a SUBSTRING of a corpus look-alike
+  (e.g. real `KGCN` vs "Double-End KGCN") are pinned by exact id via `GOLD_ANCHORS` (a tier-0 in the
+  resolver), not fuzzy alias substrings.
 
 ## Main Result To Report
 
-Same-subset paper-query table (810 corpus, directly comparable over **10** paper queries):
+Same-subset paper-query table (817 corpus, card-complete, directly comparable over **10** queries):
 
 | method | nDCG@5 | MRR | Recall@10 | n |
 | --- | ---: | ---: | ---: | ---: |
-| dense | 0.230 | 0.450 | 0.315 | 10 |
-| dense_rerank | 0.089 | 0.198 | 0.240 | 10 |
-| method_match | 0.189 | 0.425 | 0.180 | 10 |
-| method_match_norm2 | 0.204 | 0.425 | 0.205 | 10 |
-| hybrid | 0.227 | 0.448 | 0.270 | 10 |
+| dense | 0.221 | 0.450 | 0.320 | 10 |
+| dense_rerank | 0.085 | 0.209 | 0.240 | 10 |
+| method_match | 0.198 | 0.439 | 0.200 | 10 |
+| method_match_norm2 | 0.196 | 0.434 | 0.220 | 10 |
+| **hybrid** | **0.247** | 0.448 | 0.280 | 10 |
 
 (`method_match_norm` / `_norm2` = renormalized field-score ablations; `norm2` requires ≥2 comparable
-fields. `norm2` is the best method_match variant but still below dense.)
+fields — best standalone variant, still just below dense.)
 
 Current defensible claim:
 
-> On the aggregate, hybrid and dense are a **statistical tie** (0.227 vs 0.230, n=10; dense even
-> leads Recall@10). The value of mechanism-level method-card matching is **per-query, not
-> aggregate**: it rescues queries where dense saturates or fails — `P5` (dense 0.000 → cards 0.339)
-> and `P2` (0.131 → 0.553) — at the cost of queries where dense's topical signal dominates
-> (`P3`/`P9`/`P10`), netting a wash.
+> On the most-complete corpus (98.7% gold resolution), **hybrid 0.247 > dense 0.221 on nDCG@5
+> (+0.026)**. The win is driven by **per-query mechanism-level differentiation**: method-cards
+> rescue queries where dense saturates or fails — `P2` (dense 0.131 → cards 0.553), `P5` (0.000 →
+> 0.339), `P1`/`P4` (hybrid 0.509 / 0.485 vs dense 0.214 / 0.170) — at the cost of KG-heavy queries
+> (`P3`/`P9`/`P10`) where dense's topical signal dominates. Standalone `method_match` (0.198) stays
+> just below dense; it is a complementary fusion signal, not a replacement.
 
-Do NOT claim hybrid beats dense on the aggregate, or that standalone `method_match` beats dense.
-The earlier "hybrid +0.013" was on the **n=9 subset that was MISSING the P5 DiffNet anchor**; once
-the real DiffNet is in the corpus and P5 re-enters, the edge disappears.
+Honest caveats: n=10, so deltas are small; dense still leads `Recall@10` (0.320 vs 0.280); MRR is a
+tie. The edge tracks corpus completeness — hybrid was +0.013 (n=9, 800), −0.002 (n=10, 810,
+pre-cards), **+0.026 (n=10, 817, card-complete)** — so report the 817 card-complete number.
 
 ### Per-query differentiation (the story to lead with)
 
@@ -45,16 +48,16 @@ the real DiffNet is in the corpus and P5 re-enters, the edge disappears.
 | --- | ---: | ---: | ---: | ---: | --- |
 | `P2` | 0.131 | 0.553 | 0.553 | 0.214 | **cards** (dense saturates) |
 | `P5` | 0.000 | 0.339 | 0.339 | 0.131 | **cards** (dense fails) |
-| `P1` | 0.214 | 0.339 | 0.339 | 0.509 | cards / hybrid |
-| `P4` | 0.195 | 0.246 | 0.246 | 0.390 | cards / hybrid |
-| `P3` | 0.151 | 0.000 | 0.000 | 0.000 | dense |
-| `P6` | 0.441 | 0.246 | 0.246 | 0.390 | dense |
-| `P9` | 0.559 | 0.168 | 0.319 | 0.319 | dense |
-| `P10` | 0.390 | 0.000 | 0.000 | 0.151 | dense |
+| `P1` | 0.214 | 0.339 | 0.339 | 0.509 | **cards / hybrid** |
+| `P4` | 0.170 | 0.214 | 0.214 | 0.485 | **cards / hybrid** |
+| `P6` | 0.530 | 0.384 | 0.384 | 0.553 | ~tie (hybrid edge) |
+| `P3` | 0.131 | 0.000 | 0.000 | 0.000 | dense (KG) |
+| `P9` | 0.485 | 0.146 | 0.131 | 0.277 | dense |
+| `P10` | 0.339 | 0.000 | 0.000 | 0.131 | dense (KG) |
 
 The honest thesis: method cards are a **complementary mechanism-level signal** that wins exactly
-where dense's topical/semantic signal is weakest (cross-cluster social/sequential queries), not a
-blanket improvement.
+where dense's topical/semantic signal is weakest (social/sequential cross-cluster queries: P1/P2/
+P4/P5), tipping the aggregate to hybrid on the complete corpus — not a blanket improvement.
 
 ## Why Method Match Drops
 

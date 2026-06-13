@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3211009588",
+  "task": "collaborative filtering (implicit feedback recommendation)",
+  "input": "user-item interaction graph (implicit feedback matrix)",
+  "output": "predicted preference scores (or ranked item lists)",
+  "backbone": "graph filter (low-pass filter) based collaborative filtering",
+  "loss": "",
+  "key_idea": "unify GCN-based CF methods as low-pass filters and derive a closed-form solution (GF-CF) without training",
+  "datasets": [
+    "Amazon-book"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

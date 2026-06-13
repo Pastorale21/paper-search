@@ -1,0 +1,17 @@
+{
+  "paper_id": "W4224316819",
+  "task": "sequential recommendation",
+  "input": "user behavior sequences (item interaction sequences)",
+  "output": "next-item recommendation (ranked list of items)",
+  "backbone": "sequential recommendation model (e.g., GRU4Rec, SASRec) with intent encoder",
+  "loss": "contrastive self-supervised learning (InfoNCE) + sequential recommendation loss (e.g., cross-entropy)",
+  "key_idea": "learn latent intent distributions via clustering and maximize agreement between sequence views and their corresponding intents via contrastive SSL within an EM framework",
+  "datasets": [
+    "four real-world datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}
