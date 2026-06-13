@@ -1,22 +1,32 @@
 # D Eval Findings
 
-## Latest Run (817 corpus, card-complete)
+## Latest Run (818 corpus, card-complete)
 
-- Corpus expanded to **817 papers** — 17 real gap papers added by exact OpenAlex id
-  (`data.corpus --merge-ids`), all with extracted method cards. Round 1 (10): DiffNet, DuoRec,
-  CoSeRec, HyperRec, DisenHAN, MetaHIN, PTUPCDR, FairRec, FairGo, FairGNN. Round 2 (7): KGCN, FGNN,
-  GFCF, DHCF, DCCF, ICLRec, NFCF.
+- Corpus expanded to **818 papers** — 18 real gap papers added by exact OpenAlex id
+  (`data.corpus --merge-ids`). The 17 paper-query-relevant ones have extracted method cards.
+  Round 1 (10): DiffNet, DuoRec, CoSeRec, HyperRec, DisenHAN, MetaHIN, PTUPCDR, FairRec, FairGo,
+  FairGNN. Round 2 (7): KGCN, FGNN, GFCF, DHCF, DCCF, ICLRec, NFCF. Round 3 (1): GFairHint.
 - Gold set: `v2-expanded-d`
-- Gold-title resolution: **148 / 150 = 98.7%** (was 78.7%). `Q13` fairness 4/5.
-- Only **2 gold titles still unresolved**: `HGCN`, `GFair` (real papers not yet identified — do NOT
-  point their aliases at look-alikes).
+- Gold-title resolution: **149 / 150 = 99.3%** (was 78.7%). `Q13` fairness now 5/5.
+- **`GFair` is resolved to GFairHint** (W4378498966, "Improving Individual Fairness for GNNs via
+  Fairness Hint", arXiv'23) — a **best-guess** mapping for the bare "GFair" gold acronym (same
+  graph-fairness category as FairGNN); **D should confirm** this is the intended paper. GFairHint
+  is a Q13 short-query gold target only (not a paper-query anchor/candidate), so it needs no method
+  card for the eval.
+- Only **1 gold title still unresolved**: `HGCN`. NOTE: Q9's HGCN is a *hypergraph-CF* method
+  (alias "hypergraph convolutional network for collaborative filtering", sits with HCCF/MHCN/DHCF/
+  HyperRec). "Hyperbolic Graph Convolutional Neural Networks" (Chami et al., W2982490267) is a
+  DIFFERENT paper (hyperbolic geometry, not recsys) — deliberately NOT added to avoid a
+  topically-wrong gold mapping. Needs the real hypergraph-CF HGCN paper.
 - Resolution robustness: several acronyms whose real title is a SUBSTRING of a corpus look-alike
   (e.g. real `KGCN` vs "Double-End KGCN") are pinned by exact id via `GOLD_ANCHORS` (a tier-0 in the
   resolver), not fuzzy alias substrings.
 
 ## Main Result To Report
 
-Same-subset paper-query table (817 corpus, card-complete, directly comparable over **10** queries):
+Same-subset paper-query table (818 corpus, card-complete, directly comparable over **10** queries;
+GFairHint added after this table — it is a Q13 short-query target, so the paper-query numbers are
+unchanged):
 
 | method | nDCG@5 | MRR | Recall@10 | n |
 | --- | ---: | ---: | ---: | ---: |
@@ -40,7 +50,7 @@ Current defensible claim:
 
 Honest caveats: n=10, so deltas are small; dense still leads `Recall@10` (0.320 vs 0.280); MRR is a
 tie. The edge tracks corpus completeness — hybrid was +0.013 (n=9, 800), −0.002 (n=10, 810,
-pre-cards), **+0.026 (n=10, 817, card-complete)** — so report the 817 card-complete number.
+pre-cards), **+0.026 (n=10, 817/818, card-complete)** — so report the card-complete number.
 
 ### Per-query differentiation (the story to lead with)
 
