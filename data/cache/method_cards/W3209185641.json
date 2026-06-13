@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3209185641",
+  "task": "cross-domain recommendation (cold-start)",
+  "input": "user-item interactions from source and target domains, user characteristic embeddings",
+  "output": "personalized preference bridge function for each user, transformed user preference embedding in target domain",
+  "backbone": "meta network (generates personalized bridge functions)",
+  "loss": "task-oriented optimization (not explicitly named in abstract)",
+  "key_idea": "learn a meta network to generate personalized bridge functions for each user to transfer preferences from source to target domain",
+  "datasets": [
+    "large real-world datasets (not named)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

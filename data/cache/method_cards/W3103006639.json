@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3103006639",
+  "task": "fair recommendation in two-sided platforms",
+  "input": "user-item interaction data (ratings or implicit feedback) and producer exposure constraints",
+  "output": "personalized recommendation lists satisfying two-sided fairness (MMS for producers, EF1 for customers)",
+  "backbone": "fair allocation algorithm (not a neural network; mapping to indivisible goods allocation)",
+  "loss": "",
+  "key_idea": "map fair recommendation to constrained fair allocation of indivisible goods to guarantee MMS for producers and EF1 for customers",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3153432523",
+  "task": "fair recommendation",
+  "input": "user-item bipartite graph and original embeddings from any recommendation model",
+  "output": "filtered embeddings that obfuscate sensitive features",
+  "backbone": "graph-based adversarial filter (composition of filters)",
+  "loss": "adversarial loss (to obfuscate sensitive features)",
+  "key_idea": "learn a composition of filters that transform embeddings to obfuscate sensitive features via adversarial learning on a user-centric graph",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}
