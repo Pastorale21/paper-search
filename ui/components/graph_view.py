@@ -8,11 +8,11 @@ import tempfile
 import streamlit.components.v1 as components
 from pyvis.network import Network
 
-# Edge color by intent — matches the documented INTENT_WEIGHTS palette.
+# Edge color by intent — warm-palette hues matching the app theme (ui/style.py).
 _EDGE_COLOR = {
-    "background": "#9ca3af",  # gray
-    "method": "#3b82f6",  # blue
-    "comparison": "#f97316",  # orange
+    "background": "#A8A29A",  # warm gray
+    "method": "#2F8077",  # teal (app accent family)
+    "comparison": "#C2802F",  # amber
 }
 # Display-only Chinese labels for the edge hover tooltip. The intent KEYS stay English —
 # graph_reason.get_edge_intent + INTENT_WEIGHTS depend on them; never translate the keys.
@@ -21,8 +21,10 @@ _INTENT_LABELS = {
     "method": "方法",
     "comparison": "对比",
 }
-_CENTER_COLOR = "#ef4444"  # red
-_NODE_COLOR = "#5b8def"  # blue
+_CENTER_COLOR = "#C75B39"  # warm rust — the focal/anchor node
+_NODE_COLOR = "#3E8E83"  # teal — matches the app accent
+_CANVAS_BG = "#FCFBF8"  # warm paper, matches backgroundColor
+_LABEL_COLOR = "#2A2622"  # warm ink, matches textColor
 
 
 def render_graph(
@@ -42,6 +44,8 @@ def render_graph(
         directed=True,
         notebook=False,
         cdn_resources="in_line",  # critical: keeps lib/ out of cwd (CLAUDE.md gotcha)
+        bgcolor=_CANVAS_BG,
+        font_color=_LABEL_COLOR,
     )
 
     seen_nodes: set[str] = set()
