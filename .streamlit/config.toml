@@ -1,0 +1,12 @@
+# Deliberate light theme. Scene: a researcher / the defense panel reading and comparing
+# GNN-recsys papers on a laptop in a bright room, in focused-analytical mode -> light.
+# Warm "paper" neutrals (the product is literally about papers) + one deep teal-ink accent for
+# actions / selection / signals. Teal-on-warm pops for primary actions and breaks the default
+# white+blue "tool" reflex. Component-level tokens that match this live in ui/style.py.
+[theme]
+base = "light"
+primaryColor = "#1C6B61"            # deep teal ink — actions, selection, links
+backgroundColor = "#FCFBF8"         # warm paper white (not pure #fff)
+secondaryBackgroundColor = "#F3F0E9" # warm panel: sidebar, cards, metrics, inputs
+textColor = "#2A2622"               # warm near-black ink (not pure #000)
+font = "sans serif"
