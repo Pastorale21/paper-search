@@ -423,8 +423,10 @@ def merge_works_by_ids(
     """Add specific papers by exact OpenAlex id to the EXISTING corpus (light, reliable path).
 
     Each id is a single direct lookup (``openalex.fetch_work_by_id``), so this stays usable when
-    the search endpoint behind ``--merge-seeds`` is rate-limited. Skips ids already present
-    (by id / OpenAlex id / fuzzy title). Returns ``(merged, added, failed_ids)``.
+    the search endpoint behind ``--merge-seeds`` is rate-limited. Dedups ONLY by exact paper id /
+    OpenAlex id — NOT by fuzzy title: the caller named an exact paper, and acronym look-alikes
+    (e.g. the real "KGCN" vs "Double-End KGCN") share enough tokens that fuzzy-title dedup would
+    wrongly skip the real paper. Returns ``(merged, added, failed_ids)``.
     """
     if path is None:
         path = config.PAPERS_JSON
@@ -433,7 +435,6 @@ def merge_works_by_ids(
     existing = [Paper.from_dict(d) for d in json.loads(path.read_text(encoding="utf-8"))]
     existing_pids = {p.paper_id for p in existing}
     existing_oas = {p.source_ids.get("openalex") for p in existing if p.source_ids.get("openalex")}
-    existing_titles = {normalize_title(p.title) for p in existing}
 
     added: list[Paper] = []
     failed: list[str] = []
@@ -442,15 +443,11 @@ def merge_works_by_ids(
         if p is None or not p.abstract:
             failed.append(oa_id)
             continue
-        nt = normalize_title(p.title)
         oa = p.source_ids.get("openalex")
         if p.paper_id in existing_pids or (oa and oa in existing_oas):
             continue
-        if any(titles_are_duplicates(nt, et) for et in existing_titles):
-            continue
         added.append(p)
         existing_pids.add(p.paper_id)
-        existing_titles.add(nt)
         if oa:
             existing_oas.add(oa)
 
