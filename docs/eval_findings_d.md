@@ -1,32 +1,60 @@
 # D Eval Findings
 
-## Latest Run
+## Latest Run (810 corpus)
 
-- Eval artifact: `data/cache/eval/20260608T153517Z.json`
+- Corpus expanded to **810 papers** — 10 real gap papers added by id (`data.corpus --merge-ids`):
+  DiffNet, DuoRec, CoSeRec, HyperRec, DisenHAN, MetaHIN, PTUPCDR, FairRec, FairGo, FairGNN.
 - Gold set: `v2-expanded-d`
-- Gold-title resolution: `118 / 150 = 78.7%`
-- Skipped query: `Q13` because all fairness gold papers are absent from the current corpus.
+- Gold-title resolution: **133 / 150 = 88.7%** (was `118 / 150 = 78.7%`). `Q13` fairness recovered
+  from 0/5 to **3/5**.
+- `P5` re-enters the same-subset now that the real **DiffNet anchor resolves** → same-subset n: 9 → 10.
+- Still absent (real paper not in corpus — only acronym **look-alikes** like "Double-End KGCN"):
+  **KGCN, FGNN, GFCF, DHCF, DCCF, ICLRec, NFCF, GFair**. These need manual seeds (exact OpenAlex id)
+  + alias fixes; do NOT point their aliases at look-alikes (false positives).
 
 ## Main Result To Report
 
-Same-subset paper-query table, directly comparable over 9 paper queries:
+Same-subset paper-query table (810 corpus, directly comparable over **10** paper queries):
 
 | method | nDCG@5 | MRR | Recall@10 | n |
 | --- | ---: | ---: | ---: | ---: |
-| dense | 0.253 | 0.486 | 0.339 | 9 |
-| dense_rerank | 0.083 | 0.192 | 0.239 | 9 |
-| method_match | 0.188 | 0.361 | 0.206 | 9 |
-| hybrid | 0.266 | 0.476 | 0.283 | 9 |
+| dense | 0.230 | 0.450 | 0.315 | 10 |
+| dense_rerank | 0.089 | 0.198 | 0.240 | 10 |
+| method_match | 0.189 | 0.425 | 0.180 | 10 |
+| method_match_norm2 | 0.204 | 0.425 | 0.205 | 10 |
+| hybrid | 0.227 | 0.448 | 0.270 | 10 |
+
+(`method_match_norm` / `_norm2` = renormalized field-score ablations; `norm2` requires ≥2 comparable
+fields. `norm2` is the best method_match variant but still below dense.)
 
 Current defensible claim:
 
-> Hybrid retrieval outperforms dense retrieval on the paper-query same subset, indicating
-> that mechanism-level signals are useful when fused with semantic retrieval. Standalone
-> method-card matching is less stable because it depends on corpus coverage, method-card
-> completeness, and whether gold labels represent canonical comparators or mechanism-nearest
-> papers.
+> On the aggregate, hybrid and dense are a **statistical tie** (0.227 vs 0.230, n=10; dense even
+> leads Recall@10). The value of mechanism-level method-card matching is **per-query, not
+> aggregate**: it rescues queries where dense saturates or fails — `P5` (dense 0.000 → cards 0.339)
+> and `P2` (0.131 → 0.553) — at the cost of queries where dense's topical signal dominates
+> (`P3`/`P9`/`P10`), netting a wash.
 
-Do not claim that standalone `method_match` beats dense on this run.
+Do NOT claim hybrid beats dense on the aggregate, or that standalone `method_match` beats dense.
+The earlier "hybrid +0.013" was on the **n=9 subset that was MISSING the P5 DiffNet anchor**; once
+the real DiffNet is in the corpus and P5 re-enters, the edge disappears.
+
+### Per-query differentiation (the story to lead with)
+
+| query | dense | method_match | norm2 | hybrid | winner |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `P2` | 0.131 | 0.553 | 0.553 | 0.214 | **cards** (dense saturates) |
+| `P5` | 0.000 | 0.339 | 0.339 | 0.131 | **cards** (dense fails) |
+| `P1` | 0.214 | 0.339 | 0.339 | 0.509 | cards / hybrid |
+| `P4` | 0.195 | 0.246 | 0.246 | 0.390 | cards / hybrid |
+| `P3` | 0.151 | 0.000 | 0.000 | 0.000 | dense |
+| `P6` | 0.441 | 0.246 | 0.246 | 0.390 | dense |
+| `P9` | 0.559 | 0.168 | 0.319 | 0.319 | dense |
+| `P10` | 0.390 | 0.000 | 0.000 | 0.151 | dense |
+
+The honest thesis: method cards are a **complementary mechanism-level signal** that wins exactly
+where dense's topical/semantic signal is weakest (cross-cluster social/sequential queries), not a
+blanket improvement.
 
 ## Why Method Match Drops
 
