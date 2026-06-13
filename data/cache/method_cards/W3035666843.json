@@ -1,0 +1,19 @@
+{
+  "paper_id": "W3035666843",
+  "task": "next-item recommendation",
+  "input": "sequential user-item interactions",
+  "output": "next item prediction for each user",
+  "backbone": "sequential hypergraph network (hypergraph convolution + residual gating + self-attention)",
+  "loss": "",
+  "key_idea": "model short-term item correlations via hypergraph and fuse dynamic item embeddings with short-term user intent",
+  "datasets": [
+    "Amazon",
+    "Etsy",
+    "Goodreads"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

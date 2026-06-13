@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3206127589",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences",
+  "output": "ranked list of items per user",
+  "backbone": "Transformer or BERT (sequential deep learning model)",
+  "loss": "contrastive regularization + recommendation loss (implicitly dot product similarity)",
+  "key_idea": "use contrastive learning with model-level Dropout augmentation and hard positive sampling to reshape item embedding distribution and alleviate representation degeneration",
+  "datasets": [
+    "five datasets (not named in abstract)"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

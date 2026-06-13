@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3117178429",
+  "task": "fair node classification on graphs",
+  "input": "graph with node features and limited sensitive attribute annotations",
+  "output": "node class predictions with reduced bias",
+  "backbone": "graph neural network (GNN)",
+  "loss": "classification loss + fairness regularization",
+  "key_idea": "leverage graph structure and limited sensitive attributes to debias GNN predictions via adversarial or regularization techniques",
+  "datasets": [
+    "real-world datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

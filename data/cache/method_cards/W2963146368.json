@@ -1,0 +1,15 @@
+{
+  "paper_id": "W2963146368",
+  "task": "social recommendation (top-K recommendation)",
+  "input": "user-item interaction graph and social network graph",
+  "output": "ranked list of items per user",
+  "backbone": "layer-wise influence propagation network (diffusion-based GNN)",
+  "loss": "",
+  "key_idea": "model recursive social influence diffusion through a layer-wise propagation structure to evolve user embeddings",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

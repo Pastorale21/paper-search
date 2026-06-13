@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3043239945",
+  "task": "cold-start recommendation",
+  "input": "heterogeneous information network (HIN) with sparse user-item interactions",
+  "output": "recommendations for cold-start users/items",
+  "backbone": "meta-learning framework with semantic-enhanced task constructor and co-adaptation meta-learner",
+  "loss": "",
+  "key_idea": "combine meta-learning with heterogeneous information networks to rapidly adapt to cold-start users/items with few interactions",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

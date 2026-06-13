@@ -1,0 +1,15 @@
+{
+  "paper_id": "W3093563174",
+  "task": "top-N recommendation",
+  "input": "heterogeneous information network (user-item interactions with meta relations)",
+  "output": "ranked list of items per user",
+  "backbone": "disentangled heterogeneous graph attention network",
+  "loss": "",
+  "key_idea": "disentangle user/item representations into aspect-specific factors via meta-relation decomposition and iterative aspect identification",
+  "datasets": [],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}

@@ -1,0 +1,17 @@
+{
+  "paper_id": "W3195554589",
+  "task": "sequential recommendation",
+  "input": "user-item interaction sequences",
+  "output": "next item prediction (ranked list of items)",
+  "backbone": "Transformer (or other sequence model) with contrastive learning",
+  "loss": "contrastive loss (InfoNCE) + sequential recommendation loss",
+  "key_idea": "introduce two informative augmentation operators leveraging item correlations to create high-quality contrastive views for sequential recommendation",
+  "datasets": [
+    "three real-world datasets"
+  ],
+  "metrics": [],
+  "name": null,
+  "problem": null,
+  "method": null,
+  "baselines": []
+}
