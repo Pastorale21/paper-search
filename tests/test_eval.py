@@ -152,6 +152,23 @@ def test_diffnet_plusplus_alias_key_is_reachable():
     assert _norm("DiffNet++") in DEFAULT_ALIASES
 
 
+def test_resolver_anchor_pins_exact_id_over_lookalike():
+    """A GOLD_ANCHORS entry pins an acronym to an exact paper_id, immune to look-alike titles.
+
+    The real KGCN title is a SUBSTRING of "Double-End KGCN ...", so no alias substring can
+    isolate it; the anchor resolves by exact id regardless of corpus order.
+    """
+    papers = _papers(
+        ("Wfake", "Double-End Knowledge Graph Convolutional Networks for Recommender Systems"),
+        ("Wreal", "Knowledge Graph Convolutional Networks for Recommender Systems"),
+    )
+    r = TitleResolver(papers, anchors={"kgcn": "Wreal"})
+    assert r.resolve("KGCN") == "Wreal"
+    # The anchor only fires when its id is actually in the corpus; otherwise it falls through.
+    r2 = TitleResolver(papers, anchors={"kgcn": "Wnot_in_corpus"})
+    assert r2.resolve("KGCN") != "Wnot_in_corpus"
+
+
 def test_title_resolver_alias_miss_blocks_acronym_substring_fallback():
     papers = _papers(
         ("W1", "SelfGNN: Self-Supervised Graph Neural Networks for Sequential Recommendation"),

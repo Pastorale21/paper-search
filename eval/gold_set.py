@@ -82,7 +82,7 @@ DEFAULT_ALIASES: dict[str, str] = {
     "tagnn": "target attentive graph neural networks",
     "gc egnn": "global context enhanced graph neural",
     "surge": "sequential recommendation with graph neural networks",
-    "fgnn": "feature graph neural networks for session based recommendation",
+    "fgnn": "rethinking the item order in session based recommendation with graph neural networks",
     "lessr": "handling information loss of graph neural networks",
     # Social seed papers
     "diffnet": "a neural influence diffusion model for social recommendation",
@@ -101,19 +101,32 @@ DEFAULT_ALIASES: dict[str, str] = {
     "hyperrec": "next item recommendation with sequential hypergraphs",
     "fairgo": "learning fair representations for recommendation a graph based perspective",
     "fairrec": "fairrec",
-    "nfcf": "neural fairness collaborative filtering",
+    "nfcf": "neural fair collaborative filtering",
     "gfair": "gfair",
     "fairgnn": "say no to the discrimination learning fair graph neural networks",
     "metahin": "meta learning on heterogeneous information networks",
     "duorec": "contrastive learning for representation degeneration problem",
     "coserec": "contrastive self supervised sequential recommendation with robust augmentation",
     "iclrec": "intent contrastive learning for sequential recommendation",
-    "gfcf": "graph filter collaborative filtering",
+    "gfcf": "how powerful is graph convolution for recommendation",
     "pinsage": "graph convolutional neural networks for web scale recommender systems",
     # Non-seed but verified present-via-full-expansion-title
     "gcegnn": "global context enhanced graph neural",
     "gce gnn": "global context enhanced graph neural",
     "kcgn": "knowledge aware coupled graph neural",
+}
+
+# Exact acronym -> paper_id anchors, for gold papers whose canonical title is a SUBSTRING of
+# corpus look-alikes (e.g. real KGCN "Knowledge Graph Convolutional Networks for Recommender
+# Systems" is contained in "Double-End Knowledge Graph Convolutional Networks ..."), so no alias
+# substring can isolate the real paper. Checked BEFORE the alias cascade; only fires if the id is
+# actually in the corpus. Only add an anchor after verifying the id is the real paper (year/venue).
+GOLD_ANCHORS: dict[str, str] = {
+    # Knowledge Graph Convolutional Networks for Recommender Systems (WWW'19):
+    "kgcn": "W2913560138",
+    # Rethinking the Item Order in Session-based Rec w/ GNN (CIKM'19) — pin the canonical record
+    # over the lower-cited preprint duplicate W3101201690 also in the corpus:
+    "fgnn": "W2986515219",
 }
 
 
@@ -195,8 +208,10 @@ class TitleResolver:
         self,
         papers: list[Paper] | list[dict],
         aliases: dict[str, str] | None = None,
+        anchors: dict[str, str] | None = None,
     ) -> None:
         self._aliases = aliases if aliases is not None else DEFAULT_ALIASES
+        self._anchors = anchors if anchors is not None else GOLD_ANCHORS
         # Accept Paper objects OR dicts (the eval may load papers.json without going through
         # schemas.Paper).
         self._records: list[tuple[str, str]] = [
@@ -206,6 +221,7 @@ class TitleResolver:
             )
             for p in papers
         ]
+        self._pids: set[str] = {pid for pid, _ in self._records}
         self._by_full: dict[str, str] = {}
         self._by_abbrev: dict[str, str] = {}
         self._all_norm_titles: list[str] = []
@@ -233,6 +249,11 @@ class TitleResolver:
         n = _norm(title)
         if not n:
             return None
+        # 0. exact curated anchor (acronym -> paper_id) — immune to look-alike titles; only
+        #    fires when the anchored paper is actually in the corpus.
+        anchor = self._anchors.get(n)
+        if anchor and anchor in self._pids:
+            return _ResolveHit(anchor, n, "anchor")
         # 1. exact normalized title match
         if n in self._by_full:
             return _ResolveHit(self._by_full[n], n, "exact")

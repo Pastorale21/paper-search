@@ -158,15 +158,18 @@ def test_merge_works_by_ids_appends_new_skips_present_and_failed(tmp_path, monke
     papers_json.write_text(json.dumps([p.to_dict() for p in existing]), encoding="utf-8")
 
     by_id = {
-        "W1": _paper("W1", "Neural Graph Collaborative Filtering", oa="W1"),  # already present
+        "W1": _paper("W1", "Neural Graph Collaborative Filtering", oa="W1"),  # present (exact id)
+        # near-duplicate TITLE but a different id — must still be added (by-id does NOT fuzzy-dedup,
+        # else acronym look-alikes wrongly block the real paper):
+        "W8": _paper("W8", "Neural Graph Collaborative Filtering for Recommendation", oa="W8"),
         "W9": _paper("W9", "A Neural Influence Diffusion Model for Social Recommendation", oa="W9"),
     }
     # "Wbad" not in by_id -> fetch returns None -> failed
     monkeypatch.setattr(corpus_mod.openalex, "fetch_work_by_id", lambda i: by_id.get(i))
 
-    merged, added, failed = merge_works_by_ids(["W1", "W9", "Wbad"], path=papers_json)
+    merged, added, failed = merge_works_by_ids(["W1", "W8", "W9", "Wbad"], path=papers_json)
 
-    assert [p.paper_id for p in added] == ["W9"]
+    assert [p.paper_id for p in added] == ["W8", "W9"]
     assert failed == ["Wbad"]
     on_disk = {p["paper_id"] for p in json.loads(papers_json.read_text(encoding="utf-8"))}
-    assert on_disk == {"W1", "W9"}
+    assert on_disk == {"W1", "W8", "W9"}
